@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>incidents on hi</title>
+    <link>https://lyletagawa.com/tags/incidents/</link>
+    <description>Recent content in incidents on hi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 24 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/incidents/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PagerDuty Summit 2020</title>
+      <link>https://lyletagawa.com/posts/pagerduty-summit-2020/</link>
+      <pubDate>Thu, 24 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/pagerduty-summit-2020/</guid>
+      <description>Learn how you can move faster and focus on the things that matter by using incident analysis as your secret weapon. Operating at speed and at scale tests the capabilities of even the most experienced engineering teams. In this software world, it is inevitable that things will break. When they do, what do you do? Pick up the pieces and carry on? What if that’s not enough? Learning from incidents has taught us that broken things can lead to powerful opportunities, but only when we’re looking at them through the right lens.</description>
+    </item>
+    
+    <item>
+      <title>Chaos Engineering</title>
+      <link>https://lyletagawa.com/posts/chaos-engineering/</link>
+      <pubDate>Thu, 25 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/chaos-engineering/</guid>
+      <description>Breaking things on purpose. Chaos Engineering is the facilitation of experiments to uncover systemic weakness. Chaos Engineering is the discipline of experimenting on a system in order to build confidence in the system’s capability to withstand turbulent conditions in production. Performance Improvement = Errors ↓ + Insights ↑</description>
+    </item>
+    
+  </channel>
+</rss>

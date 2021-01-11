@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Chaos Engineering | hi</title>
+
+
+
+<link href="https://lyletagawa.com/index.xml" rel="alternate" type="application/rss+xml" title="hi" />
+
+<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='https://lyletagawa.com/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="canonical" href="https://lyletagawa.com/posts/chaos-engineering/">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+<section class="section">
+  <div class="container">
+    <nav id="nav-main" class="nav">
+      <div id="nav-name" class="nav-left">
+        <a id="nav-anchor" class="nav-item" href="https://lyletagawa.com">
+          <h1 id="nav-heading" class="title is-4">hi</h1>
+        </a>
+      </div>
+      <div class="nav-right">
+        <nav id="nav-items" class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/lyletagawa'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="linkedin" href='https://linkedin.com/in/lyletagawa'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="rss" href='/index.xml'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle>
+    
+  </svg></i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+
+    <nav class="nav">
+      
+
+      
+    </nav>
+
+  </div>
+  <script src="/js/navicon-shift.js"></script>
+</section>
+<section class="section">
+  <div class="container">
+    <h1 class="title">Chaos Engineering</h1>
+    <div class="subtitle tags is-6 is-pulled-right">
+      
+      
+<a class="subtitle is-6" href="/tags/chaos/">#chaos</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/learning/">#learning</a>
+  
+  | <a class="subtitle is-6" href="/tags/incidents/">#incidents</a>
+  
+
+
+      
+    </div>
+    
+    <div class="content">
+      <h6 class="subtitle is-6 date" style="line-height:0em">Jun. 25, 2020 &middot; 6 min read</h6>
+      <h2 id="chaos-engineering">Chaos Engineering</h2>
+<p>Chaos Engineering was deliberately created as a proactive discipline to understand and navigate complex systems.</p>
+<p>Chaos Engineering is the facilitation of experiements to uncover systemic weaknesses.</p>
+<h2 id="why">Why?</h2>
+<p>Simple systems are often described as linear. A change to the input of a linear system produces a corresponding change to the output of the system.</p>
+<p>Chaos Engineering specifically addresses the needs of operating a complex system, namely that these systems are nonlinear, which makes them unpredictable, and in turn leads to undesirable outcomes.</p>
+<p>Complexity can be sorted into two buckets: accidental and essential.</p>
+<p>Accidental complexity is always accruing. In order to make progress, essential complexity will increase.</p>
+<p>In the Dynamic Safety Model, when the Safety property is unseen, engineers tend to drift away from it, and towards the Economic and Workload properties, which are more visible.</p>
+<p>The Dynamic Safety Model tells us that once an engineer has an intuition for a boundary (e.g. Economic, Workload, Safety), they will implicitly change their behavior to optimize away from it. They will give themselves a margin to prevent that rubber band from snapping. No one has to tell them that an incident is to be avioded, or remind them to be careful, or encourage them to adopt best practices. They will implicitly modify their behavior in a way that leads to a more resilient system.</p>
+<p>Optimizing for Reversibility is a foundational model for Chaos Engineering. The experiements in Chaos Engineering expose properties of a system that are counterproductive to Reversibility.</p>
+<p>Efficiency can be a business goal, but efficiency is also brittle. Chaos experiments can surface brittleness, and can be optimized for Reversibility, so that the rest of the system can improvise and make different decisions if that brittle piece breaks.</p>
+<h2 id="what-chaos-engineering-is">What Chaos Engineering Is</h2>
+<ol>
+<li>Define the &ldquo;steady state&rdquo; as some measurable output of a system that indicates normal behavior</li>
+<li>Hypothesize that this steady state will continue in both the control group and the experimental group</li>
+<li>Introduce variables that reflect real-world events like servers that crash, hard drives that malfunction, network connections that are severed, etc</li>
+<li>Try to disprove the hypothesis by looking for a difference in steady state between the control group and the experiemental group</li>
+</ol>
+<p><em>Testing</em>, strictly speaking, does not create new knowledge. Tests make an assertion, based on existing knowledge. Tests are statements about known properties of the system.</p>
+<p><em>Experiementation</em>, on the other hand, creates new knowledge. Experimentation either builds confidence, or it teaches us new properties about our own system.</p>
+<p>Chaos Engineering is strongly biased toward Verification over Validation. Chaos Engineering cares <em>whether</em> something works, not <em>how</em>.</p>
+<p><em>Verification</em> of a complex system is a process of analyzing output at a system boundary.</p>
+<p><em>Validation</em> of a complex system is a process of analyzing the parts of the system and building mental models that reflect the interaction of those parts.</p>
+<h2 id="what-chaos-engineering-is-not">What Chaos Engineering Is Not</h2>
+<p>Chaos Engineering is not &ldquo;breaking stuff.&rdquo; &ldquo;Fixing stuff in production&rdquo; does a much better job of capturing the value of Chaos Engineering. Chaos Engineering is the only major discipline in software engineering that focuses solely on <em>proactively</em> improving safety in complex systems.</p>
+<p>Chaos Engineering is not &ldquo;antifragility.&rdquo; Nassim Taleb invented the word &ldquo;antifragile&rdquo; as a way to refer to systems that get stronger when exposed to random stress. Chaos Engineering educates human operators about the chaos already inherent in the system, so that they can be a more resilient team. Antifragility, by contrast, adds chaos to a system in hopes that it will grow stronger in response.</p>
+<p>Antifragility proposes that the first step in improving a system&rsquo;s robustness is to hunt for weaknesses and remove them. Resilience Engineering tells us that hunting for what goes <em>right</em> in safety is much more informative than what goes <em>wrong</em>.</p>
+<p>Antifragility proposes that the second step is to add redundancy. Resilience Engineering tells us that redundancy actually contributes to safety failures.</p>
+<h2 id="chaos-engineering-1">Chaos Engineering</h2>
+<blockquote>
+<p>Chaos Engineering is the discipline of experimenting on a system in order to build confidence in the system’s capability to withstand turbulent conditions in production.</p>
+<p>&ndash; <a href="https://principlesofchaos.org/">https://principlesofchaos.org/</a></p>
+</blockquote>
+<p>Chaos Engineering is a method of experimentation on infrastructure that brings systemic weaknesses to light. This empirical process of verification leads to more resilient systems, and builds confidence in the operational behavior of those systems.</p>
+<h2 id="why-1">Why?</h2>
+<blockquote>
+<p>A distributed system is one in which the failure of a computer you didn&rsquo;t even know existed can render your own computer unusable.</p>
+<p>&ndash; <a href="https://www.microsoft.com/en-us/research/uploads/prod/2016/12/Distribution.pdf">Leslie Lamport</a></p>
+</blockquote>
+<blockquote>
+<p>multiple &amp; unexpected interactions of failures are inevitable</p>
+<p>&ndash; <a href="https://en.wikipedia.org/wiki/Normal_Accidents">Charles Perrow</a></p>
+</blockquote>
+<blockquote>
+<p>Chaos Engineering is an approach for learning about how your system behaves by applying a discipline of empirical exploration. Just as scientists conduct experiments to study physical and social phenomena, Chaos Engineering uses experiments to learn about a particular system.</p>
+<p>Applying Chaos Engineering improves the resilience of a system. By designing and executing Chaos Engineering experiments, you will learn about weaknesses in your system that could potentially lead to outages that cause customer harm. You can then address those weaknesses proactively, going beyond the reactive processes that currently dominate most incident response models.</p>
+<p>&ndash; <a href="https://www.oreilly.com/library/view/chaos-engineering/9781491988459/">Chaos Engineering (O&rsquo;Reilly)</a></p>
+</blockquote>
+<blockquote>
+<p>Even when all of the individual services in a distributed system are functioning properly, the interactions between those services can cause unpredictable outcomes. Unpredictable outcomes, compounded by rare but disruptive real-world events that affect production environments, make these distributed systems inherently chaotic.</p>
+<p>We need to identify weaknesses before they manifest in system-wide, aberrant behaviors. Systemic weaknesses could take the form of</p>
+<ul>
+<li>improper fallback settings when a service is unavailable</li>
+<li>retry storms from improperly tuned timeouts</li>
+<li>outages when a downstream dependency receives too much traffic</li>
+<li>cascading failures when a single point of failure crashes</li>
+</ul>
+<p>We must address the most significant weaknesses proactively, before they affect our customers in production. We need a way to manage the chaos inherent in these systems, take advantage of increasing flexibility and velocity, and have confidence in our production deployments despite the complexity that they represent.</p>
+<p>&ndash; <a href="https://principlesofchaos.org/">https://principlesofchaos.org/</a></p>
+</blockquote>
+<blockquote>
+<p>Performance Improvement = Errors ↓ + Insights ↑</p>
+<p>&ndash; Gary Klein, Seeing What Others Don&rsquo;t</p>
+</blockquote>
+<h3 id="build-a-hypothesis-around-steady-state-behavior">Build a Hypothesis around Steady State Behavior</h3>
+<h3 id="vary-real-world-events">Vary Real-world Events</h3>
+<h3 id="run-experiments-in-production">Run Experiments in Production</h3>
+<h3 id="fit-failure-injection-testing">FIT: Failure Injection Testing</h3>
+<h3 id="automate-experiments-to-run-continuously">Automate Experiments to Run Continuously</h3>
+<h3 id="minimize-blast-radius">Minimize Blast Radius</h3>
+<h2 id="continuous-verification">Continuous Verification</h2>
+<p>Like CI/CD, Continuous Verification is born out of a need to navigate increasingly complex systems. Modern organizations can’t validate that the internal machinations of the system work as intended, so instead they verify that the output of the system macthes expectations.</p>
+<p>Approach:</p>
+<ul>
+<li>Proactive detection: discipline to prevent availability and security incidents</li>
+<li>Emperical experimentation: proactively discover vulnerabilities in complex systems</li>
+<li>Same experimental foundation as the Chaos Automation Platform (ChAP)</li>
+</ul>
+<h2 id="game-days">Game Days</h2>
+<p><a href="https://www.youtube.com/watch?v=zoz0ZjfrQ9s">GameDay: Creating Resiliency Through Destruction (Jesse Robbins)</a></p>
+<blockquote>
+<p>You don&rsquo;t choose the moment, the moment chooses you. You are choose how prepared you are when it does.</p>
+<p><code>99.9%^3 = 99.7%</code></p>
+<p>MTTR &gt; MTBF</p>
+<p>You don&rsquo;t choose whether or not you have [latent defects]. You do get to choose when you discover some of them. You do get to choose about how much it&rsquo;s gonna cost you.</p>
+</blockquote>
+<h2 id="tools-and-resources">Tools and Resources</h2>
+<ul>
+<li><a href="https://github.com/dastergon/awesome-chaos-engineering">Awesome Chaos Engineering</a></li>
+</ul>
+<p>SaaS</p>
+<ul>
+<li><a href="https://gremlin.com/">Gremlin</a></li>
+<li><a href="https://verica.io/">Verica</a></li>
+<li><a href="http://launchdarkly.com/">Launch Darkly</a></li>
+</ul>
+<p>Open-source</p>
+<ul>
+<li><a href="https://chaostoolkit.org/">Chaos Toolkit</a></li>
+<li><a href="https://chaosblade.io/">Chaos Blade</a> (Alibaba)</li>
+<li><a href="https://github.com/alexei-led/pumba">Pumba</a></li>
+<li><a href="https://litmuschaos.io/">Litmus</a></li>
+<li><a href="https://github.com/chaos-mesh/chaos-mesh">Chaos Mesh</a></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.learningfromincidents.io/">Learning from Incidents</a></li>
+<li><a href="https://chaos.community/">Chaos Community Broadcast</a></li>
+<li><a href="http://resiliencepapers.club/">Resilience engineering papers</a></li>
+<li><a href="https://www.researchgate.net/publication/5446061_The_Error_of_Counting_Errors">The Error of Counting &ldquo;Errors&rdquo;</a></li>
+<li><a href="https://queue.acm.org/detail.cfm?ref=rss&amp;id=2889274">The Verification of a Distributed System</a></li>
+</ul>
+
+      <hr>
+      
+      <div class="related">
+</div>
+      
+    </div>
+    
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p></p>
+    
+  </div>
+</section>
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hi</title>
+    <link>https://lyletagawa.com/</link>
+    <description>Recent content on hi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 19 Oct 2020 17:01:49 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building Wealthfront and Benchmark Capital</title>
+      <link>https://lyletagawa.com/posts/building-wealthfront-and-benchmark-capital/</link>
+      <pubDate>Mon, 19 Oct 2020 17:01:49 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/building-wealthfront-and-benchmark-capital/</guid>
+      <description>Andy Rachleff is one of the most influential and successful Venture Capitalists of all time. This podcast discusses the traits of successful entrepreneurs, what makes a good idea, product-market fit (a term Andy coined), building Wealthfront, how to hire, doubling down on what&amp;rsquo;s working, day trading vs index investing, tax-loss harvesting, and bitcoin.</description>
+    </item>
+    
+    <item>
+      <title>PagerDuty Summit 2020</title>
+      <link>https://lyletagawa.com/posts/pagerduty-summit-2020/</link>
+      <pubDate>Thu, 24 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/pagerduty-summit-2020/</guid>
+      <description>Learn how you can move faster and focus on the things that matter by using incident analysis as your secret weapon. Operating at speed and at scale tests the capabilities of even the most experienced engineering teams. In this software world, it is inevitable that things will break. When they do, what do you do? Pick up the pieces and carry on? What if that’s not enough? Learning from incidents has taught us that broken things can lead to powerful opportunities, but only when we’re looking at them through the right lens.</description>
+    </item>
+    
+    <item>
+      <title>Resilient Management</title>
+      <link>https://lyletagawa.com/posts/resilient-management/</link>
+      <pubDate>Mon, 17 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/resilient-management/</guid>
+      <description>Think about your team for a moment. How well is it functioning? Are you currently on a high-performing team, having found your groove and flow state as a group? Are you on a team that isn’t quite in that magical state of being yet, but it feels like you’re on your way? Are you feeling some friction—frustration, confusion—with your team? Or have you just joined a new team, so none of these apply yet?</description>
+    </item>
+    
+    <item>
+      <title>Manager README</title>
+      <link>https://lyletagawa.com/posts/manager-readme/</link>
+      <pubDate>Tue, 14 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/manager-readme/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chaos Engineering</title>
+      <link>https://lyletagawa.com/posts/chaos-engineering/</link>
+      <pubDate>Thu, 25 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/chaos-engineering/</guid>
+      <description>Breaking things on purpose. Chaos Engineering is the facilitation of experiments to uncover systemic weakness. Chaos Engineering is the discipline of experimenting on a system in order to build confidence in the system’s capability to withstand turbulent conditions in production. Performance Improvement = Errors ↓ + Insights ↑</description>
+    </item>
+    
+    <item>
+      <title>Team Topologies</title>
+      <link>https://lyletagawa.com/posts/team-topologies/</link>
+      <pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/team-topologies/</guid>
+      <description>Team Topologies provides four fundamental team types &amp;ndash; stream-aligned, platform, enabling, and complicated-subsystem &amp;ndash; and three core team interaction modes &amp;ndash; collaboration, X-as-a-Service, and facilitating. Together with awareness of Conway&amp;rsquo;s law, team cognitive load, and how to become a sensing organization, Team Topologies results in an effective and humanistic approach to building and running software systems.</description>
+    </item>
+    
+    <item>
+      <title>Making Work Visible</title>
+      <link>https://lyletagawa.com/posts/making-work-visible/</link>
+      <pubDate>Fri, 08 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/making-work-visible/</guid>
+      <description>We grumble that there just aren’t enough hours in the day and that someone else sure seems to have a lot of free time. But we regular mortals only have twenty-four hours in a day. The problem is that we don’t protect our hours from being stolen. We allow thieves to steal time from us, day after day after day.  Who are these thieves of time?</description>
+    </item>
+    
+    <item>
+      <title>Resilience</title>
+      <link>https://lyletagawa.com/posts/resilience/</link>
+      <pubDate>Wed, 30 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/resilience/</guid>
+      <description>Resilience is something a system does, not what a system has; creating and sustaining &amp;lsquo;adaptive capacity&amp;rsquo; within an organisation (while being unable to justify doing it specifically) is resilient action; and learning about how people cope with surprise is the path to finding sources of resilience.</description>
+    </item>
+    
+    <item>
+      <title>Remote-First vs Remote-Friendly</title>
+      <link>https://lyletagawa.com/posts/remote-first/</link>
+      <pubDate>Fri, 27 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/remote-first/</guid>
+      <description>So how do we do remote work right? It takes much more than the half-hearted “you’re allowed to work from home” policy you see at companies nowadays. Remote-first means working remote is the default. It means making sure your remote employees are as much a part of the team as those in the office.</description>
+    </item>
+    
+    <item>
+      <title>Turn the Ship Around!</title>
+      <link>https://lyletagawa.com/posts/turn-the-ship-around/</link>
+      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/turn-the-ship-around/</guid>
+      <description>Achieve excellence, don’t just avoid errors. Build trust and take care of your people. Use your legacy for inspiration. Use guiding principles for decision criteria. Use immediate recognition to reinforce desired behaviors. Begin with the end in mind. Encourage a questioning attitude over blind obedience</description>
+    </item>
+    
+    <item>
+      <title>The Dip</title>
+      <link>https://lyletagawa.com/posts/the-dip/</link>
+      <pubDate>Mon, 21 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/the-dip/</guid>
+      <description>How do you avoid killing something too early, or celebrating too early. And last, how do you know when to kill a dud?</description>
+    </item>
+    
+    <item>
+      <title>Just Culture</title>
+      <link>https://lyletagawa.com/posts/just-culture/</link>
+      <pubDate>Mon, 26 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/just-culture/</guid>
+      <description>A just culture balances the need for an open and honest reporting environment with the end of a quality learning environment and culture. While the organization has a duty and responsibility to employees (and ultimately to patients), all employees are held responsible for the quality of their choices. Just culture requires a change in focus from errors and outcomes to system design and management of the behavioral choices of all employees.</description>
+    </item>
+    
+    <item>
+      <title>Situation Behavior Impact feedback</title>
+      <link>https://lyletagawa.com/posts/situation-behavior-impact/</link>
+      <pubDate>Mon, 26 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/situation-behavior-impact/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://lyletagawa.com/about/</link>
+      <pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/about/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

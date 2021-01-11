@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>team on hi</title>
+    <link>https://lyletagawa.com/tags/team/</link>
+    <description>Recent content in team on hi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 14 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/team/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Team Topologies</title>
+      <link>https://lyletagawa.com/posts/team-topologies/</link>
+      <pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/team-topologies/</guid>
+      <description>Team Topologies provides four fundamental team types &amp;ndash; stream-aligned, platform, enabling, and complicated-subsystem &amp;ndash; and three core team interaction modes &amp;ndash; collaboration, X-as-a-Service, and facilitating. Together with awareness of Conway&amp;rsquo;s law, team cognitive load, and how to become a sensing organization, Team Topologies results in an effective and humanistic approach to building and running software systems.</description>
+    </item>
+    
+    <item>
+      <title>Remote-First vs Remote-Friendly</title>
+      <link>https://lyletagawa.com/posts/remote-first/</link>
+      <pubDate>Fri, 27 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/remote-first/</guid>
+      <description>So how do we do remote work right? It takes much more than the half-hearted “you’re allowed to work from home” policy you see at companies nowadays. Remote-first means working remote is the default. It means making sure your remote employees are as much a part of the team as those in the office.</description>
+    </item>
+    
+  </channel>
+</rss>

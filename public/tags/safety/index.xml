@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>safety on hi</title>
+    <link>https://lyletagawa.com/tags/safety/</link>
+    <description>Recent content in safety on hi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 30 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/safety/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Resilience</title>
+      <link>https://lyletagawa.com/posts/resilience/</link>
+      <pubDate>Wed, 30 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/resilience/</guid>
+      <description>Resilience is something a system does, not what a system has; creating and sustaining &amp;lsquo;adaptive capacity&amp;rsquo; within an organisation (while being unable to justify doing it specifically) is resilient action; and learning about how people cope with surprise is the path to finding sources of resilience.</description>
+    </item>
+    
+    <item>
+      <title>Just Culture</title>
+      <link>https://lyletagawa.com/posts/just-culture/</link>
+      <pubDate>Mon, 26 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/just-culture/</guid>
+      <description>A just culture balances the need for an open and honest reporting environment with the end of a quality learning environment and culture. While the organization has a duty and responsibility to employees (and ultimately to patients), all employees are held responsible for the quality of their choices. Just culture requires a change in focus from errors and outcomes to system design and management of the behavioral choices of all employees.</description>
+    </item>
+    
+  </channel>
+</rss>

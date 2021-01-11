@@ -1,0 +1,67 @@
+baseurl = "https://lyletagawa.com"
+languageCode = "en"
+title = "hi"
+theme = "kiss"
+copyright = ""
+disqusShortname = ""
+googleAnalytics = ""
+Paginate = 20 # Number of posts per page
+enableRobotsTXT = true
+summaryLength = 70
+preserveTaxonomyNames = true
+
+[params.rss] # Adding this tag enables RSS feed
+includeContent = false # Includes whole content in rss
+authorName = ""
+authorEmail = ""
+
+[params.assets]
+customCSS = ["css/custom.css"]
+
+[params.info]
+adsense = "" # Adsense ID (ID only, without ca-pub-)
+enableSocial = false # Adds OpenGraph and Twitter cards
+homeTitle = "hi" # Title for home page
+poweredby = false # Adds powered by hugo and kiss below Copyright
+related = true # Includes related articles at the bottom of the article
+codeCopy = true # Add copy button above code blocks
+taxonomiesCount = true # Add taxonomies count
+
+[params.features]
+disqusOnDemand = false # Load Disqus comments on click
+
+
+[params.opengraph.facebook]
+admins = [] # array of Facebook IDs
+appID = ""
+pageID = ""
+
+[params.opengraph.twitter]
+page = "" # Twitter Page username. If not set, params.social.twitter will be used.
+
+[params.social]
+twitter = ""
+github = "lyletagawa"
+email = ""
+linkedin = "lyletagawa"
+facebook = ""
+instagram = ""
+codepen = ""
+about = "about/"
+rss = "index.xml"
+
+[params.social.config]
+#platforms = ["github","facebook","twitter","instagram","email","codepen","linkedin","rss","about"]
+platforms = ["github","linkedin","rss"]
+
+#[params.sections_right]
+#"http://example.com" = "example"
+
+[taxonomies]
+tag = "tags"
+
+[markup]
+  defaultMarkdownHandler = "goldmark"
+
+[minify]
+  minifyOutput = false

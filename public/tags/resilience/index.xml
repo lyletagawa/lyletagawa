@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>resilience on hi</title>
+    <link>https://lyletagawa.com/tags/resilience/</link>
+    <description>Recent content in resilience on hi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 24 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/resilience/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PagerDuty Summit 2020</title>
+      <link>https://lyletagawa.com/posts/pagerduty-summit-2020/</link>
+      <pubDate>Thu, 24 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/pagerduty-summit-2020/</guid>
+      <description>Learn how you can move faster and focus on the things that matter by using incident analysis as your secret weapon. Operating at speed and at scale tests the capabilities of even the most experienced engineering teams. In this software world, it is inevitable that things will break. When they do, what do you do? Pick up the pieces and carry on? What if that’s not enough? Learning from incidents has taught us that broken things can lead to powerful opportunities, but only when we’re looking at them through the right lens.</description>
+    </item>
+    
+    <item>
+      <title>Resilient Management</title>
+      <link>https://lyletagawa.com/posts/resilient-management/</link>
+      <pubDate>Mon, 17 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/resilient-management/</guid>
+      <description>Think about your team for a moment. How well is it functioning? Are you currently on a high-performing team, having found your groove and flow state as a group? Are you on a team that isn’t quite in that magical state of being yet, but it feels like you’re on your way? Are you feeling some friction—frustration, confusion—with your team? Or have you just joined a new team, so none of these apply yet?</description>
+    </item>
+    
+    <item>
+      <title>Resilience</title>
+      <link>https://lyletagawa.com/posts/resilience/</link>
+      <pubDate>Wed, 30 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/resilience/</guid>
+      <description>Resilience is something a system does, not what a system has; creating and sustaining &amp;lsquo;adaptive capacity&amp;rsquo; within an organisation (while being unable to justify doing it specifically) is resilient action; and learning about how people cope with surprise is the path to finding sources of resilience.</description>
+    </item>
+    
+  </channel>
+</rss>

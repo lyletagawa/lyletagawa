@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>management on hi</title>
+    <link>https://lyletagawa.com/tags/management/</link>
+    <description>Recent content in management on hi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 17 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/management/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Resilient Management</title>
+      <link>https://lyletagawa.com/posts/resilient-management/</link>
+      <pubDate>Mon, 17 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/resilient-management/</guid>
+      <description>Think about your team for a moment. How well is it functioning? Are you currently on a high-performing team, having found your groove and flow state as a group? Are you on a team that isn’t quite in that magical state of being yet, but it feels like you’re on your way? Are you feeling some friction—frustration, confusion—with your team? Or have you just joined a new team, so none of these apply yet?</description>
+    </item>
+    
+    <item>
+      <title>Manager README</title>
+      <link>https://lyletagawa.com/posts/manager-readme/</link>
+      <pubDate>Tue, 14 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/manager-readme/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
