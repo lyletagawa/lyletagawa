@@ -2,6 +2,7 @@
 title: "Building Wealthfront and Benchmark Capital"
 date: 2020-10-19T17:01:49Z
 summary: "Andy Rachleff is one of the most influential and successful Venture Capitalists of all time. This podcast discusses the traits of successful entrepreneurs, what makes a good idea, product-market fit (a term Andy coined), building Wealthfront, how to hire, doubling down on what's working, day trading vs index investing, tax-loss harvesting, and bitcoin."
+draft: true
 tags: []
 ---
 ## [Building Wealthfront and Benchmark Capital](https://podcast.kevinrose.com/building-wealthfront-and-benchmark-capital-andy-rachleff/)
