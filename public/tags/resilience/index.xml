@@ -6,10 +6,15 @@
     <description>Recent content in resilience on hi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 24 Sep 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://lyletagawa.com/tags/resilience/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sun, 08 Jan 2023 15:07:19 -0500</lastBuildDate><atom:link href="https://lyletagawa.com/tags/resilience/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Robust and Brittle... The Southwest Failure</title>
+      <link>https://lyletagawa.com/posts/robust-and-brittle/</link>
+      <pubDate>Sun, 08 Jan 2023 15:07:19 -0500</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/robust-and-brittle/</guid>
+      <description>Southwest Airlines has grown while desperately trying to be scrappy, creative and humorous. The challenge is that scrappy doesn’t scale well.</description>
+    </item>
     
     <item>
       <title>PagerDuty Summit 2020</title>
