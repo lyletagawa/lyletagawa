@@ -6,9 +6,6 @@
     {{ end }}
   </div>
 </section>
-{{ if .Site.GoogleAnalytics }}
-{{ template "_internal/google_analytics_async.html" . }}
-{{ end }}
 {{ if .Site.Params.matomoAnalytics }}
 {{- partial "analytics/matomo" . -}}
 {{ end }}

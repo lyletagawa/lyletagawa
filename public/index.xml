@@ -6,7 +6,16 @@
     <description>Recent content on hi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 08 Jan 2023 15:07:19 -0500</lastBuildDate><atom:link href="https://lyletagawa.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 30 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OODA Loop</title>
+      <link>https://lyletagawa.com/posts/ooda-loop/</link>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/ooda-loop/</guid>
+      <description>How John Boyd&amp;rsquo;s OODA Loop (Observe, Orient, Decide, Act) applies to technology leadership, and practical strategies for eliminating the bottlenecks that slow your competitive cycles.</description>
+    </item>
+    
     <item>
       <title>Robust and Brittle... The Southwest Failure</title>
       <link>https://lyletagawa.com/posts/robust-and-brittle/</link>
@@ -49,7 +58,7 @@
       <pubDate>Thu, 25 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/chaos-engineering/</guid>
-      <description>Breaking things on purpose. Chaos Engineering is the facilitation of experiments to uncover systemic weakness. Chaos Engineering is the discipline of experimenting on a system in order to build confidence in the system’s capability to withstand turbulent conditions in production. Performance Improvement = Errors ↓ + Insights ↑</description>
+      <description>Breaking things on purpose. Proactive resilience through controlled experimentation.</description>
     </item>
     
     <item>
@@ -76,7 +85,7 @@
       <pubDate>Wed, 30 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/resilience/</guid>
-      <description>Resilience is something a system does, not what a system has; creating and sustaining &amp;lsquo;adaptive capacity&amp;rsquo; within an organisation (while being unable to justify doing it specifically) is resilient action; and learning about how people cope with surprise is the path to finding sources of resilience.</description>
+      <description>Your system passed every test. The redundancy was in place. Then something unexpected happened anyway. Resilience Engineering is the framework you can use to build systems that hold up when the unexpected is inevitable.</description>
     </item>
     
     <item>
@@ -130,7 +139,7 @@
       <pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/about/</guid>
-      <description> </description>
+      <description></description>
     </item>
     
   </channel>

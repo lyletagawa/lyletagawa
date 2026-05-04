@@ -3,7 +3,7 @@ title: "Disagreeable Giver"
 date: 2024-10-31T15:08:20-04:00
 summary: ""
 tags: ["management", "resilience"]
-draft: false
+draft: true
 ---
 ##
 

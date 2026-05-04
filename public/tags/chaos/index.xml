@@ -13,7 +13,7 @@
       <pubDate>Thu, 25 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/chaos-engineering/</guid>
-      <description>Breaking things on purpose. Chaos Engineering is the facilitation of experiments to uncover systemic weakness. Chaos Engineering is the discipline of experimenting on a system in order to build confidence in the system’s capability to withstand turbulent conditions in production. Performance Improvement = Errors ↓ + Insights ↑</description>
+      <description>Breaking things on purpose. Proactive resilience through controlled experimentation.</description>
     </item>
     
   </channel>

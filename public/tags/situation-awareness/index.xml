@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>situation-awareness on hi</title>
+    <link>https://lyletagawa.com/tags/situation-awareness/</link>
+    <description>Recent content in situation-awareness on hi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 30 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/situation-awareness/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The OODA Loop</title>
+      <link>https://lyletagawa.com/posts/ooda-loop/</link>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/ooda-loop/</guid>
+      <description>How John Boyd&amp;rsquo;s OODA Loop (Observe, Orient, Decide, Act) applies to technology leadership, and practical strategies for eliminating the bottlenecks that slow your competitive cycles.</description>
+    </item>
+    
+  </channel>
+</rss>

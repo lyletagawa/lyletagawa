@@ -2,22 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://lyletagawa.com/tags/adaptation/</loc>
+    <lastmod>2026-05-02T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://lyletagawa.com/</loc>
-    <lastmod>2023-01-08T15:07:19-05:00</lastmod>
+    <lastmod>2026-05-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/posts/ooda-loop/</loc>
+    <lastmod>2026-05-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/posts/</loc>
+    <lastmod>2026-05-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/tags/situational-awareness/</loc>
+    <lastmod>2026-05-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/tags/</loc>
+    <lastmod>2026-05-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/learning/</loc>
     <lastmod>2023-01-08T15:07:19-05:00</lastmod>
   </url><url>
-    <loc>https://lyletagawa.com/posts/</loc>
-    <lastmod>2023-01-08T15:07:19-05:00</lastmod>
-  </url><url>
     <loc>https://lyletagawa.com/tags/resilience/</loc>
-    <lastmod>2023-01-08T15:07:19-05:00</lastmod>
+    <lastmod>2026-05-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/posts/robust-and-brittle/</loc>
-    <lastmod>2023-01-08T15:07:19-05:00</lastmod>
-  </url><url>
-    <loc>https://lyletagawa.com/tags/</loc>
     <lastmod>2023-01-08T15:07:19-05:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/incidents/</loc>
@@ -45,7 +54,7 @@
     <lastmod>2020-06-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/capacity/</loc>
-    <lastmod>2020-05-14T00:00:00+00:00</lastmod>
+    <lastmod>2026-05-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/cognitive/</loc>
     <lastmod>2020-05-14T00:00:00+00:00</lastmod>
@@ -69,10 +78,10 @@
     <lastmod>2020-03-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/posts/resilience/</loc>
-    <lastmod>2019-12-23T00:00:00+00:00</lastmod>
+    <lastmod>2026-05-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/safety/</loc>
-    <lastmod>2019-12-23T00:00:00+00:00</lastmod>
+    <lastmod>2026-05-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/distributed/</loc>
     <lastmod>2019-10-30T00:00:00+00:00</lastmod>
