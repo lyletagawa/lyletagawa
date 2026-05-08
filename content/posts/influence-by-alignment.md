@@ -6,6 +6,7 @@ lastmod: 2026-05-03
 summary: "Why the gap between formal authority and actual influence is where most technical leadership fails, and how building shared understanding scales where authority cannot."
 tags: ["leadership", "management", "influence"]
 image:
+draft: true
 ---
 
 ## Influence by Alignment

@@ -6,7 +6,7 @@ lastmod: 2026-05-03
 summary: "Why good ideas get dismissed before evaluation and how leaders can shift the range of acceptable proposals to make previously radical ideas inevitable."
 tags: ["leadership", "management", "cognitive"]
 image:
-draft: false
+draft: true
 ---
 
 ## The Overton Window

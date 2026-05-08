@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>capacity on hi</title>
     <link>https://lyletagawa.com/tags/capacity/</link>
     <description>Recent content in capacity on hi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 14 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/capacity/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/capacity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jevons Paradox</title>
+      <link>https://lyletagawa.com/posts/jevons-paradox/</link>
+      <pubDate>Sat, 02 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/jevons-paradox/</guid>
+      <description>Why efficiency improvements in technology often increase total consumption rather than reduce it, and how leaders can anticipate and manage the inevitable rebound.</description>
+      <media:content url="https://lyletagawa.com/images/jevons-paradox.jpg" medium="image" />
+    </item>
+    
     <item>
       <title>Team Topologies</title>
       <link>https://lyletagawa.com/posts/team-topologies/</link>
@@ -14,6 +24,7 @@
       
       <guid>https://lyletagawa.com/posts/team-topologies/</guid>
       <description>Team Topologies provides four fundamental team types &amp;ndash; stream-aligned, platform, enabling, and complicated-subsystem &amp;ndash; and three core team interaction modes &amp;ndash; collaboration, X-as-a-Service, and facilitating. Together with awareness of Conway&amp;rsquo;s law, team cognitive load, and how to become a sensing organization, Team Topologies results in an effective and humanistic approach to building and running software systems.</description>
+      <media:content url="https://images.squarespace-cdn.com/content/5b3296b78ab7229ecafcf4ed/1549553080029-RBNC0NOWOUE55VMFK8HB/main-logo-blue-text.png?format=1500w&amp;content-type=image%2Fpng" medium="image" />
     </item>
     
     <item>

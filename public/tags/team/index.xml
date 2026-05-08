@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>team on hi</title>
     <link>https://lyletagawa.com/tags/team/</link>
@@ -14,6 +14,7 @@
       
       <guid>https://lyletagawa.com/posts/team-topologies/</guid>
       <description>Team Topologies provides four fundamental team types &amp;ndash; stream-aligned, platform, enabling, and complicated-subsystem &amp;ndash; and three core team interaction modes &amp;ndash; collaboration, X-as-a-Service, and facilitating. Together with awareness of Conway&amp;rsquo;s law, team cognitive load, and how to become a sensing organization, Team Topologies results in an effective and humanistic approach to building and running software systems.</description>
+      <media:content url="https://images.squarespace-cdn.com/content/5b3296b78ab7229ecafcf4ed/1549553080029-RBNC0NOWOUE55VMFK8HB/main-logo-blue-text.png?format=1500w&amp;content-type=image%2Fpng" medium="image" />
     </item>
     
     <item>

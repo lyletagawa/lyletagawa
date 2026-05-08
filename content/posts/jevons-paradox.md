@@ -1,8 +1,8 @@
 ---
 title: "Jevons Paradox"
 date: 2026-05-02
-publishdate: 2026-05-02
-lastmod: 2026-05-02
+publishdate: 2026-05-05
+lastmod: 2026-05-06
 summary: "Why efficiency improvements in technology often increase total consumption rather than reduce it, and how leaders can anticipate and manage the inevitable rebound."
 tags: ["capacity", "management", "leadership"]
 image: /images/jevons-paradox.jpg
@@ -42,52 +42,37 @@ Example: Serverless reduces infrastructure management overhead. This makes it vi
 
 **The performance trap**. Figma reduced file load times by 33% for the slowest loads, but immediately increased server-side decoding load by 30%, requiring a separate infrastructure optimization to absorb the new demand (Figma Engineering, 2025a; 2025b).
 
-**The agentic AI paradox**. Cloudflare deployed a multi-agent AI code review system that automatically reviews every merge request. Within weeks, weekly merge volume increased from roughly 5,600 to over 8,700, with one week reaching 10,952. The system ran 131,246 review cycles in a single month at $0.98 per review (Cloudflare, 2026). AI review didn’t reduce workload. It unlocked a merge velocity that human reviewers alone could not have sustained.
+**The agentic AI paradox**. Cloudflare deployed a multi-agent AI code review system that automatically reviews every merge request. Within weeks, weekly merge volume increased from roughly 5,600 to over 8,700, with one week reaching 10,952 (Cloudflare, 2026a). The system ran 131,246 review cycles in a single month at a median cost of $0.98 per review (Cloudflare, 2026b). AI review didn’t reduce workload. It unlocked a merge velocity that human reviewers alone could not have sustained.
 
 ## How to Manage Jevons Paradox
 
-### 1. Plan for Rebound
+**Plan for Rebound**. When optimizing, assume consumption will increase, not decrease.
 
-When optimizing, assume consumption will increase, not decrease.
+- Bad Planning: "This optimization will reduce our costs by 50%"
+- Good Planning: "This optimization will reduce per-unit costs by 50%. We expect usage to increase 2-3x as new use cases become viable."
 
-**Bad Planning**: "This optimization will reduce our costs by 50%"
+**Implement Economic Constraints**. Efficiency removes natural constraints. Add intentional ones:
 
-**Good Planning**: "This optimization will reduce per-unit costs by 50%. We expect usage to increase 2-3x as new use cases become viable."
-
-### 2. Implement Economic Constraints
-
-Efficiency removes natural constraints. Add intentional ones:
 - Rate limiting even when technically unnecessary
 - Cost allocation and chargebacks to teams
 - Quotas on resources even when capacity exists
 - Approval processes for new high-volume use cases
 
-### 3. Monitor Leading Indicators
+Release capacity intentionally based on business priorities (Kim et al., 2016).
 
-Track metrics that predict rebound before it impacts costs (Forsgren et al., 2018):
+**Monitor Leading Indicators**. Track metrics that predict rebound before it impacts costs (Forsgren et al., 2018):
+
 - Request rates, not just response times
 - Number of services/deployments, not just deployment speed
 - Data growth rates, not just storage costs
 - Feature usage patterns, not just feature performance
 
-### 4. Separate Efficiency from Capacity
+**Align Incentives**:
 
-Make efficiency improvements without immediately exposing new capacity:
-- Optimize database, but maintain rate limits
-- Improve API performance, but keep request quotas
-- Reduce LLM costs, but enforce usage quotas per feature
+- Bad Incentives: "Your team's budget is based on last year's costs." Result: Teams avoid optimization to maintain budget
+- Good Incentives: "Your team gets 50% of cost savings for new initiatives." Result: Teams optimize but use gains strategically
 
-Release capacity intentionally based on business priorities (Kim et al., 2016).
-
-### 5. Align Incentives
-
-**Bad Incentives**: "Your team's budget is based on last year's costs"
-Result: Teams avoid optimization to maintain budget
-
-**Good Incentives**: "Your team gets 50% of cost savings for new initiatives"
-Result: Teams optimize but use gains strategically
-
-For individual contributors, three applications stand out. Document the counterfactual: record what costs or load would have been without your work, so your impact is visible even as rebound erodes absolute gains. Negotiate scope when optimizing: establish explicit limits ("this supports current usage plus 50% growth; beyond that requires architectural changes"). Build observability into your optimizations: dashboards showing cost per transaction alongside total cost make rebound visible before it becomes a crisis, and give you evidence to advocate for formal capacity planning (Allspaw, 2008).
+For individual contributors, two applications stand out. Document the counterfactual: record what costs or load would have been without your work, so your impact is visible even as rebound erodes absolute gains. Negotiate scope when optimizing: establish explicit limits ("this supports current usage plus 50% growth; beyond that requires architectural changes").
 
 ## Put It Into Practice
 
@@ -107,13 +92,13 @@ Sorrell, Steve (2009). "Jevons' Paradox revisited: The evidence for backfire." *
 
 Meadows, Donella H. (2008). *Thinking in Systems: A Primer*. White River Junction, VT: Chelsea Green Publishing. [https://www.chelseagreen.com/product/thinking-in-systems/](https://www.chelseagreen.com/product/thinking-in-systems/)
 
-Cloudflare (2026). "Orchestrating AI code review at scale." *Cloudflare Blog*, April 20. [https://blog.cloudflare.com/ai-code-review/](https://blog.cloudflare.com/ai-code-review/)
+Cloudflare (2026a). "The AI engineering stack we built internally — on the platform we ship." *Cloudflare Blog*, April 20. [https://blog.cloudflare.com/internal-ai-engineering-stack/](https://blog.cloudflare.com/internal-ai-engineering-stack/)
+
+Cloudflare (2026b). "Orchestrating AI code review at scale." *Cloudflare Blog*, April 20. [https://blog.cloudflare.com/ai-code-review/](https://blog.cloudflare.com/ai-code-review/)
 
 Figma Engineering (2025a). "Speeding Up File Load Times, One Page At A Time." *Figma Engineering Blog*. [https://www.figma.com/blog/speeding-up-file-load-times-one-page-at-a-time/](https://www.figma.com/blog/speeding-up-file-load-times-one-page-at-a-time/)
 
 Figma Engineering (2025b). "Supporting Faster File Load Times with Memory Optimizations in Rust." *Figma Engineering Blog*. [https://www.figma.com/blog/supporting-faster-file-load-times-with-memory-optimizations-in-rust/](https://www.figma.com/blog/supporting-faster-file-load-times-with-memory-optimizations-in-rust/)
-
-Allspaw, John (2008). *The Art of Capacity Planning*. Sebastopol, CA: O'Reilly Media. [https://www.oreilly.com/library/view/the-art-of/9780596518578/](https://www.oreilly.com/library/view/the-art-of/9780596518578/)
 
 Forsgren, Nicole, et al. (2018). *Accelerate: The Science of Lean Software and DevOps*. Portland, OR: IT Revolution Press. [https://itrevolution.com/product/accelerate/](https://itrevolution.com/product/accelerate/)
 
@@ -125,4 +110,4 @@ Sellers, Scott (2025). "Why Cloud Efficiency is Driving More IT Spending, Not Le
 
 ## Changelog
 
-**2026-05-02** Reorganized to consolidate redundant sections: merged "Why This Matters for Technical Leadership" and three case studies into "How It Manifests"; absorbed IC strategic guidance into "How to Manage Jevons Paradox"; removed duplicate database optimization case study.
+**2026-05-05** Reorganized to consolidate redundant sections: merged "Why This Matters for Technical Leadership" and three case studies into "How It Manifests"; absorbed IC strategic guidance into "How to Manage Jevons Paradox"; removed duplicate database optimization case study.

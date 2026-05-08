@@ -1,12 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>Tags on hi</title>
     <link>https://lyletagawa.com/tags/</link>
     <description>Recent content in Tags on hi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 30 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>capacity</title>
+      <link>https://lyletagawa.com/tags/capacity/</link>
+      <pubDate>Sat, 02 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/tags/capacity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>leadership</title>
+      <link>https://lyletagawa.com/tags/leadership/</link>
+      <pubDate>Sat, 02 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/tags/leadership/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>management</title>
+      <link>https://lyletagawa.com/tags/management/</link>
+      <pubDate>Sat, 02 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/tags/management/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>adaptation</title>
       <link>https://lyletagawa.com/tags/adaptation/</link>
@@ -53,15 +80,6 @@
     </item>
     
     <item>
-      <title>management</title>
-      <link>https://lyletagawa.com/tags/management/</link>
-      <pubDate>Mon, 17 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://lyletagawa.com/tags/management/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>readme</title>
       <link>https://lyletagawa.com/tags/readme/</link>
       <pubDate>Tue, 14 Jul 2020 00:00:00 +0000</pubDate>
@@ -76,15 +94,6 @@
       <pubDate>Thu, 25 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/tags/chaos/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>capacity</title>
-      <link>https://lyletagawa.com/tags/capacity/</link>
-      <pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://lyletagawa.com/tags/capacity/</guid>
       <description></description>
     </item>
     
@@ -166,15 +175,6 @@
       <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/tags/intent/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>leadership</title>
-      <link>https://lyletagawa.com/tags/leadership/</link>
-      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://lyletagawa.com/tags/leadership/</guid>
       <description></description>
     </item>
     

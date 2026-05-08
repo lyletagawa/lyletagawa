@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>hi</title>
     <link>https://lyletagawa.com/</link>
     <description>Recent content on hi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 30 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jevons Paradox</title>
+      <link>https://lyletagawa.com/posts/jevons-paradox/</link>
+      <pubDate>Sat, 02 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/jevons-paradox/</guid>
+      <description>Why efficiency improvements in technology often increase total consumption rather than reduce it, and how leaders can anticipate and manage the inevitable rebound.</description>
+      <media:content url="https://lyletagawa.com/images/jevons-paradox.jpg" medium="image" />
+    </item>
+    
     <item>
       <title>OODA Loop</title>
       <link>https://lyletagawa.com/posts/ooda-loop/</link>
@@ -14,6 +24,7 @@
       
       <guid>https://lyletagawa.com/posts/ooda-loop/</guid>
       <description>How John Boyd&amp;rsquo;s OODA Loop (Observe, Orient, Decide, Act) applies to technology leadership, and practical strategies for eliminating the bottlenecks that slow your competitive cycles.</description>
+      <media:content url="https://lyletagawa.com/images/ooda-loop.jpg" medium="image" />
     </item>
     
     <item>
@@ -32,6 +43,7 @@
       
       <guid>https://lyletagawa.com/posts/pagerduty-summit-2020/</guid>
       <description>Learn how you can move faster and focus on the things that matter by using incident analysis as your secret weapon. Operating at speed and at scale tests the capabilities of even the most experienced engineering teams. In this software world, it is inevitable that things will break. When they do, what do you do? Pick up the pieces and carry on? What if that’s not enough? Learning from incidents has taught us that broken things can lead to powerful opportunities, but only when we’re looking at them through the right lens.</description>
+      <media:content url="https://assets.swoogo.com/uploads/medium/487256-5ea875614e45f.png" medium="image" />
     </item>
     
     <item>
@@ -68,6 +80,7 @@
       
       <guid>https://lyletagawa.com/posts/team-topologies/</guid>
       <description>Team Topologies provides four fundamental team types &amp;ndash; stream-aligned, platform, enabling, and complicated-subsystem &amp;ndash; and three core team interaction modes &amp;ndash; collaboration, X-as-a-Service, and facilitating. Together with awareness of Conway&amp;rsquo;s law, team cognitive load, and how to become a sensing organization, Team Topologies results in an effective and humanistic approach to building and running software systems.</description>
+      <media:content url="https://images.squarespace-cdn.com/content/5b3296b78ab7229ecafcf4ed/1549553080029-RBNC0NOWOUE55VMFK8HB/main-logo-blue-text.png?format=1500w&amp;content-type=image%2Fpng" medium="image" />
     </item>
     
     <item>
@@ -77,6 +90,7 @@
       
       <guid>https://lyletagawa.com/posts/making-work-visible/</guid>
       <description>We grumble that there just aren’t enough hours in the day and that someone else sure seems to have a lot of free time. But we regular mortals only have twenty-four hours in a day. The problem is that we don’t protect our hours from being stolen. We allow thieves to steal time from us, day after day after day.  Who are these thieves of time?</description>
+      <media:content url="https://itrevolution.com/wp-content/uploads/2017/03/MWV_3D_NEW-500x500.jpg" medium="image" />
     </item>
     
     <item>

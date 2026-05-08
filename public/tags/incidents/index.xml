@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>incidents on hi</title>
     <link>https://lyletagawa.com/tags/incidents/</link>
@@ -14,6 +14,7 @@
       
       <guid>https://lyletagawa.com/posts/pagerduty-summit-2020/</guid>
       <description>Learn how you can move faster and focus on the things that matter by using incident analysis as your secret weapon. Operating at speed and at scale tests the capabilities of even the most experienced engineering teams. In this software world, it is inevitable that things will break. When they do, what do you do? Pick up the pieces and carry on? What if that’s not enough? Learning from incidents has taught us that broken things can lead to powerful opportunities, but only when we’re looking at them through the right lens.</description>
+      <media:content url="https://assets.swoogo.com/uploads/medium/487256-5ea875614e45f.png" medium="image" />
     </item>
     
     <item>

@@ -2,22 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://lyletagawa.com/tags/adaptation/</loc>
-    <lastmod>2026-05-02T00:00:00+00:00</lastmod>
+    <loc>https://lyletagawa.com/tags/capacity/</loc>
+    <lastmod>2026-05-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/</loc>
+    <lastmod>2026-05-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/posts/jevons-paradox/</loc>
+    <lastmod>2026-05-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/tags/leadership/</loc>
+    <lastmod>2026-05-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/tags/management/</loc>
+    <lastmod>2026-05-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/posts/</loc>
+    <lastmod>2026-05-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/tags/</loc>
+    <lastmod>2026-05-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/tags/adaptation/</loc>
     <lastmod>2026-05-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/posts/ooda-loop/</loc>
     <lastmod>2026-05-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://lyletagawa.com/posts/</loc>
-    <lastmod>2026-05-02T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://lyletagawa.com/tags/situational-awareness/</loc>
-    <lastmod>2026-05-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lyletagawa.com/tags/</loc>
     <lastmod>2026-05-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/learning/</loc>
@@ -35,9 +47,6 @@
     <loc>https://lyletagawa.com/posts/pagerduty-summit-2020/</loc>
     <lastmod>2020-09-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://lyletagawa.com/tags/management/</loc>
-    <lastmod>2020-08-20T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://lyletagawa.com/posts/resilient-management/</loc>
     <lastmod>2020-08-17T00:00:00+00:00</lastmod>
   </url><url>
@@ -52,9 +61,6 @@
   </url><url>
     <loc>https://lyletagawa.com/posts/chaos-engineering/</loc>
     <lastmod>2020-06-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lyletagawa.com/tags/capacity/</loc>
-    <lastmod>2026-05-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/cognitive/</loc>
     <lastmod>2020-05-14T00:00:00+00:00</lastmod>
@@ -93,9 +99,6 @@
     <lastmod>2019-10-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/intent/</loc>
-    <lastmod>2019-08-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lyletagawa.com/tags/leadership/</loc>
     <lastmod>2019-08-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/posts/turn-the-ship-around/</loc>

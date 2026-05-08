@@ -1,11 +1,12 @@
 ---
 title: "LLM Context Biases"
-date: 2026-05-04
-publishdate: 2026-05-04
-lastmod: 2026-05-04
+date: 2026-05-07
+publishdate: 2026-05-07
+lastmod: 2026-05-07
 summary: "Primacy bias, recency bias, sycophancy, and anchoring are predictable distortions in how LLMs weight information. Understanding them changes how you prompt, evaluate, and trust model outputs."
 tags: ["ai", "cognitive", "leadership"]
-image:
+image: /images/illusion.png
+draft: false
 ---
 
 ## LLM Context Biases
@@ -74,6 +75,8 @@ Lou, Jiaxu, and Yifan Sun (2024). "Anchoring Bias in Large Language Models: An E
 
 Malmqvist, Lars (2024). "Sycophancy in Large Language Models: Causes and Mitigations." arXiv preprint arXiv:2411.15287. [https://arxiv.org/abs/2411.15287](https://arxiv.org/abs/2411.15287)
 
+Thumbnail: Müller-Lyer illusion. Franz Carl Müller-Lyer and Franz Brentano (1892). From *Zeitschrift für Psychologie und Physiologie der Sinnesorgane*, 3. Public domain, via [Picryl](https://picryl.com/media/muller-lyer-illusion-franz-bretano-1892-a2649a).
+
 ## Changelog
 
-**2026-05-04** Initial publication.
+**2026-05-07** Initial publication.
