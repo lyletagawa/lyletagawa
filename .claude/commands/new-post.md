@@ -18,6 +18,7 @@ Author a new Hugo blog post for this site. Follow all rules below precisely.
 
 ### Structure
 - **Word count**: 1,000–1,250 words (body content only, excluding frontmatter, References, and Changelog).
+- **Frontmatter summary**: under 36 words. Two sentences maximum. No hedging or filler.
 - **Reading grade level**: 12–14 (Flesch-Kincaid or equivalent). Prefer concrete nouns and active verbs over abstract nominalizations.
 - **Section headings**: use `##` for top-level sections, `###` for subsections. Keep headings short (3–5 words).
 
@@ -85,5 +86,5 @@ When invoked:
 1. Ask the user for the topic if not provided as an argument.
 2. Research the topic: find the primary source(s) and 2–3 supporting references with valid URLs before drafting.
 3. Draft the full post using the template above.
-4. After drafting, verify: word count is 1,000–1,250, no em-dashes or en-dashes are present, all assertions have inline citations, all citations have corresponding references with URLs, a Common Mistakes section is present, the post ends with Put It Into Practice followed by References then Changelog.
+4. After drafting, verify: word count is 1,000–1,250, frontmatter summary is under 36 words, no em-dashes or en-dashes are present, all assertions have inline citations, all citations have corresponding references with URLs, a Common Mistakes section is present, the post ends with Put It Into Practice followed by References then Changelog.
 5. Report word count and any rule violations found.

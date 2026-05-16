@@ -93,53 +93,44 @@
       <h6 class="subtitle is-6 date" style="line-height:0em">May. 2, 2026 &middot; 5 min read</h6>
       <h2 id="jevons-paradox">Jevons Paradox</h2>
 <p>You&rsquo;ve just cut your cloud costs by 40%. Six months later, your bill is higher than before. You&rsquo;ve made your API 10x faster. Now you&rsquo;re handling 50x more traffic and your infrastructure is buckling. You&rsquo;ve deployed AI agents to review every pull request. Merge volume doubles. Your AI compute bill is a line item you didn&rsquo;t budget for.</p>
-<p>Welcome to Jevons Paradox: efficiency improvements don&rsquo;t reduce consumption. They increase it.</p>
+<p>Welcome to Jevons Paradox. Efficiency improvements don&rsquo;t reduce consumption. They increase it.</p>
 <h2 id="what-is-jevons-paradox">What Is Jevons Paradox?</h2>
-<p>In 1865, economist William Stanley Jevons observed that as coal-burning steam engines became more efficient, Britain&rsquo;s coal consumption increased rather than decreased (Jevons, 1865). More efficient engines made coal-powered applications economically viable in new contexts. Efficiency didn&rsquo;t reduce demand. It unleashed it.</p>
-<p>The paradox: making something cheaper or easier doesn&rsquo;t reduce its use. It expands the contexts where using it makes sense, driving total consumption up (Sorrell, 2009).</p>
-<p>For technical leaders, this isn&rsquo;t historical trivia. It&rsquo;s the invisible force behind your biggest operational surprises.</p>
+<p>In 1865, economist William Stanley Jevons observed that as coal-burning steam engines became more efficient, Britain&rsquo;s coal consumption increased rather than decreased (Jevons, 1865). More efficient engines made coal-powered applications economically viable in new contexts. The result was higher consumption, not lower (Sorrell, 2009).</p>
+<p>For technical leaders, this isn&rsquo;t historical trivia. The pattern repeats in technology orgs.</p>
 <h2 id="how-it-spreads">How It Spreads</h2>
-<p><strong>Direct rebound effect</strong>. Efficiency makes the resource cheaper, so people use more of it directly (Khazzoom, 1980).</p>
-<p>Example: Compression reduces storage costs by 70%. Teams stop deleting old data because &ldquo;storage is cheap.&rdquo; Three years later, you&rsquo;re storing 10x more data.</p>
-<p><strong>Indirect rebound effect</strong>: Efficiency frees up resources that get reallocated to new uses (Sorrell, 2009).</p>
-<p>Example: Caching reduces database load by 80%. The freed database capacity gets used for new analytics queries. Database costs stay the same, but you&rsquo;re now supporting workloads that weren&rsquo;t possible before.</p>
-<p><strong>Economy-wide effect</strong>: Efficiency makes entire categories of applications economically viable (Sorrell, 2009).</p>
-<p>Example: Serverless reduces infrastructure management overhead. This makes it viable to build hundreds of small services that would have been too expensive to operate traditionally. Your serverless bill exceeds what you spent on traditional infrastructure.</p>
+<p><strong>Direct rebound effect</strong>. Efficiency makes the resource cheaper, so people use more of it (Khazzoom, 1980).</p>
+<p>Compression reduces storage costs by 70%. Teams stop deleting old data because &ldquo;storage is cheap.&rdquo; Three years later, you&rsquo;re storing 10x more data.</p>
+<p><strong>Indirect rebound effect.</strong> Efficiency frees up resources that get reallocated to new uses (Sorrell, 2009).</p>
+<p>Caching reduces database load by 80%. The freed database capacity gets used for new analytics queries. Database costs stay the same, but you&rsquo;re now supporting workloads that weren&rsquo;t possible before.</p>
 <h2 id="how-it-manifests">How It Manifests</h2>
 <p><strong>The cloud cost spiral</strong>. Azul reported a cloud migration that reduced per-transaction costs by 42%, yet total cloud spend doubled over three years as they processed significantly more transactions and launched services that weren&rsquo;t viable before (Sellers, 2025).</p>
-<p><strong>The performance trap</strong>. Figma reduced file load times by 33% for the slowest loads, but immediately increased server-side decoding load by 30%, requiring a separate infrastructure optimization to absorb the new demand (Figma Engineering, 2025a; 2025b).</p>
-<p><strong>The agentic AI paradox</strong>. Cloudflare deployed a multi-agent AI code review system that automatically reviews every merge request. Within weeks, weekly merge volume increased from roughly 5,600 to over 8,700, with one week reaching 10,952 (Cloudflare, 2026a). The system ran 131,246 review cycles in a single month at a median cost of $0.98 per review (Cloudflare, 2026b). AI review didn’t reduce workload. It unlocked a merge velocity that human reviewers alone could not have sustained.</p>
+<p><strong>The performance trap</strong>. Figma reduced file load times by 33% for the slowest loads, but immediately increased server-side decoding load by 30%, requiring a separate infrastructure optimization to absorb the new demand (Figma Engineering, 2025a, 2025b).</p>
+<p><strong>The agentic AI paradox</strong>. Cloudflare deployed a multi-agent AI code review system that automatically reviews every merge request. Within weeks, weekly merge volume increased from roughly 5,600 to over 8,700, with one week reaching 10,952 (Cloudflare, 2026a). The system ran 131,246 review cycles in a single month at a median cost of $0.98 per review (Cloudflare, 2026b). Review capacity was no longer the constraint on merge velocity.</p>
 <h2 id="how-to-manage-jevons-paradox">How to Manage Jevons Paradox</h2>
 <p><strong>Plan for Rebound</strong>. When optimizing, assume consumption will increase, not decrease.</p>
 <ul>
 <li>Bad Planning: &ldquo;This optimization will reduce our costs by 50%&rdquo;</li>
 <li>Good Planning: &ldquo;This optimization will reduce per-unit costs by 50%. We expect usage to increase 2-3x as new use cases become viable.&rdquo;</li>
 </ul>
-<p><strong>Implement Economic Constraints</strong>. Efficiency removes natural constraints. Add intentional ones:</p>
+<p><strong>Implement Economic Constraints</strong>. Efficiency removes natural constraints. Add intentional ones and release capacity based on business priorities, not technical availability (Kim et al., 2016).</p>
 <ul>
 <li>Rate limiting even when technically unnecessary</li>
 <li>Cost allocation and chargebacks to teams</li>
 <li>Quotas on resources even when capacity exists</li>
 <li>Approval processes for new high-volume use cases</li>
 </ul>
-<p>Release capacity intentionally based on business priorities (Kim et al., 2016).</p>
-<p><strong>Monitor Leading Indicators</strong>. Track metrics that predict rebound before it impacts costs (Forsgren et al., 2018):</p>
+<p><strong>Monitor Leading Indicators</strong>. Track metrics that predict rebound before it impacts costs (Forsgren et al., 2018).</p>
 <ul>
 <li>Request rates, not just response times</li>
 <li>Number of services/deployments, not just deployment speed</li>
 <li>Data growth rates, not just storage costs</li>
 <li>Feature usage patterns, not just feature performance</li>
 </ul>
-<p><strong>Align Incentives</strong>:</p>
-<ul>
-<li>Bad Incentives: &ldquo;Your team&rsquo;s budget is based on last year&rsquo;s costs.&rdquo; Result: Teams avoid optimization to maintain budget</li>
-<li>Good Incentives: &ldquo;Your team gets 50% of cost savings for new initiatives.&rdquo; Result: Teams optimize but use gains strategically</li>
-</ul>
-<p>For individual contributors, two applications stand out. Document the counterfactual: record what costs or load would have been without your work, so your impact is visible even as rebound erodes absolute gains. Negotiate scope when optimizing: establish explicit limits (&ldquo;this supports current usage plus 50% growth; beyond that requires architectural changes&rdquo;).</p>
 <h2 id="put-it-into-practice">Put It Into Practice</h2>
-<p>Jevons Paradox is not a failure mode. It is the predictable result of removing a constraint: systems expand to fill new space (Meadows, 2008). Every optimization changes what is economically viable, and demand follows.</p>
+<p>Jevons Paradox is not a failure mode. It is the predictable result of removing a constraint. Systems expand to fill new space (Meadows, 2008). Every optimization changes what is economically viable, and demand follows.</p>
 <p>The question is not whether consumption will increase after your next optimization. It will. The question is whether you planned for it.</p>
-<p>Ask what new usage patterns does this enable, and are they the ones we want? Set intentional limits even when capacity exists. Monitor usage, not just unit costs. Document what costs would have looked like without your work. Align efficiency gains to business priorities before the rebound arrives.</p>
+<p>Ask what new usage patterns this enables, and whether they are the ones you want. Set intentional limits even when capacity exists. Monitor usage, not just unit costs. Document what costs would have looked like without your work. Align efficiency gains to business priorities before the rebound arrives.</p>
+<hr>
 <h2 id="references">References</h2>
 <p>Jevons, William Stanley (1865). <em>The Coal Question</em>. London: Macmillan and Co. <a href="https://oll.libertyfund.org/title/jevons-the-coal-question">https://oll.libertyfund.org/title/jevons-the-coal-question</a></p>
 <p>Khazzoom, J. Daniel (1980). &ldquo;Economic Implications of Mandated Efficiency Standards.&rdquo; <em>The Energy Journal</em>, 1(4): 21-40. <a href="https://doi.org/10.5547/ISSN0195-6574-EJ-Vol1-No4-2">https://doi.org/10.5547/ISSN0195-6574-EJ-Vol1-No4-2</a></p>
@@ -153,8 +144,15 @@
 <p>Kim, Gene, et al. (2016). <em>The DevOps Handbook</em>. Portland, OR: IT Revolution Press. <a href="https://itrevolution.com/product/the-devops-handbook/">https://itrevolution.com/product/the-devops-handbook/</a></p>
 <p>Sellers, Scott (2025). &ldquo;Why Cloud Efficiency is Driving More IT Spending, Not Less.&rdquo; <em>Azul Newsroom</em>, August 21. <a href="https://azul.com/newsroom/why-cloud-efficiency-is-driving-more-it-spending-not-les">https://azul.com/newsroom/why-cloud-efficiency-is-driving-more-it-spending-not-les</a></p>
 <p><em>Thumbnail: Watt&rsquo;s Steam Engine. British Cigarette Cards, George Arents Collection. The New York Public Library. <a href="https://picryl.com/media/watts-steam-engine-589e99">picryl.com</a></em></p>
+<hr>
+<h2 id="outtakes">Outtakes</h2>
+<p><strong>Paradox.</strong> From the Greek &ldquo;paradoxon,&rdquo; where para means contrary to and doxa means opinion. Literally, contrary to expectation. Not a logical contradiction. Jevons Paradox fits that definition precisely.</p>
+<p><strong>Wirth&rsquo;s Law.</strong> Niklaus Wirth observed that software gets slower faster than hardware gets faster. Hardware efficiency gains are absorbed by software bloat.</p>
+<p><strong>The Katy Freeway.</strong> Houston widened the Katy Freeway to 26 lanes to reduce congestion. Congestion got worse. Traffic engineers call this induced demand. Building more road capacity generates more traffic to fill it.</p>
+<hr>
 <h2 id="changelog">Changelog</h2>
-<p><strong>2026-05-05</strong> Reorganized to consolidate redundant sections: merged &ldquo;Why This Matters for Technical Leadership&rdquo; and three case studies into &ldquo;How It Manifests&rdquo;; absorbed IC strategic guidance into &ldquo;How to Manage Jevons Paradox&rdquo;; removed duplicate database optimization case study.</p>
+<p><strong>2026-05-16</strong> Added Outtakes section. Removed Incentives, and IC guidance sections.<br>
+<strong>2026-05-05</strong> Consolidated redundant sections. Removed duplicate database optimization case study.</p>
 
       <hr>
       

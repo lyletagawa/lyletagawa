@@ -6,6 +6,7 @@ lastmod: 2026-05-06
 summary: "Conway's Law says your system architecture mirrors your organization's communication structure. Agentic AI doesn't change the law. It changes what counts as communication."
 tags: ["team", "leadership", "management", "distributed"]
 image: /images/conways-law.jpg
+draft: true
 ---
 
 ## Conway's Law

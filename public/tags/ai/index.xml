@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>ai on hi</title>
+    <link>https://lyletagawa.com/tags/ai/</link>
+    <description>Recent content in ai on hi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 07 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LLM Context Biases</title>
+      <link>https://lyletagawa.com/posts/llm-context-biases/</link>
+      <pubDate>Thu, 07 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/llm-context-biases/</guid>
+      <description>Primacy bias, recency bias, sycophancy, and anchoring are predictable distortions in how LLMs weight information. Understanding them changes how you prompt, evaluate, and trust model outputs.</description>
+      <media:content url="https://lyletagawa.com/images/illusion.png" medium="image" />
+    </item>
+    
+  </channel>
+</rss>
