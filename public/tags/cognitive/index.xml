@@ -6,7 +6,17 @@
     <description>Recent content in cognitive on hi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 07 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/cognitive/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/cognitive/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Vantasner Danger Meridian</title>
+      <link>https://lyletagawa.com/posts/vantasner-danger-meridian/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/vantasner-danger-meridian/</guid>
+      <description>The Vantasner Danger Meridian names the threshold past which danger to your mission increases exponentially. Recognizing it before you cross it is the skill that separates deliberate risk from drift.</description>
+      <media:content url="https://lyletagawa.com/images/meridian.svg" medium="image" />
+    </item>
+    
     <item>
       <title>LLM Context Biases</title>
       <link>https://lyletagawa.com/posts/llm-context-biases/</link>
