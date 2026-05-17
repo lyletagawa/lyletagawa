@@ -77,6 +77,8 @@ Malmqvist, Lars (2024). "Sycophancy in Large Language Models: Causes and Mitigat
 
 Thumbnail: Müller-Lyer illusion. Franz Carl Müller-Lyer and Franz Brentano (1892). From *Zeitschrift für Psychologie und Physiologie der Sinnesorgane*, 3. Public domain, via [Picryl](https://picryl.com/media/muller-lyer-illusion-franz-bretano-1892-a2649a).
 
+---
+
 ## Outtakes
 
 **Bias.** A lawn bowling ball weighted on one side so that it curves predictably from a straight path (Harper, n.d.).

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="630" height="630" viewBox="0 0 630 630">
+  <!-- Background -->
+  <rect width="630" height="630" fill="#141414"/>
+
+  <!-- Left red bar -->
+  <rect x="48" y="160" width="22" height="310" fill="#E50914"/>
+
+  <!-- Right red bar -->
+  <rect x="560" y="160" width="22" height="310" fill="#E50914"/>
+
+  <!-- Main wordmark -->
+  <text
+    x="315" y="360"
+    font-family="'Arial Black', 'Impact', 'Helvetica Neue', sans-serif"
+    font-size="190"
+    font-weight="900"
+    fill="#E50914"
+    text-anchor="middle"
+    letter-spacing="-6">LIVE</text>
+
+  <!-- Divider line -->
+  <rect x="100" y="388" width="430" height="3" fill="#E50914" opacity="0.4"/>
+
+  <!-- Subtitle -->
+  <text
+    x="315" y="448"
+    font-family="'Arial', 'Helvetica Neue', sans-serif"
+    font-size="42"
+    font-weight="400"
+    fill="#FFFFFF"
+    text-anchor="middle"
+    letter-spacing="16"
+    opacity="0.85">EDGE CACHE</text>
+</svg>

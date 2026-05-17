@@ -21,9 +21,9 @@ Standard CDN edge caching works well for video-on-demand. Popular films accumula
 
 Live events break this alignment. During a live stream, nearly all viewers watch the live edge. Two-minute-old segments receive a fraction of the traffic that two-second-old segments do. LRU interprets sparse access as low value and evicts accordingly. When a viewer scrubs backward (rewinds), the edge server has nothing to serve. It must fetch from origin or a mid-tier cache, adding latency and load to the upstream link (Liu, Lynch, and Newton, 2025).
 
-The obvious fix is to protect every segment on every edge server for the event's duration. That solves scrubbing but scales with the product of stream count, rendition count, and event duration. Memory becomes the new constraint.
+Another approach is to protect every segment on every edge server for the event's duration. That solves scrubbing but scales with the product of stream count, rendition count, and event duration. Memory becomes the new constraint.
 
-Netflix's patent US 12,621,504 B2 describes a third path (Newton, 2026).
+Netflix's patent US 12,621,504 B2 describes a third approach (Newton, 2026).
 
 ## The Assignment Approach
 
@@ -77,9 +77,7 @@ Wilkie, Tom (2019). "[PromCon Recap] Two Households, Both Alike in Dignity: Cort
 
 ## Outtakes
 
-**Consistent hashing.** The assignment mechanism in the patent relies on consistent hashing, invented in 1997 by David Karger and colleagues at MIT to solve cache invalidation when servers are added or removed. With a naive `hash(k) mod n`, adding or removing a server re-routes nearly every key, cascading misses to origin. Consistent hashing reduces that to `K/n` remaps, where `K` is the total number of keys. ([Karger et al., 1997](https://dl.acm.org/doi/10.1145/258533.258660))
-
-**Belady's anomaly.** László Bélády showed in 1969 that FIFO page replacement can perform worse with more memory. The anomaly does not affect LRU, which is why LRU became the default. LRU is optimal for steady-state demand but fails at the temporal mismatch a live event creates. ([Bélády et al., 1969](https://dl.acm.org/doi/10.1145/363011.363155))
+**The fight night failures.** Netflix peaked at 65 million concurrent streams and experienced widespread buffering. Industry experts pointed to CDN capacity and last-mile congestion at ISP peering points. Akamai's Will Law and YouTube's Sean McCarthy noted there is little that a streaming provider can do when congestion builds at ISP interconnects. ([Streaming Media, 2024](https://www.streamingmedia.com/Articles/Editorial/Short-Cuts/Why-Did-Netflixs-Tyson-Paul-Stream-Fail-at-Scale-Or-Did-it-Fail-at-All-168302.aspx))
 
 **The flash crowd.** Larry Niven's 1973 story "Flash Crowd" imagined instantaneous teleportation creating mobs at newsworthy events the moment they were broadcast. Internet engineers borrowed the term for sudden traffic spikes. A live broadcast creates simultaneous demand that no single server was designed to absorb. (Niven, 1973)
 
@@ -87,5 +85,5 @@ Wilkie, Tom (2019). "[PromCon Recap] Two Households, Both Alike in Dignity: Cort
 
 ## Changelog
 
-**2026-05-16** Added Outtakes section (consistent hashing, Belady's anomaly, flash crowd).  
+**2026-05-16** Added Outtakes section.  
 **2026-05-11** Initial publication.

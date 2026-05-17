@@ -1,9 +1,9 @@
 ---
 title: "The Overton Window"
 date: 2026-05-03
-publishdate: 2026-05-03
-lastmod: 2026-05-03
-summary: "Why good ideas get dismissed before evaluation and how leaders can shift the range of acceptable proposals to make previously radical ideas inevitable."
+publishdate: 2026-05-16
+lastmod: 2026-05-16
+summary: "Why good ideas get dismissed before evaluation and how leaders can shift the range of acceptable proposals to make previously unthinkable ideas inevitable."
 tags: ["leadership", "management", "cognitive"]
 image:
 draft: true
@@ -11,11 +11,11 @@ draft: true
 
 ## The Overton Window
 
-You propose adopting Rust for a critical service. The response: "That's too radical. We're a Java shop." Six months later, after three production incidents caused by null pointer exceptions, someone else proposes Rust. The response: "Interesting idea. Let's do a proof of concept."
+You propose adopting Rust for a critical service. "That's unthinkable. We're a C++ shop." Six months later, after three production incidents caused by memory corruption bugs, someone else proposes Rust. "Interesting idea. Let's do a proof of concept."
 
-Nothing changed about Rust. What changed was the Overton Window: the range of ideas considered acceptable for serious consideration.
+Nothing changed about Rust. What changed was the Overton Window. The range of ideas the organization would seriously consider had shifted.
 
-For technical leaders, this is the difference between proposals dismissed as "too extreme" and the same proposals adopted as "obviously the right direction."
+For technical leaders, this is the difference between proposals dismissed as "unthinkable" and the same proposals adopted as "obviously the right direction."
 
 ## What Is the Overton Window?
 
@@ -23,28 +23,21 @@ Joseph Overton, a policy analyst at the Mackinac Center, developed this framewor
 
 Ideas outside the window are dismissed without serious consideration. Ideas inside the window get debated. The window shifts not through compromise, but through deliberate effort to make previously unacceptable ideas seem reasonable.
 
-In technical organizations, the same dynamic applies. What looks radical today becomes standard practice tomorrow, not through gradual acceptance, but through strategic window-shifting.
+In technical organizations, the same dynamic applies. What looks unthinkable today becomes standard practice tomorrow, not through gradual acceptance, but through strategic window-shifting.
 
-## The Technical Overton Window
+**Outside the window (unthinkable)**
+- "Let's rewrite everything in Rust"
+- "Let's run everything on bare metal"
 
-In technical organizations, the window defines what's considered reasonable to propose:
-
-**Outside the window (unthinkable):**
-- "Let's rewrite everything in Haskell"
-- "We should delete all our tests"
-- "Let's move to a blockchain architecture"
-
-**Inside the window (debatable):**
-- "Let's adopt TypeScript for new services"
-- "We should increase test coverage to 80%"
+**Inside the window (debatable)**
+- "Let's adopt Go for new services"
 - "Let's evaluate moving to Kubernetes"
 
-**Center of the window (current policy):**
-- "We use Java for backend services"
-- "We maintain 60% test coverage"
+**Center of the window (current policy)**
+- "We use C++ for backend services"
 - "We deploy to AWS EC2 instances"
 
-The window isn't about technical merit. Rust might be objectively better than Java for your use case. If it's outside the window, your proposal gets dismissed before technical evaluation begins.
+The window isn't about technical merit. Rust might be objectively better than C++ for your use case. If it's outside the window, your proposal gets dismissed before technical evaluation begins.
 
 ## Why This Matters
 
@@ -56,27 +49,15 @@ The window isn't about technical merit. Rust might be objectively better than Ja
 
 ## How the Window Shifts
 
-### 1. Anchor with Extremes
+**Anchor with extremes.** Introduce a more extreme version of your idea first. The moderate idea becomes the reasonable compromise. You want Go. Propose Rust first. When that gets rejected, Go looks moderate by comparison (Larson, 2021).
 
-To make a moderate idea acceptable, introduce a more extreme version first. The moderate idea becomes the reasonable compromise.
+**Create proof points.** The window shifts when previously unthinkable ideas prove successful elsewhere. Don't argue for adoption. Build a proof of concept. A working prototype shifts the window more than any RFC or architecture document (Moore, 1991).
 
-You want to adopt TypeScript. Propose rewriting everything in Haskell. When that gets rejected as too extreme, TypeScript looks moderate by comparison. Will Larson advises proposing stretch goals alongside realistic ones (Larson, 2021). The stretch goal shifts the window, making the realistic goal seem conservative.
+**Exploit crises.** Crises temporarily expand the window. After a major production incident, proposals that were "too risky" yesterday become "necessary changes" today. Have your proposal ready before the crisis, not after.
 
-### 2. Create Proof Points
+**Change the comparison set.** The window is relative to what's considered normal. Your organization thinks Kubernetes is too complex. Show them how other companies in your industry use it. Suddenly it's "industry standard" (Reilly, 2022).
 
-The window shifts when previously unthinkable ideas prove successful elsewhere. Early adopters create proof points that shift the window for the mainstream (Moore, 1991). Don't argue for adoption. Build a small proof of concept. A working prototype using your proposed technology shifts the window more than any RFC or architecture document.
-
-### 3. Exploit Crises
-
-Crises temporarily expand the Overton Window. Ideas previously unthinkable become acceptable when the current approach has clearly failed. After a major production incident, proposals that were "too risky" yesterday become "necessary changes" today. Have your proposal ready before the crisis, not after.
-
-### 4. Change the Comparison Set
-
-The window is relative to what's considered normal. Change the comparison set, and you change the window. Your organization thinks Kubernetes is too complex. Show them how other companies in your industry use it. Suddenly, Kubernetes isn't "too complex." It's "industry standard." Senior ICs shift windows by changing what the organization compares itself to (Reilly, 2022).
-
-### 5. Build Coalitions
-
-The window shifts faster when multiple people advocate for change. A single voice proposing Rust is "that person with weird ideas." Five teams independently proposing Rust is "a trend we should investigate." Distributed advocacy is more powerful than centralized authority for shifting organizational norms (McChrystal et al., 2015).
+**Build coalitions.** A single voice proposing Rust is "that person with weird ideas." Five teams independently proposing it is "a trend we should investigate." Distributed advocacy shifts norms faster than centralized authority (McChrystal et al., 2015).
 
 ## Common Mistakes
 
@@ -86,26 +67,15 @@ The window shifts faster when multiple people advocate for change. A single voic
 
 **Moving too slowly.** Windows shift without you. If you wait too long, your innovative idea becomes obvious and someone else gets credit for implementing it (Fournier, 2017).
 
-## Measuring Window Position
-
-**Signs the window has shifted:**
-- People reference your idea without attributing it to you
-- New hires ask "why aren't we doing X?"
-- Competitors announce they're doing X
-- Leadership asks "should we be looking at X?"
-
-**Signs you're outside the window:**
-- Your proposal gets dismissed without technical evaluation
-- People say "that's not how we do things here"
-- Your idea is called "interesting" but never discussed again
-
 ## Put It Into Practice
 
-Technical merit matters, but only for ideas inside the window. Ideas outside get dismissed regardless of quality. This is why technically correct proposals fail and mediocre ones succeed: the window determines what gets evaluated, not what's true.
+Technical merit matters, but only for ideas inside the window. Ideas outside get dismissed regardless of quality. This is why technically correct proposals fail and mediocre ones succeed. The window determines what gets evaluated, not what's true.
 
-Before your next proposal, map the window. Would your idea be debated or dismissed outright? If it would be dismissed, shift the window first. Introduce an extreme anchor, build a proof of concept, or change what your organization compares itself to. Have your proposal ready when the next crisis expands the window temporarily.
+Before your next proposal, map the window. The window has shifted when others reference your idea without attribution, new hires ask why you're not doing it, or competitors announce they are. You're outside it when proposals get dismissed without evaluation, called "interesting," and never revisited. If your idea would be dismissed, shift the window first. Introduce an extreme anchor, build a proof of concept, or change what your organization compares itself to. Have your proposal ready when the next crisis expands the window temporarily.
 
 Pick one proposal currently sitting outside the window. Identify the smallest proof point that would move it inside. Start there.
+
+---
 
 ## References
 
@@ -121,6 +91,17 @@ Moore, Geoffrey A. (1991). *Crossing the Chasm: Marketing and Selling High-Tech 
 
 Reilly, Tanya (2022). *The Staff Engineer's Path: A Guide for Individual Contributors Navigating Growth and Change*. Sebastopol, CA: O'Reilly Media. [https://www.oreilly.com/library/view/the-staff-engineers/9781098118723/](https://www.oreilly.com/library/view/the-staff-engineers/9781098118723/)
 
+---
+
+## Outtakes
+
+**Semmelweis.** In 1847, Ignaz Semmelweis proposed that doctors should wash their hands before delivering babies. The idea was outside the window. "A gentleman's hands cannot be unclean." He was institutionalized in 1865 and died shortly after. Pasteur's germ theory shifted the window a decade later. The [Semmelweis reflex](https://en.wikipedia.org/wiki/Semmelweis_reflex) is now a named bias for rejecting ideas that contradict established norms before evaluation.
+
+**The framework's own window.** Joseph Overton died in a plane crash in 1995, before his framework had any public profile. The [Mackinac Center](https://www.mackinac.org/OvertonWindow) published it posthumously. In 2006, RedState founder Josh Trevino spread it through conservative think tank circles as a playbook for moving ideas like school vouchers and homeschooling from fringe to mainstream.
+
+---
+
 ## Changelog
 
-**2026-05-03** Converted to current format; removed "The Individual Contributor Perspective" section; restructured conclusion as "Put It Into Practice"; added inline citations and reference URLs.
+**2026-05-16** Added Outtakes section.  
+**2026-05-03** Removed "The Individual Contributor Perspective" section. Added inline citations.

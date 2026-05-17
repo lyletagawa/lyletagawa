@@ -2,128 +2,97 @@
 title: "Turn the Ship Around!"
 date: 2019-08-05
 publishdate: 2019-08-05
-lastmod: 2019-08-05
-#summary: "Embedding the capacity for greatness in the people and practices of an organization, and decoupling it from the personality of the leader."
-summary: "Achieve excellence, don’t just avoid errors. Build trust and take care of your people. Use your legacy for inspiration. Use guiding principles for decision criteria. Use immediate recognition to reinforce desired behaviors. Begin with the end in mind. Encourage a questioning attitude over blind obedience"
+lastmod: 2026-05-16
+summary: "Concentrating decisions at the top discards the intelligence of people closest to the work. Marquet's leader-leader model distributes authority to where information lives, producing organizations that outlast their leaders."
 tags: ["intent", "leadership"]
+image: 
 ---
-## [Turn the Ship Around!](https://www.goodreads.com/book/show/16158601-turn-the-ship-around) by [L. David Marquet](https://www.davidmarquet.com/).
 
-First, though I liked the idea of empowerment, I didn't understand why empowerment was needed.
+## Turn the Ship Around!
 
-Second, the way I was told to manage others was not the way I wanted to be managed.
+On his first day in command of USS Santa Fe, L. David Marquet gave an order that didn't exist. He called for "ahead two-thirds," a speed setting from his previous submarine. The Santa Fe didn't have one. His officer of the deck relayed the order anyway. The helmsman tried to comply. Nothing happened. The officer knew the command was impossible and issued it regardless, because the captain had spoken (Marquet, 2013).
 
-Third, I was disturbed by the close coupling of the technical competence of the leader with the performance of the organization.
+That moment defined what Marquet spent the next year dismantling. He called it the Leader-Follower model. Authority concentrates at the top. Decisions flow back down. It works for physical labor. It fails for intellectual work.
 
-One of the things that limit our learning is our belief that we already know something.
+Santa Fe had the worst retention and performance record in the Pacific fleet when Marquet arrived. Three years later it was ranked first. Reenlistments went from three to thirty-three in a single year.
 
-Simply exhorting people to be proactive, take ownership, be involved, and all the other aspects of an empowerment program just scratched the surface.
+## What Is the Leader-Leader Model?
 
-It is precisely the success of the top-down, leader-follower structure that makes it so appealing. As long as you are measuring performance over just the short run, it can
-be effective. Officers are rewarded for being indispensable, for being missed after they depart. When the performance of a unit goes down after an officer leaves, it is
-taken as a sign that he was a good leader, not that he was ineffective in training his people properly.
+Leader-Follower concentrates authority at the top. Information moves up. Decisions move down. Performance is tied to whoever is at the top. When they leave, the organization regresses.
 
-Are you curious? I thought I was being curious during my previous tours; turns out I was only "questioning."
+Marquet's alternative is the Leader-Leader model. Authority moves to where the information lives. Every person leads within their domain. The leader's role shifts from decision-maker to conditions-setter.
 
-Are you asking questions to make sure you know or to make sure they know?
+Empowerment is a top-down concept. A leader grants power to a subordinate. That act reinforces the hierarchy it claims to dismantle. Emancipation starts from a different premise. The team already has the capability. The structures prevent its use. The leader removes the structures.
 
-Do people take action to protect themselves or to make the outcome better? Does leadership in your organization take control or give control?
+Westrum found the same pattern. Organizations where information flows freely and authority matches expertise outperform hierarchical ones on performance and safety (Westrum, 2004).
 
-Do you play "bring me a rock" in your organization, where vague understanding of the goal results in wasted time?
+## Control, Competence, Clarity
 
-supervisors needed to recognize that the demand for perfect products the first time they see them results in significant waste and frustration throughout their organization.
-Even a thirty-second check early on could save your people numerous hours of work.
+The Leader-Leader model rests on three conditions. Remove any one and the model breaks.
 
-Trust means this: when you report that we should position the ship in a certain position, you believe we should position the ship as you indicated. Not trusting you would
-mean that I thought you might be saying one thing while actually believing something else.
+**Control.** Decision-making authority must move to where the information lives. On the Santa Fe, Marquet shifted authority over crew leave from the executive officer to the chiefs. Small change, large effect. The chiefs were now accountable for the watch bill.
 
-The key to you team becoming more proactive rests in the language subordinates and superiors use. Here is a short list of "disempowered phrases" that passive followers use:
+**Competence.** Control without competence produces chaos. Distributing authority only works when people have the knowledge to act on it. Marquet shifted the crew from passive training to active learning. Before operations, teams were certified rather than briefed. A certification requires participants to demonstrate that knowledge before the operation proceeds. If they cannot, the operation waits.
 
-- Request permission to...
-- I would like to...
-- What should I do about...
-- Do you think we should...
-- Could we...
+**Clarity.** Distributed decisions align only when everyone understands the mission well enough to make consistent trade-offs. Clarity means goals, not methods. On the Santa Fe, a fire drill had one objective. Get a pressurized hose to the fire in under two minutes. Freed from rigid procedures, crews self-organized and rearranged bunk assignments to optimize response time.
 
-Here is a short list of "empowered phrases" that active doers use:
+## The Mechanism: "I Intend To"
 
-- I intend to...
-- I plan on...
-- I will...
-- We will...
+The most concrete change in the book is a phrase. Crew members stated their plan directly. "I intend to submerge the ship. The water depth is sufficient and the watch team is ready." "Very well," the leader responds.
 
-The benefit from this simple extension was that it caused them to think at the next higher level. The OODs needed to think like the captain, and so on down the chain of
-command. In effect, by articulating their intentions, the officers and crew were acting their way into the next higher level of command.
+The speaker must formulate a plan and a rationale before speaking. Psychological ownership transfers from leader to doer. The leader becomes a check on the organization rather than its engine. To construct a credible case, the speaker must think at the level of the person above them.
 
-How many times do issues that require decisions come up on short notice? If this is happening a lot, you have a reactive organization locked in a downward spiral. When
-issues aren't foreseen, the team doesn't get time to think about them; a quick decision by the boss is required, which doesn't train the team, and so on.
+The crew began taking initiative before problems escalated. Communication became more specific. Officers stopped asking for permission and started informing superiors of plans already in motion.
 
-Cherish the dissension. If everyone thinks like you, you don't need them.
+Research on autonomy and intrinsic motivation supports what Marquet found in practice. When people direct their own work, engagement and performance improve (Pink, 2009). "I intend to" creates that condition while preserving accountability.
 
-When it comes to processes, adherence to the process frequently becomes the objective, as opposed to achieving the objective that the process was put in place to achieve.
-The goal them becomes to avoid errors in the process, and when errors are made, additional overseers and inspectors are added. These overseers don't do anything to actually
-achieve the objective. They only identify when the process has gone bad after the fact.
+## Common Mistakes
 
-Many people talk about teamwork but don't develop mechanisms to actually implement it. Taking deliberate action is certainly one.
+**Empowerment without structural change.** Most organizations announce empowerment without altering the decision rights that make it necessary. If authority still flows from the top, the initiative reinforces the model it claims to replace.
 
-Have you tried to divest control without first making sure your organization is competent to handle more decision-making authority? I learned the hard way that control
-without competence is chaos.
+**Control before competence.** Distributing authority to people who lack the knowledge to act on it produces bad outcomes and erodes trust. Marquet's sequence was deliberate. He built technical competence and knowledge redundancy before accelerating control distribution. The order matters.
 
-as authority is delegated, technical knowledge at all levels takes on a greater importance. There is an extra burden for technical competence. If all you need to do is what
-you are told, then you don't need to understand your craft. However, as your ability to make decisions increases, then you need intimate technical knowledge on which to base
-those decisions.
+**Treating "I intend to" as ceremony.** The phrase only transfers ownership if the speaker genuinely thinks through the plan and the rationale. Used as a ritual to satisfy a process, it produces the right words with none of the effect.
 
-Why is "learning" a better word than "training"? Training implies passivity; it is done to us. We are trained; we attend training. Learning is active; it is something we do.
+**Measuring leadership by the leader's presence.** In Leader-Follower organizations, performance drops when a strong leader departs. This is typically read as evidence of effectiveness. In Leader-Leader organizations, the departure changes nothing. The test is what happens after. High-performing technical teams show the same pattern. Elite performers deploy continuously and recover from failures without a single point of human control (Forsgren et al., 2018; DORA, 2023).
 
-Do you play "bring me a rock" in your organization, where vague understanding of the goal results in wasted time?
+**Confusing flat hierarchies with distributed authority.** Removing layers from an org chart does not distribute decision rights. Team cognitive load and communication boundaries reveal where authority actually sits, regardless of what the hierarchy diagram shows (Skelton and Pais, 2019).
 
-Furthermore, supervisors needed to recognize that the demand for prefect products the first time htey see them results in significant waste and frustration throughout their
-organization.
+## Put It Into Practice
 
-Trust menas this: when you report that we should position the ship in a certain position, you believe we should position the ship as you indicated. Not trusting you would
-mean tha tI thought you might be saying one thing while actually believeing something else. Trust is purely a characteristic of the human relationship.
+Identify one decision that currently requires your approval but shouldn't. Ask whether the person doing the work has the information and competence to make the call themselves. If yes, transfer the decision right. Do not announce it as empowerment. Remove yourself from the loop.
 
-The Power of Words. The key to you team becoming more proactive rests in the language subordinates and superiors use. Here is a short list of "disempowered phrases" that
-passive followers use:
+Introduce "I intend to" to your team. When someone comes to you for an approval they should own, ask what they intend to do. Let them answer. Respond to the plan. The habit takes weeks to establish and months to become natural.
 
-- Request permission to ...
-- I would like to ...
-- What should I do about ...
-- Do you think we should ...
-- Could we ...
+Measure progress by what happens when you step back. If performance holds or improves, the conditions are working. If it degrades, that reveals where competence or clarity gaps remain. Address those before distributing more control.
 
-Here is a short list of "empowered phrases" that active doers use:
+---
 
-- I intend to ...
-- I plan on ...
-- I will ...
-- We will ...
+## References
 
-The benefit from this simple extension was that it caused them to think at the next higher level. The OODs needed to hink like the captain, and so on down the chain of
-command. In effect, by articulating their intentions, the officers and crew were acting their way into the next higher level of command.
+DORA (2023). *State of DevOps Report 2023*. Google. [https://dora.dev/research/2023/dora-report/](https://dora.dev/research/2023/dora-report/)
 
-How many times do issues that require decisions come up on short notice? If this is happening a lot, you have a reactive organization locked in a downward spiral. When
-issues aren't foreseen, the team doesn't get time to think about them; a quick decision by the boss is required, which doesn't train the team, and so on. No one has time to
-actually think through the issue.
+Forsgren, Nicole, Jez Humble, and Gene Kim (2018). *Accelerate: The Science of Lean Software and DevOps*. Portland: IT Revolution Press. [https://itrevolution.com/product/accelerate/](https://itrevolution.com/product/accelerate/)
 
-Cherish the dissension. If everyone thinks like you, you don't need them.
+Marquet, L. David (2013). *Turn the Ship Around! A True Story of Turning Followers into Leaders*. New York: Portfolio/Penguin. [https://davidmarquet.com/books/turn-the-ship-around-book/](https://davidmarquet.com/books/turn-the-ship-around-book/)
 
-When it comes to process, adherence to the process frequently becomes the objective, as opposed to achieving the objective that the process was put in place to achieve. The
-goal then becomes to avoid errors in the process, and when errors are made, additional overseers and inspectors are added. These overseers don't do anything to actually
-achieve the objective. They only identify when the process has gone bad after the fact.
+Pink, Daniel H. (2009). *Drive: The Surprising Truth About What Motivates Us*. New York: Riverhead Books. [https://www.danpink.com/books/drive/](https://www.danpink.com/books/drive/)
 
-A briefing is a passive activity for everyone except the briefer. Everyone else "is briefed." There is no responsibility for preparation or study. It's easy to just nod ans
-say "ready" without full intellectual engagement.
+Skelton, Matthew, and Manuel Pais (2019). *Team Topologies: Organizing Business and Technology Teams for Fast Flow*. IT Revolution Press. [https://itrevolution.com/product/team-topologies/](https://itrevolution.com/product/team-topologies/)
 
-Certifications shift the onus of preparation onto the participants. All participants are active. The change from passive briefs to active certification changed the crew's
-behavior.
+Westrum, Ron (2004). "A typology of organisational cultures." *BMJ Quality & Safety*, 13(suppl 2): ii22–ii27. [https://qualitysafety.bmj.com/content/13/suppl_2/ii22](https://qualitysafety.bmj.com/content/13/suppl_2/ii22)
 
-Clarity
+---
 
-- Achieve excellence, don't just avoid errors
-- Build trust and take care of your people
-- Use your legacy for inspiration.
-- Use guiding principles for decision criteria.
-- Use immediate recognition to reinforce desired behaviors.
-- Begin with the end in mind.
-- Encourage a questioning attitude over blind obedience.
+## Outtakes
+
+**The USS Benfold.** Commander D. Michael Abrashoff transformed the USS Benfold into what he called the best ship in the Navy using almost identical principles, years before Marquet and without knowing his work. He wrote about it in [*It's Your Ship* (Abrashoff, 2002)](https://www.hachettebookgroup.com/titles/captain-d-michael-abrashoff/its-your-ship/9780446535533/). Two commanding officers independently converged on the same solution to the same problem.
+
+**Toyota's andon cord.** Any worker on a Toyota production line can signal a problem by pulling the andon cord. If it goes unresolved by the next cycle boundary, the line stops. Distributed authority to halt production has been operating at industrial scale since the 1950s, decades before Marquet named it ([Ohno, 1988](https://www.routledge.com/Toyota-Production-System-Beyond-Large-Scale-Production/Ohno/p/book/9780915299140)).
+
+---
+
+## Changelog
+
+**2026-05-16** Reformatted from reading notes. Rewrote as full post.  
+**2019-08-05** Initial draft.
