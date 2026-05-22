@@ -4,7 +4,7 @@ date: 2026-05-02
 publishdate: 2026-05-05
 lastmod: 2026-05-16
 summary: "Why efficiency improvements in technology often increase total consumption rather than reduce it, and how leaders can anticipate and manage the inevitable rebound."
-tags: ["capacity", "management", "leadership"]
+tags: ["capacity", "management"]
 image: /images/jevons-paradox.jpg
 ---
 
@@ -36,7 +36,7 @@ Caching reduces database load by 80%. The freed database capacity gets used for 
 
 **The performance trap**. Figma reduced file load times by 33% for the slowest loads, but immediately increased server-side decoding load by 30%, requiring a separate infrastructure optimization to absorb the new demand (Figma Engineering, 2025a, 2025b).
 
-**The agentic AI paradox**. Cloudflare deployed a multi-agent AI code review system that automatically reviews every merge request. Within weeks, weekly merge volume increased from roughly 5,600 to over 8,700, with one week reaching 10,952 (Cloudflare, 2026a). The system ran 131,246 review cycles in a single month at a median cost of $0.98 per review (Cloudflare, 2026b). Review capacity was no longer the constraint on merge velocity.
+**The agentic AI paradox**. Cloudflare deployed a multi-agent AI code review system that automatically reviews every merge request. Within weeks, weekly merge volume increased from roughly 5,600 to over 8,700, with one week reaching 10,952 (Cloudflare, 2026). Review capacity was no longer the constraint on merge velocity.
 
 ## How to Manage Jevons Paradox
 
@@ -59,6 +59,16 @@ Caching reduces database load by 80%. The freed database capacity gets used for 
 - Data growth rates, not just storage costs
 - Feature usage patterns, not just feature performance
 
+## The Counterargument
+
+Jevons Paradox is not always a warning. In growth contexts, it describes the goal.
+
+When your API optimization drives 50x more traffic, that is the product working. New use cases becoming economically viable is how technology markets expand. Framing it as failure misidentifies the problem. The failure is not the rebound. It is planning for cost reduction when the goal was capacity.
+
+The paradox assumes unbounded demand. U.S. LED adoption eventually reduced total lighting electricity consumption despite LEDs being far more efficient than incandescent bulbs, because demand saturated. The rebound effect is strongest when the resource is a binding constraint on elastic demand. When demand is bounded by market size, human attention, or regulatory limits, rebound is partial.
+
+Plan for rebound when cost reduction is the goal. Expect and welcome it when growth is the goal.
+
 ## Put It Into Practice
 
 Jevons Paradox is not a failure mode. It is the predictable result of removing a constraint. Systems expand to fill new space (Meadows, 2008). Every optimization changes what is economically viable, and demand follows.
@@ -79,9 +89,7 @@ Sorrell, Steve (2009). "Jevons' Paradox revisited: The evidence for backfire." *
 
 Meadows, Donella H. (2008). *Thinking in Systems: A Primer*. White River Junction, VT: Chelsea Green Publishing. [https://www.chelseagreen.com/product/thinking-in-systems/](https://www.chelseagreen.com/product/thinking-in-systems/)
 
-Cloudflare (2026a). "The AI engineering stack we built internally — on the platform we ship." *Cloudflare Blog*, April 20. [https://blog.cloudflare.com/internal-ai-engineering-stack/](https://blog.cloudflare.com/internal-ai-engineering-stack/)
-
-Cloudflare (2026b). "Orchestrating AI code review at scale." *Cloudflare Blog*, April 20. [https://blog.cloudflare.com/ai-code-review/](https://blog.cloudflare.com/ai-code-review/)
+Cloudflare (2026). "The AI engineering stack we built internally — on the platform we ship." *Cloudflare Blog*, April 20. [https://blog.cloudflare.com/internal-ai-engineering-stack/](https://blog.cloudflare.com/internal-ai-engineering-stack/)
 
 Figma Engineering (2025a). "Speeding Up File Load Times, One Page At A Time." *Figma Engineering Blog*. [https://www.figma.com/blog/speeding-up-file-load-times-one-page-at-a-time/](https://www.figma.com/blog/speeding-up-file-load-times-one-page-at-a-time/)
 
@@ -101,9 +109,9 @@ Sellers, Scott (2025). "Why Cloud Efficiency is Driving More IT Spending, Not Le
 
 **Paradox.** From the Greek "paradoxon," where para means contrary to and doxa means opinion. Literally, contrary to expectation. Not a logical contradiction. Jevons Paradox fits that definition precisely.
 
-**Wirth's Law.** Niklaus Wirth observed that software gets slower faster than hardware gets faster. Hardware efficiency gains are absorbed by software bloat.
+**Wirth's Law.** Niklaus Wirth observed that software gets slower faster than hardware gets faster. Hardware efficiency gains are absorbed by software bloat. (Wirth, 1995)
 
-**The Katy Freeway.** Houston widened the Katy Freeway to 26 lanes to reduce congestion. Congestion got worse. Traffic engineers call this induced demand. Building more road capacity generates more traffic to fill it.
+**The Katy Freeway.** Houston widened the Katy Freeway to 26 lanes to reduce congestion. Congestion got worse. Traffic engineers call this induced demand. Building more road capacity generates more traffic to fill it. (Duranton and Turner, 2011)
 
 ---
 

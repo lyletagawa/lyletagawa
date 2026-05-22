@@ -4,7 +4,7 @@ date: 2026-04-30
 publishdate: 2026-05-02
 lastmod: 2026-05-16
 summary: "How John Boyd's OODA Loop (Observe, Orient, Decide, Act) applies to technology leadership, and practical strategies for eliminating the bottlenecks that slow your competitive cycles."
-tags: ["situational-awareness", "adaptation"]
+tags: ["adaptation", "awareness"]
 image: /images/ooda-loop.jpg
 ---
 

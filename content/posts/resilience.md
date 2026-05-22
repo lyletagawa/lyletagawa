@@ -3,7 +3,7 @@ title: "Resilience"
 date: 2019-10-30
 publishdate: 2019-10-30
 lastmod: 2026-05-01
-summary: "Your system passed every test. The redundancy was in place. Then something unexpected happened anyway. Resilience Engineering is the framework you can use to build systems that hold up when the unexpected is inevitable."
+summary: "Your system passed every test. Redundancy was in place. Then something unexpected happened anyway. Resilience Engineering is the framework for building systems that hold up when the unexpected is inevitable."
 tags: ["resilience", "safety", "capacity"]
 ---
 
@@ -136,4 +136,5 @@ Woods, D. D. (2015). [Four concepts for resilience and the implications for the 
 
 ## Changelog
 
-**2026-05-01:** Expanded from a notes-and-quotes format into a full article. Added sections on why complex software systems need resilience engineering, Hollnagel's four-capability framework (anticipation, monitoring, response, learning), practical applications, practitioner guidance, and common misconceptions. Removed the Goldratt, Bergström, and Dekker "Safety Differently" quotes.
+**2026-05-01:** Expanded from a notes-and-quotes format. Removed the Goldratt, Bergström, and Dekker "Safety Differently" quotes.
+**2019-10-30:** Initial publication.
