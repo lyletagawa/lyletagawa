@@ -13,7 +13,7 @@
       <pubDate>Thu, 25 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/chaos-engineering/</guid>
-      <description>Breaking things on purpose. Proactive resilience through controlled experimentation.</description>
+      <description>Chaos Engineering builds confidence in distributed systems by deliberately introducing failures before they occur on their own. The discipline shifts teams from reactive incident response to proactive resilience building.</description>
     </item>
     
   </channel>

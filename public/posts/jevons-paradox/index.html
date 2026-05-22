@@ -82,8 +82,6 @@
   
   | <a class="subtitle is-6" href="/tags/management/">#management</a>
   
-  | <a class="subtitle is-6" href="/tags/leadership/">#leadership</a>
-  
 
 
       
@@ -105,7 +103,7 @@
 <h2 id="how-it-manifests">How It Manifests</h2>
 <p><strong>The cloud cost spiral</strong>. Azul reported a cloud migration that reduced per-transaction costs by 42%, yet total cloud spend doubled over three years as they processed significantly more transactions and launched services that weren&rsquo;t viable before (Sellers, 2025).</p>
 <p><strong>The performance trap</strong>. Figma reduced file load times by 33% for the slowest loads, but immediately increased server-side decoding load by 30%, requiring a separate infrastructure optimization to absorb the new demand (Figma Engineering, 2025a, 2025b).</p>
-<p><strong>The agentic AI paradox</strong>. Cloudflare deployed a multi-agent AI code review system that automatically reviews every merge request. Within weeks, weekly merge volume increased from roughly 5,600 to over 8,700, with one week reaching 10,952 (Cloudflare, 2026a). The system ran 131,246 review cycles in a single month at a median cost of $0.98 per review (Cloudflare, 2026b). Review capacity was no longer the constraint on merge velocity.</p>
+<p><strong>The agentic AI paradox</strong>. Cloudflare deployed a multi-agent AI code review system that automatically reviews every merge request. Within weeks, weekly merge volume increased from roughly 5,600 to over 8,700, with one week reaching 10,952 (Cloudflare, 2026). Review capacity was no longer the constraint on merge velocity.</p>
 <h2 id="how-to-manage-jevons-paradox">How to Manage Jevons Paradox</h2>
 <p><strong>Plan for Rebound</strong>. When optimizing, assume consumption will increase, not decrease.</p>
 <ul>
@@ -126,6 +124,11 @@
 <li>Data growth rates, not just storage costs</li>
 <li>Feature usage patterns, not just feature performance</li>
 </ul>
+<h2 id="the-counterargument">The Counterargument</h2>
+<p>Jevons Paradox is not always a warning. In growth contexts, it describes the goal.</p>
+<p>When your API optimization drives 50x more traffic, that is the product working. New use cases becoming economically viable is how technology markets expand. Framing it as failure misidentifies the problem. The failure is not the rebound. It is planning for cost reduction when the goal was capacity.</p>
+<p>The paradox assumes unbounded demand. U.S. LED adoption eventually reduced total lighting electricity consumption despite LEDs being far more efficient than incandescent bulbs, because demand saturated. The rebound effect is strongest when the resource is a binding constraint on elastic demand. When demand is bounded by market size, human attention, or regulatory limits, rebound is partial.</p>
+<p>Plan for rebound when cost reduction is the goal. Expect and welcome it when growth is the goal.</p>
 <h2 id="put-it-into-practice">Put It Into Practice</h2>
 <p>Jevons Paradox is not a failure mode. It is the predictable result of removing a constraint. Systems expand to fill new space (Meadows, 2008). Every optimization changes what is economically viable, and demand follows.</p>
 <p>The question is not whether consumption will increase after your next optimization. It will. The question is whether you planned for it.</p>
@@ -136,8 +139,7 @@
 <p>Khazzoom, J. Daniel (1980). &ldquo;Economic Implications of Mandated Efficiency Standards.&rdquo; <em>The Energy Journal</em>, 1(4): 21-40. <a href="https://doi.org/10.5547/ISSN0195-6574-EJ-Vol1-No4-2">https://doi.org/10.5547/ISSN0195-6574-EJ-Vol1-No4-2</a></p>
 <p>Sorrell, Steve (2009). &ldquo;Jevons&rsquo; Paradox revisited: The evidence for backfire.&rdquo; <em>Energy Policy</em>, 37(4): 1456-1469. <a href="https://doi.org/10.1016/j.enpol.2008.09.056">https://doi.org/10.1016/j.enpol.2008.09.056</a></p>
 <p>Meadows, Donella H. (2008). <em>Thinking in Systems: A Primer</em>. White River Junction, VT: Chelsea Green Publishing. <a href="https://www.chelseagreen.com/product/thinking-in-systems/">https://www.chelseagreen.com/product/thinking-in-systems/</a></p>
-<p>Cloudflare (2026a). &ldquo;The AI engineering stack we built internally — on the platform we ship.&rdquo; <em>Cloudflare Blog</em>, April 20. <a href="https://blog.cloudflare.com/internal-ai-engineering-stack/">https://blog.cloudflare.com/internal-ai-engineering-stack/</a></p>
-<p>Cloudflare (2026b). &ldquo;Orchestrating AI code review at scale.&rdquo; <em>Cloudflare Blog</em>, April 20. <a href="https://blog.cloudflare.com/ai-code-review/">https://blog.cloudflare.com/ai-code-review/</a></p>
+<p>Cloudflare (2026). &ldquo;The AI engineering stack we built internally — on the platform we ship.&rdquo; <em>Cloudflare Blog</em>, April 20. <a href="https://blog.cloudflare.com/internal-ai-engineering-stack/">https://blog.cloudflare.com/internal-ai-engineering-stack/</a></p>
 <p>Figma Engineering (2025a). &ldquo;Speeding Up File Load Times, One Page At A Time.&rdquo; <em>Figma Engineering Blog</em>. <a href="https://www.figma.com/blog/speeding-up-file-load-times-one-page-at-a-time/">https://www.figma.com/blog/speeding-up-file-load-times-one-page-at-a-time/</a></p>
 <p>Figma Engineering (2025b). &ldquo;Supporting Faster File Load Times with Memory Optimizations in Rust.&rdquo; <em>Figma Engineering Blog</em>. <a href="https://www.figma.com/blog/supporting-faster-file-load-times-with-memory-optimizations-in-rust/">https://www.figma.com/blog/supporting-faster-file-load-times-with-memory-optimizations-in-rust/</a></p>
 <p>Forsgren, Nicole, et al. (2018). <em>Accelerate: The Science of Lean Software and DevOps</em>. Portland, OR: IT Revolution Press. <a href="https://itrevolution.com/product/accelerate/">https://itrevolution.com/product/accelerate/</a></p>
@@ -147,8 +149,8 @@
 <hr>
 <h2 id="outtakes">Outtakes</h2>
 <p><strong>Paradox.</strong> From the Greek &ldquo;paradoxon,&rdquo; where para means contrary to and doxa means opinion. Literally, contrary to expectation. Not a logical contradiction. Jevons Paradox fits that definition precisely.</p>
-<p><strong>Wirth&rsquo;s Law.</strong> Niklaus Wirth observed that software gets slower faster than hardware gets faster. Hardware efficiency gains are absorbed by software bloat.</p>
-<p><strong>The Katy Freeway.</strong> Houston widened the Katy Freeway to 26 lanes to reduce congestion. Congestion got worse. Traffic engineers call this induced demand. Building more road capacity generates more traffic to fill it.</p>
+<p><strong>Wirth&rsquo;s Law.</strong> Niklaus Wirth observed that software gets slower faster than hardware gets faster. Hardware efficiency gains are absorbed by software bloat. (Wirth, 1995)</p>
+<p><strong>The Katy Freeway.</strong> Houston widened the Katy Freeway to 26 lanes to reduce congestion. Congestion got worse. Traffic engineers call this induced demand. Building more road capacity generates more traffic to fill it. (Duranton and Turner, 2011)</p>
 <hr>
 <h2 id="changelog">Changelog</h2>
 <p><strong>2026-05-16</strong> Added Outtakes section. Removed Incentives, and IC guidance sections.<br>
@@ -168,8 +170,6 @@
 	<li><a href="/posts/team-topologies/">Team Topologies</a></li>
 	
 	<li><a href="/posts/resilience/">Resilience</a></li>
-	
-	<li><a href="/posts/turn-the-ship-around/">Turn the Ship Around!</a></li>
 	
 </ul>
 </div>
