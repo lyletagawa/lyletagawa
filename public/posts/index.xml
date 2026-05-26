@@ -6,14 +6,24 @@
     <description>Recent content in Posts on hi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 21 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Satisficing</title>
+      <link>https://lyletagawa.com/posts/satisficing/</link>
+      <pubDate>Mon, 25 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/satisficing/</guid>
+      <description>The best decision is often the fastest one you can defend, not the optimal one you never finish searching for.</description>
+      <media:content url="https://lyletagawa.com/images/satisficing.svg" medium="image" />
+    </item>
+    
     <item>
       <title>Alignment Over Authority</title>
       <link>https://lyletagawa.com/posts/influence-by-alignment/</link>
       <pubDate>Thu, 21 May 2026 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/influence-by-alignment/</guid>
-      <description>Authority is a shortcut. It works until it doesn&amp;rsquo;t. Here&amp;rsquo;s what scales instead.</description>
+      <description>Authority centralizes decisions with whoever has the title. Alignment distributes them to whoever has the context, which is almost never the same person.</description>
     </item>
     
     <item>

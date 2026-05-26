@@ -32,13 +32,13 @@ Organizations that iterate weekly learn 52 times per year. Those that iterate qu
 
 **Observation bottlenecks** emerge from poor instrumentation and siloed data. When teams lack visibility into production behavior, orientation suffers (Forsgren et al., 2018).
 
-**Orientation failures** come from cognitive biases and outdated mental models. Companies orient based on past success rather than current reality, creating blind spots (Argyris, 1977). Team Topologies demonstrates that cognitive load and communication structures impact how organizations orient to technical challenges (Skelton & Pais, 2019).
+**Orientation failures** come from cognitive biases and outdated mental models. Companies orient based on past success rather than current reality, creating blind spots (Argyris, 1977). Team Topologies demonstrates that cognitive load and communication structures impact how orgs orient to technical challenges (Skelton & Pais, 2019).
 
 **Decision paralysis** shows up in committee-driven processes and excessive risk aversion. Decision velocity correlates strongly with competitive advantage (Forsgren et al., 2018).
 
 **Action delays** result from deployment friction and technical debt. The DevOps Handbook shows how reducing batch sizes and automating pipelines directly impacts throughput (Kim et al., 2016).
 
-Each impediment multiplies cycle time. An organization that observes infrequently, orients poorly, decides cautiously, and acts slowly operates at a fraction of its potential velocity.
+Each impediment multiplies cycle time. An org that observes infrequently, orients poorly, decides cautiously, and acts slowly operates at a fraction of its potential velocity.
 
 ## Practical Applications for Tech Leadership
 
@@ -60,7 +60,7 @@ Each impediment multiplies cycle time. An organization that observes infrequentl
 
 The goal is not maximum speed but optimal tempo. Fast enough to stay ahead, disciplined enough to sustain it.
 
-Audit your organization's loop. Where do observations get delayed? What distorts orientation? What causes decision paralysis? What impedes action? Each impediment is an opportunity. Eliminate them, one cycle at a time.
+Audit your org's loop. Where do observations get delayed? What distorts orientation? What causes decision paralysis? What impedes action? Each impediment is an opportunity. Eliminate them, one cycle at a time.
 
 ---
 

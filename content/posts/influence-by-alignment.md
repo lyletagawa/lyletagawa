@@ -3,7 +3,7 @@ title: "Alignment Over Authority"
 date: 2026-05-21
 publishdate: 2026-05-21
 lastmod: 2026-05-21
-summary: "Authority is a shortcut. It works until it doesn't. Here's what scales instead."
+summary: "Authority centralizes decisions with whoever has the title. Alignment distributes them to whoever has the context, which is almost never the same person."
 tags: ["leadership", "intent", "influence"]
 image:
 draft: false
@@ -11,7 +11,7 @@ draft: false
 
 ## Alignment Over Authority
 
-You've been promoted to Staff Engineer. No direct reports, no budget, no formal authority. Yet you're expected to drive technical direction and influence across the organization.
+You've been promoted to Staff Engineer. No direct reports, no budget, no formal authority. Yet you're expected to drive technical direction and influence across the org.
 
 Or you're a Director of Engineering. You have authority over your team, but the critical decisions require buy-in from Product, Infrastructure, Security, and three other engineering teams you don't control. Your org chart says you're in charge. Reality says otherwise.
 
@@ -31,7 +31,7 @@ Alignment is not consensus (everyone agrees), democracy (everyone votes), or com
 
 **Speed.** Authority requires escalation. Alignment enables local decision-making. Marquet's transformation of the Santa Fe reduced decision latency from hours to minutes by pushing decisions to crew members with the most context (Marquet, 2012).
 
-**Quality.** Authority centralizes decisions with people who have less context. The engineer debugging the production incident knows more than the VP. The IC who built the system understands constraints better than the architect (Fournier, 2017). High-performing organizations distribute decisions to where context lives, enabling autonomous teams through shared goals rather than central control (Kim et al., 2016).
+**Quality.** Authority centralizes decisions with people who have less context. The engineer debugging the production incident knows more than the VP. The IC who built the system understands constraints better than the architect (Fournier, 2017). High-performing orgs distribute decisions to where context lives, enabling autonomous teams through shared goals rather than central control (Kim et al., 2016).
 
 **Scale.** A director with authority is a bottleneck for 50 people. A director who creates alignment enables those same 50 people to make good decisions independently, in parallel. Authority doesn't scale. Alignment does.
 
@@ -43,7 +43,7 @@ Alignment is not consensus (everyone agrees), democracy (everyone votes), or com
 
 **Make decision frameworks explicit.** Strategy isn't goals. It's the framework for making trade-offs (Rumelt, 2011). Give people the criteria, not just the conclusion. "We prioritize maintainability over performance unless data shows it's a user-facing problem."
 
-**Write for rooms you're not in.** Senior ICs build influence without authority by making their thinking legible at scale. A technical vision document or architecture proposal travels further than you can — it carries your reasoning to teams you'll never meet with directly (Larson, 2021). If people need you in the room to understand the direction, you haven't created alignment yet.
+**Write for rooms you're not in.** Senior ICs build influence without authority by making their thinking legible at scale. A technical vision document or architecture proposal carries your reasoning to teams you'll never meet with directly (Larson, 2021). If people need you in the room to understand the direction, you haven't created alignment yet.
 
 **Document decisions and reasoning.** Every significant decision should capture what was decided, why, what alternatives were considered, and what would make you revisit it. This creates institutional memory so new team members can make decisions the team would have made. Without it, organizational knowledge lives only in the heads of long-tenured employees, and alignment erodes as teams change (McChrystal et al., 2015).
 

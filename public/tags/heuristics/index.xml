@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>heuristics on hi</title>
+    <link>https://lyletagawa.com/tags/heuristics/</link>
+    <description>Recent content in heuristics on hi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 25 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/heuristics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Satisficing</title>
+      <link>https://lyletagawa.com/posts/satisficing/</link>
+      <pubDate>Mon, 25 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/satisficing/</guid>
+      <description>The best decision is often the fastest one you can defend, not the optimal one you never finish searching for.</description>
+      <media:content url="https://lyletagawa.com/images/satisficing.svg" medium="image" />
+    </item>
+    
+  </channel>
+</rss>
