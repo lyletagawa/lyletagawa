@@ -1,0 +1,26 @@
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="500" fill="#FFFFFF"/>
+
+  <!-- Off-path edges (dashed) -->
+  <line x1="130" y1="318" x2="310" y2="178" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="7,5"/>
+  <line x1="310" y1="178" x2="490" y2="178" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="7,5"/>
+  <line x1="490" y1="178" x2="670" y2="318" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="7,5"/>
+
+  <!-- Critical path edges (solid) -->
+  <line x1="130" y1="318" x2="310" y2="318" stroke="#475569" stroke-width="3"/>
+  <line x1="310" y1="318" x2="490" y2="318" stroke="#475569" stroke-width="3"/>
+  <line x1="490" y1="318" x2="670" y2="318" stroke="#475569" stroke-width="3"/>
+
+  <!-- Off-path nodes (open) -->
+  <circle cx="310" cy="178" r="24" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2.5"/>
+  <circle cx="490" cy="178" r="24" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2.5"/>
+
+  <!-- Critical path nodes (filled) -->
+  <circle cx="130" cy="318" r="24" fill="#475569"/>
+  <circle cx="310" cy="318" r="24" fill="#475569"/>
+  <circle cx="490" cy="318" r="24" fill="#475569"/>
+  <circle cx="670" cy="318" r="24" fill="#475569"/>
+
+  <!-- Label -->
+  <text x="400" y="432" text-anchor="middle" font-family="'SF Mono', 'Fira Code', monospace" font-size="11" fill="#CBD5E1" letter-spacing="3">CRITICAL PATH</text>
+</svg>

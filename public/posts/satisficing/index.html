@@ -75,12 +75,10 @@
     <div class="subtitle tags is-6 is-pulled-right">
       
       
-<a class="subtitle is-6" href="/tags/productivity/">#productivity</a>
+<a class="subtitle is-6" href="/tags/decision/">#decision</a>
 
 
 
-  
-  | <a class="subtitle is-6" href="/tags/decision/">#decision</a>
   
   | <a class="subtitle is-6" href="/tags/heuristics/">#heuristics</a>
   
@@ -90,25 +88,24 @@
     </div>
     
     <div class="content">
-      <h6 class="subtitle is-6 date" style="line-height:0em">May. 25, 2026 &middot; 6 min read</h6>
+      <h6 class="subtitle is-6 date" style="line-height:0em">May. 26, 2026 &middot; 6 min read</h6>
       <h2 id="satisficing">Satisficing</h2>
 <p>The decision was supposed to take a week. It&rsquo;s been six. The engineer keeps finding new angles. Community support. Licensing terms. How each option handles backpressure. What the migration story looks like in two years. The comparison doc has twelve tabs. Nobody&rsquo;s asking for an update anymore. They&rsquo;ve stopped expecting one.</p>
 <p>This is what happens when you start a search without deciding when it ends.</p>
 <h2 id="what-is-satisficing">What Is Satisficing?</h2>
-<p>Herbert Simon named it in 1956, a blend of &ldquo;satisfying&rdquo; and &ldquo;sufficing&rdquo; (Simon, 1956). The claim is simple. People don&rsquo;t actually optimize. They set a threshold, find the first option that clears it, then stops. Simon called that threshold an aspiration level.</p>
-<p>Simon called this bounded rationality. We don&rsquo;t have unlimited time or perfect information, so hunting for the objectively best option is often irrational. At some point, continuing the search costs more than finding something marginally better would be worth (Simon, 1955). Simon won the Nobel Prize in Economics in 1978 for this work (Nobel Prize Committee, 1978).</p>
-<p>The key word is threshold, not low bar. The threshold can be demanding. Simon&rsquo;s insight cuts against the assumption that longer deliberation produces better outcomes. Past a certain point, more analysis is just delay dressed up as diligence. The responsible choice isn&rsquo;t the most exhaustive one. It&rsquo;s the first one that clears a well-defined bar.</p>
+<p>Herbert Simon named it in 1956, a blend of &ldquo;satisfying&rdquo; and &ldquo;sufficing&rdquo; (Simon, 1956). The claim is that people don&rsquo;t actually optimize. They set a threshold, find the first option that clears it, then stop. Simon called that threshold an aspiration level.</p>
+<p>We don&rsquo;t have unlimited time or perfect information, so hunting for the objectively best option is often irrational. At some point, continuing the search costs more than the value of finding something marginally better (Simon, 1955). Simon won the Nobel Prize in Economics in 1978 for this work (Nobel Prize Committee, 1978).</p>
+<p>The key word is threshold, not low bar. The threshold can be demanding. But past a certain point, more analysis is just delay dressed up as diligence. The responsible choice isn&rsquo;t the most exhaustive one. It&rsquo;s the first one that clears a well-defined bar.</p>
 <h2 id="searching-isnt-free">Searching Isn&rsquo;t Free</h2>
 <p>Classical decision theory says to keep evaluating until you find the best option. Satisficing says to keep evaluating until something clears the bar, then stop. Those two strategies have different costs, and the first one treats the search as free.</p>
 <p>It isn&rsquo;t.</p>
-<p>If the evaluation takes six weeks, that&rsquo;s six weeks of engineering time, delayed roadmap items, and a team that&rsquo;s built up zero momentum. If most of those options would&rsquo;ve worked fine, the extra five weeks didn&rsquo;t produce five weeks of value. They produced a marginal improvement over a decision that could&rsquo;ve been made in week one. In uncertain environments, good-enough strategies often beat exhaustive ones anyway. The future is too unpredictable to fully optimize against (Gigerenzer and Todd, 1999). More analysis creates the feeling of certainty. It doesn&rsquo;t produce it.</p>
-<p>Write the threshold down before you look at anything. &ldquo;Handles 10k requests per second, p99 under 200ms, active community support.&rdquo; When something clears it, you&rsquo;re done. Not when you&rsquo;ve evaluated everything. When something clears it.</p>
+<p>If the evaluation takes six weeks, that&rsquo;s six weeks of engineering time, delayed roadmap items, and a team that&rsquo;s built up zero momentum. If most of those options would&rsquo;ve worked fine, the extra five weeks didn&rsquo;t produce five weeks of value. They produced a marginal improvement over a decision that could&rsquo;ve been made in week one. In uncertain environments, good-enough strategies often beat exhaustive ones anyway. The future is too unpredictable to fully optimize against (Gigerenzer and Todd, 1999).</p>
 <h2 id="where-it-shows-up">Where It Shows Up</h2>
-<p><strong>Technology selection.</strong> The canonical case. There&rsquo;s always another framework to benchmark, another blog post to read, another edge case to account for. Without a defined threshold, the evaluation has no natural end. It keeps expanding.</p>
+<p><strong>Technology selection.</strong> There&rsquo;s always another framework to benchmark, another blog post to read, another edge case to account for. Without a defined threshold, the evaluation has no natural end. It keeps expanding.</p>
 <p><strong>Architecture decisions.</strong> Monolith vs. microservices, synchronous vs. async, managed vs. self-hosted. These involve trade-offs that depend on things you genuinely can&rsquo;t know yet. More analysis doesn&rsquo;t close that gap. It delays the decision while the gap stays open.</p>
 <p><strong>Code review.</strong> A reviewer who treats every PR as an optimization problem leaves fifty comments on a three-line change. Most of those comments improve the code marginally. The real cost is back-and-forth, context switching, and a slower pipeline. &ldquo;Good enough to ship&rdquo; is a legitimate standard.</p>
 <p><strong>Hiring.</strong> Teams that can&rsquo;t define what &ldquo;good enough&rdquo; looks like for a role keep interviewing indefinitely. Meanwhile, strong candidates accept offers elsewhere.</p>
-<p>Maximizers, people who always search for the best, make objectively better choices on measurable criteria. They also report more regret and less satisfaction than satisficers, even after making the better choice (Schwartz, 2004). More searching doesn&rsquo;t produce better decisions. It produces more second-guessing.</p>
+<p>Maximizers, people who always search for the best, make objectively better choices on measurable criteria. But they also report more regret and less satisfaction than satisficers, even after making the better choice (Schwartz, 2004). More searching doesn&rsquo;t produce better decisions. It produces more second-guessing.</p>
 <h2 id="common-mistakes">Common Mistakes</h2>
 <p><strong>Treating it as settling.</strong> Settling means accepting something below your threshold. Satisficing means defining the threshold clearly and stopping when you clear it. The threshold can be demanding. The point is that it exists, and that you wrote it down before you started. Stopping at the first thing that clears a high bar isn&rsquo;t cutting corners. It&rsquo;s exactly what you set out to do.</p>
 <p><strong>Starting without a threshold.</strong> If you don&rsquo;t define &ldquo;good enough&rdquo; before you look at the first option, you&rsquo;ll never know when to stop. Each new option shifts the reference point. The search extends. That&rsquo;s not satisficing. That&rsquo;s browsing.</p>
@@ -122,15 +119,15 @@
 <h2 id="references">References</h2>
 <p>Gigerenzer, Gerd and Peter M. Todd (1999). <em>Simple Heuristics That Make Us Smart</em>. Oxford University Press. <a href="https://global.oup.com/academic/product/simple-heuristics-that-make-us-smart-9780195143812">https://global.oup.com/academic/product/simple-heuristics-that-make-us-smart-9780195143812</a></p>
 <p>Nobel Prize Committee (1978). &ldquo;The Prize in Economic Sciences 1978.&rdquo; <em>Nobel Prize</em>. <a href="https://www.nobelprize.org/prizes/economic-sciences/1978/simon/facts/">https://www.nobelprize.org/prizes/economic-sciences/1978/simon/facts/</a></p>
-<p>Schwartz, Barry (2004). <em>The Paradox of Choice: Why More Is Less</em>. Ecco. <a href="https://www.harpercollins.com/products/the-paradox-of-choice-barry-schwartz-9780060005696">https://www.harpercollins.com/products/the-paradox-of-choice-barry-schwartz-9780060005696</a></p>
+<p>Schwartz, Barry (2004). <em>The Paradox of Choice: Why More Is Less</em>. Ecco. <a href="https://en.wikipedia.org/wiki/The_Paradox_of_Choice">https://en.wikipedia.org/wiki/The_Paradox_of_Choice</a></p>
 <p>Simon, Herbert A. (1955). &ldquo;A Behavioral Model of Rational Choice.&rdquo; <em>Quarterly Journal of Economics</em>, 69(1): 99-118. <a href="https://academic.oup.com/qje/article-abstract/69/1/99/1919737">https://academic.oup.com/qje/article-abstract/69/1/99/1919737</a></p>
 <p>Simon, Herbert A. (1956). &ldquo;Rational Choice and the Structure of the Environment.&rdquo; <em>Psychological Review</em>, 63(2): 129-138. <a href="https://pages.ucsd.edu/~mckenzie/Simon1956PsychReview.pdf">https://pages.ucsd.edu/~mckenzie/Simon1956PsychReview.pdf</a></p>
 <p>Thumbnail SVG generated with <a href="https://claude.ai/code">Claude Code</a> (2026).</p>
 <hr>
 <h2 id="outtakes">Outtakes</h2>
 <p><strong>The perfect is the enemy of the good.</strong> Voltaire wrote &ldquo;la perfection est l&rsquo;ennemi du bien&rdquo; in his <em>Dictionnaire philosophique</em> in 1764 (Voltaire, 1764), nearly two centuries before Herbert Simon formalized the same idea as satisficing. Simon gave it a mechanism and a name. Voltaire gave it eleven words.</p>
-<p><strong>The grandmaster who considered fewer moves.</strong> In the early 1970s, Herbert Simon and William Chase studied how chess grandmasters think (Chase and Simon, 1973). They expected grandmasters to consider more moves than beginners. They found the opposite. Pattern recognition let grandmasters ignore most possibilities immediately. They searched until a move cleared a threshold, then stopped. The best players in the world weren&rsquo;t optimizing. They were satisficing faster than anyone else.</p>
-<p><strong>The WD-40 that wasn&rsquo;t the best.</strong> WD-40 was developed in 1953 for aerospace. The name means water displacement, 40th attempt. Chemists tried 39 formulations before one worked. They stopped. Nobody looked for the 41st. Mechanics at Convair started taking it home for squeaky hinges. The company noticed and put it in a can. It now sells in 176 countries. The optimal formulation is still undiscovered.</p>
+<p><strong>The grandmaster who considered fewer moves.</strong> In the early 1970s, Herbert Simon and William Chase studied how chess grandmasters think (Chase and Simon, 1973). They expected grandmasters to consider more moves than beginners. They found the opposite. Pattern recognition let grandmasters ignore most possibilities immediately. They searched until a move cleared a threshold, then stopped.</p>
+<p><strong>The WD-40 that wasn&rsquo;t the best.</strong> WD-40 was developed in 1953 for aerospace. The name means water displacement, 40th attempt. Chemists tried 39 formulations before one worked. They stopped. Nobody looked for the 41st. Mechanics at Convair started taking it home for squeaky hinges. The company noticed and put it in a can.</p>
 <hr>
 <h2 id="changelog">Changelog</h2>
 <p><strong>2026-05-26</strong> Initial release.</p>

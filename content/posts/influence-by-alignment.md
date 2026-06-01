@@ -9,6 +9,9 @@ image:
 draft: false
 ---
 
+![](/images/influence-by-alignment.jpg)
+*Photo: U.S. Indo-Pacific Command (2017). USS Santa Fe (SSN-763). CC BY-NC-ND 2.0.*
+
 ## Alignment Over Authority
 
 You've been promoted to Staff Engineer. No direct reports, no budget, no formal authority. Yet you're expected to drive technical direction and influence across the org.
@@ -23,13 +26,13 @@ Alignment means everyone understands the goal, the constraints, and the reasonin
 
 David Marquet documented the transformation of the USS Santa Fe from the fleet's worst submarine to its best by replacing the "leader-follower" model with "leader-leader" (Marquet, 2012). Instead of issuing orders, he trained crew members to say "I intend to..." and explain their reasoning. This required alignment around goals and decision frameworks, not just commands.
 
-Stanley McChrystal documented this in *Team of Teams*. Distributed teams made decisions the commander would have made and without asking permission, because they understood the intent (McChrystal et al., 2015). Simon Sinek documented this for business audiences. People follow leaders who articulate purpose, not those who wield positional power (Sinek, 2009).
+Distributed teams in McChrystal's *Team of Teams* made decisions the commander would have made without asking permission, because they understood the intent (McChrystal et al., 2015). Simon Sinek found the same pattern in business. People follow leaders who articulate purpose, not those who wield positional power (Sinek, 2009).
 
 Alignment is not consensus (everyone agrees), democracy (everyone votes), or compromise (everyone gets something). It's shared understanding that enables independent action.
 
 ## Why Alignment Scales
 
-**Speed.** Authority requires escalation. Alignment enables local decision-making. Marquet's transformation of the Santa Fe reduced decision latency from hours to minutes by pushing decisions to crew members with the most context (Marquet, 2012).
+**Speed.** Authority requires escalation, but alignment enables local decision-making. Marquet's transformation of the Santa Fe reduced decision latency from hours to minutes by pushing decisions to crew members with the most context (Marquet, 2012).
 
 **Quality.** Authority centralizes decisions with people who have less context. The engineer debugging the production incident knows more than the VP. The IC who built the system understands constraints better than the architect (Fournier, 2017). High-performing orgs distribute decisions to where context lives, enabling autonomous teams through shared goals rather than central control (Kim et al., 2016).
 
@@ -39,7 +42,7 @@ Alignment is not consensus (everyone agrees), democracy (everyone votes), or com
 
 ## How to Build It
 
-**Articulate the why.** Most technical communication focuses on what and how. Alignment requires why. Marquet trained crew members to state their intent and reasoning before acting (Marquet, 2012). In practice, don't announce "we're moving to Kubernetes." Explain that current deployments require three hours of manual coordination per release, and the goal is deployment independence even at the cost of initial complexity.
+**Articulate the why.** Most technical communication focuses on what and how, but alignment requires why. Marquet trained crew members to state their intent and reasoning before acting (Marquet, 2012). In practice, don't announce "we're moving to Kubernetes." Explain that current deployments require three hours of manual coordination per release, and the goal is deployment independence even at the cost of initial complexity.
 
 **Make decision frameworks explicit.** Strategy isn't goals. It's the framework for making trade-offs (Rumelt, 2011). Give people the criteria, not just the conclusion. "We prioritize maintainability over performance unless data shows it's a user-facing problem."
 
@@ -59,11 +62,11 @@ Alignment is not consensus (everyone agrees), democracy (everyone votes), or com
 
 **Skipping the why.** Announcing decisions without explaining reasoning produces the appearance of alignment. Six months later, teams make choices that contradict the original intent because they understood what to do but not why.
 
-**Treating alignment as a one-time event.** Alignment decays faster than people expect. Context changes, people turn over, strategy shifts. Teams that aligned around a decision two years ago may be operating on obsolete assumptions today. Re-alignment needs to be a recurring practice, not a kickoff meeting artifact.
+**Treating alignment as a one-time event.** Alignment decays faster than people expect as context changes, people turn over, and strategy shifts. Teams that aligned around a decision two years ago may be operating on obsolete assumptions today. Re-alignment needs to be a recurring practice, not a kickoff meeting artifact.
 
 ## Put It Into Practice
 
-Authority is a shortcut. It lets you make decisions quickly without building understanding. But shortcuts have costs. Slower execution over time, lower-quality decisions, resentment, dependency. Alignment is slower to build and faster to scale.
+Authority is a shortcut that lets you make decisions quickly without building understanding, but shortcuts have costs. Slower execution over time, lower-quality decisions, resentment, dependency. Alignment is slower to build and faster to scale.
 
 The test is simple. Could your team operate effectively without you present? If not, you've built dependency, not alignment. Marquet's crew went on to command positions at unprecedented rates because they learned to think like leaders, not followers (Marquet, 2012).
 
@@ -88,6 +91,8 @@ McChrystal, Stanley, et al. (2015). *Team of Teams: New Rules of Engagement for 
 Rumelt, Richard (2011). *Good Strategy Bad Strategy: The Difference and Why It Matters*. New York: Crown Business. [https://www.penguinrandomhouse.com/books/208668/good-strategy-bad-strategy-by-richard-rumelt/](https://www.penguinrandomhouse.com/books/208668/good-strategy-bad-strategy-by-richard-rumelt/)
 
 Sinek, Simon (2009). *Start with Why: How Great Leaders Inspire Everyone to Take Action*. New York: Portfolio. [https://simonsinek.com/books/start-with-why/](https://simonsinek.com/books/start-with-why/)
+
+U.S. Indo-Pacific Command (2017). "USS Santa Fe returns to Pearl Harbor." Flickr. CC BY-NC-ND 2.0. [https://www.flickr.com/photos/us-pacific-command/36465016822](https://www.flickr.com/photos/us-pacific-command/36465016822)
 
 ---
 

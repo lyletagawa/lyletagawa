@@ -4,10 +4,13 @@ date: 2026-05-26
 publishdate: 2026-05-26
 lastmod: 2026-05-26
 summary: "The best decision is often the fastest one you can defend, not the optimal one you never finish searching for."
-tags: ["productivity", "decision", "heuristics"]
-image: /images/satisficing.svg
+tags: ["decision", "heuristics"]
+image: 
 draft: false
 ---
+
+![](/images/satisficing.jpg)
+*Shopping on Aisle Eight. Photo: arbyreed (2016). CC BY-NC-SA 2.0.*
 
 ## Satisficing
 
@@ -17,11 +20,11 @@ This is what happens when you start a search without deciding when it ends.
 
 ## What Is Satisficing?
 
-Herbert Simon named it in 1956, a blend of "satisfying" and "sufficing" (Simon, 1956). The claim is simple. People don't actually optimize. They set a threshold, find the first option that clears it, then stops. Simon called that threshold an aspiration level.
+Herbert Simon named it in 1956, a blend of "satisfying" and "sufficing" (Simon, 1956). The claim is that people don't actually optimize. They set a threshold, find the first option that clears it, then stop. Simon called that threshold an aspiration level.
 
-Simon called this bounded rationality. We don't have unlimited time or perfect information, so hunting for the objectively best option is often irrational. At some point, continuing the search costs more than finding something marginally better would be worth (Simon, 1955). Simon won the Nobel Prize in Economics in 1978 for this work (Nobel Prize Committee, 1978).
+We don't have unlimited time or perfect information, so hunting for the objectively best option is often irrational. At some point, continuing the search costs more than the value of finding something marginally better (Simon, 1955). Simon won the Nobel Prize in Economics in 1978 for this work (Nobel Prize Committee, 1978).
 
-The key word is threshold, not low bar. The threshold can be demanding. Simon's insight cuts against the assumption that longer deliberation produces better outcomes. Past a certain point, more analysis is just delay dressed up as diligence. The responsible choice isn't the most exhaustive one. It's the first one that clears a well-defined bar.
+The key word is threshold, not low bar. The threshold can be demanding. But past a certain point, more analysis is just delay dressed up as diligence. The responsible choice isn't the most exhaustive one. It's the first one that clears a well-defined bar.
 
 ## Searching Isn't Free
 
@@ -29,13 +32,11 @@ Classical decision theory says to keep evaluating until you find the best option
 
 It isn't.
 
-If the evaluation takes six weeks, that's six weeks of engineering time, delayed roadmap items, and a team that's built up zero momentum. If most of those options would've worked fine, the extra five weeks didn't produce five weeks of value. They produced a marginal improvement over a decision that could've been made in week one. In uncertain environments, good-enough strategies often beat exhaustive ones anyway. The future is too unpredictable to fully optimize against (Gigerenzer and Todd, 1999). More analysis creates the feeling of certainty. It doesn't produce it.
-
-Write the threshold down before you look at anything. "Handles 10k requests per second, p99 under 200ms, active community support." When something clears it, you're done. Not when you've evaluated everything. When something clears it.
+If the evaluation takes six weeks, that's six weeks of engineering time, delayed roadmap items, and a team that's built up zero momentum. If most of those options would've worked fine, the extra five weeks didn't produce five weeks of value. They produced a marginal improvement over a decision that could've been made in week one. In uncertain environments, good-enough strategies often beat exhaustive ones anyway. The future is too unpredictable to fully optimize against (Gigerenzer and Todd, 1999).
 
 ## Where It Shows Up
 
-**Technology selection.** The canonical case. There's always another framework to benchmark, another blog post to read, another edge case to account for. Without a defined threshold, the evaluation has no natural end. It keeps expanding.
+**Technology selection.** There's always another framework to benchmark, another blog post to read, another edge case to account for. Without a defined threshold, the evaluation has no natural end. It keeps expanding.
 
 **Architecture decisions.** Monolith vs. microservices, synchronous vs. async, managed vs. self-hosted. These involve trade-offs that depend on things you genuinely can't know yet. More analysis doesn't close that gap. It delays the decision while the gap stays open.
 
@@ -43,7 +44,7 @@ Write the threshold down before you look at anything. "Handles 10k requests per 
 
 **Hiring.** Teams that can't define what "good enough" looks like for a role keep interviewing indefinitely. Meanwhile, strong candidates accept offers elsewhere.
 
-Maximizers, people who always search for the best, make objectively better choices on measurable criteria. They also report more regret and less satisfaction than satisficers, even after making the better choice (Schwartz, 2004). More searching doesn't produce better decisions. It produces more second-guessing.
+Maximizers, people who always search for the best, make objectively better choices on measurable criteria. But they also report more regret and less satisfaction than satisficers, even after making the better choice (Schwartz, 2004). More searching doesn't produce better decisions. It produces more second-guessing.
 
 ## Common Mistakes
 
@@ -67,6 +68,8 @@ For recurring decisions like code review and sprint planning, agree on the thres
 
 ## References
 
+arbyreed (2016). "Shopping on Aisle Eight." Flickr. CC BY-NC-SA 2.0. [https://www.flickr.com/photos/19779889@N00/28347664145](https://www.flickr.com/photos/19779889@N00/28347664145)
+
 Gigerenzer, Gerd and Peter M. Todd (1999). *Simple Heuristics That Make Us Smart*. Oxford University Press. [https://global.oup.com/academic/product/simple-heuristics-that-make-us-smart-9780195143812](https://global.oup.com/academic/product/simple-heuristics-that-make-us-smart-9780195143812)
 
 Nobel Prize Committee (1978). "The Prize in Economic Sciences 1978." *Nobel Prize*. [https://www.nobelprize.org/prizes/economic-sciences/1978/simon/facts/](https://www.nobelprize.org/prizes/economic-sciences/1978/simon/facts/)
@@ -85,9 +88,9 @@ Thumbnail SVG generated with [Claude Code](https://claude.ai/code) (2026).
 
 **The perfect is the enemy of the good.** Voltaire wrote "la perfection est l'ennemi du bien" in his *Dictionnaire philosophique* in 1764 (Voltaire, 1764), nearly two centuries before Herbert Simon formalized the same idea as satisficing. Simon gave it a mechanism and a name. Voltaire gave it eleven words.
 
-**The grandmaster who considered fewer moves.** In the early 1970s, Herbert Simon and William Chase studied how chess grandmasters think (Chase and Simon, 1973). They expected grandmasters to consider more moves than beginners. They found the opposite. Pattern recognition let grandmasters ignore most possibilities immediately. They searched until a move cleared a threshold, then stopped. The best players in the world weren't optimizing. They were satisficing faster than anyone else.
+**The grandmaster who considered fewer moves.** In the early 1970s, Herbert Simon and William Chase studied how chess grandmasters think (Chase and Simon, 1973). They expected grandmasters to consider more moves than beginners. They found the opposite. Pattern recognition let grandmasters ignore most possibilities immediately. They searched until a move cleared a threshold, then stopped.
 
-**The WD-40 that wasn't the best.** WD-40 was developed in 1953 for aerospace. The name means water displacement, 40th attempt. Chemists tried 39 formulations before one worked. They stopped. Nobody looked for the 41st. Mechanics at Convair started taking it home for squeaky hinges. The company noticed and put it in a can. It now sells in 176 countries. The optimal formulation is still undiscovered.
+**The WD-40 that wasn't the best.** WD-40 was developed in 1953 for aerospace. The name means water displacement, 40th attempt. Chemists tried 39 formulations before one worked. They stopped. Nobody looked for the 41st. Mechanics at Convair started taking it home for squeaky hinges. The company noticed and put it in a can.
 
 ---
 

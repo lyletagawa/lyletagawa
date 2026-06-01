@@ -1,3 +1,8 @@
+---
+description: Author a new Hugo blog post or edit an existing one. Enforces voice, style, citation, and structure rules.
+argument-hint: "[topic] or [path to existing post]"
+---
+
 # Blog Post
 
 Author a new Hugo blog post or edit an existing one. Follow all rules below precisely.
@@ -11,17 +16,22 @@ Author a new Hugo blog post or edit an existing one. Follow all rules below prec
 - Prefer active voice. Passive voice distances the reader.
 - Sentence fragments are fine for emphasis. Use them deliberately.
 - Simple sentence structure. One idea per sentence. Short sentences are better.
-- Vary sentence length for rhythm, but default short.
+- Vary sentence length for rhythm.
+- Minimize consecutive short sentences. Three or more in a row feels staccato. Break the pattern with a longer sentence or by combining ideas.
 - No em-dashes, en-dashes, or semicolons. Rewrite to avoid them.
+- Use straight quotation marks (`"`) and straight apostrophes (`'`). Never use curly/smart quotes (`"` `"` `'` `'`).
 - Minimize colons in prose. Don't use a colon to introduce a list when a new sentence or fragments work better. "The cost is real. Back-and-forth, context switching, a slower pipeline." beats "The cost is real: back-and-forth, context switching, pipeline slowdown." Colons in frontmatter and References formatting are fine.
 - No emoji.
 - No rhetorical questions used as section openers or transitions.
 - No filler phrases: "it's worth noting," "it's important to remember," "in other words," "at the end of the day," "needless to say," "this is crucial."
+- Banned phrases: "is a testament," "underscores its importance/significance," "reflects broader," "symbolizing its ongoing/enduring/lasting," "setting the stage for," "marking/shaping the," "represents/marks a shift," "key turning point," "evolving landscape," "focal point," "indelible mark," "deeply rooted," "a vital/significant/crucial/pivotal/key role/moment," "boasts," "bolstered," "fostering," "garner," "interplay," "intricacies," "tapestry," "vibrant."
 - No hedging language: "somewhat," "rather," "quite," "very," "fairly."
 - No meta-commentary about the article itself ("this article explores," "we will examine," "as discussed above").
 - No academic register: avoid "it can be observed," "this suggests," "one might argue," "the literature indicates." Say the thing directly.
 - Avoid lead-ins that introduce citations like footnotes: "Research by X shows that..." or "According to X..." — fold the person into the sentence naturally or state the finding and cite it inline.
+- Avoid vague attributions and overgeneralizations: "many experts believe," "researchers agree," "some argue," "critics say," "people often think," "it is widely accepted." Name the source or cut the attribution.
 - Assertions must be backed by an embedded inline citation in the format (Author, Year). All cited works must appear in the References section with a valid URL.
+- Never include tracking parameters in URLs: strip `utm_source=`, `utm_medium=`, `utm_campaign=`, `utm_term=`, `utm_content=`, and `referrer=` query arguments before using any URL.
 - Avoid patterns that read as AI-generated: excessive parallelism in bullet lists, transitions that summarize what was just said, conclusions that restate the introduction verbatim, overly formal academic language.
 
 ### Structure
@@ -124,7 +134,9 @@ Regardless of title: 2–3 tight paragraphs maximum. End with a direct, specific
 ### Editing an existing post
 1. Read the file before making any changes.
 2. Apply the same writing rules above to all edits — voice, style, structure, citation, and word count constraints apply regardless of whether content is new or revised.
-3. After editing, update `lastmod` in the frontmatter to today's date.
-4. Add a Changelog entry describing the change: `**YYYY-MM-DD** Brief description.  ` (include the trailing whitespace)
-5. Re-verify the full rule checklist: word count 1,000–1,250, no em-dashes or en-dashes or semicolons, all assertions cited, all citations in References with URLs.
-6. Report word count and any rule violations found.
+3. Do a tightening pass: cut filler and redundant phrases, remove LLM-cliché transitions (e.g. "in conclusion," "it's worth noting," "it's important to remember"), and shorten without changing meaning.
+4. Do a consistency pass: confirm all reference URLs are valid, confirm every factual assertion has an inline citation, confirm assertions are consistent with the evidence presented in the article, confirm that any example used more than once is described consistently each time.
+5. After editing, update `lastmod` in the frontmatter to today's date.
+6. Add a Changelog entry describing the change: `**YYYY-MM-DD** Brief description.  ` (include the trailing whitespace)
+7. Re-verify the full rule checklist: word count 800–1,100, no em-dashes or en-dashes or semicolons, all assertions cited, all citations in References with URLs.
+8. Report word count before and after, and any rule violations found.
