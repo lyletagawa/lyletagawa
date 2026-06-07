@@ -6,7 +6,34 @@
     <description>Recent content in Tags on hi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 26 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>incidents</title>
+      <link>https://lyletagawa.com/tags/incidents/</link>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/tags/incidents/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>resilience</title>
+      <link>https://lyletagawa.com/tags/resilience/</link>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/tags/resilience/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>safety</title>
+      <link>https://lyletagawa.com/tags/safety/</link>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/tags/safety/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>decision</title>
       <link>https://lyletagawa.com/tags/decision/</link>
@@ -53,33 +80,6 @@
     </item>
     
     <item>
-      <title>apocryphal</title>
-      <link>https://lyletagawa.com/tags/apocryphal/</link>
-      <pubDate>Sun, 17 May 2026 00:00:00 +0000</pubDate>
-      
-      <guid>https://lyletagawa.com/tags/apocryphal/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>cognitive</title>
-      <link>https://lyletagawa.com/tags/cognitive/</link>
-      <pubDate>Sun, 17 May 2026 00:00:00 +0000</pubDate>
-      
-      <guid>https://lyletagawa.com/tags/cognitive/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>risk</title>
-      <link>https://lyletagawa.com/tags/risk/</link>
-      <pubDate>Sun, 17 May 2026 00:00:00 +0000</pubDate>
-      
-      <guid>https://lyletagawa.com/tags/risk/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>caching</title>
       <link>https://lyletagawa.com/tags/caching/</link>
       <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
@@ -112,6 +112,15 @@
       <pubDate>Thu, 07 May 2026 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/tags/ai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cognitive</title>
+      <link>https://lyletagawa.com/tags/cognitive/</link>
+      <pubDate>Thu, 07 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/tags/cognitive/</guid>
       <description></description>
     </item>
     
@@ -157,24 +166,6 @@
       <pubDate>Sun, 08 Jan 2023 15:07:19 -0500</pubDate>
       
       <guid>https://lyletagawa.com/tags/learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>resilience</title>
-      <link>https://lyletagawa.com/tags/resilience/</link>
-      <pubDate>Sun, 08 Jan 2023 15:07:19 -0500</pubDate>
-      
-      <guid>https://lyletagawa.com/tags/resilience/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>incidents</title>
-      <link>https://lyletagawa.com/tags/incidents/</link>
-      <pubDate>Thu, 24 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://lyletagawa.com/tags/incidents/</guid>
       <description></description>
     </item>
     
@@ -229,15 +220,6 @@
       <pubDate>Fri, 08 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/tags/work/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>safety</title>
-      <link>https://lyletagawa.com/tags/safety/</link>
-      <pubDate>Wed, 30 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://lyletagawa.com/tags/safety/</guid>
       <description></description>
     </item>
     

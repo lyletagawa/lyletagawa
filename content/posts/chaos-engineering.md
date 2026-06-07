@@ -2,11 +2,15 @@
 title: "Chaos Engineering"
 date: 2020-06-25
 publishdate: 2020-06-25
-lastmod: 2026-05-17
+lastmod: 2026-06-07
 summary: "Chaos Engineering builds confidence in distributed systems by deliberately introducing failures before they occur on their own. The discipline shifts teams from reactive incident response to proactive resilience building."
 tags: ["chaos", "learning", "incidents"]
+image: /images/chaos-engineering.jpg
 draft: false
 ---
+
+![](/images/chaos-engineering.jpg)
+*"Chaos Monkey" by BUNKA Artoyz. Photo: BFLV (2008). CC BY-NC 2.0.*
 
 ## Chaos Engineering
 
@@ -16,13 +20,13 @@ Production incidents reveal unexpected interactions between services, infrastruc
 
 ## Why Chaos Engineering Matters
 
-In distributed systems, the failure of a component your team never directly touches can cascade into failures your users experience. Charles Perrow's research demonstrates that multiple and unexpected interactions of failures are inevitable in complex systems (Perrow, 1999).
+In distributed systems, the failure of a component your team never directly touches can cascade into failures your users experience. Multiple and unexpected interactions of failures are inevitable in complex systems (Perrow, 1999).
 
-Complexity sorts into two kinds, accidental and essential (Brooks, 1986). Accidental complexity accrues continuously. Essential complexity grows with the scope of what the system must do. Organizations cannot eliminate complexity. They must learn to navigate it.
+Complexity sorts into two kinds, accidental and essential (Brooks, 1986). Accidental complexity accrues continuously, while essential complexity grows with the scope of what the system must do. Organizations can't eliminate complexity, only learn to navigate it.
 
 ## The Dynamic Safety Model
 
-Rasmussen's Dynamic Safety Model describes three competing pressures on engineering work (Rasmussen, 1997). The Safety boundary marks where failures become likely. The Economic boundary marks where work becomes unaffordable. The Workload boundary marks where teams become overwhelmed.
+Rasmussen's Dynamic Safety Model describes three competing pressures on engineering work (Rasmussen, 1997). The Safety boundary marks where failures become likely, the Economic boundary where work becomes unaffordable, and the Workload boundary where teams become overwhelmed.
 
 When the Safety boundary is not visible, engineers drift toward the other two, optimizing for cost and speed without knowing how close they are to failure. Chaos Engineering makes the Safety boundary visible through experimentation, giving teams the intuition to maintain appropriate margins.
 
@@ -43,7 +47,7 @@ The process follows a scientific method (Basiri et al., 2016):
 3. **Introduce variables** that reflect real-world events like server crashes, network partitions, or resource exhaustion
 4. **Try to disprove the hypothesis** by looking for differences in steady state
 
-Testing makes assertions based on existing knowledge. Experimentation creates new knowledge, either building confidence or revealing new properties about the system. As Gary Klein observes, "Performance Improvement = Errors ↓ + Insights ↑" (Klein, 2013).
+Testing makes assertions based on existing knowledge. Experimentation creates new knowledge, either building confidence or revealing new properties about the system. Fewer errors, more insights (Klein, 2013).
 
 Chaos Engineering favors observing behavior at system boundaries over inspecting internal components (Rosenthal et al., 2020). Checking whether the system serves users correctly under failure tells you more than checking whether individual parts behave as designed.
 
@@ -51,9 +55,9 @@ Chaos Engineering favors observing behavior at system boundaries over inspecting
 
 **Chaos Engineering is not "breaking stuff."** It focuses solely on proactively improving safety in complex systems (Rosenthal et al., 2020).
 
-**Chaos Engineering is not "antifragility."** Nassim Taleb's "antifragile" refers to systems that get stronger when exposed to random stress (Taleb, 2012). Chaos Engineering educates human operators about chaos already inherent in the system. Antifragility adds chaos hoping the system will grow stronger in response.
+**Chaos Engineering is not "antifragility."** Antifragile systems get stronger when exposed to random stress (Taleb, 2012). Chaos Engineering educates operators about chaos already inherent in the system. Antifragility adds chaos hoping the system will grow stronger in response.
 
-Resilience Engineering shows that hunting for what goes right is more informative than hunting for what goes wrong, and that redundancy can contribute to safety failures by adding complexity (Hollnagel, 2014).
+Hunting for what goes right is more informative than hunting for what goes wrong, and redundancy can contribute to safety failures by adding complexity (Hollnagel, 2014).
 
 ## Running Experiments
 
@@ -71,7 +75,7 @@ Resilience Engineering shows that hunting for what goes right is more informativ
 
 ## Game Days
 
-As Jesse Robbins observed, you don't choose the moment, the moment chooses you. You do choose how prepared you are when it does (Robbins, 2011).
+You don't choose the moment, the moment chooses you. You do choose how prepared you are when it does (Robbins, 2011).
 
 Game Days are scheduled exercises where teams deliberately cause failures to practice incident response, build muscle memory, reveal gaps in runbooks, and improve team coordination (Robbins, 2011).
 
@@ -85,17 +89,19 @@ Three useful benchmarks:
 
 Chaos Engineering shifts organizations from reactive incident response to proactive resilience building, discovering systemic weaknesses before they cause outages (Rosenthal et al., 2020).
 
-The discipline requires cultural change. Teams must embrace experimentation and accept that failures will occur, while leadership supports time invested in activities that don't directly deliver features.
+The discipline requires cultural change. Teams must embrace experimentation and accept that failures will occur, while leadership supports time invested in activities that don't directly deliver features (Rosenthal et al., 2020).
 
 Organizations that adopt Chaos Engineering build more resilient systems, respond to incidents more effectively, and operate with greater confidence (Basiri et al., 2016). They transform the question from "will our system fail?" to "when our system fails, how will it behave, and are we prepared?"
 
-Start small. Run your first experiment this week. Discover one weakness. Fix it. Repeat.
+Start small. Run your first experiment this week, discover one weakness, fix it, and repeat.
 
 ---
 
 ## References
 
 Basiri, Ali, et al. (2016). "Chaos Engineering." *IEEE Software*, 33(3): 35-41. [https://doi.org/10.1109/MS.2016.60](https://doi.org/10.1109/MS.2016.60)
+
+BFLV (2008). "Expos CHAOS MONKEY by BUNKA Artoyz." Flickr. CC BY-NC 2.0. [https://www.flickr.com/photos/bflv/2849375040/](https://www.flickr.com/photos/bflv/2849375040/)
 
 Brooks, Frederick P. (1986). "No Silver Bullet: Essence and Accidents of Software Engineering." *IEEE Computer*, 20(4): 10-19. [https://www.cs.unc.edu/techreports/86-020.pdf](https://www.cs.unc.edu/techreports/86-020.pdf)
 
@@ -121,6 +127,7 @@ Taleb, Nassim Nicholas (2012). *Antifragile: Things That Gain from Disorder*. Ne
 
 ## Changelog
 
+**2026-06-07** Added hero image.  
 **2026-05-17** Removed IC section. Simplified Dynamic Safety Model.  
 **2026-05-01** Restructured from rough notes. Corrected Robbins citation venue from Velocity to USENIX LISA11.  
 **2020-06-25** Initial publication.

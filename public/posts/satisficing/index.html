@@ -89,7 +89,9 @@
     
     <div class="content">
       <h6 class="subtitle is-6 date" style="line-height:0em">May. 26, 2026 &middot; 6 min read</h6>
-      <h2 id="satisficing">Satisficing</h2>
+      <p><img src="/images/satisficing.jpg" alt="">
+<em>Shopping on Aisle Eight. Photo: arbyreed (2016). CC BY-NC-SA 2.0.</em></p>
+<h2 id="satisficing">Satisficing</h2>
 <p>The decision was supposed to take a week. It&rsquo;s been six. The engineer keeps finding new angles. Community support. Licensing terms. How each option handles backpressure. What the migration story looks like in two years. The comparison doc has twelve tabs. Nobody&rsquo;s asking for an update anymore. They&rsquo;ve stopped expecting one.</p>
 <p>This is what happens when you start a search without deciding when it ends.</p>
 <h2 id="what-is-satisficing">What Is Satisficing?</h2>
@@ -102,14 +104,14 @@
 <p>If the evaluation takes six weeks, that&rsquo;s six weeks of engineering time, delayed roadmap items, and a team that&rsquo;s built up zero momentum. If most of those options would&rsquo;ve worked fine, the extra five weeks didn&rsquo;t produce five weeks of value. They produced a marginal improvement over a decision that could&rsquo;ve been made in week one. In uncertain environments, good-enough strategies often beat exhaustive ones anyway. The future is too unpredictable to fully optimize against (Gigerenzer and Todd, 1999).</p>
 <h2 id="where-it-shows-up">Where It Shows Up</h2>
 <p><strong>Technology selection.</strong> There&rsquo;s always another framework to benchmark, another blog post to read, another edge case to account for. Without a defined threshold, the evaluation has no natural end. It keeps expanding.</p>
-<p><strong>Architecture decisions.</strong> Monolith vs. microservices, synchronous vs. async, managed vs. self-hosted. These involve trade-offs that depend on things you genuinely can&rsquo;t know yet. More analysis doesn&rsquo;t close that gap. It delays the decision while the gap stays open.</p>
+<p><strong>Architecture decisions.</strong> Monolith vs. microservices, synchronous vs. async, managed vs. self-hosted. These involve trade-offs that depend on things you can&rsquo;t know yet. More analysis doesn&rsquo;t close that gap. It delays the decision while the gap stays open.</p>
 <p><strong>Code review.</strong> A reviewer who treats every PR as an optimization problem leaves fifty comments on a three-line change. Most of those comments improve the code marginally. The real cost is back-and-forth, context switching, and a slower pipeline. &ldquo;Good enough to ship&rdquo; is a legitimate standard.</p>
 <p><strong>Hiring.</strong> Teams that can&rsquo;t define what &ldquo;good enough&rdquo; looks like for a role keep interviewing indefinitely. Meanwhile, strong candidates accept offers elsewhere.</p>
 <p>Maximizers, people who always search for the best, make objectively better choices on measurable criteria. But they also report more regret and less satisfaction than satisficers, even after making the better choice (Schwartz, 2004). More searching doesn&rsquo;t produce better decisions. It produces more second-guessing.</p>
 <h2 id="common-mistakes">Common Mistakes</h2>
 <p><strong>Treating it as settling.</strong> Settling means accepting something below your threshold. Satisficing means defining the threshold clearly and stopping when you clear it. The threshold can be demanding. The point is that it exists, and that you wrote it down before you started. Stopping at the first thing that clears a high bar isn&rsquo;t cutting corners. It&rsquo;s exactly what you set out to do.</p>
 <p><strong>Starting without a threshold.</strong> If you don&rsquo;t define &ldquo;good enough&rdquo; before you look at the first option, you&rsquo;ll never know when to stop. Each new option shifts the reference point. The search extends. That&rsquo;s not satisficing. That&rsquo;s browsing.</p>
-<p><strong>Applying it where stakes don&rsquo;t allow it.</strong> Satisficing makes sense when the cost of continuing the search exceeds the value of finding something better. That&rsquo;s not always true. Security vulnerabilities, safety-critical systems, and irreversible decisions may justify a much longer search. The principle isn&rsquo;t &ldquo;always stop early.&rdquo; It&rsquo;s &ldquo;know when early is right.&rdquo;</p>
+<p><strong>Applying it where stakes don&rsquo;t allow it.</strong> Satisficing makes sense when the cost of continuing the search exceeds the value of finding something better. That&rsquo;s not always true. Security vulnerabilities, safety-critical systems, and irreversible decisions may justify a much longer search.</p>
 <p><strong>Confusing it with low standards.</strong> A team that ships sloppy code because &ldquo;it works&rdquo; hasn&rsquo;t satisficed. They haven&rsquo;t set a threshold. They&rsquo;ve stopped caring. Satisficing requires a clear standard. Carelessness doesn&rsquo;t.</p>
 <h2 id="put-it-into-practice">Put It Into Practice</h2>
 <p>Before your next evaluation, write down the threshold before you look at the first option. Make it specific enough to be falsifiable. &ldquo;Scalable&rdquo; isn&rsquo;t a threshold. &ldquo;Handles 10k requests per second with p99 under 200ms and has active community support&rdquo; is. If you can&rsquo;t write it down before you start, you&rsquo;re not ready to evaluate yet.</p>
@@ -117,6 +119,7 @@
 <p>For recurring decisions like code review and sprint planning, agree on the threshold as a team and write it down once. &ldquo;What does a shippable PR look like?&rdquo; is worth answering explicitly so you don&rsquo;t re-litigate it every cycle.</p>
 <hr>
 <h2 id="references">References</h2>
+<p>arbyreed (2016). &ldquo;Shopping on Aisle Eight.&rdquo; Flickr. CC BY-NC-SA 2.0. <a href="https://www.flickr.com/photos/19779889@N00/28347664145">https://www.flickr.com/photos/19779889@N00/28347664145</a></p>
 <p>Gigerenzer, Gerd and Peter M. Todd (1999). <em>Simple Heuristics That Make Us Smart</em>. Oxford University Press. <a href="https://global.oup.com/academic/product/simple-heuristics-that-make-us-smart-9780195143812">https://global.oup.com/academic/product/simple-heuristics-that-make-us-smart-9780195143812</a></p>
 <p>Nobel Prize Committee (1978). &ldquo;The Prize in Economic Sciences 1978.&rdquo; <em>Nobel Prize</em>. <a href="https://www.nobelprize.org/prizes/economic-sciences/1978/simon/facts/">https://www.nobelprize.org/prizes/economic-sciences/1978/simon/facts/</a></p>
 <p>Schwartz, Barry (2004). <em>The Paradox of Choice: Why More Is Less</em>. Ecco. <a href="https://en.wikipedia.org/wiki/The_Paradox_of_Choice">https://en.wikipedia.org/wiki/The_Paradox_of_Choice</a></p>
@@ -130,7 +133,8 @@
 <p><strong>The WD-40 that wasn&rsquo;t the best.</strong> WD-40 was developed in 1953 for aerospace. The name means water displacement, 40th attempt. Chemists tried 39 formulations before one worked. They stopped. Nobody looked for the 41st. Mechanics at Convair started taking it home for squeaky hinges. The company noticed and put it in a can.</p>
 <hr>
 <h2 id="changelog">Changelog</h2>
-<p><strong>2026-05-26</strong> Initial release.</p>
+<p><strong>2026-06-01</strong> Added hero image.<br>
+<strong>2026-05-26</strong> Initial release.</p>
 
       <hr>
       

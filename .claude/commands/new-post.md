@@ -24,7 +24,7 @@ Author a new Hugo blog post or edit an existing one. Follow all rules below prec
 - No emoji.
 - No rhetorical questions used as section openers or transitions.
 - No filler phrases: "it's worth noting," "it's important to remember," "in other words," "at the end of the day," "needless to say," "this is crucial."
-- Banned phrases: "is a testament," "underscores its importance/significance," "reflects broader," "symbolizing its ongoing/enduring/lasting," "setting the stage for," "marking/shaping the," "represents/marks a shift," "key turning point," "evolving landscape," "focal point," "indelible mark," "deeply rooted," "a vital/significant/crucial/pivotal/key role/moment," "boasts," "bolstered," "fostering," "garner," "interplay," "intricacies," "tapestry," "vibrant."
+- Banned phrases: "is a testament," "underscores its importance/significance," "reflects broader," "symbolizing its ongoing/enduring/lasting," "setting the stage for," "marking/shaping the," "represents/marks a shift," "key turning point," "evolving landscape," "focal point," "indelible mark," "deeply rooted," "a vital/significant/crucial/pivotal/key role/moment," "boasts," "bolstered," "fostering," "garner," "interplay," "intricacies," "tapestry," "vibrant," "delve," "genuinely."
 - No hedging language: "somewhat," "rather," "quite," "very," "fairly."
 - No meta-commentary about the article itself ("this article explores," "we will examine," "as discussed above").
 - No academic register: avoid "it can be observed," "this suggests," "one might argue," "the literature indicates." Say the thing directly.
@@ -32,7 +32,7 @@ Author a new Hugo blog post or edit an existing one. Follow all rules below prec
 - Avoid vague attributions and overgeneralizations: "many experts believe," "researchers agree," "some argue," "critics say," "people often think," "it is widely accepted." Name the source or cut the attribution.
 - Assertions must be backed by an embedded inline citation in the format (Author, Year). All cited works must appear in the References section with a valid URL.
 - Never include tracking parameters in URLs: strip `utm_source=`, `utm_medium=`, `utm_campaign=`, `utm_term=`, `utm_content=`, and `referrer=` query arguments before using any URL.
-- Avoid patterns that read as AI-generated: excessive parallelism in bullet lists, transitions that summarize what was just said, conclusions that restate the introduction verbatim, overly formal academic language.
+- Avoid patterns that read as AI-generated: excessive parallelism in bullet lists, transitions that summarize what was just said, conclusions that restate the introduction verbatim, overly formal academic language, the "it's not X, it's Y" reframe construction.
 
 ### Structure
 - **Word count**: 800–1,100 words (body content only, excluding frontmatter, References, and Changelog).

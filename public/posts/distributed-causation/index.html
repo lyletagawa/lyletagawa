@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Distributed Causation | hi</title>
+
+
+
+<link href="https://lyletagawa.com/index.xml" rel="alternate" type="application/rss+xml" title="hi" />
+
+<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='https://lyletagawa.com/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="canonical" href="https://lyletagawa.com/posts/distributed-causation/">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+<section class="section">
+  <div class="container">
+    <nav id="nav-main" class="nav">
+      <div id="nav-name" class="nav-left">
+        <a id="nav-anchor" class="nav-item" href="https://lyletagawa.com">
+          <h1 id="nav-heading" class="title is-4">hi</h1>
+        </a>
+      </div>
+      <div class="nav-right">
+        <nav id="nav-items" class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/lyletagawa'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="linkedin" href='https://linkedin.com/in/lyletagawa'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="rss" href='/index.xml'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle>
+    
+  </svg></i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+
+    <nav class="nav">
+      
+
+      
+    </nav>
+
+  </div>
+  <script src="/js/navicon-shift.js"></script>
+</section>
+<section class="section">
+  <div class="container">
+    <h1 class="title">Distributed Causation</h1>
+    <div class="subtitle tags is-6 is-pulled-right">
+      
+      
+<a class="subtitle is-6" href="/tags/safety/">#safety</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/incidents/">#incidents</a>
+  
+  | <a class="subtitle is-6" href="/tags/resilience/">#resilience</a>
+  
+
+
+      
+    </div>
+    
+    <div class="content">
+      <h6 class="subtitle is-6 date" style="line-height:0em">Jun. 1, 2026 &middot; 6 min read</h6>
+      <p><img src="/images/distributed-causation.jpg" alt="">
+<em>Photo: U.S. Nuclear Regulatory Commission (1979). CC BY-NC-ND 2.0.</em></p>
+<h2 id="distributed-causation">Distributed Causation</h2>
+<p>The postmortem closes with a root cause. The database connection pool exhausted under peak traffic. The fix ships within the week, a configuration change and a new alert. The incident is resolved.</p>
+<p>Eight months later, a different service fails at a different time of day with the same pattern of cascading failures. The postmortem finds another root cause.</p>
+<p>The team has been finding root causes for years. The incidents keep coming.</p>
+<h2 id="what-is-distributed-causation">What Is Distributed Causation?</h2>
+<p>On March 28, 1979, a pressure relief valve stuck open at the Three Mile Island (TMI) nuclear plant in Pennsylvania. Cooling water escaped and the reactor core partially melted. It was the most serious nuclear accident in American history.</p>
+<p>U.S. President Jimmy Carter appointed a commission to investigate, chaired by John Kemeny. The commission rejected the most convenient explanation. The accident wasn&rsquo;t caused by the valve, not by operator error alone, and not by equipment design alone. Metropolitan Edison (the plant&rsquo;s operator) made staffing and training decisions that contributed. Babcock and Wilcox (the reactor manufacturer) knew about similar valve events at other facilities and didn&rsquo;t share those warnings. The Nuclear Regulatory Commission (NRC) failed to act on those events or improve its oversight requirements (Kemeny Commission, 1979).</p>
+<p>This is distributed causation. Failures in complex systems don&rsquo;t originate in one place but pile-up across organizational boundaries, across time, and across multiple contributing factors that appear unrelated until they join-up.</p>
+<p>Twenty-four years later, the Columbia Accident Investigation Board (CAIB) reached the same conclusion about Columbia space shuttle disaster. The shuttle broke apart on reentry in February 2003 after foam breached the heat shield during launch. The board named the foam strike as the physical cause. It also named NASA&rsquo;s organizational culture, eroded safety margins, and a communication structure that suppressed dissenting voices (CAIB, 2003).</p>
+<p>Every participant followed their training, their protocols, and their oversight requirements. But, the system still failed (Kemeny Commission, 1979; CAIB, 2003).</p>
+<h2 id="the-root-cause-problem">The Root Cause Problem</h2>
+<p>The desire to find a root cause isn&rsquo;t irrational. A single cause is actionable, but a distributed explanation requires simultaneous changes to multiple systems, multiple processes, and multiple organizations, which is slow and expensive.</p>
+<p>The problem is that complex systems don&rsquo;t produce failures that way. Catastrophe requires multiple failures, with latent conditions throughout the system waiting to combine with active failures (Cook, 1998). A single root cause, where it exists, usually explains only one contributing factor in a chain that required several.</p>
+<p>The SNAFUcatchers workshop documented in 2017 how software incidents consistently involve multiple interacting factors across organizational and system boundaries. Assigning a single root cause understates the complexity of what happened and the scope of changes required to prevent recurrence (Cook et al., 2017).</p>
+<h2 id="where-engineering-teams-feel-it">Where Engineering Teams Feel It</h2>
+<p><strong>Postmortem format.</strong> Most postmortems are structured to produce a root cause section. That format creates pressure to reduce a distributed failure to a single entry. &ldquo;We identified the root cause&rdquo; is used as evidence of rigor. The result is postmortems that are technically complete and organizationally useless (Cook, 1998).</p>
+<p><strong>Cross-team incidents.</strong> Distributed failures cross team boundaries. Each team contributed a factor, but no team caused the incident alone. The root cause framework assigns ownership to one team, which relieves the others of any obligation to change. The same distributed conditions produce another incident months later, attributed to a different team.</p>
+<p><strong>Latent conditions.</strong> Cook describes latent conditions as failures waiting to happen, present in the system before any incident occurs (Cook, 1998). A postmortem that finds a root cause has found the active failure that triggered the incident, but rarely surfaces the latent conditions that made it consequential. Those conditions remain in place until the next combination.</p>
+<p><strong>Vendor and dependency failures.</strong> Incidents involving third-party services or cloud provider outages reveal the same pattern TMI demonstrated (Kemeny Commission, 1979). The failure is distributed across the organization&rsquo;s own systems and the external dependency. Attributing it entirely to the vendor obscures whatever internal factors made that external failure so damaging.</p>
+<h2 id="common-mistakes">Common Mistakes</h2>
+<p><strong>Fixing the trigger and calling it done.</strong> Patching the vulnerable dependency, alerting on the metric that wasn&rsquo;t alerting, and changing the failed configuration are all real improvements worth making. But a postmortem that stops at the trigger has identified one factor in a distributed failure. The latent conditions that amplified it remain.</p>
+<p><strong>Treating organizational contributors as context, not cause.</strong> The Kemeny Commission found that staffing decisions, training programs, and regulatory culture all contributed to TMI (Kemeny Commission, 1979). Most postmortems treat these as background when they belong in the cause list.</p>
+<p><strong>Confusing blame-free with cause-free.</strong> Blameless postmortems correctly remove individual blame, but they sometimes remove distributed causation as well, treating the absence of a blameworthy person as evidence that no structural failure occurred (Dekker, 2006).</p>
+<p><strong>Misreading incident patterns.</strong> Teams that track incidents by root cause category watch for recurrence in that category, but distributed causation means the next incident will look different. The service changes and the trigger changes, but the underlying combination of latent conditions stays the same. The pattern stays invisible inside the root cause framework.</p>
+<h2 id="put-it-into-practice">Put It Into Practice</h2>
+<p>Review your last three postmortems. For each incident, list every team or system whose behavior contributed to the outcome. Compare them against the (identified) root cause. The missing systems are where the latent conditions still live.</p>
+<p>For your next postmortem, write a contributing factors section before the root cause. List every factor whose absence would have changed the outcome. That list often has three or more contributing factors, and picking any one as the root cause doesn&rsquo;t accurately reflect what happened.</p>
+<hr>
+<h2 id="references">References</h2>
+<p>Columbia Accident Investigation Board (2003). <em>Columbia Accident Investigation Board Report, Volume 1</em>. NASA. <a href="https://digital.library.unt.edu/ark:/67531/metadc1282018/">https://digital.library.unt.edu/ark:/67531/metadc1282018/</a></p>
+<p>Cook, Richard I. (1998). &ldquo;How Complex Systems Fail.&rdquo; Cognitive Technologies Laboratory, University of Chicago. <a href="https://how.complexsystemsfail.com/">https://how.complexsystemsfail.com/</a></p>
+<p>Cook, Richard I., John Allspaw, David D. Woods, et al. (2017). <em>STELLA: Report from the SNAFUcatchers Workshop on Coping with Complexity</em>. SNAFUcatchers. <a href="https://snafucatchers.github.io/">https://snafucatchers.github.io/</a></p>
+<p>Dekker, Sidney (2006). <em>The Field Guide to Understanding Human Error</em>. Ashgate. <a href="https://www.routledge.com/The-Field-Guide-to-Understanding-Human-Error/Dekker/p/book/9781472439055">https://www.routledge.com/The-Field-Guide-to-Understanding-Human-Error/Dekker/p/book/9781472439055</a></p>
+<p>Kemeny Commission (1979). <em>Report of the President&rsquo;s Commission on the Accident at Three Mile Island</em>. U.S. Government Printing Office. <a href="https://www.osti.gov/servlets/purl/5082863">https://www.osti.gov/servlets/purl/5082863</a></p>
+<p>Nuclear Regulatory Commission (2013). &ldquo;Three Mile Island Plant Site in 1979.&rdquo; Flickr. CC BY-NC-ND 2.0. <a href="https://www.flickr.com/photos/69383258@N08/7447157202">https://www.flickr.com/photos/69383258@N08/7447157202</a></p>
+<hr>
+<h2 id="outtakes">Outtakes</h2>
+<p><strong>The Five Whys and the Andon Cord.</strong> Both the Five Whys and the Andon Cord come from the Toyota Production System. Ohno designed the Five Whys for linear mechanical failures on the assembly line. Postmortem culture adopted it for distributed failures it was never designed to handle (Ohno, 1988).</p>
+<p><strong>Tenerife.</strong> The deadliest aviation accident in history (583 killed, 1977) is usually summarized as a captain who took off without clearance. The investigation also found overlapping radio transmissions, non-standard terminology, dense fog, and a runway layout change forced by a bomb threat at another airport (Weick, 1990).</p>
+<p><strong>Knight Capital.</strong> Knight Capital lost $440 million in 45 minutes in 2012 after a deployment activated dormant code. The post-incident report named the deployment error. Investigation also found inadequate testing, no rollback capability, and a regulatory change that had created the latent condition months earlier (SEC, 2013).</p>
+<hr>
+<h2 id="changelog">Changelog</h2>
+<p><strong>2026-06-01</strong> Initial release.</p>
+
+      <hr>
+      
+      <div class="related">
+
+<h3>Similar articles:</h3>
+<ul>
+	
+	<li><a href="/posts/pagerduty-summit-2020/">PagerDuty Summit 2020</a></li>
+	
+	<li><a href="/posts/resilience/">Resilience</a></li>
+	
+	<li><a href="/posts/just-culture/">Just Culture</a></li>
+	
+	<li><a href="/posts/robust-and-brittle/">Robust and Brittle... The Southwest Failure</a></li>
+	
+	<li><a href="/posts/resilient-management/">Resilient Management</a></li>
+	
+</ul>
+</div>
+      
+    </div>
+    
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p></p>
+    
+  </div>
+</section>
+
+
+</body>
+</html>
+

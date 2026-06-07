@@ -90,37 +90,40 @@
     </div>
     
     <div class="content">
-      <h6 class="subtitle is-6 date" style="line-height:0em">May. 7, 2026 &middot; 6 min read</h6>
-      <h2 id="llm-context-biases">LLM Context Biases</h2>
+      <h6 class="subtitle is-6 date" style="line-height:0em">May. 7, 2026 &middot; 5 min read</h6>
+      <p><img src="/images/llm-context-biases.jpg" alt="">
+<em>&ldquo;Café wall illusion.&rdquo; Photo: Groume (2013). CC BY-SA 2.0.</em></p>
+<h2 id="llm-context-biases">LLM Context Biases</h2>
 <p>You post a 20-page architecture document into your LLM and ask it to identify the three riskiest assumptions. The model returns a confident answer. It got the first and third risks right, but not the one buried on page 11, the one that matters most.</p>
-<p>This isn&rsquo;t a hallucination. The model read all 20 pages. The problem is that it didn&rsquo;t weight all 20 pages equally.</p>
+<p>This isn&rsquo;t a hallucination. The model read all 20 pages but didn&rsquo;t weight them equally.</p>
 <p>LLMs process context with systematic biases based on position, order, and stated preferences. Understanding them is the difference between using LLMs effectively and trusting answers that were shaped more by where you put information than what it said.</p>
 <h2 id="what-are-context-biases">What Are Context Biases?</h2>
 <p>Context biases are predictable distortions in how language models weight and process information. They are structural tendencies, not random errors, emerging from how attention mechanisms are trained.</p>
-<p>Three are most consequential for practitioners: primacy bias, recency bias, and sycophancy. A fourth, anchoring, compounds all three. None of them are bugs in a particular product. They appear across models and persist even as model quality improves.</p>
+<p>The three most consequential for practitioners are primacy bias, recency bias, and sycophancy. A fourth, anchoring, compounds all three. None of them are bugs in a particular product, and they persist across models even as model quality improves.</p>
 <h2 id="primacy-and-recency-bias">Primacy and Recency Bias</h2>
-<p>Liu et al. (2023) documented the core finding in &ldquo;Lost in the Middle&rdquo;: when relevant information is located at the beginning or end of a long context, model performance is significantly higher than when it sits in the middle. Tested across multiple models on multi-document question answering tasks, the effect was consistent. Models showed a U-shaped performance curve: strong at the start, strong at the end, degraded in the middle.</p>
+<p>Liu et al. (2023) documented a clear pattern in &ldquo;Lost in the Middle.&rdquo; When relevant information sits at the beginning or end of a long context, model performance is significantly higher than when it sits in the middle. Tested across multiple models on multi-document question answering tasks, the effect was consistent. Models showed a U-shaped performance curve. Strong at the start and end, degraded in the middle.</p>
 <p>The middle of a long prompt is where information goes to be ignored.</p>
 <p>For technical work, this has direct consequences. A 50-page policy document fed to an LLM will have its middle sections under-weighted regardless of their importance (Liu et al., 2023).</p>
 <h2 id="sycophancy">Sycophancy</h2>
 <p>Sycophancy is the tendency of LLMs to produce responses that align with what the user appears to want, rather than what is accurate (Malmqvist, 2024). When a user pushes back on a model&rsquo;s answer, the model frequently reverses its position even without new evidence. When a user frames a question to suggest a preferred answer, the model gravitates toward confirming it.</p>
-<p>This creates a specific failure mode for technical decision-making. You ask an LLM to evaluate two architectural approaches. You mention that your team prefers approach A. The model finds more merit in approach A. The evaluation wasn&rsquo;t neutral. It was shaped by your stated preference before the analysis began.</p>
-<p>Sycophancy is reinforced through reinforcement learning from human feedback (RLHF), where models learn that agreement produces higher human ratings than accurate but unwelcome responses (Malmqvist, 2024). It is not a surface-level quirk. It is baked into how models are trained to please.</p>
+<p>This creates a specific failure mode for technical decision-making. Ask an LLM to evaluate two architectural approaches and mention that your team prefers approach A. The model will find more merit in approach A. Your stated preference shaped the evaluation before the analysis began.</p>
+<p>Sycophancy is reinforced through reinforcement learning from human feedback (RLHF), where models learn that agreement produces higher human ratings than accurate but unwelcome responses (Malmqvist, 2024). The tendency is baked into how models are trained to please.</p>
 <h2 id="anchoring">Anchoring</h2>
 <p>Anchoring bias occurs when initial information disproportionately shapes subsequent judgment. Lou and Sun (2024) found that LLMs are notably sensitive to anchored prompts, with 22% to 61% of questions affected depending on the model. Most tested LLMs showed anchoring effects equivalent to or stronger than those observed in humans.</p>
-<p>In practice: you ask an LLM to estimate the timeline for a migration. You mention that your last migration took six months. The model&rsquo;s estimate will be pulled toward six months, regardless of the actual scope difference. The initial number anchors the output.</p>
-<p>Chain-of-Thought prompting and reflection prompts reduce anchoring but do not eliminate it. Lou and Sun (2024) found that comprehensive multi-angle information gathering was the most effective mitigation.</p>
+<p>Ask an LLM to estimate the timeline for a migration and mention that your last one took six months. The model&rsquo;s estimate pulls toward six months regardless of scope. The initial number anchors the output.</p>
+<p>Chain-of-Thought prompting and reflection prompts reduce anchoring but don&rsquo;t eliminate it. Lou and Sun (2024) found that comprehensive multi-angle information gathering was the most effective mitigation.</p>
 <h2 id="common-mistakes">Common Mistakes</h2>
 <p><strong>Trusting position over content.</strong> Putting the most important context at the top of a prompt and assuming the model will find what matters elsewhere. Middle sections are systematically under-weighted, and adding more context can actively degrade performance by pushing critical information further in (Liu et al., 2023).</p>
-<p><strong>Using pushback to get better answers.</strong> If you disagree with an LLM&rsquo;s response and push back without new evidence, the model will often reverse its position. This feels like refining the answer. It is sycophancy. You are not getting a better analysis. You are getting agreement.</p>
+<p><strong>Using pushback to get better answers.</strong> If you disagree with an LLM&rsquo;s response and push back without new evidence, the model will often reverse its position. That feels like progress, but the model didn&rsquo;t reconsider. It just agreed.</p>
 <p><strong>Treating LLM evaluation as neutral.</strong> Asking an LLM to compare options while including your team&rsquo;s stated preference contaminates the evaluation. The model will find evidence for what you have already indicated you want.</p>
 <p><strong>Anchoring with existing estimates.</strong> Mentioning a prior number, deadline, or precedent before asking for an estimate pulls the model&rsquo;s output toward that anchor. If you want an independent estimate, ask for it before providing your reference point.</p>
 <h2 id="put-it-into-practice">Put It Into Practice</h2>
-<p>These biases do not make LLMs unreliable. They make them predictably unreliable in specific ways. Knowing the pattern is most of the fix.</p>
-<p>For long-document analysis, put the most critical information at the beginning or end of the context. Explicitly surface content in the middle: &ldquo;The section on page 11 is the most important.&rdquo; For evaluation tasks, strip your stated preferences from the prompt entirely. Run the analysis once without your view, then share it afterward. For independent estimates, ask first and anchor second.</p>
+<p>These biases don&rsquo;t make LLMs unreliable. They make them predictably unreliable in specific ways, and knowing the pattern is most of the fix.</p>
+<p>For long-document analysis, put the most critical information at the beginning or end of the context. Explicitly surface content in the middle by telling the model &ldquo;The section on page 11 is the most important.&rdquo; For evaluation tasks, strip your stated preferences from the prompt entirely. Run the analysis once without your view, then share it afterward. For independent estimates, ask first and anchor second.</p>
 <p>Pick one task you regularly use an LLM for. Before your next run, note everything in the prompt that precedes your actual question. That context shaped the answer. Adjust the order and see what changes.</p>
 <hr>
 <h2 id="references">References</h2>
+<p>Groume (2013). &ldquo;Illusion.&rdquo; Flickr. CC BY-SA 2.0. <a href="https://www.flickr.com/photos/groume/8628269781/">https://www.flickr.com/photos/groume/8628269781/</a></p>
 <p>Liu, Nelson F., et al. (2023). &ldquo;Lost in the Middle: How Language Models Use Long Contexts.&rdquo; <em>Transactions of the Association for Computational Linguistics</em>, 12. <a href="https://arxiv.org/abs/2307.03172">https://arxiv.org/abs/2307.03172</a></p>
 <p>Lou, Jiaxu, and Yifan Sun (2024). &ldquo;Anchoring Bias in Large Language Models: An Experimental Study.&rdquo; arXiv preprint arXiv:2412.06593. <a href="https://arxiv.org/abs/2412.06593">https://arxiv.org/abs/2412.06593</a></p>
 <p>Malmqvist, Lars (2024). &ldquo;Sycophancy in Large Language Models: Causes and Mitigations.&rdquo; arXiv preprint arXiv:2411.15287. <a href="https://arxiv.org/abs/2411.15287">https://arxiv.org/abs/2411.15287</a></p>
@@ -133,7 +136,8 @@
 <p><strong>Jury research.</strong> Studies on jury behavior show that the first and last witnesses in a trial have disproportionate influence on verdicts. Same U-shaped curve. Same mechanism. (<a href="https://www.researchgate.net/publication/385853184_THE_PSYCHOLOGY_OF_JURY_DECISION-MAKING_IN_CRIMINAL_TRIALS">source</a>)</p>
 <hr>
 <h2 id="changelog">Changelog</h2>
-<p><strong>2026-05-16</strong> Replaced Etymology with Outtakes. Added spinning wheel and jury research to Outtakes.<br>
+<p><strong>2026-06-01</strong> Added hero image.<br>
+<strong>2026-05-16</strong> Replaced Etymology with Outtakes. Added spinning wheel and jury research to Outtakes.<br>
 <strong>2026-05-11</strong> Added etymology section.<br>
 <strong>2026-05-07</strong> Initial publication.</p>
 

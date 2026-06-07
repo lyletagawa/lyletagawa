@@ -2,7 +2,7 @@
 title: "Satisficing"
 date: 2026-05-26
 publishdate: 2026-05-26
-lastmod: 2026-05-26
+lastmod: 2026-06-01
 summary: "The best decision is often the fastest one you can defend, not the optimal one you never finish searching for."
 tags: ["decision", "heuristics"]
 image: 
@@ -38,7 +38,7 @@ If the evaluation takes six weeks, that's six weeks of engineering time, delayed
 
 **Technology selection.** There's always another framework to benchmark, another blog post to read, another edge case to account for. Without a defined threshold, the evaluation has no natural end. It keeps expanding.
 
-**Architecture decisions.** Monolith vs. microservices, synchronous vs. async, managed vs. self-hosted. These involve trade-offs that depend on things you genuinely can't know yet. More analysis doesn't close that gap. It delays the decision while the gap stays open.
+**Architecture decisions.** Monolith vs. microservices, synchronous vs. async, managed vs. self-hosted. These involve trade-offs that depend on things you can't know yet. More analysis doesn't close that gap. It delays the decision while the gap stays open.
 
 **Code review.** A reviewer who treats every PR as an optimization problem leaves fifty comments on a three-line change. Most of those comments improve the code marginally. The real cost is back-and-forth, context switching, and a slower pipeline. "Good enough to ship" is a legitimate standard.
 
@@ -52,7 +52,7 @@ Maximizers, people who always search for the best, make objectively better choic
 
 **Starting without a threshold.** If you don't define "good enough" before you look at the first option, you'll never know when to stop. Each new option shifts the reference point. The search extends. That's not satisficing. That's browsing.
 
-**Applying it where stakes don't allow it.** Satisficing makes sense when the cost of continuing the search exceeds the value of finding something better. That's not always true. Security vulnerabilities, safety-critical systems, and irreversible decisions may justify a much longer search. The principle isn't "always stop early." It's "know when early is right."
+**Applying it where stakes don't allow it.** Satisficing makes sense when the cost of continuing the search exceeds the value of finding something better. That's not always true. Security vulnerabilities, safety-critical systems, and irreversible decisions may justify a much longer search.
 
 **Confusing it with low standards.** A team that ships sloppy code because "it works" hasn't satisficed. They haven't set a threshold. They've stopped caring. Satisficing requires a clear standard. Carelessness doesn't.
 
@@ -96,4 +96,5 @@ Thumbnail SVG generated with [Claude Code](https://claude.ai/code) (2026).
 
 ## Changelog
 
+**2026-06-01** Added hero image.  
 **2026-05-26** Initial release.

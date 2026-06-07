@@ -2,7 +2,7 @@
 title: "Alignment Over Authority"
 date: 2026-05-21
 publishdate: 2026-05-21
-lastmod: 2026-05-21
+lastmod: 2026-06-01
 summary: "Authority centralizes decisions with whoever has the title. Alignment distributes them to whoever has the context, which is almost never the same person."
 tags: ["leadership", "intent", "influence"]
 image:
@@ -18,7 +18,7 @@ You've been promoted to Staff Engineer. No direct reports, no budget, no formal 
 
 Or you're a Director of Engineering. You have authority over your team, but the critical decisions require buy-in from Product, Infrastructure, Security, and three other engineering teams you don't control. Your org chart says you're in charge. Reality says otherwise.
 
-The gap between formal authority and actual influence is where most technical leadership fails. The solution isn't more authority. It's alignment.
+The gap between formal authority and actual influence is where most technical leadership fails. Alignment closes that gap.
 
 ## What Is Alignment?
 
@@ -28,7 +28,7 @@ David Marquet documented the transformation of the USS Santa Fe from the fleet's
 
 Distributed teams in McChrystal's *Team of Teams* made decisions the commander would have made without asking permission, because they understood the intent (McChrystal et al., 2015). Simon Sinek found the same pattern in business. People follow leaders who articulate purpose, not those who wield positional power (Sinek, 2009).
 
-Alignment is not consensus (everyone agrees), democracy (everyone votes), or compromise (everyone gets something). It's shared understanding that enables independent action.
+Alignment means shared understanding. Everyone understands the goal, the constraints, and the reasoning well enough to act independently, without needing to agree, vote, or compromise.
 
 ## Why Alignment Scales
 
@@ -44,7 +44,7 @@ Alignment is not consensus (everyone agrees), democracy (everyone votes), or com
 
 **Articulate the why.** Most technical communication focuses on what and how, but alignment requires why. Marquet trained crew members to state their intent and reasoning before acting (Marquet, 2012). In practice, don't announce "we're moving to Kubernetes." Explain that current deployments require three hours of manual coordination per release, and the goal is deployment independence even at the cost of initial complexity.
 
-**Make decision frameworks explicit.** Strategy isn't goals. It's the framework for making trade-offs (Rumelt, 2011). Give people the criteria, not just the conclusion. "We prioritize maintainability over performance unless data shows it's a user-facing problem."
+**Make decision frameworks explicit.** Goals describe what you want. Strategy is the framework for making trade-offs to get there (Rumelt, 2011). Give people the criteria, not just the conclusion. "We prioritize maintainability over performance unless data shows it's a user-facing problem."
 
 **Write for rooms you're not in.** Senior ICs build influence without authority by making their thinking legible at scale. A technical vision document or architecture proposal carries your reasoning to teams you'll never meet with directly (Larson, 2021). If people need you in the room to understand the direction, you haven't created alignment yet.
 
@@ -108,5 +108,6 @@ U.S. Indo-Pacific Command (2017). "USS Santa Fe returns to Pearl Harbor." Flickr
 
 ## Changelog
 
+**2026-06-01** Added hero image.  
 **2026-05-21** Added counterargument on appropriate use of authority.  
 **2026-05-03** Removed "The Individual Contributor Perspective" section. Added Common Mistakes section.

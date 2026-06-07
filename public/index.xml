@@ -6,7 +6,16 @@
     <description>Recent content on hi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 26 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Distributed Causation</title>
+      <link>https://lyletagawa.com/posts/distributed-causation/</link>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/distributed-causation/</guid>
+      <description>Complex failures don&amp;rsquo;t have a single root cause. Complex failures have many causes that are distributed across time, systems, and organizational boundaries, and fixing just one leaves the rest in place.</description>
+    </item>
+    
     <item>
       <title>Satisficing</title>
       <link>https://lyletagawa.com/posts/satisficing/</link>
@@ -14,7 +23,6 @@
       
       <guid>https://lyletagawa.com/posts/satisficing/</guid>
       <description>The best decision is often the fastest one you can defend, not the optimal one you never finish searching for.</description>
-      <media:content url="https://lyletagawa.com/images/satisficing.svg" medium="image" />
     </item>
     
     <item>
@@ -24,16 +32,6 @@
       
       <guid>https://lyletagawa.com/posts/influence-by-alignment/</guid>
       <description>Authority centralizes decisions with whoever has the title. Alignment distributes them to whoever has the context, which is almost never the same person.</description>
-    </item>
-    
-    <item>
-      <title>The Vantasner Danger Meridian</title>
-      <link>https://lyletagawa.com/posts/vantasner-danger-meridian/</link>
-      <pubDate>Sun, 17 May 2026 00:00:00 +0000</pubDate>
-      
-      <guid>https://lyletagawa.com/posts/vantasner-danger-meridian/</guid>
-      <description>The Vantasner Danger Meridian names the threshold past which danger to your mission increases exponentially. Recognizing it before you cross it is the skill that separates deliberate risk from drift.</description>
-      <media:content url="https://lyletagawa.com/images/meridian.svg" medium="image" />
     </item>
     
     <item>

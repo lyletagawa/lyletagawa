@@ -2,11 +2,14 @@
 title: "OODA Loop"
 date: 2026-04-30
 publishdate: 2026-05-02
-lastmod: 2026-05-16
+lastmod: 2026-06-07
 summary: "How John Boyd's OODA Loop (Observe, Orient, Decide, Act) applies to technology leadership, and practical strategies for eliminating the bottlenecks that slow your competitive cycles."
 tags: ["adaptation", "awareness"]
 image: /images/ooda-loop.jpg
 ---
+
+![](/images/ooda-loop-f86.jpg)
+*Photo: U.S. National Archives (1981). Public domain.*
 
 ## OODA Loop
 
@@ -16,7 +19,7 @@ Same story in business and technology. Loop faster than your competition and com
 
 ## The Four Phases Explained
 
-The OODA Loop consists of four interconnected phases forming a continuous cycle (Boyd, 1987). **Observe** gathers data from system telemetry, customer feedback, and market research. **Orient** synthesizes this data through organizational culture and domain expertise, transforming information into clear insight. **Decide** selects a course of action, balancing analysis with acceptable risk. **Act** executes decisions and feeds results back into observation.
+The OODA Loop consists of four interconnected phases forming a continuous cycle (Boyd, 1987). Observe gathers data from system telemetry, customer feedback, and market research. Orient synthesizes this data through organizational culture and domain expertise, transforming information into clear insight. Decide selects a course of action, balancing analysis with acceptable risk. Act executes decisions and feeds results back into observation.
 
 These phases form a continuous loop, not a sequential checklist (Boyd, 1987). While you act on one decision, you simultaneously observe its effects, orient to new information, and prepare subsequent decisions.
 
@@ -42,49 +45,55 @@ Each impediment multiplies cycle time. An org that observes infrequently, orient
 
 ## Practical Applications for Tech Leadership
 
-**Incident response** maps directly to OODA. Effective incident management observes anomalies quickly, orients to root causes through runbooks, decides on remediation, and acts through automated procedures. Agentic AI is beginning to compress the observe-orient phases from minutes to seconds, keeping humans in the decision and action loop. Mean time to recovery depends more on loop speed than preventing all failures (Beyer et al., 2016).
+**Incident response** maps directly to OODA. Effective incident management observes anomalies quickly, orients through runbooks and diagnostics, decides on remediation, and acts through automated procedures. Agentic AI is compressing the observe-orient phases from minutes to seconds, keeping humans in the decision and action loop. Mean time to recovery depends more on loop speed than on preventing all failures (Beyer et al., 2016).
 
 **Product development** accelerates through continuous deployment. Feature flags enable observation, A/B testing provides orientation, and rapid deployment enables quick action. Organizations practicing continuous delivery deploy 46x more frequently with 440x faster lead times (Forsgren et al., 2018).
 
 **Strategic planning** benefits from continuous adjustment rather than annual cycles (Ries, 2011). Observe market dynamics continuously, orient strategy quarterly, decide on tactical adjustments monthly, and act on opportunities as they emerge.
 
+**Agentic reliability engineering.** Production signals exceed any team's triage capacity. Alert fatigue is a symptom of Orientation overwhelmed by input. Agentic Reliability Engineering (ARE) treats intelligence as a first-class reliability primitive (Jambor, 2026). Agents handle Observe and Orient continuously, filtering noise and surfacing what needs a decision. Humans move above the loop, designing intent and validating outcomes rather than triaging every signal.
+
 ## Common Mistakes
 
-**Neglecting the Orientation phase.** Observation and Action are the visible parts of the loop. Orientation is where the loop is won or lost. Boyd spent more time on Orientation than the other three phases combined (Boyd, 1987). It filters incoming data through experience, mental models, and cultural assumptions. Teams that rush from Observe to Decide skip the phase that determines whether their speed is applied to the right problem.
+**Neglecting the Orientation phase.** Observation and Action are the visible parts of the loop. Orientation is where the loop is won or lost. Boyd spent more time on Orientation than the other three phases combined (Boyd, 1987). It filters incoming data through experience, mental models, and organizational norms. Teams that rush from Observe to Decide skip the phase that determines whether their speed is applied to the right problem.
 
 **Confusing OODA with a REPL.** Engineers sometimes treat the Read-Eval-Print Loop as a metaphor for fast iteration. The loop resembles OODA but lacks Orientation. Each cycle reacts without building a mental model. Geoffrey Huntley calls the agentic AI version the Ralph Wiggum Loop. It describes an agent that iterates on its own outputs until it stumbles onto a correct result, with no orientation between cycles (Huntley, 2025).
 
-**Sustaining high-velocity indefinitely.** Constant high-velocity mode exhausts teams, decreasing productivity and degrading decision quality (Forsgren et al., 2018). Not all competitive advantages derive from speed. Some require patient investment in research that cannot be rushed. Decisions that demand methodical, effortful reasoning cannot be compressed without degrading their quality (Kahneman, 2011).
+**Sustaining high-velocity indefinitely.** Constant high velocity exhausts teams, decreasing productivity and degrading decision quality (Forsgren et al., 2018). Some advantages come from deep research that can't be rushed, not from cycling faster. Decisions that demand methodical, effortful reasoning can't be compressed without degrading their quality (Kahneman, 2011).
 
 ## Put It Into Practice
 
-The goal is not maximum speed but optimal tempo. Fast enough to stay ahead, disciplined enough to sustain it.
+Speed without orientation is just faster mistakes. Boyd spent more time on the Orient phase than the other three combined because that's where the loop is won or lost.
 
-Audit your org's loop. Where do observations get delayed? What distorts orientation? What causes decision paralysis? What impedes action? Each impediment is an opportunity. Eliminate them, one cycle at a time.
+Audit your org's loop. Find where observations get delayed, what distorts orientation, what causes decision paralysis, and what impedes action. Each impediment is an opportunity. Eliminate them, one cycle at a time.
 
 ---
 
 ## References
 
-Argyris, C. (1977). Double loop learning in organizations. *Harvard Business Review*, 55(5), 115-125. [https://hbr.org/1977/09/double-loop-learning-in-organizations](https://hbr.org/1977/09/double-loop-learning-in-organizations)
+Argyris, Chris (1977). "Double loop learning in organizations." *Harvard Business Review*, 55(5): 115-125. [https://hbr.org/1977/09/double-loop-learning-in-organizations](https://hbr.org/1977/09/double-loop-learning-in-organizations)
 
-Beyer, B., Jones, C., Petoff, J., & Murphy, N. R. (2016). *Site Reliability Engineering: How Google Runs Production Systems*. O'Reilly Media. [https://sre.google/sre-book/table-of-contents/](https://sre.google/sre-book/table-of-contents/)
+Beyer, Betsy, Chris Jones, Jennifer Petoff, and Niall R. Murphy (2016). *Site Reliability Engineering: How Google Runs Production Systems*. O'Reilly Media. [https://sre.google/sre-book/](https://sre.google/sre-book/)
 
-Boyd, J. R. (1976). *Destruction and Creation*. U.S. Army Command and General Staff College. [https://www.coljohnboyd.com/static/documents/1976-09-03__Boyd_John_R__Destruction_and_Creation.pdf](https://www.coljohnboyd.com/static/documents/1976-09-03__Boyd_John_R__Destruction_and_Creation.pdf)
+Boyd, John R. (1976). *Destruction and Creation*. U.S. Army Command and General Staff College. [https://www.coljohnboyd.com/static/documents/1976-09-03__Boyd_John_R__Destruction_and_Creation.pdf](https://www.coljohnboyd.com/static/documents/1976-09-03__Boyd_John_R__Destruction_and_Creation.pdf)
 
-Boyd, J. R. (1987). *Organic Design for Command and Control*. Unpublished briefing. [https://www.coljohnboyd.com/static/documents/1987-05__Boyd_John_R__Organic_Design_for_Command_and_Control__PPT-PDF.pdf](https://www.coljohnboyd.com/static/documents/1987-05__Boyd_John_R__Organic_Design_for_Command_and_Control__PPT-PDF.pdf)
+Boyd, John R. (1987). *Organic Design for Command and Control*. Unpublished briefing. [https://www.coljohnboyd.com/static/documents/1987-05__Boyd_John_R__Organic_Design_for_Command_and_Control__PPT-PDF.pdf](https://www.coljohnboyd.com/static/documents/1987-05__Boyd_John_R__Organic_Design_for_Command_and_Control__PPT-PDF.pdf)
 
-Forsgren, N., Humble, J., & Kim, G. (2018). *Accelerate: The Science of Lean Software and DevOps*. IT Revolution Press. [https://itrevolution.com/product/accelerate/](https://itrevolution.com/product/accelerate/)
+Forsgren, Nicole, Jez Humble, and Gene Kim (2018). *Accelerate: The Science of Lean Software and DevOps*. IT Revolution Press. [https://itrevolution.com/product/accelerate/](https://itrevolution.com/product/accelerate/)
 
 Huntley, Geoffrey (2025). "Ralph Wiggum as a 'software engineer'." *ghuntley.com*. [https://ghuntley.com/ralph/](https://ghuntley.com/ralph/)
 
-Kahneman, D. (2011). *Thinking, Fast and Slow*. New York: Farrar, Straus and Giroux. [https://us.macmillan.com/books/9780374533557/thinkingfastandslow/](https://us.macmillan.com/books/9780374533557/thinkingfastandslow/)
+Jambor, David (2026). *Agentic Reliability Engineering*. O'Reilly Media. [https://www.oreilly.com/library/view/agentic-reliability-engineering/0642572294809](https://www.oreilly.com/library/view/agentic-reliability-engineering/0642572294809)
 
-Kim, G., Humble, J., Debois, P., & Willis, J. (2016). *The DevOps Handbook: How to Create World-Class Agility, Reliability, and Security in Technology Organizations*. IT Revolution Press. [https://itrevolution.com/product/the-devops-handbook/](https://itrevolution.com/product/the-devops-handbook/)
+Kahneman, Daniel (2011). *Thinking, Fast and Slow*. New York: Farrar, Straus and Giroux. [https://us.macmillan.com/books/9780374533557/thinkingfastandslow/](https://us.macmillan.com/books/9780374533557/thinkingfastandslow/)
 
-Ries, E. (2011). *The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses*. Crown Business. [https://theleanstartup.com/book](https://theleanstartup.com/book)
+Kim, Gene, Jez Humble, Patrick Debois, and John Willis (2016). *The DevOps Handbook: How to Create World-Class Agility, Reliability, and Security in Technology Organizations*. IT Revolution Press. [https://itrevolution.com/product/the-devops-handbook/](https://itrevolution.com/product/the-devops-handbook/)
 
-Skelton, M., & Pais, M. (2019). *Team Topologies: Organizing Business and Technology Teams for Fast Flow*. IT Revolution Press. [https://itrevolution.com/product/team-topologies/](https://itrevolution.com/product/team-topologies/)
+Ries, Eric (2011). *The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses*. Crown Business. [https://theleanstartup.com/book](https://theleanstartup.com/book)
+
+Skelton, Matthew, and Manuel Pais (2019). *Team Topologies: Organizing Business and Technology Teams for Fast Flow*. IT Revolution Press. [https://itrevolution.com/product/team-topologies/](https://itrevolution.com/product/team-topologies/)
+
+U.S. National Archives (1981). "Four F-86F Sabre Aircraft from the Japanese Blue Impulse Precision Flying Team." National Archives. Public domain. [https://nara.getarchive.net/media/four-f-86f-sabre-aircraft-from-the-japanese-blue-impuse-precision-flying-team-1277ac](https://nara.getarchive.net/media/four-f-86f-sabre-aircraft-from-the-japanese-blue-impuse-precision-flying-team-1277ac)
 
 *Thumbnail: Canadair Sabre Mk. 1 cockpit at the Alberta Aviation Museum. Photo by CambridgeBayWeather (CC BY-SA 3.0). [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Canadair_Sabre_Mk._1_cockpit_at_the_Alberta_Aviation_Museum.JPG)*
 
@@ -102,6 +111,6 @@ Skelton, M., & Pais, M. (2019). *Team Topologies: Organizing Business and Techno
 
 ## Changelog
 
+**2026-06-07** Added Agentic Reliability Engineering.  
 **2026-05-16** Added Outtakes section. Removed Senior IC section.  
-**2026-05-04** Consolidated "When Speed Becomes a Liability" into Common Mistakes.  
 **2026-05-02** Updated Boyd reference links to direct PDFs via the Colonel John Boyd Digital Archive.

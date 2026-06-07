@@ -6,7 +6,7 @@ lastmod: 2026-05-17
 summary: "The Vantasner Danger Meridian names the threshold past which danger to your mission increases exponentially. Recognizing it before you cross it is the skill that separates deliberate risk from drift."
 tags: ["apocryphal", "cognitive", "risk"]
 image: /images/meridian.svg
-draft: false
+draft: true
 ---
 
 ## The Vantasner Danger Meridian

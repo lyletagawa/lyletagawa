@@ -6,7 +6,16 @@
     <description>Recent content in safety on hi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 30 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/safety/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/safety/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Distributed Causation</title>
+      <link>https://lyletagawa.com/posts/distributed-causation/</link>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/distributed-causation/</guid>
+      <description>Complex failures don&amp;rsquo;t have a single root cause. Complex failures have many causes that are distributed across time, systems, and organizational boundaries, and fixing just one leaves the rest in place.</description>
+    </item>
+    
     <item>
       <title>Resilience</title>
       <link>https://lyletagawa.com/posts/resilience/</link>
