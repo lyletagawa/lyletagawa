@@ -14,7 +14,7 @@
       
       <guid>https://lyletagawa.com/posts/llm-context-biases/</guid>
       <description>Primacy bias, recency bias, sycophancy, and anchoring are predictable distortions in how LLMs weight information. Understanding them changes how you prompt, evaluate, and trust model outputs.</description>
-      <media:content url="https://lyletagawa.com/images/illusion.png" medium="image" />
+      <media:content url="https://lyletagawa.com/images/llm-context-biases.jpg" medium="image" />
     </item>
     
   </channel>

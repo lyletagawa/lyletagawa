@@ -18,8 +18,14 @@
 <link rel="canonical" href="https://lyletagawa.com/posts/ooda-loop/">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
+<script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.people.toString(20)+" (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_zrLjgptGCvrPgnVnoXPF87NEtESJtxuQLt26tRfFynhL', {api_host: 'https://us.i.posthog.com'})
+</script>
+
 </head>
 <body>
+
 <section class="section">
   <div class="container">
     <nav id="nav-main" class="nav">
@@ -89,11 +95,13 @@
     
     <div class="content">
       <h6 class="subtitle is-6 date" style="line-height:0em">Apr. 30, 2026 &middot; 6 min read</h6>
-      <h2 id="ooda-loop">OODA Loop</h2>
+      <p><img src="/images/ooda-loop-f86.jpg" alt="">
+<em>Photo: U.S. National Archives (1981). Public domain.</em></p>
+<h2 id="ooda-loop">OODA Loop</h2>
 <p>Colonel John Boyd developed the OODA Loop (Observe, Orient, Decide, Act) while studying aerial combat in the 1950s and 1960s. Boyd observed that pilots who could cycle through observation, orientation, decision, and action faster than their opponents consistently won engagements, regardless of aircraft superiority (Boyd, 1976).</p>
 <p>Same story in business and technology. Loop faster than your competition and compound your advantage.</p>
 <h2 id="the-four-phases-explained">The Four Phases Explained</h2>
-<p>The OODA Loop consists of four interconnected phases forming a continuous cycle (Boyd, 1987). <strong>Observe</strong> gathers data from system telemetry, customer feedback, and market research. <strong>Orient</strong> synthesizes this data through organizational culture and domain expertise, transforming information into clear insight. <strong>Decide</strong> selects a course of action, balancing analysis with acceptable risk. <strong>Act</strong> executes decisions and feeds results back into observation.</p>
+<p>The OODA Loop consists of four interconnected phases forming a continuous cycle (Boyd, 1987). Observe gathers data from system telemetry, customer feedback, and market research. Orient synthesizes this data through organizational culture and domain expertise, transforming information into clear insight. Decide selects a course of action, balancing analysis with acceptable risk. Act executes decisions and feeds results back into observation.</p>
 <p>These phases form a continuous loop, not a sequential checklist (Boyd, 1987). While you act on one decision, you simultaneously observe its effects, orient to new information, and prepare subsequent decisions.</p>
 <h2 id="why-speed-matters">Why Speed Matters</h2>
 <p>Boyd’s central insight was that faster OODA cycles create disorientation in opponents (Boyd, 1976). When you complete your loop faster than competitors, you act on current information while they respond to outdated conditions. Each iteration compounds this advantage.</p>
@@ -106,29 +114,31 @@
 <p><strong>Action delays</strong> result from deployment friction and technical debt. The DevOps Handbook shows how reducing batch sizes and automating pipelines directly impacts throughput (Kim et al., 2016).</p>
 <p>Each impediment multiplies cycle time. An org that observes infrequently, orients poorly, decides cautiously, and acts slowly operates at a fraction of its potential velocity.</p>
 <h2 id="practical-applications-for-tech-leadership">Practical Applications for Tech Leadership</h2>
-<p><strong>Incident response</strong> maps directly to OODA. Effective incident management observes anomalies quickly, orients to root causes through runbooks, decides on remediation, and acts through automated procedures. Agentic AI is beginning to compress the observe-orient phases from minutes to seconds, keeping humans in the decision and action loop. Mean time to recovery depends more on loop speed than preventing all failures (Beyer et al., 2016).</p>
+<p><strong>Incident response</strong> maps directly to OODA. Effective incident management observes anomalies quickly, orients through runbooks and diagnostics, decides on remediation, and acts through automated procedures. Agentic AI is compressing the observe-orient phases from minutes to seconds, keeping humans in the decision and action loop. Mean time to recovery depends more on loop speed than on preventing all failures (Beyer et al., 2016).</p>
 <p><strong>Product development</strong> accelerates through continuous deployment. Feature flags enable observation, A/B testing provides orientation, and rapid deployment enables quick action. Organizations practicing continuous delivery deploy 46x more frequently with 440x faster lead times (Forsgren et al., 2018).</p>
 <p><strong>Strategic planning</strong> benefits from continuous adjustment rather than annual cycles (Ries, 2011). Observe market dynamics continuously, orient strategy quarterly, decide on tactical adjustments monthly, and act on opportunities as they emerge.</p>
+<p><strong>Agentic reliability engineering.</strong> Production signals exceed any team&rsquo;s triage capacity. Alert fatigue is a symptom of Orientation overwhelmed by input. Agentic Reliability Engineering (ARE) treats intelligence as a first-class reliability primitive (Jambor, 2026). Agents handle Observe and Orient continuously, filtering noise and surfacing what needs a decision. Humans move above the loop, designing intent and validating outcomes rather than triaging every signal.</p>
 <h2 id="common-mistakes">Common Mistakes</h2>
-<p><strong>Neglecting the Orientation phase.</strong> Observation and Action are the visible parts of the loop. Orientation is where the loop is won or lost. Boyd spent more time on Orientation than the other three phases combined (Boyd, 1987). It filters incoming data through experience, mental models, and cultural assumptions. Teams that rush from Observe to Decide skip the phase that determines whether their speed is applied to the right problem.</p>
+<p><strong>Neglecting the Orientation phase.</strong> Observation and Action are the visible parts of the loop. Orientation is where the loop is won or lost. Boyd spent more time on Orientation than the other three phases combined (Boyd, 1987). It filters incoming data through experience, mental models, and organizational norms. Teams that rush from Observe to Decide skip the phase that determines whether their speed is applied to the right problem.</p>
 <p><strong>Confusing OODA with a REPL.</strong> Engineers sometimes treat the Read-Eval-Print Loop as a metaphor for fast iteration. The loop resembles OODA but lacks Orientation. Each cycle reacts without building a mental model. Geoffrey Huntley calls the agentic AI version the Ralph Wiggum Loop. It describes an agent that iterates on its own outputs until it stumbles onto a correct result, with no orientation between cycles (Huntley, 2025).</p>
-<p><strong>Sustaining high-velocity indefinitely.</strong> Constant high-velocity mode exhausts teams, decreasing productivity and degrading decision quality (Forsgren et al., 2018). Not all competitive advantages derive from speed. Some require patient investment in research that cannot be rushed. Decisions that demand methodical, effortful reasoning cannot be compressed without degrading their quality (Kahneman, 2011).</p>
+<p><strong>Sustaining high-velocity indefinitely.</strong> Constant high velocity exhausts teams, decreasing productivity and degrading decision quality (Forsgren et al., 2018). Some advantages come from deep research that can&rsquo;t be rushed, not from cycling faster. Decisions that demand methodical, effortful reasoning can&rsquo;t be compressed without degrading their quality (Kahneman, 2011).</p>
 <h2 id="put-it-into-practice">Put It Into Practice</h2>
-<p>The goal is not maximum speed but optimal tempo. Fast enough to stay ahead, disciplined enough to sustain it.</p>
-<p>Audit your org&rsquo;s loop. Where do observations get delayed? What distorts orientation? What causes decision paralysis? What impedes action? Each impediment is an opportunity. Eliminate them, one cycle at a time.</p>
+<p>Speed without orientation is just faster mistakes. Boyd spent more time on the Orient phase than the other three combined because that&rsquo;s where the loop is won or lost.</p>
+<p>Audit your org&rsquo;s loop. Find where observations get delayed, what distorts orientation, what causes decision paralysis, and what impedes action. Each impediment is an opportunity. Eliminate them, one cycle at a time.</p>
 <hr>
 <h2 id="references">References</h2>
-<p>Argyris, C. (1977). Double loop learning in organizations. <em>Harvard Business Review</em>, 55(5), 115-125. <a href="https://hbr.org/1977/09/double-loop-learning-in-organizations">https://hbr.org/1977/09/double-loop-learning-in-organizations</a></p>
-<p>Beyer, B., Jones, C., Petoff, J., &amp; Murphy, N. R. (2016). <em>Site Reliability Engineering: How Google Runs Production Systems</em>. O&rsquo;Reilly Media. <a href="https://sre.google/sre-book/table-of-contents/">https://sre.google/sre-book/table-of-contents/</a></p>
-<p>Boyd, J. R. (1976). <em>Destruction and Creation</em>. U.S. Army Command and General Staff College. <a href="https://www.coljohnboyd.com/static/documents/1976-09-03__Boyd_John_R__Destruction_and_Creation.pdf">https://www.coljohnboyd.com/static/documents/1976-09-03__Boyd_John_R__Destruction_and_Creation.pdf</a></p>
-<p>Boyd, J. R. (1987). <em>Organic Design for Command and Control</em>. Unpublished briefing. <a href="https://www.coljohnboyd.com/static/documents/1987-05__Boyd_John_R__Organic_Design_for_Command_and_Control__PPT-PDF.pdf">https://www.coljohnboyd.com/static/documents/1987-05__Boyd_John_R__Organic_Design_for_Command_and_Control__PPT-PDF.pdf</a></p>
-<p>Forsgren, N., Humble, J., &amp; Kim, G. (2018). <em>Accelerate: The Science of Lean Software and DevOps</em>. IT Revolution Press. <a href="https://itrevolution.com/product/accelerate/">https://itrevolution.com/product/accelerate/</a></p>
+<p>Argyris, Chris (1977). &ldquo;Double loop learning in organizations.&rdquo; <em>Harvard Business Review</em>, 55(5): 115-125. <a href="https://hbr.org/1977/09/double-loop-learning-in-organizations">https://hbr.org/1977/09/double-loop-learning-in-organizations</a></p>
+<p>Beyer, Betsy, Chris Jones, Jennifer Petoff, and Niall R. Murphy (2016). <em>Site Reliability Engineering: How Google Runs Production Systems</em>. O&rsquo;Reilly Media. <a href="https://sre.google/sre-book/">https://sre.google/sre-book/</a></p>
+<p>Boyd, John R. (1976). <em>Destruction and Creation</em>. U.S. Army Command and General Staff College. <a href="https://www.coljohnboyd.com/static/documents/1976-09-03__Boyd_John_R__Destruction_and_Creation.pdf">https://www.coljohnboyd.com/static/documents/1976-09-03__Boyd_John_R__Destruction_and_Creation.pdf</a></p>
+<p>Boyd, John R. (1987). <em>Organic Design for Command and Control</em>. Unpublished briefing. <a href="https://www.coljohnboyd.com/static/documents/1987-05__Boyd_John_R__Organic_Design_for_Command_and_Control__PPT-PDF.pdf">https://www.coljohnboyd.com/static/documents/1987-05__Boyd_John_R__Organic_Design_for_Command_and_Control__PPT-PDF.pdf</a></p>
+<p>Forsgren, Nicole, Jez Humble, and Gene Kim (2018). <em>Accelerate: The Science of Lean Software and DevOps</em>. IT Revolution Press. <a href="https://itrevolution.com/product/accelerate/">https://itrevolution.com/product/accelerate/</a></p>
 <p>Huntley, Geoffrey (2025). &ldquo;Ralph Wiggum as a &lsquo;software engineer&rsquo;.&rdquo; <em>ghuntley.com</em>. <a href="https://ghuntley.com/ralph/">https://ghuntley.com/ralph/</a></p>
-<p>Kahneman, D. (2011). <em>Thinking, Fast and Slow</em>. New York: Farrar, Straus and Giroux. <a href="https://us.macmillan.com/books/9780374533557/thinkingfastandslow/">https://us.macmillan.com/books/9780374533557/thinkingfastandslow/</a></p>
-<p>Kim, G., Humble, J., Debois, P., &amp; Willis, J. (2016). <em>The DevOps Handbook: How to Create World-Class Agility, Reliability, and Security in Technology Organizations</em>. IT Revolution Press. <a href="https://itrevolution.com/product/the-devops-handbook/">https://itrevolution.com/product/the-devops-handbook/</a></p>
-<p>Ries, E. (2011). <em>The Lean Startup: How Today&rsquo;s Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses</em>. Crown Business. <a href="https://theleanstartup.com/book">https://theleanstartup.com/book</a></p>
-<p>Skelton, M., &amp; Pais, M. (2019). <em>Team Topologies: Organizing Business and Technology Teams for Fast Flow</em>. IT Revolution Press. <a href="https://itrevolution.com/product/team-topologies/">https://itrevolution.com/product/team-topologies/</a></p>
-<p><em>Thumbnail: Canadair Sabre Mk. 1 cockpit at the Alberta Aviation Museum. Photo by CambridgeBayWeather (CC BY-SA 3.0). <a href="https://commons.wikimedia.org/wiki/File:Canadair_Sabre_Mk._1_cockpit_at_the_Alberta_Aviation_Museum.JPG">Wikimedia Commons</a></em></p>
+<p>Jambor, David (2026). <em>Agentic Reliability Engineering</em>. O&rsquo;Reilly Media. <a href="https://www.oreilly.com/library/view/agentic-reliability-engineering/0642572294809">https://www.oreilly.com/library/view/agentic-reliability-engineering/0642572294809</a></p>
+<p>Kahneman, Daniel (2011). <em>Thinking, Fast and Slow</em>. New York: Farrar, Straus and Giroux. <a href="https://us.macmillan.com/books/9780374533557/thinkingfastandslow/">https://us.macmillan.com/books/9780374533557/thinkingfastandslow/</a></p>
+<p>Kim, Gene, Jez Humble, Patrick Debois, and John Willis (2016). <em>The DevOps Handbook: How to Create World-Class Agility, Reliability, and Security in Technology Organizations</em>. IT Revolution Press. <a href="https://itrevolution.com/product/the-devops-handbook/">https://itrevolution.com/product/the-devops-handbook/</a></p>
+<p>Ries, Eric (2011). <em>The Lean Startup: How Today&rsquo;s Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses</em>. Crown Business. <a href="https://theleanstartup.com/book">https://theleanstartup.com/book</a></p>
+<p>Skelton, Matthew, and Manuel Pais (2019). <em>Team Topologies: Organizing Business and Technology Teams for Fast Flow</em>. IT Revolution Press. <a href="https://itrevolution.com/product/team-topologies/">https://itrevolution.com/product/team-topologies/</a></p>
+<p>U.S. National Archives (1981). &ldquo;Four F-86F Sabre Aircraft from the Japanese Blue Impulse Precision Flying Team.&rdquo; National Archives. Public domain. <a href="https://nara.getarchive.net/media/four-f-86f-sabre-aircraft-from-the-japanese-blue-impuse-precision-flying-team-1277ac">https://nara.getarchive.net/media/four-f-86f-sabre-aircraft-from-the-japanese-blue-impuse-precision-flying-team-1277ac</a></p>
 <hr>
 <h2 id="outtakes">Outtakes</h2>
 <p><strong>The kill ratio.</strong> Boyd&rsquo;s original insight came from a puzzle. U.S. pilots in F-86 Sabres were shooting down MiGs 10:1 despite the MiG-15 being the superior aircraft (on paper). His explanation wasn&rsquo;t pilot skill. The F-86&rsquo;s bubble canopy gave better situational awareness. Its hydraulic controls gave faster stick response. Pilots who could see more and react faster completed their loops first.</p>
@@ -136,8 +146,8 @@
 <p><strong>The Fighter Mafia.</strong> Boyd pushed for a lightweight, maneuverable fighter using his Energy-Maneuverability theory. The Air Force establishment wanted the opposite, the F-15, a large, twin-engine fighter with advanced radar and a growing price tag. Boyd launched a parallel competition. The winning design, the YF-16, became the F-16. By the time it entered service, the Air Force had added radar, avionics, and weight until it had drifted back toward the aircraft Boyd fought against.</p>
 <hr>
 <h2 id="changelog">Changelog</h2>
-<p><strong>2026-05-16</strong> Added Outtakes section. Removed Senior IC section.<br>
-<strong>2026-05-04</strong> Consolidated &ldquo;When Speed Becomes a Liability&rdquo; into Common Mistakes.<br>
+<p><strong>2026-06-07</strong> Added Agentic Reliability Engineering.<br>
+<strong>2026-05-16</strong> Added Outtakes section. Removed Senior IC section.<br>
 <strong>2026-05-02</strong> Updated Boyd reference links to direct PDFs via the Colonel John Boyd Digital Archive.</p>
 
       <hr>

@@ -4,7 +4,7 @@ date: 2026-06-07
 publishdate: 2026-06-07
 lastmod: 2026-06-07
 summary: "When a measure becomes a target, it ceases to be a good measure. Engineering teams discover this whenever a metric used to track health becomes the thing being managed instead."
-tags: ["management", "metrics", "leadership"]
+tags: ["management", "metrics"]
 image: /images/goodharts-law.png
 draft: false
 ---
@@ -24,9 +24,9 @@ Time-to-fill dropped to 23 days, down from 54. Leadership cited it as evidence t
 
 Any statistical regularity will tend to collapse once pressure is placed on it for control purposes (Goodhart, 1975). That observation came from monetary policy. The Bank of England was targeting money supply figures as a lever for steering the broader economy. Once those figures became a target, the relationship with the underlying economy broke down.
 
-A study of British university audits captured the same pattern more broadly. "When a measure becomes a target, it ceases to be a good measure" (Strathern, 1997). That formulation strips the economic context and exposes the mechanism.
+Britain's Research Assessment Exercise rated university research quality and distributed funding based on those ratings. Universities began optimizing for the metrics rather than the research. "When a measure becomes a target, it ceases to be a good measure" (Strathern, 1997).
 
-The same pattern appears in social science. The more any quantitative indicator is used for high-stakes decision-making, the more subject it becomes to corruption pressures and the more it distorts the processes it was meant to monitor (Campbell, 1979). Goodhart's Law names the technical failure. Campbell's Law names the organizational pressure that causes it.
+The same pattern appears in social science. "The more any quantitative social indicator is used for social decision-making, the more subject it will be to corruption pressures and the more apt it is to distort and corrupt the social processes it is intended to monitor" (Campbell, 1979). Goodhart's Law names the technical failure. Campbell's Law names the organizational pressure that causes it.
 
 ## The Mechanism
 
@@ -36,8 +36,7 @@ When a metric becomes a target, two things happen. People optimize directly for 
 
 This is rational adaptation, not fraud. When deployment frequency is a target, the fastest path to hitting it is small, low-risk deployments that carry minimal value. The team deploys frequently. The underlying capability the metric was meant to track, the ability to ship meaningful changes safely, may be atrophying. The metric looks healthy. The system isn't.
 
-The measurement determines the behavior. The stated goal is irrelevant if the measurement doesn't track it. Rewarding A while hoping for B is the underlying folly (Kerr, 1975).
-
+The measurement determines the behavior. The stated goal is irrelevant if the measurement doesn't track it.
 ## Where Engineering Metrics Break
 
 **Sprint velocity** is the textbook case. Story points are a calibration tool. A team's historical velocity helps estimate how much work fits in a sprint. Once velocity becomes a target or a cross-team comparison, estimation inflates. Engineers pad points, work gets split artificially, and the number stabilizes. The throughput of meaningful work doesn't.
@@ -78,21 +77,19 @@ Forsgren, Nicole, Jez Humble, and Gene Kim (2018). *Accelerate: The Science of L
 
 Goodhart, Charles (1975). "Problems of Monetary Management: The UK Experience." *Papers in Monetary Economics*, Reserve Bank of Australia. [https://www.semanticscholar.org/paper/Problems-of-Monetary-Management%3A-The-UK-Experience-Goodhart/0ae623749b30de53a39cf05813f5f3842e422c01](https://www.semanticscholar.org/paper/Problems-of-Monetary-Management%3A-The-UK-Experience-Goodhart/0ae623749b30de53a39cf05813f5f3842e422c01)
 
-Kerr, Steven (1975). "On the Folly of Rewarding A, While Hoping for B." *Academy of Management Journal*, 18(4): 769-783. [https://www.jstor.org/stable/255378](https://www.jstor.org/stable/255378)
-
 Strathern, Marilyn (1997). "Improving Ratings: Audit in the British University System." *European Review*, 5(3): 305-321. [https://gwern.net/doc/statistics/decision/1997-strathern.pdf](https://gwern.net/doc/statistics/decision/1997-strathern.pdf)
 
 ---
 
 ## Outtakes
 
-**The cobra effect.** British colonial administrators in India offered bounties for dead cobras to reduce the population. Locals began breeding cobras for the reward. When the program ended and breeders released their snakes, the cobra population increased (Siebert, 2001).
-
-**The Soviet nail quota.** Soviet factories were given production quotas that were measured by the number of nails made tiny, unusable nails. Planners switched to weight quotas. Factories made massive, unusable nails. (Nove, 1977).
-
 **Wells Fargo.** Wells Fargo employees opened millions of unauthorized accounts over more than a decade to meet cross-selling targets (CFPB, 2016). The metric was accounts opened per customer. The goal was customer relationships. The bank paid $3 billion in settlements.
 
 **UK emergency wait times.** When the National Health Service introduced a four-hour emergency department wait target, some hospitals held patients in ambulances outside to avoid starting the clock. The wait time metric improved while patients waited longer (Bevan and Hood, 2006).
+
+**The Soviet nail quota.** A 1957 cartoon in the Soviet satirical magazine *Krokodil*, showed a factory worker proudly holding one giant nail. Soviet factories' production quotas measured by count produced tiny, unusable nails. Planners switched to weight quotas and factory workers made massive, unusable nails. (Nove, 1977).
+
+**The cobra effect.** An apocryphal story details colonial administrators in 1870s British India offering bounties for dead cobras to reduce the cobra population. Locals began breeding cobras for the reward. When the program ended in 1873, breeders released their snakes and the cobra population increased (Siebert, 2001).
 
 ---
 

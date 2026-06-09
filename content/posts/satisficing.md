@@ -5,7 +5,7 @@ publishdate: 2026-05-26
 lastmod: 2026-06-01
 summary: "The best decision is often the fastest one you can defend, not the optimal one you never finish searching for."
 tags: ["decision", "heuristics"]
-image: 
+image: /images/satisficing.jpg
 draft: false
 ---
 
@@ -79,8 +79,6 @@ Schwartz, Barry (2004). *The Paradox of Choice: Why More Is Less*. Ecco. [https:
 Simon, Herbert A. (1955). "A Behavioral Model of Rational Choice." *Quarterly Journal of Economics*, 69(1): 99-118. [https://academic.oup.com/qje/article-abstract/69/1/99/1919737](https://academic.oup.com/qje/article-abstract/69/1/99/1919737)
 
 Simon, Herbert A. (1956). "Rational Choice and the Structure of the Environment." *Psychological Review*, 63(2): 129-138. [https://pages.ucsd.edu/~mckenzie/Simon1956PsychReview.pdf](https://pages.ucsd.edu/~mckenzie/Simon1956PsychReview.pdf)
-
-Thumbnail SVG generated with [Claude Code](https://claude.ai/code) (2026).
 
 ---
 

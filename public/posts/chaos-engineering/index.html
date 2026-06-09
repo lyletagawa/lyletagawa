@@ -18,8 +18,14 @@
 <link rel="canonical" href="https://lyletagawa.com/posts/chaos-engineering/">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
+<script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.people.toString(20)+" (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_zrLjgptGCvrPgnVnoXPF87NEtESJtxuQLt26tRfFynhL', {api_host: 'https://us.i.posthog.com'})
+</script>
+
 </head>
 <body>
+
 <section class="section">
   <div class="container">
     <nav id="nav-main" class="nav">
@@ -91,14 +97,16 @@
     
     <div class="content">
       <h6 class="subtitle is-6 date" style="line-height:0em">Jun. 25, 2020 &middot; 6 min read</h6>
-      <h2 id="chaos-engineering">Chaos Engineering</h2>
+      <p><img src="/images/chaos-engineering.jpg" alt="">
+<em>&ldquo;Chaos Monkey&rdquo; by BUNKA Artoyz. Photo: BFLV (2008). CC BY-NC 2.0.</em></p>
+<h2 id="chaos-engineering">Chaos Engineering</h2>
 <p>Modern distributed systems fail in ways we cannot predict.</p>
 <p>Production incidents reveal unexpected interactions between services, infrastructure, and operators. Chaos Engineering takes a different approach, deliberately introducing controlled failures to discover systemic weaknesses before they cause customer-impacting outages.</p>
 <h2 id="why-chaos-engineering-matters">Why Chaos Engineering Matters</h2>
-<p>In distributed systems, the failure of a component your team never directly touches can cascade into failures your users experience. Charles Perrow&rsquo;s research demonstrates that multiple and unexpected interactions of failures are inevitable in complex systems (Perrow, 1999).</p>
-<p>Complexity sorts into two kinds, accidental and essential (Brooks, 1986). Accidental complexity accrues continuously. Essential complexity grows with the scope of what the system must do. Organizations cannot eliminate complexity. They must learn to navigate it.</p>
+<p>In distributed systems, the failure of a component your team never directly touches can cascade into failures your users experience. Multiple and unexpected interactions of failures are inevitable in complex systems (Perrow, 1999).</p>
+<p>Complexity sorts into two kinds, accidental and essential (Brooks, 1986). Accidental complexity accrues continuously, while essential complexity grows with the scope of what the system must do. Organizations can&rsquo;t eliminate complexity, only learn to navigate it.</p>
 <h2 id="the-dynamic-safety-model">The Dynamic Safety Model</h2>
-<p>Rasmussen&rsquo;s Dynamic Safety Model describes three competing pressures on engineering work (Rasmussen, 1997). The Safety boundary marks where failures become likely. The Economic boundary marks where work becomes unaffordable. The Workload boundary marks where teams become overwhelmed.</p>
+<p>Rasmussen&rsquo;s Dynamic Safety Model describes three competing pressures on engineering work (Rasmussen, 1997). The Safety boundary marks where failures become likely, the Economic boundary where work becomes unaffordable, and the Workload boundary where teams become overwhelmed.</p>
 <p>When the Safety boundary is not visible, engineers drift toward the other two, optimizing for cost and speed without knowing how close they are to failure. Chaos Engineering makes the Safety boundary visible through experimentation, giving teams the intuition to maintain appropriate margins.</p>
 <h2 id="optimizing-for-reversibility">Optimizing for Reversibility</h2>
 <p>Nygard&rsquo;s concept of optimizing for reversibility maps naturally to Chaos Engineering (Nygard, 2018). Chaos experiments expose properties that work against reversibility.</p>
@@ -112,12 +120,12 @@
 <li><strong>Introduce variables</strong> that reflect real-world events like server crashes, network partitions, or resource exhaustion</li>
 <li><strong>Try to disprove the hypothesis</strong> by looking for differences in steady state</li>
 </ol>
-<p>Testing makes assertions based on existing knowledge. Experimentation creates new knowledge, either building confidence or revealing new properties about the system. As Gary Klein observes, &ldquo;Performance Improvement = Errors ↓ + Insights ↑&rdquo; (Klein, 2013).</p>
+<p>Testing makes assertions based on existing knowledge. Experimentation creates new knowledge, either building confidence or revealing new properties about the system. Fewer errors, more insights (Klein, 2013).</p>
 <p>Chaos Engineering favors observing behavior at system boundaries over inspecting internal components (Rosenthal et al., 2020). Checking whether the system serves users correctly under failure tells you more than checking whether individual parts behave as designed.</p>
 <h2 id="what-chaos-engineering-is-not">What Chaos Engineering Is Not</h2>
 <p><strong>Chaos Engineering is not &ldquo;breaking stuff.&rdquo;</strong> It focuses solely on proactively improving safety in complex systems (Rosenthal et al., 2020).</p>
-<p><strong>Chaos Engineering is not &ldquo;antifragility.&rdquo;</strong> Nassim Taleb&rsquo;s &ldquo;antifragile&rdquo; refers to systems that get stronger when exposed to random stress (Taleb, 2012). Chaos Engineering educates human operators about chaos already inherent in the system. Antifragility adds chaos hoping the system will grow stronger in response.</p>
-<p>Resilience Engineering shows that hunting for what goes right is more informative than hunting for what goes wrong, and that redundancy can contribute to safety failures by adding complexity (Hollnagel, 2014).</p>
+<p><strong>Chaos Engineering is not &ldquo;antifragility.&rdquo;</strong> Antifragile systems get stronger when exposed to random stress (Taleb, 2012). Chaos Engineering educates operators about chaos already inherent in the system. Antifragility adds chaos hoping the system will grow stronger in response.</p>
+<p>Hunting for what goes right is more informative than hunting for what goes wrong, and redundancy can contribute to safety failures by adding complexity (Hollnagel, 2014).</p>
 <h2 id="running-experiments">Running Experiments</h2>
 <p><strong>Define steady state and form a hypothesis.</strong> Define normal behavior using business metrics such as order completion rate, search success rate, and video start time (Principles of Chaos Engineering, 2016). Then form a specific prediction: &ldquo;We believe that terminating 10% of our API servers will not impact order completion rate because our load balancers will route traffic to healthy instances within 30 seconds.&rdquo;</p>
 <p><strong>Vary real-world events.</strong> Introduce failures that reflect actual production conditions. Server crashes, network partitions, resource exhaustion, and dependency failures are all valid variables (Basiri et al., 2016).</p>
@@ -126,7 +134,7 @@
 <p><strong>Monitor and abort if needed.</strong> Execute during business hours when teams can respond. Abort if steady state degrades beyond acceptable thresholds (Rosenthal et al., 2020).</p>
 <p><strong>Learn, iterate, and automate.</strong> Document findings, address weaknesses, expand scope, and automate successful experiments. Like continuous integration catches code regressions, continuous chaos engineering catches resilience regressions as systems evolve (Basiri et al., 2016).</p>
 <h2 id="game-days">Game Days</h2>
-<p>As Jesse Robbins observed, you don&rsquo;t choose the moment, the moment chooses you. You do choose how prepared you are when it does (Robbins, 2011).</p>
+<p>You don&rsquo;t choose the moment, the moment chooses you. You do choose how prepared you are when it does (Robbins, 2011).</p>
 <p>Game Days are scheduled exercises where teams deliberately cause failures to practice incident response, build muscle memory, reveal gaps in runbooks, and improve team coordination (Robbins, 2011).</p>
 <p>Three useful benchmarks:</p>
 <ul>
@@ -136,12 +144,13 @@
 </ul>
 <h2 id="put-it-into-practice">Put It Into Practice</h2>
 <p>Chaos Engineering shifts organizations from reactive incident response to proactive resilience building, discovering systemic weaknesses before they cause outages (Rosenthal et al., 2020).</p>
-<p>The discipline requires cultural change. Teams must embrace experimentation and accept that failures will occur, while leadership supports time invested in activities that don&rsquo;t directly deliver features.</p>
+<p>The discipline requires cultural change. Teams must embrace experimentation and accept that failures will occur, while leadership supports time invested in activities that don&rsquo;t directly deliver features (Rosenthal et al., 2020).</p>
 <p>Organizations that adopt Chaos Engineering build more resilient systems, respond to incidents more effectively, and operate with greater confidence (Basiri et al., 2016). They transform the question from &ldquo;will our system fail?&rdquo; to &ldquo;when our system fails, how will it behave, and are we prepared?&rdquo;</p>
-<p>Start small. Run your first experiment this week. Discover one weakness. Fix it. Repeat.</p>
+<p>Start small. Run your first experiment this week, discover one weakness, fix it, and repeat.</p>
 <hr>
 <h2 id="references">References</h2>
 <p>Basiri, Ali, et al. (2016). &ldquo;Chaos Engineering.&rdquo; <em>IEEE Software</em>, 33(3): 35-41. <a href="https://doi.org/10.1109/MS.2016.60">https://doi.org/10.1109/MS.2016.60</a></p>
+<p>BFLV (2008). &ldquo;Expos CHAOS MONKEY by BUNKA Artoyz.&rdquo; Flickr. CC BY-NC 2.0. <a href="https://www.flickr.com/photos/bflv/2849375040/">https://www.flickr.com/photos/bflv/2849375040/</a></p>
 <p>Brooks, Frederick P. (1986). &ldquo;No Silver Bullet: Essence and Accidents of Software Engineering.&rdquo; <em>IEEE Computer</em>, 20(4): 10-19. <a href="https://www.cs.unc.edu/techreports/86-020.pdf">https://www.cs.unc.edu/techreports/86-020.pdf</a></p>
 <p>Hollnagel, Erik (2014). <em>Safety-I and Safety-II: The Past and Future of Safety Management</em>. Farnham: Ashgate. <a href="https://erikhollnagel.com/books/safety-i-safety-ii-2014">https://erikhollnagel.com/books/safety-i-safety-ii-2014</a></p>
 <p>Klein, Gary (2013). <em>Seeing What Others Don&rsquo;t: The Remarkable Ways We Gain Insights</em>. New York: PublicAffairs. <a href="https://www.hachettebookgroup.com/titles/gary-klein/seeing-what-others-dont/9781610392754/">https://www.hachettebookgroup.com/titles/gary-klein/seeing-what-others-dont/9781610392754/</a></p>
@@ -154,7 +163,8 @@
 <p>Taleb, Nassim Nicholas (2012). <em>Antifragile: Things That Gain from Disorder</em>. New York: Random House. <a href="https://www.penguinrandomhouse.com/books/176227/antifragile-by-nassim-nicholas-taleb/">https://www.penguinrandomhouse.com/books/176227/antifragile-by-nassim-nicholas-taleb/</a></p>
 <hr>
 <h2 id="changelog">Changelog</h2>
-<p><strong>2026-05-17</strong> Removed IC section. Simplified Dynamic Safety Model.<br>
+<p><strong>2026-06-07</strong> Added hero image.<br>
+<strong>2026-05-17</strong> Removed IC section. Simplified Dynamic Safety Model.<br>
 <strong>2026-05-01</strong> Restructured from rough notes. Corrected Robbins citation venue from Velocity to USENIX LISA11.<br>
 <strong>2020-06-25</strong> Initial publication.</p>
 

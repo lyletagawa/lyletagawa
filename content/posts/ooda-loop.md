@@ -5,7 +5,7 @@ publishdate: 2026-05-02
 lastmod: 2026-06-07
 summary: "How John Boyd's OODA Loop (Observe, Orient, Decide, Act) applies to technology leadership, and practical strategies for eliminating the bottlenecks that slow your competitive cycles."
 tags: ["adaptation", "awareness"]
-image: /images/ooda-loop.jpg
+image: /images/ooda-loop-f86.jpg
 ---
 
 ![](/images/ooda-loop-f86.jpg)
@@ -94,8 +94,6 @@ Ries, Eric (2011). *The Lean Startup: How Today's Entrepreneurs Use Continuous I
 Skelton, Matthew, and Manuel Pais (2019). *Team Topologies: Organizing Business and Technology Teams for Fast Flow*. IT Revolution Press. [https://itrevolution.com/product/team-topologies/](https://itrevolution.com/product/team-topologies/)
 
 U.S. National Archives (1981). "Four F-86F Sabre Aircraft from the Japanese Blue Impulse Precision Flying Team." National Archives. Public domain. [https://nara.getarchive.net/media/four-f-86f-sabre-aircraft-from-the-japanese-blue-impuse-precision-flying-team-1277ac](https://nara.getarchive.net/media/four-f-86f-sabre-aircraft-from-the-japanese-blue-impuse-precision-flying-team-1277ac)
-
-*Thumbnail: Canadair Sabre Mk. 1 cockpit at the Alberta Aviation Museum. Photo by CambridgeBayWeather (CC BY-SA 3.0). [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Canadair_Sabre_Mk._1_cockpit_at_the_Alberta_Aviation_Museum.JPG)*
 
 ---
 

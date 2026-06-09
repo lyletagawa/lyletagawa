@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>metrics on hi</title>
+    <link>https://lyletagawa.com/tags/metrics/</link>
+    <description>Recent content in metrics on hi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 07 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/metrics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Goodhart&#39;s Law</title>
+      <link>https://lyletagawa.com/posts/goodharts-law/</link>
+      <pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/goodharts-law/</guid>
+      <description>When a measure becomes a target, it ceases to be a good measure. Engineering teams discover this whenever a metric used to track health becomes the thing being managed instead.</description>
+      <media:content url="https://lyletagawa.com/images/goodharts-law.png" medium="image" />
+    </item>
+    
+  </channel>
+</rss>

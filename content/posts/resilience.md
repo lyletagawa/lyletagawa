@@ -6,10 +6,11 @@ lastmod: 2026-06-07
 summary: "Your system passed every test. Redundancy was in place. Then something unexpected happened anyway. Resilience Engineering is the framework for building systems that hold up when the unexpected is inevitable."
 tags: ["resilience", "safety", "capacity"]
 image: /images/resilience.jpg
+draft: false
 ---
 
 ![](/images/resilience.jpg)
-*"Windswept tree in Ireland." Photo: Eoin Gardiner (2008). CC BY 2.0.*
+*"Windswept Hawthorn tree in Ireland." Photo: Eoin Gardiner (2008). CC BY 2.0.*
 
 ## Resilience
 

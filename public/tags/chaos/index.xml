@@ -14,6 +14,7 @@
       
       <guid>https://lyletagawa.com/posts/chaos-engineering/</guid>
       <description>Chaos Engineering builds confidence in distributed systems by deliberately introducing failures before they occur on their own. The discipline shifts teams from reactive incident response to proactive resilience building.</description>
+      <media:content url="https://lyletagawa.com/images/chaos-engineering.jpg" medium="image" />
     </item>
     
   </channel>

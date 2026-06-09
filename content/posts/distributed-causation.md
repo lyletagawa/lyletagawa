@@ -5,7 +5,7 @@ publishdate: 2026-06-01
 lastmod: 2026-06-01
 summary: "Complex failures don't have a single root cause. Complex failures have many causes that are distributed across time, systems, and organizational boundaries, and fixing just a single \"root\" cause leaves the rest in place."
 tags: ["safety", "incidents", "resilience"]
-image: 
+image: /images/distributed-causation.jpg
 draft: false
 ---
 

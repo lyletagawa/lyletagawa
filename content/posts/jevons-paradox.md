@@ -5,7 +5,7 @@ publishdate: 2026-05-05
 lastmod: 2026-06-07
 summary: "Why efficiency improvements in technology often increase total consumption rather than reduce it, and how leaders can anticipate and manage the inevitable rebound."
 tags: ["capacity", "management"]
-image: /images/jevons-paradox.jpg
+image: /images/jevons-paradox-jam.jpg
 ---
 
 ![](/images/jevons-paradox-jam.jpg)
@@ -93,8 +93,6 @@ Sellers, Scott (2025). "Why Cloud Efficiency is Driving More IT Spending, Not Le
 U.S. Department of Energy (2020). "Adoption of Light-Emitting Diodes in Common Lighting Applications." Office of Energy Efficiency and Renewable Energy. [https://www.energy.gov/cmei/ssl/led-adoption-report](https://www.energy.gov/cmei/ssl/led-adoption-report)
 
 B137 (2012). "Rush hour traffic jam on I-95 North, Miami." Wikimedia Commons. CC BY-SA 4.0. [https://commons.wikimedia.org/wiki/File:Miami_traffic_jam,_I-95_North_rush_hour.jpg](https://commons.wikimedia.org/wiki/File:Miami_traffic_jam,_I-95_North_rush_hour.jpg)
-
-*Thumbnail: Watt's Steam Engine. British Cigarette Cards, George Arents Collection. The New York Public Library. [picryl.com](https://picryl.com/media/watts-steam-engine-589e99)*
 
 ---
 

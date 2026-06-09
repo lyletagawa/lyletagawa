@@ -5,7 +5,7 @@ publishdate: 2026-05-21
 lastmod: 2026-06-01
 summary: "Authority centralizes decisions with whoever has the title. Alignment distributes them to whoever has the context, which is almost never the same person."
 tags: ["leadership", "intent", "influence"]
-image:
+image: /images/influence-by-alignment.jpg
 draft: false
 ---
 
