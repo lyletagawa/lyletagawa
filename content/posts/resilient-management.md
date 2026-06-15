@@ -6,6 +6,9 @@ lastmod: 2020-08-17
 summary: "Think about your team for a moment. How well is it functioning? Are you currently on a high-performing team, having found your groove and flow state as a group? Are you on a team that isn’t quite in that magical state of being yet, but it feels like you’re on your way? Are you feeling some friction—frustration, confusion—with your team? Or have you just joined a new team, so none of these apply yet?"
 tags: ["resilience", "management"]
 ---
+
+![]()
+
 ## [Resilient Management](https://learning.oreilly.com/library/view/resilient-management/9781492018025/) by Lara Hogan.
 
 In 1965, psychology researcher Bruce Tuckman published [Tuckman’s stages of group development](https://en.wikipedia.org/wiki/Tuckman's_stages_of_group_development). These

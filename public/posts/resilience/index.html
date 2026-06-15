@@ -18,9 +18,15 @@
 <link rel="canonical" href="https://lyletagawa.com/posts/resilience/">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
+<meta name="description" content="Your system passed every test. Redundancy was in place. Then something unexpected happened anyway. Resilience Engineering is the framework for building systems that hold up when the unexpected is inevitable.">
 <script>
-    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.people.toString(20)+" (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-    posthog.init('phc_zrLjgptGCvrPgnVnoXPF87NEtESJtxuQLt26tRfFynhL', {api_host: 'https://us.i.posthog.com'})
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="Xi tn init mn Qr yn xn pn capture calculateEventProperties Tn register register_once register_for_session unregister unregister_for_session Pn getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync On identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException addExceptionStep captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty Mn Cn createPersonProfile setInternalOrTestUser Rn vn An opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Sn debug Kr En getPageViewId captureTraceFeedback captureTraceMetric hn".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_zrLjgptGCvrPgnVnoXPF87NEtESJtxuQLt26tRfFynhL', {
+        api_host: 'https://p.foureleven.org', 
+        ui_host: 'https://us.posthog.com', 
+        defaults: '2026-05-30',
+        person_profiles: 'identified_only', 
+    })
 </script>
 
 </head>
@@ -42,7 +48,8 @@
     
     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
     
-  </svg></i>
+  </svg>
+</i>
             </span>
           </a><a class="level-item" aria-label="linkedin" href='https://linkedin.com/in/lyletagawa'
             target='_blank' rel='noopener'>
@@ -51,7 +58,8 @@
     
     <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
     
-  </svg></i>
+  </svg>
+</i>
             </span>
           </a><a class="level-item" aria-label="rss" href='/index.xml'
             target='_blank' rel='noopener'>
@@ -60,7 +68,8 @@
     
     <path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle>
     
-  </svg></i>
+  </svg>
+</i>
             </span>
           </a></nav>
       </div>
@@ -78,6 +87,7 @@
 <section class="section">
   <div class="container">
     <h1 class="title">Resilience</h1>
+    
     <div class="subtitle tags is-6 is-pulled-right">
       
       
@@ -95,8 +105,11 @@
       
     </div>
     
+    <h6 class="subtitle is-6" style="line-height:0em">Oct. 30, 2019&nbsp;&middot; 6 min read
+    </h6>
+    
+
     <div class="content">
-      <h6 class="subtitle is-6 date" style="line-height:0em">Oct. 30, 2019 &middot; 6 min read</h6>
       <p><img src="/images/resilience.jpg" alt="">
 <em>&ldquo;Windswept Hawthorn tree in Ireland.&rdquo; Photo: Eoin Gardiner (2008). CC BY 2.0.</em></p>
 <h2 id="resilience">Resilience</h2>
@@ -105,7 +118,7 @@
 <h2 id="resilience-vs-robustness">Resilience vs Robustness</h2>
 <p>Robustness is the capacity to handle known failure modes. Resilience is the capacity to handle failures that weren&rsquo;t foreseeable by the designer. Robustness is designed in advance. Resilience is something a system does when conditions change (Allspaw, 2012).</p>
 <p>The distinction matters because complex systems regularly produce failures that fall outside what their designers imagined.</p>
-<h2 id="why-software-systems-need-resilience-engineering">Why Software Systems Need Resilience Engineering</h2>
+<h2 id="why-testing-isnt-enough">Why Testing Isn&rsquo;t Enough</h2>
 <p>Rigorous testing, redundancy, and defensive programming all rest on the assumption that every failure mode can be anticipated and prevented. For complex distributed systems, that assumption breaks down (Hollnagel, 2011).</p>
 <p>Complexity and emergent behavior mean that distributed systems create interactions that can&rsquo;t be predicted from individual components. No amount of testing can explore all possible system states (Cook, 2000).</p>
 <p>Cascading failures occur when localized problems propagate through system dependencies. A slow database query triggers connection pool exhaustion, causing application timeouts, leading to retry storms that overwhelm the database further.</p>
@@ -128,7 +141,7 @@
 <p><strong>Balance velocity with resilience.</strong> Not every system needs chaos engineering or elaborate circuit breakers (Basiri et al., 2016). Assess risk based on blast radius, recovery time objectives, and business impact.</p>
 <p><strong>Protect the conditions for human resilience.</strong> Psychological safety, shared mental models, and the freedom to speak up about risk are what allow adaptive capacity to surface. An experienced operator who won&rsquo;t flag a problem because of how it will be received is a system with a silenced warning light.</p>
 <p>The work doesn&rsquo;t stop at the code. Model resilience thinking in design reviews, ask questions about failure modes, and share stories of how systems failed.</p>
-<h2 id="common-misconceptions">Common Misconceptions</h2>
+<h2 id="how-teams-get-this-wrong">How Teams Get This Wrong</h2>
 <p>Resilience is more than just redundancy. Adding more servers, databases, or availability zones improves fault tolerance but doesn&rsquo;t guarantee resilience. Resilient systems adapt to unexpected conditions; they don&rsquo;t just tolerate anticipated failures (Woods, 2015).</p>
 <p>Over-engineering is not adaptive capacity. Resilience doesn&rsquo;t require elaborate mechanisms for every possible failure. Sometimes the most resilient solution is simple, well-understood, and easy to reason about during an incident.</p>
 <p>Root causes are rarely singular. Complex system failures result from combinations of conditions, decisions, and circumstances (Dekker, 2006). Searching for a single cause impedes learning.</p>
@@ -136,8 +149,7 @@
 <h2 id="put-it-into-practice">Put It Into Practice</h2>
 <p>Pick one dependency your system relies on and ask what happens when it&rsquo;s slow, unavailable, or returning corrupt data. If the answer isn&rsquo;t &ldquo;we degrade gracefully and we&rsquo;d know within minutes,&rdquo; that&rsquo;s the work. Build the observability, add the circuit breaker, write the runbook, and run the game day.</p>
 <p>Then talk to the people who operate this system under pressure. What do they know that isn&rsquo;t in any runbook? What are they quietly working around? Learning how people cope with surprise is the path to finding sources of resilience.</p>
-<p>The four capabilities (anticipation, monitoring, response, learning) make a useful regular check. Where is your system weakest? Where would your team struggle most, and what do they already know about it that you don&rsquo;t? Ask those questions in design reviews and postmortems.</p>
-<p>Resilience won&rsquo;t emerge from a single project or sprint. It&rsquo;s built by the people who ask those questions consistently, and who create the conditions for honest answers.</p>
+<p>Where is your system weakest? Where would your team struggle most, and what do they already know about it that you don&rsquo;t? Ask those questions in design reviews and postmortems. Resilience won&rsquo;t emerge from a single project or sprint. It&rsquo;s built by the people who ask consistently, and who create the conditions for honest answers.</p>
 <h2 id="references">References</h2>
 <p>Allspaw, John (2012). &ldquo;Blameless PostMortems and a Just Culture.&rdquo; <em>Etsy Code as Craft Blog</em>. <a href="https://web.archive.org/web/20230601000000/https://codeascraft.com/2012/05/22/blameless-postmortems/">https://web.archive.org/web/20230601000000/https://codeascraft.com/2012/05/22/blameless-postmortems/</a></p>
 <p>Basiri, Ali, et al. (2016). &ldquo;Chaos Engineering.&rdquo; <em>IEEE Software</em>, 33(3): 35-41. <a href="https://arxiv.org/abs/1702.05843">https://arxiv.org/abs/1702.05843</a></p>
@@ -179,6 +191,9 @@
     
   </div>
 </section>
+
+
+
 
 
 </body>

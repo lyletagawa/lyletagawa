@@ -7,6 +7,9 @@ summary: "Team Topologies provides four fundamental team types -- stream-aligned
 image: https://images.squarespace-cdn.com/content/5b3296b78ab7229ecafcf4ed/1549553080029-RBNC0NOWOUE55VMFK8HB/main-logo-blue-text.png?format=1500w&content-type=image%2Fpng
 tags: ["team", "cognitive", "capacity"]
 ---
+
+![]()
+
 ## [Team Topologies](https://teamtopologies.com/book) by Matthew Skelton and Manuel Pais
 
 ## Teams as the means of delivery

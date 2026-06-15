@@ -2,7 +2,7 @@
 title: "Resilience"
 date: 2019-10-30
 publishdate: 2019-10-30
-lastmod: 2026-06-07
+lastmod: 2026-06-14
 summary: "Your system passed every test. Redundancy was in place. Then something unexpected happened anyway. Resilience Engineering is the framework for building systems that hold up when the unexpected is inevitable."
 tags: ["resilience", "safety", "capacity"]
 image: /images/resilience.jpg
@@ -24,7 +24,7 @@ Robustness is the capacity to handle known failure modes. Resilience is the capa
 
 The distinction matters because complex systems regularly produce failures that fall outside what their designers imagined.
 
-## Why Software Systems Need Resilience Engineering
+## Why Testing Isn't Enough
 
 Rigorous testing, redundancy, and defensive programming all rest on the assumption that every failure mode can be anticipated and prevented. For complex distributed systems, that assumption breaks down (Hollnagel, 2011).
 
@@ -71,7 +71,7 @@ Your design decisions shape how much adaptive capacity a system has.
 
 The work doesn't stop at the code. Model resilience thinking in design reviews, ask questions about failure modes, and share stories of how systems failed.
 
-## Common Misconceptions
+## How Teams Get This Wrong
 
 Resilience is more than just redundancy. Adding more servers, databases, or availability zones improves fault tolerance but doesn't guarantee resilience. Resilient systems adapt to unexpected conditions; they don't just tolerate anticipated failures (Woods, 2015).
 
@@ -87,9 +87,7 @@ Pick one dependency your system relies on and ask what happens when it's slow, u
 
 Then talk to the people who operate this system under pressure. What do they know that isn't in any runbook? What are they quietly working around? Learning how people cope with surprise is the path to finding sources of resilience.
 
-The four capabilities (anticipation, monitoring, response, learning) make a useful regular check. Where is your system weakest? Where would your team struggle most, and what do they already know about it that you don't? Ask those questions in design reviews and postmortems.
-
-Resilience won't emerge from a single project or sprint. It's built by the people who ask those questions consistently, and who create the conditions for honest answers.
+Where is your system weakest? Where would your team struggle most, and what do they already know about it that you don't? Ask those questions in design reviews and postmortems. Resilience won't emerge from a single project or sprint. It's built by the people who ask consistently, and who create the conditions for honest answers.
 
 ## References
 

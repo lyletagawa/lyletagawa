@@ -63,5 +63,8 @@ tag = "tags"
 [markup]
   defaultMarkdownHandler = "goldmark"
 
+[markup.goldmark.renderer]
+  unsafe = false
+
 [minify]
   minifyOutput = false

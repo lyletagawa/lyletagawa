@@ -6,6 +6,9 @@ lastmod: 2016-09-26
 summary: "&nbsp;"
 tags: ["situation", "behavior", "impact"]
 ---
+
+![]()
+
 ## Situation Behavior Impact
 
 - in a specific scenario

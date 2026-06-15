@@ -2,8 +2,8 @@
 title: "Distributed Causation"
 date: 2026-06-01
 publishdate: 2026-06-01
-lastmod: 2026-06-01
-summary: "Complex failures don't have a single root cause. Complex failures have many causes that are distributed across time, systems, and organizational boundaries, and fixing just a single \"root\" cause leaves the rest in place."
+lastmod: 2026-06-14
+summary: "Complex failures don't have a single root cause. They have many causes distributed across time, systems, and organizational boundaries, and fixing just one leaves the rest in place."
 tags: ["safety", "incidents", "resilience"]
 image: /images/distributed-causation.jpg
 draft: false
@@ -26,13 +26,13 @@ On March 28, 1979, a pressure relief valve stuck open at the Three Mile Island (
 
 U.S. President Jimmy Carter appointed a commission to investigate, chaired by John Kemeny. The commission rejected the most convenient explanation. The accident wasn't caused by the valve, not by operator error alone, and not by equipment design alone. Metropolitan Edison (the plant's operator) made staffing and training decisions that contributed. Babcock and Wilcox (the reactor manufacturer) knew about similar valve events at other facilities and didn't share those warnings. The Nuclear Regulatory Commission (NRC) failed to act on those events or improve its oversight requirements (Kemeny Commission, 1979).
 
-This is distributed causation. Failures in complex systems don't originate in one place but pile-up across organizational boundaries, across time, and across multiple contributing factors that appear unrelated until they join-up.
+This is distributed causation. Failures in complex systems don't originate in one place. They pile up across organizational boundaries, across time, and across contributing factors that look unrelated until they converge.
 
-Twenty-four years later, the Columbia Accident Investigation Board (CAIB) reached the same conclusion about Columbia space shuttle disaster. The shuttle broke apart on reentry in February 2003 after foam breached the heat shield during launch. The board named the foam strike as the physical cause. It also named NASA's organizational culture, eroded safety margins, and a communication structure that suppressed dissenting voices (CAIB, 2003).
+Twenty-four years later, the Columbia Accident Investigation Board (CAIB) reached the same conclusion about the Columbia space shuttle disaster. The shuttle broke apart on reentry in February 2003 after foam breached the heat shield during launch. The board named the foam strike as the physical cause. It also named NASA's organizational culture, eroded safety margins, and a communication structure that suppressed dissenting voices (CAIB, 2003).
 
-Every participant followed their training, their protocols, and their oversight requirements. But, the system still failed (Kemeny Commission, 1979; CAIB, 2003).
+Every participant followed their training, their protocols, and their oversight requirements. But the system still failed (Kemeny Commission, 1979; CAIB, 2003).
 
-## The Root Cause Problem
+## Why Root Cause Fails
 
 The desire to find a root cause isn't irrational. A single cause is actionable, but a distributed explanation requires simultaneous changes to multiple systems, multiple processes, and multiple organizations, which is slow and expensive.
 
@@ -46,19 +46,19 @@ The SNAFUcatchers workshop documented in 2017 how software incidents consistentl
 
 **Cross-team incidents.** Distributed failures cross team boundaries. Each team contributed a factor, but no team caused the incident alone. The root cause framework assigns ownership to one team, which relieves the others of any obligation to change. The same distributed conditions produce another incident months later, attributed to a different team.
 
-**Latent conditions.** Cook describes latent conditions as failures waiting to happen, present in the system before any incident occurs (Cook, 1998). A postmortem that finds a root cause has found the active failure that triggered the incident, but rarely surfaces the latent conditions that made it consequential. Those conditions remain in place until the next combination.
+**Latent conditions.** Latent conditions are failures waiting to happen, present in the system before any incident occurs (Cook, 1998). A postmortem that finds a root cause has found the active failure that triggered the incident, but rarely surfaces the latent conditions that made it consequential. Those conditions remain in place until the next combination.
 
 **Vendor and dependency failures.** Incidents involving third-party services or cloud provider outages reveal the same pattern TMI demonstrated (Kemeny Commission, 1979). The failure is distributed across the organization's own systems and the external dependency. Attributing it entirely to the vendor obscures whatever internal factors made that external failure so damaging.
 
-## Common Mistakes
+## How Teams Get This Wrong
 
 **Fixing the trigger and calling it done.** Patching the vulnerable dependency, alerting on the metric that wasn't alerting, and changing the failed configuration are all real improvements worth making. But a postmortem that stops at the trigger has identified one factor in a distributed failure. The latent conditions that amplified it remain.
 
-**Treating organizational contributors as context, not cause.** The Kemeny Commission found that staffing decisions, training programs, and regulatory culture all contributed to TMI (Kemeny Commission, 1979). Most postmortems treat these as background when they belong in the cause list.
+**Treating organizational contributors as context, not cause.** Staffing decisions, training programs, and regulatory culture all contributed to TMI (Kemeny Commission, 1979). Most postmortems treat these as background when they belong in the cause list.
 
 **Confusing blame-free with cause-free.** Blameless postmortems correctly remove individual blame, but they sometimes remove distributed causation as well, treating the absence of a blameworthy person as evidence that no structural failure occurred (Dekker, 2006).
 
-**Misreading incident patterns.** Teams that track incidents by root cause category watch for recurrence in that category, but distributed causation means the next incident will look different. The service changes and the trigger changes, but the underlying combination of latent conditions stays the same. The pattern stays invisible inside the root cause framework.
+**Misreading incident patterns.** Teams that track incidents by root cause category watch for recurrence in that category, but distributed causation means the next incident will look different. The service changes and the trigger changes, but the underlying combination of latent conditions stays the same. The next incident looks new. It isn't.
 
 ## Put It Into Practice
 

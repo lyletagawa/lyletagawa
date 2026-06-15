@@ -6,6 +6,8 @@ image: https://assets.swoogo.com/uploads/medium/487256-5ea875614e45f.png
 tags: ["learning", "incidents", "resilience"]
 ---
 
+![]()
+
 ## [PagerDuty Summit 2020](https://summit.pagerduty.com/global)
 
 40+ hours of sessions and keynotes – How much time do you have?

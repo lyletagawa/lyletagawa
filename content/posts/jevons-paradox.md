@@ -2,7 +2,7 @@
 title: "Jevons Paradox"
 date: 2026-05-02
 publishdate: 2026-05-05
-lastmod: 2026-06-07
+lastmod: 2026-06-14
 summary: "Why efficiency improvements in technology often increase total consumption rather than reduce it, and how leaders can anticipate and manage the inevitable rebound."
 tags: ["capacity", "management"]
 image: /images/jevons-paradox-jam.jpg
@@ -39,7 +39,7 @@ Caching reduces database load by 80%. The freed database capacity gets used for 
 
 **The agentic AI paradox**. Cloudflare deployed a multi-agent AI code review system that automatically reviews every merge request. Within weeks, weekly merge volume increased from roughly 5,600 to over 8,700, with one week reaching 10,952 (Cloudflare, 2026). Review capacity was no longer the constraint on merge velocity.
 
-## How to Manage Jevons Paradox
+## Manage the Rebound
 
 These three moves happen in sequence. Plan before you ship, constrain at launch, and monitor after.
 
@@ -88,7 +88,7 @@ Forsgren, Nicole, et al. (2018). *Accelerate: The Science of Lean Software and D
 
 Kim, Gene, et al. (2016). *The DevOps Handbook*. Portland, OR: IT Revolution Press. [https://itrevolution.com/product/the-devops-handbook/](https://itrevolution.com/product/the-devops-handbook/)
 
-Sellers, Scott (2025). "Why Cloud Efficiency is Driving More IT Spending, Not Less." *Azul Newsroom*, August 21. [https://azul.com/newsroom/why-cloud-efficiency-is-driving-more-it-spending-not-les](https://azul.com/newsroom/why-cloud-efficiency-is-driving-more-it-spending-not-les)
+Sellers, Scott (2025). "Why Cloud Efficiency is Driving More IT Spending, Not Less." *InformationWeek*, August 21. [https://www.informationweek.com/it-leadership/why-cloud-efficiency-is-driving-more-it-spending-not-less-](https://www.informationweek.com/it-leadership/why-cloud-efficiency-is-driving-more-it-spending-not-less-)
 
 U.S. Department of Energy (2020). "Adoption of Light-Emitting Diodes in Common Lighting Applications." Office of Energy Efficiency and Renewable Energy. [https://www.energy.gov/cmei/ssl/led-adoption-report](https://www.energy.gov/cmei/ssl/led-adoption-report)
 

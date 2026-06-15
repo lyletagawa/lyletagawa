@@ -2,7 +2,7 @@
 title: "Alignment Over Authority"
 date: 2026-05-21
 publishdate: 2026-05-21
-lastmod: 2026-06-01
+lastmod: 2026-06-14
 summary: "Authority centralizes decisions with whoever has the title. Alignment distributes them to whoever has the context, which is almost never the same person."
 tags: ["leadership", "intent", "influence"]
 image: /images/influence-by-alignment.jpg
@@ -22,11 +22,9 @@ The gap between formal authority and actual influence is where most technical le
 
 ## What Is Alignment?
 
-Alignment means everyone understands the goal, the constraints, and the reasoning. They don't need to agree with every decision, but they understand why it was made and how it fits the larger strategy.
-
 David Marquet documented the transformation of the USS Santa Fe from the fleet's worst submarine to its best by replacing the "leader-follower" model with "leader-leader" (Marquet, 2012). Instead of issuing orders, he trained crew members to say "I intend to..." and explain their reasoning. This required alignment around goals and decision frameworks, not just commands.
 
-Distributed teams in McChrystal's *Team of Teams* made decisions the commander would have made without asking permission, because they understood the intent (McChrystal et al., 2015). Simon Sinek found the same pattern in business. People follow leaders who articulate purpose, not those who wield positional power (Sinek, 2009).
+Distributed teams in McChrystal's *Team of Teams* made decisions the commander would have made without asking permission, because they understood the intent (McChrystal et al., 2015). People follow leaders who articulate purpose, not those who wield positional power (Sinek, 2009).
 
 Alignment means shared understanding. Everyone understands the goal, the constraints, and the reasoning well enough to act independently, without needing to agree, vote, or compromise.
 
@@ -54,7 +52,7 @@ Alignment means shared understanding. Everyone understands the goal, the constra
 
 **Test understanding.** Alignment isn't one-way communication. Marquet's model requires two conditions: clarity about the goal, and competence to act on it (Marquet, 2012). Ask "What would you do in this situation?" If people can't answer, you haven't created alignment.
 
-## Common Mistakes
+## How Teams Get This Wrong
 
 **Confusing alignment with consensus.** Alignment requires understanding the reasoning well enough to act independently, not agreement. Chasing consensus slows decisions and doesn't produce alignment.
 

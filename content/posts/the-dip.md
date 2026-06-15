@@ -6,6 +6,9 @@ lastmod: 2019-01-21
 summary: "How do you avoid killing something too early, or celebrating too early. And last, how do you know when to kill a dud?"
 tags: ["strategy", "cognitive", "leadership"]
 ---
+
+![]()
+
 ## [The Dip](https://www.goodreads.com/book/show/324748.The_Dip) by [Seth Godin](https://www.sethgodin.com/).
 
 If it is worth doing, there is probably a Dip.

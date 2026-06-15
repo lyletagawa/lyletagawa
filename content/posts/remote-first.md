@@ -6,7 +6,10 @@ lastmod: 2019-10-30
 summary: "So how do we do remote work right? It takes much more than the half-hearted “you’re allowed to work from home” policy you see at companies nowadays. Remote-first means working remote is the default. It means making sure your remote employees are as much a part of the team as those in the office."
 tags: ["remote", "distributed", "team"]
 ---
-## Remote-First vs Remote-Friendly.
+
+![]()
+
+## Remote-First vs Remote-Friendly
 
 *Remote-first* workplaces claim to have a business advantage over remote-friendly workplaces.
 

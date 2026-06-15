@@ -6,6 +6,9 @@ lastmod: 2019-05-24
 summary: "A just culture balances the need for an open and honest reporting environment with the end of a quality learning environment and culture. While the organization has a duty and responsibility to employees (and ultimately to patients), all employees are held responsible for the quality of their choices. Just culture requires a change in focus from errors and outcomes to system design and management of the behavioral choices of all employees."
 tags: ["culture", "safety", "incidents"]
 ---
+
+![]()
+
 ## A [just culture](http://sidneydekker.com/just-culture/) is a culture of trust, learning and accountability.
 
 It is important to have when something goes wrong in your organization. There are basically two ways:

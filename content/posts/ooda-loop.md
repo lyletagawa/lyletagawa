@@ -2,7 +2,7 @@
 title: "OODA Loop"
 date: 2026-04-30
 publishdate: 2026-05-02
-lastmod: 2026-06-07
+lastmod: 2026-06-14
 summary: "How John Boyd's OODA Loop (Observe, Orient, Decide, Act) applies to technology leadership, and practical strategies for eliminating the bottlenecks that slow your competitive cycles."
 tags: ["adaptation", "awareness"]
 image: /images/ooda-loop-f86.jpg
@@ -25,9 +25,9 @@ These phases form a continuous loop, not a sequential checklist (Boyd, 1987). Wh
 
 ## Why Speed Matters
 
-Boyd’s central insight was that faster OODA cycles create disorientation in opponents (Boyd, 1976). When you complete your loop faster than competitors, you act on current information while they respond to outdated conditions. Each iteration compounds this advantage.
+Boyd's central insight was that faster OODA cycles create disorientation in opponents (Boyd, 1976). When you complete your loop faster than competitors, you act on current information while they respond to outdated conditions. Each iteration compounds this advantage.
 
-The Lean Startup demonstrates that companies with faster build-measure-learn cycles consistently outperform slower competitors (Ries, 2011). Google's DORA research confirms that elite performers deploy code 973x more frequently than low performers, with direct business impact (Forsgren et al., 2018).
+Companies with faster build-measure-learn cycles consistently outperform slower competitors (Ries, 2011). Elite performers deploy code 973x more frequently than low performers, with direct business impact (Forsgren et al., 2018).
 
 Organizations that iterate weekly learn 52 times per year. Those that iterate quarterly learn four times. Over multiple years, this difference becomes insurmountable (Ries, 2011).
 
@@ -35,11 +35,11 @@ Organizations that iterate weekly learn 52 times per year. Those that iterate qu
 
 **Observation bottlenecks** emerge from poor instrumentation and siloed data. When teams lack visibility into production behavior, orientation suffers (Forsgren et al., 2018).
 
-**Orientation failures** come from cognitive biases and outdated mental models. Companies orient based on past success rather than current reality, creating blind spots (Argyris, 1977). Team Topologies demonstrates that cognitive load and communication structures impact how orgs orient to technical challenges (Skelton & Pais, 2019).
+**Orientation failures** come from cognitive biases and outdated mental models. Companies orient based on past success rather than current reality, creating blind spots (Argyris, 1977). Cognitive load and communication structures shape how orgs orient to technical challenges (Skelton & Pais, 2019).
 
 **Decision paralysis** shows up in committee-driven processes and excessive risk aversion. Decision velocity correlates strongly with competitive advantage (Forsgren et al., 2018).
 
-**Action delays** result from deployment friction and technical debt. The DevOps Handbook shows how reducing batch sizes and automating pipelines directly impacts throughput (Kim et al., 2016).
+**Action delays** result from deployment friction and technical debt. Reducing batch sizes and automating pipelines directly impacts throughput (Kim et al., 2016).
 
 Each impediment multiplies cycle time. An org that observes infrequently, orients poorly, decides cautiously, and acts slowly operates at a fraction of its potential velocity.
 
@@ -53,7 +53,7 @@ Each impediment multiplies cycle time. An org that observes infrequently, orient
 
 **Agentic reliability engineering.** Production signals exceed any team's triage capacity. Alert fatigue is a symptom of Orientation overwhelmed by input. Agentic Reliability Engineering (ARE) treats intelligence as a first-class reliability primitive (Jambor, 2026). Agents handle Observe and Orient continuously, filtering noise and surfacing what needs a decision. Humans move above the loop, designing intent and validating outcomes rather than triaging every signal.
 
-## Common Mistakes
+## How Teams Get This Wrong
 
 **Neglecting the Orientation phase.** Observation and Action are the visible parts of the loop. Orientation is where the loop is won or lost. Boyd spent more time on Orientation than the other three phases combined (Boyd, 1987). It filters incoming data through experience, mental models, and organizational norms. Teams that rush from Observe to Decide skip the phase that determines whether their speed is applied to the right problem.
 

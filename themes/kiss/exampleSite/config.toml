@@ -5,8 +5,11 @@ theme = "kiss"
 copyright = "&copy; <a href=\"https://github.com/ribice\">Emir Ribic</a> 2017"
 disqusShortname = "shortname"
 googleAnalytics = ""
-Paginate = 5 # Number of posts per page
 enableRobotsTXT = true
+
+[pagination]
+  # Number of articles per page
+  pagerSize = 15
 
 [params.rss] # Adding this tag enables RSS feed
 includeContent = true # Includes whole content in rss
@@ -15,6 +18,7 @@ authorEmail = "ribice@gmail.com" # Author email
 
 [params.assets]
 customCSS = ["css/custom.css"]
+googleFonts = []
 
 [params.info]
 adsense = "" # Adsense ID (ID only, without ca-pub-)
@@ -24,9 +28,12 @@ poweredby = true # Adds powered by hugo and kiss below Copyright
 related = true # Includes related articles at the bottom of the article
 codeCopy = true # Add copy button above code blocks
 taxonomiesCount = true # Add taxonomies count
+dateFormat = "01/02" # Change dateFormat DO NOT CHANGE THE NUMBER
 
 [params.features]
 disqusOnDemand = true  # Load Disqus comments on click
+mathjax = false
+katex = false
 
 
 [params.opengraph.facebook]
@@ -39,6 +46,7 @@ page = "" # Twitter Page username. If not set, params.social.twitter will be use
 
 [params.social]
 twitter = "ribicemir"
+codeberg = "ribice"
 github = "ribice"
 email = "ribice@gmail.com"
 linkedin = "ribice"
@@ -48,7 +56,7 @@ codepen = ""
 rss = "index.xml" # Add this to show RSS button in social.
 
 [params.social.config]
-platforms = ["github","facebook","twitter","instagram","email","codepen","linkedin"]
+platforms = ["codeberg", "github","facebook","twitter","instagram","email","codepen","linkedin"]
 
 [params.matomoAnalytics]
 siteID = 1
@@ -56,6 +64,9 @@ rootURL = "//matomo.example.com/"
 
 [params.fathomAnalytics]
 rootURL = "//fathom.example.com/"
+
+[params.plausibleAnalytics]
+domain = "plausible.com"
 
 [taxonomies]
 tag ="tags"

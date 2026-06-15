@@ -13,7 +13,7 @@
       <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/distributed-causation/</guid>
-      <description>Complex failures don&amp;rsquo;t have a single root cause. Complex failures have many causes that are distributed across time, systems, and organizational boundaries, and fixing just a single &amp;ldquo;root&amp;rdquo; cause leaves the rest in place.</description>
+      <description>Complex failures don&amp;rsquo;t have a single root cause. They have many causes distributed across time, systems, and organizational boundaries, and fixing just one leaves the rest in place.</description>
       <media:content url="https://lyletagawa.com/images/distributed-causation.jpg" medium="image" />
     </item>
     

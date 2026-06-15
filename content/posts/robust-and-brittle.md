@@ -5,6 +5,9 @@ summary: "Southwest Airlines has grown while desperately trying to be scrappy, c
 tags: ["learning", "resilience"]
 draft: false
 ---
+
+![]()
+
 ##
 
 [Todd Conklin](https://www.hophub.org/conklin-bio) discusses [The Southwest Failure](https://preaccidentpodcast.podbean.com/e/papod-426-robust-and-brittlethe-southwest-failure/) that occurred between December 22-29, 2022.

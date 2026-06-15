@@ -18,9 +18,15 @@
 <link rel="canonical" href="https://lyletagawa.com/posts/distributed-causation/">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
+<meta name="description" content="Complex failures don&rsquo;t have a single root cause. They have many causes distributed across time, systems, and organizational boundaries, and fixing just one leaves the rest in place.">
 <script>
-    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.people.toString(20)+" (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-    posthog.init('phc_zrLjgptGCvrPgnVnoXPF87NEtESJtxuQLt26tRfFynhL', {api_host: 'https://us.i.posthog.com'})
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="Xi tn init mn Qr yn xn pn capture calculateEventProperties Tn register register_once register_for_session unregister unregister_for_session Pn getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync On identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException addExceptionStep captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty Mn Cn createPersonProfile setInternalOrTestUser Rn vn An opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Sn debug Kr En getPageViewId captureTraceFeedback captureTraceMetric hn".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_zrLjgptGCvrPgnVnoXPF87NEtESJtxuQLt26tRfFynhL', {
+        api_host: 'https://p.foureleven.org', 
+        ui_host: 'https://us.posthog.com', 
+        defaults: '2026-05-30',
+        person_profiles: 'identified_only', 
+    })
 </script>
 
 </head>
@@ -42,7 +48,8 @@
     
     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
     
-  </svg></i>
+  </svg>
+</i>
             </span>
           </a><a class="level-item" aria-label="linkedin" href='https://linkedin.com/in/lyletagawa'
             target='_blank' rel='noopener'>
@@ -51,7 +58,8 @@
     
     <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
     
-  </svg></i>
+  </svg>
+</i>
             </span>
           </a><a class="level-item" aria-label="rss" href='/index.xml'
             target='_blank' rel='noopener'>
@@ -60,7 +68,8 @@
     
     <path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle>
     
-  </svg></i>
+  </svg>
+</i>
             </span>
           </a></nav>
       </div>
@@ -78,6 +87,7 @@
 <section class="section">
   <div class="container">
     <h1 class="title">Distributed Causation</h1>
+    
     <div class="subtitle tags is-6 is-pulled-right">
       
       
@@ -95,8 +105,11 @@
       
     </div>
     
+    <h6 class="subtitle is-6" style="line-height:0em">Jun. 1, 2026&nbsp;&middot; 6 min read
+    </h6>
+    
+
     <div class="content">
-      <h6 class="subtitle is-6 date" style="line-height:0em">Jun. 1, 2026 &middot; 6 min read</h6>
       <p><img src="/images/distributed-causation.jpg" alt="">
 <em>Photo: U.S. Nuclear Regulatory Commission (1979). CC BY-NC-ND 2.0.</em></p>
 <h2 id="distributed-causation">Distributed Causation</h2>
@@ -106,23 +119,23 @@
 <h2 id="what-is-distributed-causation">What Is Distributed Causation?</h2>
 <p>On March 28, 1979, a pressure relief valve stuck open at the Three Mile Island (TMI) nuclear plant in Pennsylvania. Cooling water escaped and the reactor core partially melted. It was the most serious nuclear accident in American history.</p>
 <p>U.S. President Jimmy Carter appointed a commission to investigate, chaired by John Kemeny. The commission rejected the most convenient explanation. The accident wasn&rsquo;t caused by the valve, not by operator error alone, and not by equipment design alone. Metropolitan Edison (the plant&rsquo;s operator) made staffing and training decisions that contributed. Babcock and Wilcox (the reactor manufacturer) knew about similar valve events at other facilities and didn&rsquo;t share those warnings. The Nuclear Regulatory Commission (NRC) failed to act on those events or improve its oversight requirements (Kemeny Commission, 1979).</p>
-<p>This is distributed causation. Failures in complex systems don&rsquo;t originate in one place but pile-up across organizational boundaries, across time, and across multiple contributing factors that appear unrelated until they join-up.</p>
-<p>Twenty-four years later, the Columbia Accident Investigation Board (CAIB) reached the same conclusion about Columbia space shuttle disaster. The shuttle broke apart on reentry in February 2003 after foam breached the heat shield during launch. The board named the foam strike as the physical cause. It also named NASA&rsquo;s organizational culture, eroded safety margins, and a communication structure that suppressed dissenting voices (CAIB, 2003).</p>
-<p>Every participant followed their training, their protocols, and their oversight requirements. But, the system still failed (Kemeny Commission, 1979; CAIB, 2003).</p>
-<h2 id="the-root-cause-problem">The Root Cause Problem</h2>
+<p>This is distributed causation. Failures in complex systems don&rsquo;t originate in one place. They pile up across organizational boundaries, across time, and across contributing factors that look unrelated until they converge.</p>
+<p>Twenty-four years later, the Columbia Accident Investigation Board (CAIB) reached the same conclusion about the Columbia space shuttle disaster. The shuttle broke apart on reentry in February 2003 after foam breached the heat shield during launch. The board named the foam strike as the physical cause. It also named NASA&rsquo;s organizational culture, eroded safety margins, and a communication structure that suppressed dissenting voices (CAIB, 2003).</p>
+<p>Every participant followed their training, their protocols, and their oversight requirements. But the system still failed (Kemeny Commission, 1979; CAIB, 2003).</p>
+<h2 id="why-root-cause-fails">Why Root Cause Fails</h2>
 <p>The desire to find a root cause isn&rsquo;t irrational. A single cause is actionable, but a distributed explanation requires simultaneous changes to multiple systems, multiple processes, and multiple organizations, which is slow and expensive.</p>
 <p>The problem is that complex systems don&rsquo;t produce failures that way. Catastrophe requires multiple failures, with latent conditions throughout the system waiting to combine with active failures (Cook, 1998). A single root cause, where it exists, usually explains only one contributing factor in a chain that required several.</p>
 <p>The SNAFUcatchers workshop documented in 2017 how software incidents consistently involve multiple interacting factors across organizational and system boundaries. Assigning a single root cause understates the complexity of what happened and the scope of changes required to prevent recurrence (Cook et al., 2017).</p>
 <h2 id="where-engineering-teams-feel-it">Where Engineering Teams Feel It</h2>
 <p><strong>Postmortem format.</strong> Most postmortems are structured to produce a root cause section. That format creates pressure to reduce a distributed failure to a single entry. &ldquo;We identified the root cause&rdquo; is used as evidence of rigor. The result is postmortems that are technically complete and organizationally useless (Cook, 1998).</p>
 <p><strong>Cross-team incidents.</strong> Distributed failures cross team boundaries. Each team contributed a factor, but no team caused the incident alone. The root cause framework assigns ownership to one team, which relieves the others of any obligation to change. The same distributed conditions produce another incident months later, attributed to a different team.</p>
-<p><strong>Latent conditions.</strong> Cook describes latent conditions as failures waiting to happen, present in the system before any incident occurs (Cook, 1998). A postmortem that finds a root cause has found the active failure that triggered the incident, but rarely surfaces the latent conditions that made it consequential. Those conditions remain in place until the next combination.</p>
+<p><strong>Latent conditions.</strong> Latent conditions are failures waiting to happen, present in the system before any incident occurs (Cook, 1998). A postmortem that finds a root cause has found the active failure that triggered the incident, but rarely surfaces the latent conditions that made it consequential. Those conditions remain in place until the next combination.</p>
 <p><strong>Vendor and dependency failures.</strong> Incidents involving third-party services or cloud provider outages reveal the same pattern TMI demonstrated (Kemeny Commission, 1979). The failure is distributed across the organization&rsquo;s own systems and the external dependency. Attributing it entirely to the vendor obscures whatever internal factors made that external failure so damaging.</p>
-<h2 id="common-mistakes">Common Mistakes</h2>
+<h2 id="how-teams-get-this-wrong">How Teams Get This Wrong</h2>
 <p><strong>Fixing the trigger and calling it done.</strong> Patching the vulnerable dependency, alerting on the metric that wasn&rsquo;t alerting, and changing the failed configuration are all real improvements worth making. But a postmortem that stops at the trigger has identified one factor in a distributed failure. The latent conditions that amplified it remain.</p>
-<p><strong>Treating organizational contributors as context, not cause.</strong> The Kemeny Commission found that staffing decisions, training programs, and regulatory culture all contributed to TMI (Kemeny Commission, 1979). Most postmortems treat these as background when they belong in the cause list.</p>
+<p><strong>Treating organizational contributors as context, not cause.</strong> Staffing decisions, training programs, and regulatory culture all contributed to TMI (Kemeny Commission, 1979). Most postmortems treat these as background when they belong in the cause list.</p>
 <p><strong>Confusing blame-free with cause-free.</strong> Blameless postmortems correctly remove individual blame, but they sometimes remove distributed causation as well, treating the absence of a blameworthy person as evidence that no structural failure occurred (Dekker, 2006).</p>
-<p><strong>Misreading incident patterns.</strong> Teams that track incidents by root cause category watch for recurrence in that category, but distributed causation means the next incident will look different. The service changes and the trigger changes, but the underlying combination of latent conditions stays the same. The pattern stays invisible inside the root cause framework.</p>
+<p><strong>Misreading incident patterns.</strong> Teams that track incidents by root cause category watch for recurrence in that category, but distributed causation means the next incident will look different. The service changes and the trigger changes, but the underlying combination of latent conditions stays the same. The next incident looks new. It isn&rsquo;t.</p>
 <h2 id="put-it-into-practice">Put It Into Practice</h2>
 <p>Review your last three postmortems. For each incident, list every team or system whose behavior contributed to the outcome. Compare them against the (identified) root cause. The missing systems are where the latent conditions still live.</p>
 <p>For your next postmortem, write a contributing factors section before the root cause. List every factor whose absence would have changed the outcome. That list often has three or more contributing factors, and picking any one as the root cause doesn&rsquo;t accurately reflect what happened.</p>
@@ -176,6 +189,9 @@
     
   </div>
 </section>
+
+
+
 
 
 </body>

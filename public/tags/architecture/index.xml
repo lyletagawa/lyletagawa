@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>architecture on hi</title>
+    <link>https://lyletagawa.com/tags/architecture/</link>
+    <description>Recent content in architecture on hi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/architecture/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How LLMs Work</title>
+      <link>https://lyletagawa.com/posts/how-llms-work/</link>
+      <pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/how-llms-work/</guid>
+      <description>Working notes on how LLMs train and generate text. Probably mostly right, certainly incomplete.</description>
+      <media:content url="https://lyletagawa.com/images/how-llms-work.jpg" medium="image" />
+    </item>
+    
+  </channel>
+</rss>

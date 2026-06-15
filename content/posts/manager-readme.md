@@ -6,6 +6,9 @@ lastmod: 2020-08-20
 summary: "&nbsp;"
 tags: ["management", "readme"]
 ---
+
+![]()
+
 ## tl;dr my job is to help you succeed.
 
 This is an introspective exercise, with the intention of introducing myself, and documenting how I hope to support you and our team.

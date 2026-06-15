@@ -18,9 +18,15 @@
 <link rel="canonical" href="https://lyletagawa.com/posts/llm-context-biases/">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
+<meta name="description" content="Primacy bias, recency bias, sycophancy, and anchoring are predictable distortions in how LLMs weight information. Understanding them changes how you prompt, evaluate, and trust model outputs.">
 <script>
-    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.people.toString(20)+" (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-    posthog.init('phc_zrLjgptGCvrPgnVnoXPF87NEtESJtxuQLt26tRfFynhL', {api_host: 'https://us.i.posthog.com'})
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="Xi tn init mn Qr yn xn pn capture calculateEventProperties Tn register register_once register_for_session unregister unregister_for_session Pn getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync On identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException addExceptionStep captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty Mn Cn createPersonProfile setInternalOrTestUser Rn vn An opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Sn debug Kr En getPageViewId captureTraceFeedback captureTraceMetric hn".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_zrLjgptGCvrPgnVnoXPF87NEtESJtxuQLt26tRfFynhL', {
+        api_host: 'https://p.foureleven.org', 
+        ui_host: 'https://us.posthog.com', 
+        defaults: '2026-05-30',
+        person_profiles: 'identified_only', 
+    })
 </script>
 
 </head>
@@ -42,7 +48,8 @@
     
     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
     
-  </svg></i>
+  </svg>
+</i>
             </span>
           </a><a class="level-item" aria-label="linkedin" href='https://linkedin.com/in/lyletagawa'
             target='_blank' rel='noopener'>
@@ -51,7 +58,8 @@
     
     <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
     
-  </svg></i>
+  </svg>
+</i>
             </span>
           </a><a class="level-item" aria-label="rss" href='/index.xml'
             target='_blank' rel='noopener'>
@@ -60,7 +68,8 @@
     
     <path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle>
     
-  </svg></i>
+  </svg>
+</i>
             </span>
           </a></nav>
       </div>
@@ -78,6 +87,7 @@
 <section class="section">
   <div class="container">
     <h1 class="title">LLM Context Biases</h1>
+    
     <div class="subtitle tags is-6 is-pulled-right">
       
       
@@ -95,8 +105,11 @@
       
     </div>
     
+    <h6 class="subtitle is-6" style="line-height:0em">May. 7, 2026&nbsp;&middot; 5 min read
+    </h6>
+    
+
     <div class="content">
-      <h6 class="subtitle is-6 date" style="line-height:0em">May. 7, 2026 &middot; 5 min read</h6>
       <p><img src="/images/llm-context-biases.jpg" alt="">
 <em>&ldquo;Café wall illusion.&rdquo; Photo: Groume (2013). CC BY-SA 2.0.</em></p>
 <h2 id="llm-context-biases">LLM Context Biases</h2>
@@ -107,7 +120,7 @@
 <p>Context biases are predictable distortions in how language models weight and process information. They are structural tendencies, not random errors, emerging from how attention mechanisms are trained.</p>
 <p>The three most consequential for practitioners are primacy bias, recency bias, and sycophancy. A fourth, anchoring, compounds all three. None of them are bugs in a particular product, and they persist across models even as model quality improves.</p>
 <h2 id="primacy-and-recency-bias">Primacy and Recency Bias</h2>
-<p>Liu et al. (2023) documented a clear pattern in &ldquo;Lost in the Middle.&rdquo; When relevant information sits at the beginning or end of a long context, model performance is significantly higher than when it sits in the middle. Tested across multiple models on multi-document question answering tasks, the effect was consistent. Models showed a U-shaped performance curve. Strong at the start and end, degraded in the middle.</p>
+<p>When relevant information sits at the beginning or end of a long context, model performance is significantly higher than when it sits in the middle. Tested across multiple models on multi-document question answering tasks, the effect is consistent. Models show a U-shaped performance curve (Liu et al., 2023). Strong at the start and end, degraded in the middle.</p>
 <p>The middle of a long prompt is where information goes to be ignored.</p>
 <p>For technical work, this has direct consequences. A 50-page policy document fed to an LLM will have its middle sections under-weighted regardless of their importance (Liu et al., 2023).</p>
 <h2 id="sycophancy">Sycophancy</h2>
@@ -115,10 +128,10 @@
 <p>This creates a specific failure mode for technical decision-making. Ask an LLM to evaluate two architectural approaches and mention that your team prefers approach A. The model will find more merit in approach A. Your stated preference shaped the evaluation before the analysis began.</p>
 <p>Sycophancy is reinforced through reinforcement learning from human feedback (RLHF), where models learn that agreement produces higher human ratings than accurate but unwelcome responses (Malmqvist, 2024). The tendency is baked into how models are trained to please.</p>
 <h2 id="anchoring">Anchoring</h2>
-<p>Anchoring bias occurs when initial information disproportionately shapes subsequent judgment. Lou and Sun (2024) found that LLMs are notably sensitive to anchored prompts, with 22% to 61% of questions affected depending on the model. Most tested LLMs showed anchoring effects equivalent to or stronger than those observed in humans.</p>
+<p>Anchoring bias occurs when initial information disproportionately shapes subsequent judgment. LLMs are notably sensitive to it, with 22% to 61% of questions affected depending on the model. Most tested LLMs show anchoring effects equivalent to or stronger than those observed in humans (Lou and Sun, 2024).</p>
 <p>Ask an LLM to estimate the timeline for a migration and mention that your last one took six months. The model&rsquo;s estimate pulls toward six months regardless of scope. The initial number anchors the output.</p>
-<p>Chain-of-Thought prompting and reflection prompts reduce anchoring but don&rsquo;t eliminate it. Lou and Sun (2024) found that comprehensive multi-angle information gathering was the most effective mitigation.</p>
-<h2 id="common-mistakes">Common Mistakes</h2>
+<p>Chain-of-Thought prompting and reflection prompts reduce anchoring but don&rsquo;t eliminate it. The most effective mitigation is comprehensive multi-angle information gathering before committing to an estimate (Lou and Sun, 2024).</p>
+<h2 id="how-teams-get-this-wrong">How Teams Get This Wrong</h2>
 <p><strong>Trusting position over content.</strong> Putting the most important context at the top of a prompt and assuming the model will find what matters elsewhere. Middle sections are systematically under-weighted, and adding more context can actively degrade performance by pushing critical information further in (Liu et al., 2023).</p>
 <p><strong>Using pushback to get better answers.</strong> If you disagree with an LLM&rsquo;s response and push back without new evidence, the model will often reverse its position. That feels like progress, but the model didn&rsquo;t reconsider. It just agreed.</p>
 <p><strong>Treating LLM evaluation as neutral.</strong> Asking an LLM to compare options while including your team&rsquo;s stated preference contaminates the evaluation. The model will find evidence for what you have already indicated you want.</p>
@@ -175,6 +188,9 @@
     
   </div>
 </section>
+
+
+
 
 
 </body>

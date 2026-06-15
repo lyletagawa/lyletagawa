@@ -2,7 +2,7 @@
 title: "LLM Context Biases"
 date: 2026-05-07
 publishdate: 2026-05-07
-lastmod: 2026-06-01
+lastmod: 2026-06-14
 summary: "Primacy bias, recency bias, sycophancy, and anchoring are predictable distortions in how LLMs weight information. Understanding them changes how you prompt, evaluate, and trust model outputs."
 tags: ["ai", "cognitive", "leadership"]
 image: /images/llm-context-biases.jpg
@@ -28,7 +28,7 @@ The three most consequential for practitioners are primacy bias, recency bias, a
 
 ## Primacy and Recency Bias
 
-Liu et al. (2023) documented a clear pattern in "Lost in the Middle." When relevant information sits at the beginning or end of a long context, model performance is significantly higher than when it sits in the middle. Tested across multiple models on multi-document question answering tasks, the effect was consistent. Models showed a U-shaped performance curve. Strong at the start and end, degraded in the middle.
+When relevant information sits at the beginning or end of a long context, model performance is significantly higher than when it sits in the middle. Tested across multiple models on multi-document question answering tasks, the effect is consistent. Models show a U-shaped performance curve (Liu et al., 2023). Strong at the start and end, degraded in the middle.
 
 The middle of a long prompt is where information goes to be ignored.
 
@@ -44,13 +44,13 @@ Sycophancy is reinforced through reinforcement learning from human feedback (RLH
 
 ## Anchoring
 
-Anchoring bias occurs when initial information disproportionately shapes subsequent judgment. Lou and Sun (2024) found that LLMs are notably sensitive to anchored prompts, with 22% to 61% of questions affected depending on the model. Most tested LLMs showed anchoring effects equivalent to or stronger than those observed in humans.
+Anchoring bias occurs when initial information disproportionately shapes subsequent judgment. LLMs are notably sensitive to it, with 22% to 61% of questions affected depending on the model. Most tested LLMs show anchoring effects equivalent to or stronger than those observed in humans (Lou and Sun, 2024).
 
 Ask an LLM to estimate the timeline for a migration and mention that your last one took six months. The model's estimate pulls toward six months regardless of scope. The initial number anchors the output.
 
-Chain-of-Thought prompting and reflection prompts reduce anchoring but don't eliminate it. Lou and Sun (2024) found that comprehensive multi-angle information gathering was the most effective mitigation.
+Chain-of-Thought prompting and reflection prompts reduce anchoring but don't eliminate it. The most effective mitigation is comprehensive multi-angle information gathering before committing to an estimate (Lou and Sun, 2024).
 
-## Common Mistakes
+## How Teams Get This Wrong
 
 **Trusting position over content.** Putting the most important context at the top of a prompt and assuming the model will find what matters elsewhere. Middle sections are systematically under-weighted, and adding more context can actively degrade performance by pushing critical information further in (Liu et al., 2023).
 

@@ -2,7 +2,7 @@
 title: "Chaos Engineering"
 date: 2020-06-25
 publishdate: 2020-06-25
-lastmod: 2026-06-07
+lastmod: 2026-06-14
 summary: "Chaos Engineering builds confidence in distributed systems by deliberately introducing failures before they occur on their own. The discipline shifts teams from reactive incident response to proactive resilience building."
 tags: ["chaos", "learning", "incidents"]
 image: /images/chaos-engineering.jpg
@@ -59,7 +59,7 @@ Chaos Engineering favors observing behavior at system boundaries over inspecting
 
 Hunting for what goes right is more informative than hunting for what goes wrong, and redundancy can contribute to safety failures by adding complexity (Hollnagel, 2014).
 
-## Running Experiments
+## Run Experiments
 
 **Define steady state and form a hypothesis.** Define normal behavior using business metrics such as order completion rate, search success rate, and video start time (Principles of Chaos Engineering, 2016). Then form a specific prediction: "We believe that terminating 10% of our API servers will not impact order completion rate because our load balancers will route traffic to healthy instances within 30 seconds."
 

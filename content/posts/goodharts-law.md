@@ -2,8 +2,8 @@
 title: "Goodhart's Law"
 date: 2026-06-07
 publishdate: 2026-06-07
-lastmod: 2026-06-07
-summary: "When a measure becomes a target, it ceases to be a good measure. Engineering teams discover this whenever a metric used to track health becomes the thing being managed instead."
+lastmod: 2026-06-13
+summary: "Every metric used to track progress will eventually be used to fake progress instead."
 tags: ["management", "metrics"]
 image: /images/goodharts-law.png
 draft: false
@@ -14,54 +14,59 @@ draft: false
 
 ## Goodhart's Law
 
-The engineering org had twelve open roles and a deadline. Leadership wanted headcount filled before the fiscal year closed, and the recruiting team got a new time-to-fill metric with a 30-day target per role.
+The engineering org had twelve open roles and 30 days left in the fiscal year. Leadership introduced a new metric with a 30-day time-to-fill target per role.
 
-Phone screens got shorter, hiring panels went from four rounds to two, and reference checks got faster. The quality bar didn't vanish, but speed was what got measured.
+Phone screens got shorter and panels went from four rounds to two. Reference checks moved faster, and nobody announced a lower bar. Speed was just what got measured now.
 
-Time-to-fill dropped to 23 days, down from 54. Leadership cited it as evidence the process had improved. Six months later, four of those new hires had already left.
+Time-to-fill dropped to 23 days, down from 54. Leadership cited it as proof the process had improved. Six months later, four of those hires had already left.
+
+That's Goodhart's Law. Your team has probably run this playbook without calling it that.
 
 ## What Is Goodhart's Law?
 
-Any statistical regularity will tend to collapse once pressure is placed on it for control purposes (Goodhart, 1975). That observation came from monetary policy. The Bank of England was targeting money supply figures as a lever for steering the broader economy. Once those figures became a target, the relationship with the underlying economy broke down.
+Here's the academic version. "Any statistical regularity will tend to collapse once pressure is placed on it for control purposes" (Goodhart, 1975). Charles Goodhart was writing about British monetary policy. The Bank of England targeted money supply figures to steer the economy. Once those figures became a target, their relationship with the underlying economy broke down.
 
-Britain's Research Assessment Exercise rated university research quality and distributed funding based on those ratings. Universities began optimizing for the metrics rather than the research. "When a measure becomes a target, it ceases to be a good measure" (Strathern, 1997).
+Marilyn Strathern distilled it to a single line. "When a measure becomes a target, it ceases to be a good measure" (Strathern, 1997).
 
-The same pattern appears in social science. "The more any quantitative social indicator is used for social decision-making, the more subject it will be to corruption pressures and the more apt it is to distort and corrupt the social processes it is intended to monitor" (Campbell, 1979). Goodhart's Law names the technical failure. Campbell's Law names the organizational pressure that causes it.
+Both describe the same thing. A metric is valuable because it correlates with something real. Once you start managing the metric instead of the thing it tracks, that correlation breaks. You're left with a number that looks fine while the underlying reality deteriorates.
 
-## The Mechanism
+Campbell's Law names the organizational pressure behind the same pattern. "The more any quantitative social indicator is used for social decision-making, the more subject it will be to corruption pressures and the more apt it is to distort and corrupt the social processes it is intended to monitor" (Campbell, 1979). Goodhart names the technical failure. Campbell names the incentive structure that causes it.
 
-A metric is useful because it correlates with something that matters. Deployment frequency correlates with the ability to deliver value quickly and recover from mistakes. Test coverage correlates with confidence in code correctness. A metric tracks a signal, not the underlying reality.
+## How the Correlation Breaks
 
-When a metric becomes a target, two things happen. People optimize directly for the metric. And the correlation that made the metric valuable weakens or disappears.
+A metric is useful because it correlates with something that matters. Deployment frequency correlates with the ability to ship value quickly and recover from mistakes. Test coverage correlates with confidence in code correctness. The metric tracks a signal, not the underlying reality itself.
 
-This is rational adaptation, not fraud. When deployment frequency is a target, the fastest path to hitting it is small, low-risk deployments that carry minimal value. The team deploys frequently. The underlying capability the metric was meant to track, the ability to ship meaningful changes safely, may be atrophying. The metric looks healthy. The system isn't.
+When the metric becomes a target, two things happen. People optimize directly for it. And the correlation that made it valuable weakens or disappears.
+
+Nobody is cheating. They're doing exactly what the incentive structure asks of them.
+
+When deployment frequency is a target, the fastest path to hitting it is small, low-risk deployments that carry minimal value. The team deploys frequently. But the thing the metric was tracking, the ability to ship meaningful changes safely, may be quietly getting worse. The numbers look healthy, but the system isn't.
 
 The measurement determines the behavior. The stated goal is irrelevant if the measurement doesn't track it.
+
 ## Where Engineering Metrics Break
 
-**Sprint velocity** is the textbook case. Story points are a calibration tool. A team's historical velocity helps estimate how much work fits in a sprint. Once velocity becomes a target or a cross-team comparison, estimation inflates. Engineers pad points, work gets split artificially, and the number stabilizes. The throughput of meaningful work doesn't.
+**Sprint velocity** is the textbook case. Story points are a calibration tool. A team's historical velocity helps estimate how much work fits in a sprint. Once velocity becomes a target or a cross-team comparison, estimation inflates. Engineers pad points and work gets split artificially. The throughput of meaningful work doesn't improve and may actually regress. The velocity number goes up, but the output doesn't.
 
-**DORA metrics** are subtler. The four key metrics (deployment frequency, lead time for changes, change failure rate, and time to restore service) were developed as research-backed indicators of high-performing engineering organizations (Forsgren et al., 2018). They correlate with delivery performance because high-performing teams exhibit them naturally. When an org mandates them as targets, teams optimize the metrics directly. Deployment frequency rises because trivial config changes count as deployments. Lead time drops because work gets split into units that skip meaningful review. The metrics go green. The underlying capability is never built.
+**DORA metrics** are subtler. Deployment frequency, lead time for changes, change failure rate, and time to restore service were identified as markers of high-performing engineering organizations (Forsgren et al., 2018). They work because capable teams naturally produce them. When an org mandates them as targets, teams optimize directly for the metrics. Deployment frequency rises on trivial config changes. Lead time drops when features get carved into meaningless units. The numbers improve, but the engineering doesn't.
 
-**Test coverage percentage** creates a specific failure mode. A coverage target incentivizes tests that execute code without asserting useful behavior. The percentage reaches 95. The tests pass on code that returns incorrect results because nobody verified what the tests actually check.
+**Bug backlog size** encourages reclassification. When teams are measured on open bug count, bugs get moved to known-issues lists, closed as by-design, or marked as duplicates. The backlog shrinks, but the software doesn't get better.
 
-**Bug backlog size** invites reclassification. When teams are measured on open bug count, bugs get moved to known-issues lists, closed as by-design, or marked as duplicates. The backlog shrinks. The software quality doesn't.
+## How Teams Get This Wrong
 
-## Common Mistakes
+**Treating this as a reason to stop measuring.** Goodhart's Law explains why a specific metric breaks under target pressure. It doesn't argue against measurement. Teams without metrics have no basis for learning or decisions. It's a warning about what happens to any metric when it becomes the goal, not a prohibition on measurement itself.
 
-**Treating this as a reason to stop measuring.** Goodhart's Law explains why a specific metric breaks under target pressure. It does not argue against measurement. Teams without metrics have no basis for learning or decisions. The law is a warning about what happens to any metric when it becomes the goal, not a prohibition on metrics.
+**Adding more metrics to compensate.** The classic response is a second metric to catch gaming of the first, then a third for the second. Each becomes a new target and the cycle repeats. The real problem is believing that hitting a set of numbers equals achieving the underlying goal. More metrics doesn't fix that. It just creates more targets.
 
-**Adding more metrics to compensate.** A common response is a second metric to catch gaming of the first, then a third. Each becomes a new target and the cycle repeats. The real problem is believing that hitting a set of numbers equals achieving the underlying goal.
+**Blaming the people who adapted.** The team that inflated velocity estimates wasn't behaving badly. They responded rationally to the incentive structure they were given. Goodhart's Law is a systems problem. The metric created the pressure that produced the behavior. Replace the people without changing the structure and you get the same outcome with different people (Deming, 1986). It's obvious in retrospect and invisible in the moment you're living it.
 
-**Blaming the people who adapted.** The team that inflated velocity estimates was not behaving badly. They responded rationally to the incentive structure they were given. Goodhart's Law is a systems problem. The metric created the pressure that produced the behavior. Replacing the people without changing the structure produces the same outcome with different people (Deming, 1986).
-
-**Assuming transparency prevents gaming.** Broad dashboards, public metrics, and added context reduce some forms of gaming. They don't eliminate structural pressure. When team survival or promotion depends on a number, people find ways to produce that number. Visibility changes which methods are socially acceptable, not whether gaming happens.
+**Assuming transparency fixes it.** Public dashboards and broader visibility reduce some forms of gaming. They don't eliminate structural pressure. When team survival or promotion depends on a number, people find ways to produce that number. Transparency changes which methods are socially acceptable. It doesn't change whether gaming happens.
 
 ## Put It Into Practice
 
 Look at the metrics your team is currently measured on. For each one, ask what behavior a rational person would exhibit if this were their only goal. If that behavior diverges from what you actually want, the metric is already working against you, whether or not anyone is gaming it yet.
 
-Then ask how the metric is being used. A metric consulted in a retrospective to understand trends does different work than a metric reported upward as evidence of team health. The same number does different damage under different levels of organizational pressure.
+Then ask how the metric is actually being used. A metric consulted in a retrospective to understand trends does different work than the same metric reported upward as evidence of team health. The same number carries very different damage potential depending on how it's used.
 
 Pick one metric that has become a target. Spend thirty minutes with the team asking what it would look like for that metric to appear healthy while the underlying reality got worse. Write down the answers. Those are the gaming strategies your team already knows are available, and that list is where the real conversation starts.
 
@@ -85,11 +90,11 @@ Strathern, Marilyn (1997). "Improving Ratings: Audit in the British University S
 
 **Wells Fargo.** Wells Fargo employees opened millions of unauthorized accounts over more than a decade to meet cross-selling targets (CFPB, 2016). The metric was accounts opened per customer. The goal was customer relationships. The bank paid $3 billion in settlements.
 
-**UK emergency wait times.** When the National Health Service introduced a four-hour emergency department wait target, some hospitals held patients in ambulances outside to avoid starting the clock. The wait time metric improved while patients waited longer (Bevan and Hood, 2006).
+**UK emergency wait times.** When the NHS introduced a four-hour emergency department wait target, some hospitals held patients in ambulances outside to avoid starting the clock (Bevan and Hood, 2006). The wait time metric improved while patients waited longer.
 
-**The Soviet nail quota.** A 1957 cartoon in the Soviet satirical magazine *Krokodil*, showed a factory worker proudly holding one giant nail. Soviet factories' production quotas measured by count produced tiny, unusable nails. Planners switched to weight quotas and factory workers made massive, unusable nails. (Nove, 1977).
+**The Soviet nail quota.** A 1957 cartoon in the Soviet satirical magazine *Krokodil* showed a factory worker proudly holding one giant nail. Production quotas by count produced tiny, unusable nails. Planners switched to weight quotas and factories made massive, unusable nails instead (Nove, 1977). Different metric, same problem, and still no useful nails.
 
-**The cobra effect.** An apocryphal story details colonial administrators in 1870s British India offering bounties for dead cobras to reduce the cobra population. Locals began breeding cobras for the reward. When the program ended in 1873, breeders released their snakes and the cobra population increased (Siebert, 2001).
+**The cobra effect.** Colonial administrators in 1870s British India offered bounties for dead cobras to reduce the cobra population. Locals began breeding cobras for the reward. When the program ended, breeders released their snakes and the population increased (Siebert, 2001). The incentive produced the exact opposite of its intended effect.
 
 ---
 

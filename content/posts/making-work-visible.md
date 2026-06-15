@@ -8,6 +8,9 @@ summary: "We grumble that there just aren’t enough hours in the day and that s
 image: https://itrevolution.com/wp-content/uploads/2017/03/MWV_3D_NEW-500x500.jpg
 tags: ["work", "time", "kanban"]
 ---
+
+![]()
+
 ## [Making Work Visible](https://itrevolution.com/book/making-work-visible/) by Dominica DeGrandis.
 
 > Day, n. A period of twenty-four hours, mostly misspent.

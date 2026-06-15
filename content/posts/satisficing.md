@@ -2,7 +2,7 @@
 title: "Satisficing"
 date: 2026-05-26
 publishdate: 2026-05-26
-lastmod: 2026-06-01
+lastmod: 2026-06-14
 summary: "The best decision is often the fastest one you can defend, not the optimal one you never finish searching for."
 tags: ["decision", "heuristics"]
 image: /images/satisficing.jpg
@@ -34,7 +34,7 @@ It isn't.
 
 If the evaluation takes six weeks, that's six weeks of engineering time, delayed roadmap items, and a team that's built up zero momentum. If most of those options would've worked fine, the extra five weeks didn't produce five weeks of value. They produced a marginal improvement over a decision that could've been made in week one. In uncertain environments, good-enough strategies often beat exhaustive ones anyway. The future is too unpredictable to fully optimize against (Gigerenzer and Todd, 1999).
 
-## Where It Shows Up
+## Where Teams Get Stuck
 
 **Technology selection.** There's always another framework to benchmark, another blog post to read, another edge case to account for. Without a defined threshold, the evaluation has no natural end. It keeps expanding.
 
@@ -46,7 +46,7 @@ If the evaluation takes six weeks, that's six weeks of engineering time, delayed
 
 Maximizers, people who always search for the best, make objectively better choices on measurable criteria. But they also report more regret and less satisfaction than satisficers, even after making the better choice (Schwartz, 2004). More searching doesn't produce better decisions. It produces more second-guessing.
 
-## Common Mistakes
+## How Teams Get This Wrong
 
 **Treating it as settling.** Settling means accepting something below your threshold. Satisficing means defining the threshold clearly and stopping when you clear it. The threshold can be demanding. The point is that it exists, and that you wrote it down before you started. Stopping at the first thing that clears a high bar isn't cutting corners. It's exactly what you set out to do.
 
@@ -74,7 +74,7 @@ Gigerenzer, Gerd and Peter M. Todd (1999). *Simple Heuristics That Make Us Smart
 
 Nobel Prize Committee (1978). "The Prize in Economic Sciences 1978." *Nobel Prize*. [https://www.nobelprize.org/prizes/economic-sciences/1978/simon/facts/](https://www.nobelprize.org/prizes/economic-sciences/1978/simon/facts/)
 
-Schwartz, Barry (2004). *The Paradox of Choice: Why More Is Less*. Ecco. [https://en.wikipedia.org/wiki/The_Paradox_of_Choice](https://en.wikipedia.org/wiki/The_Paradox_of_Choice)
+Schwartz, Barry (2004). *The Paradox of Choice: Why More Is Less*. Ecco. [https://openlibrary.org/works/OL272375W/The_Paradox_of_Choice](https://openlibrary.org/works/OL272375W/The_Paradox_of_Choice)
 
 Simon, Herbert A. (1955). "A Behavioral Model of Rational Choice." *Quarterly Journal of Economics*, 69(1): 99-118. [https://academic.oup.com/qje/article-abstract/69/1/99/1919737](https://academic.oup.com/qje/article-abstract/69/1/99/1919737)
 

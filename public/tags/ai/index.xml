@@ -6,7 +6,17 @@
     <description>Recent content in ai on hi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 07 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How LLMs Work</title>
+      <link>https://lyletagawa.com/posts/how-llms-work/</link>
+      <pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/how-llms-work/</guid>
+      <description>Working notes on how LLMs train and generate text. Probably mostly right, certainly incomplete.</description>
+      <media:content url="https://lyletagawa.com/images/how-llms-work.jpg" medium="image" />
+    </item>
+    
     <item>
       <title>LLM Context Biases</title>
       <link>https://lyletagawa.com/posts/llm-context-biases/</link>

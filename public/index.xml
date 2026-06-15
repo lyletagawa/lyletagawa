@@ -6,14 +6,24 @@
     <description>Recent content on hi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 07 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How LLMs Work</title>
+      <link>https://lyletagawa.com/posts/how-llms-work/</link>
+      <pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/how-llms-work/</guid>
+      <description>Working notes on how LLMs train and generate text. Probably mostly right, certainly incomplete.</description>
+      <media:content url="https://lyletagawa.com/images/how-llms-work.jpg" medium="image" />
+    </item>
+    
     <item>
       <title>Goodhart&#39;s Law</title>
       <link>https://lyletagawa.com/posts/goodharts-law/</link>
       <pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/goodharts-law/</guid>
-      <description>When a measure becomes a target, it ceases to be a good measure. Engineering teams discover this whenever a metric used to track health becomes the thing being managed instead.</description>
+      <description>Every metric used to track progress will eventually be used to fake progress instead.</description>
       <media:content url="https://lyletagawa.com/images/goodharts-law.png" medium="image" />
     </item>
     
@@ -23,7 +33,7 @@
       <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/distributed-causation/</guid>
-      <description>Complex failures don&amp;rsquo;t have a single root cause. Complex failures have many causes that are distributed across time, systems, and organizational boundaries, and fixing just a single &amp;ldquo;root&amp;rdquo; cause leaves the rest in place.</description>
+      <description>Complex failures don&amp;rsquo;t have a single root cause. They have many causes distributed across time, systems, and organizational boundaries, and fixing just one leaves the rest in place.</description>
       <media:content url="https://lyletagawa.com/images/distributed-causation.jpg" medium="image" />
     </item>
     
