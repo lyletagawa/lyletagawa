@@ -2,7 +2,7 @@
 title: "Goodhart's Law"
 date: 2026-06-07
 publishdate: 2026-06-07
-lastmod: 2026-06-13
+lastmod: 2026-06-17
 summary: "Every metric used to track progress will eventually be used to fake progress instead."
 tags: ["management", "metrics"]
 image: /images/goodharts-law.png
@@ -24,13 +24,13 @@ That's Goodhart's Law. Your team has probably run this playbook without calling 
 
 ## What Is Goodhart's Law?
 
-Here's the academic version. "Any statistical regularity will tend to collapse once pressure is placed on it for control purposes" (Goodhart, 1975). Charles Goodhart was writing about British monetary policy. The Bank of England targeted money supply figures to steer the economy. Once those figures became a target, their relationship with the underlying economy broke down.
+Here's the academic version. "Any statistical regularity will tend to collapse once pressure is placed on it for control purposes" {{< cite 1 "Goodhart, Charles (1975). Problems of Monetary Management: The UK Experience. Papers in Monetary Economics, Reserve Bank of Australia." >}}. Charles Goodhart was writing about British monetary policy. The Bank of England targeted money supply figures to steer the economy. Once those figures became a target, their relationship with the underlying economy broke down.
 
-Marilyn Strathern distilled it to a single line. "When a measure becomes a target, it ceases to be a good measure" (Strathern, 1997).
+Marilyn Strathern distilled it to a single line. "When a measure becomes a target, it ceases to be a good measure" {{< cite 2 "Strathern, Marilyn (1997). Improving Ratings: Audit in the British University System. European Review, 5(3): 305-321." >}}.
 
 Both describe the same thing. A metric is valuable because it correlates with something real. Once you start managing the metric instead of the thing it tracks, that correlation breaks. You're left with a number that looks fine while the underlying reality deteriorates.
 
-Campbell's Law names the organizational pressure behind the same pattern. "The more any quantitative social indicator is used for social decision-making, the more subject it will be to corruption pressures and the more apt it is to distort and corrupt the social processes it is intended to monitor" (Campbell, 1979). Goodhart names the technical failure. Campbell names the incentive structure that causes it.
+Campbell's Law names the organizational pressure behind the same pattern. "The more any quantitative social indicator is used for social decision-making, the more subject it will be to corruption pressures and the more apt it is to distort and corrupt the social processes it is intended to monitor" {{< cite 3 "Campbell, Donald T. (1979). Assessing the Impact of Planned Social Change. Evaluation and Program Planning, 2(1): 67-90." >}}. Goodhart names the technical failure. Campbell names the incentive structure that causes it.
 
 ## How the Correlation Breaks
 
@@ -40,7 +40,7 @@ When the metric becomes a target, two things happen. People optimize directly fo
 
 Nobody is cheating. They're doing exactly what the incentive structure asks of them.
 
-When deployment frequency is a target, the fastest path to hitting it is small, low-risk deployments that carry minimal value. The team deploys frequently. But the thing the metric was tracking, the ability to ship meaningful changes safely, may be quietly getting worse. The numbers look healthy, but the system isn't.
+When deployment frequency is a target, the fastest path to hitting it is small, low-risk deployments that carry minimal value. The team deploys frequently. But the thing the metric was tracking, the ability to ship meaningful changes safely, may be quietly getting worse. The numbers look healthy, but the system may not be.
 
 The measurement determines the behavior. The stated goal is irrelevant if the measurement doesn't track it.
 
@@ -48,7 +48,7 @@ The measurement determines the behavior. The stated goal is irrelevant if the me
 
 **Sprint velocity** is the textbook case. Story points are a calibration tool. A team's historical velocity helps estimate how much work fits in a sprint. Once velocity becomes a target or a cross-team comparison, estimation inflates. Engineers pad points and work gets split artificially. The throughput of meaningful work doesn't improve and may actually regress. The velocity number goes up, but the output doesn't.
 
-**DORA metrics** are subtler. Deployment frequency, lead time for changes, change failure rate, and time to restore service were identified as markers of high-performing engineering organizations (Forsgren et al., 2018). They work because capable teams naturally produce them. When an org mandates them as targets, teams optimize directly for the metrics. Deployment frequency rises on trivial config changes. Lead time drops when features get carved into meaningless units. The numbers improve, but the engineering doesn't.
+**DORA metrics** are subtler. Deployment frequency, lead time for changes, change failure rate, and time to restore service were identified as markers of high-performing engineering organizations {{< cite 4 "Forsgren, Nicole, Jez Humble, and Gene Kim (2018). Accelerate: The Science of Lean Software and DevOps. IT Revolution Press." >}}. They work because capable teams naturally produce them. When an org mandates them as targets, teams optimize directly for the metrics. Deployment frequency rises on trivial config changes. Lead time drops when features get carved into meaningless units. The numbers improve, but the engineering doesn't.
 
 **Bug backlog size** encourages reclassification. When teams are measured on open bug count, bugs get moved to known-issues lists, closed as by-design, or marked as duplicates. The backlog shrinks, but the software doesn't get better.
 
@@ -58,7 +58,7 @@ The measurement determines the behavior. The stated goal is irrelevant if the me
 
 **Adding more metrics to compensate.** The classic response is a second metric to catch gaming of the first, then a third for the second. Each becomes a new target and the cycle repeats. The real problem is believing that hitting a set of numbers equals achieving the underlying goal. More metrics doesn't fix that. It just creates more targets.
 
-**Blaming the people who adapted.** The team that inflated velocity estimates wasn't behaving badly. They responded rationally to the incentive structure they were given. Goodhart's Law is a systems problem. The metric created the pressure that produced the behavior. Replace the people without changing the structure and you get the same outcome with different people (Deming, 1986). It's obvious in retrospect and invisible in the moment you're living it.
+**Blaming the people who adapted.** The team that inflated velocity estimates wasn't behaving badly. They responded rationally to the incentive structure they were given. Goodhart's Law is a systems problem. The metric created the pressure that produced the behavior. Replace the people without changing the structure and you get the same outcome with different people {{< cite 5 "Deming, W. Edwards (1986). Out of the Crisis. MIT Press." >}}. It's obvious in retrospect and invisible in the moment you're living it.
 
 **Assuming transparency fixes it.** Public dashboards and broader visibility reduce some forms of gaming. They don't eliminate structural pressure. When team survival or promotion depends on a number, people find ways to produce that number. Transparency changes which methods are socially acceptable. It doesn't change whether gaming happens.
 
@@ -74,15 +74,13 @@ Pick one metric that has become a target. Spend thirty minutes with the team ask
 
 ## References
 
-Campbell, Donald T. (1979). "Assessing the Impact of Planned Social Change." *Evaluation and Program Planning*, 2(1): 67-90. [https://ideas.repec.org/a/eee/epplan/v2y1979i1p67-90.html](https://ideas.repec.org/a/eee/epplan/v2y1979i1p67-90.html)
-
-Deming, W. Edwards (1986). *Out of the Crisis*. MIT Press. [https://direct.mit.edu/books/monograph/4192/Out-of-the-Crisis](https://direct.mit.edu/books/monograph/4192/Out-of-the-Crisis)
-
-Forsgren, Nicole, Jez Humble, and Gene Kim (2018). *Accelerate: The Science of Lean Software and DevOps*. IT Revolution Press. [https://itrevolution.com/product/accelerate/](https://itrevolution.com/product/accelerate/)
-
-Goodhart, Charles (1975). "Problems of Monetary Management: The UK Experience." *Papers in Monetary Economics*, Reserve Bank of Australia. [https://www.semanticscholar.org/paper/Problems-of-Monetary-Management%3A-The-UK-Experience-Goodhart/0ae623749b30de53a39cf05813f5f3842e422c01](https://www.semanticscholar.org/paper/Problems-of-Monetary-Management%3A-The-UK-Experience-Goodhart/0ae623749b30de53a39cf05813f5f3842e422c01)
-
-Strathern, Marilyn (1997). "Improving Ratings: Audit in the British University System." *European Review*, 5(3): 305-321. [https://gwern.net/doc/statistics/decision/1997-strathern.pdf](https://gwern.net/doc/statistics/decision/1997-strathern.pdf)
+<ol class="references">
+  <li id="ref-1">Goodhart, Charles (1975). "Problems of Monetary Management: The UK Experience." <em>Papers in Monetary Economics</em>, Reserve Bank of Australia. <a href="https://www.semanticscholar.org/paper/Problems-of-Monetary-Management%3A-The-UK-Experience-Goodhart/0ae623749b30de53a39cf05813f5f3842e422c01">https://www.semanticscholar.org/paper/Problems-of-Monetary-Management%3A-The-UK-Experience-Goodhart/0ae623749b30de53a39cf05813f5f3842e422c01</a></li>
+  <li id="ref-2">Strathern, Marilyn (1997). "Improving Ratings: Audit in the British University System." <em>European Review</em>, 5(3): 305-321. <a href="https://gwern.net/doc/statistics/decision/1997-strathern.pdf">https://gwern.net/doc/statistics/decision/1997-strathern.pdf</a></li>
+  <li id="ref-3">Campbell, Donald T. (1979). "Assessing the Impact of Planned Social Change." <em>Evaluation and Program Planning</em>, 2(1): 67-90. <a href="https://ideas.repec.org/a/eee/epplan/v2y1979i1p67-90.html">https://ideas.repec.org/a/eee/epplan/v2y1979i1p67-90.html</a></li>
+  <li id="ref-4">Forsgren, Nicole, Jez Humble, and Gene Kim (2018). <em>Accelerate: The Science of Lean Software and DevOps</em>. IT Revolution Press. <a href="https://itrevolution.com/product/accelerate/">https://itrevolution.com/product/accelerate/</a></li>
+  <li id="ref-5">Deming, W. Edwards (1986). <em>Out of the Crisis</em>. MIT Press. <a href="https://direct.mit.edu/books/monograph/4192/Out-of-the-Crisis">https://direct.mit.edu/books/monograph/4192/Out-of-the-Crisis</a></li>
+</ol>
 
 ---
 
@@ -92,9 +90,9 @@ Strathern, Marilyn (1997). "Improving Ratings: Audit in the British University S
 
 **UK emergency wait times.** When the NHS introduced a four-hour emergency department wait target, some hospitals held patients in ambulances outside to avoid starting the clock (Bevan and Hood, 2006). The wait time metric improved while patients waited longer.
 
-**The Soviet nail quota.** A 1957 cartoon in the Soviet satirical magazine *Krokodil* showed a factory worker proudly holding one giant nail. Production quotas by count produced tiny, unusable nails. Planners switched to weight quotas and factories made massive, unusable nails instead (Nove, 1977). Different metric, same problem, and still no useful nails.
+**The Soviet nail quota.** A 1957 cartoon in the Soviet satirical magazine *Krokodil* showed a factory worker proudly holding one giant nail. Production quotas by count produced tiny, unusable nails. Planners switched to weight quotas and factories made massive, unusable nails instead (Nove, 1977).
 
-**The cobra effect.** Colonial administrators in 1870s British India offered bounties for dead cobras to reduce the cobra population. Locals began breeding cobras for the reward. When the program ended, breeders released their snakes and the population increased (Siebert, 2001). The incentive produced the exact opposite of its intended effect.
+**The cobra effect.** Colonial administrators in 1870s British India offered bounties for dead cobras to reduce the cobra population. Locals began breeding cobras for the reward. When the program ended, breeders released their snakes and the population increased (Siebert, 2001).
 
 ---
 

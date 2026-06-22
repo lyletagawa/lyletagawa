@@ -6,7 +6,25 @@
     <description>Recent content in Tags on hi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 21 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>metrics</title>
+      <link>https://lyletagawa.com/tags/metrics/</link>
+      <pubDate>Sun, 21 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/tags/metrics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>observability</title>
+      <link>https://lyletagawa.com/tags/observability/</link>
+      <pubDate>Sun, 21 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/tags/observability/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>ai</title>
       <link>https://lyletagawa.com/tags/ai/</link>
@@ -40,15 +58,6 @@
       <pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/tags/management/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>metrics</title>
-      <link>https://lyletagawa.com/tags/metrics/</link>
-      <pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate>
-      
-      <guid>https://lyletagawa.com/tags/metrics/</guid>
       <description></description>
     </item>
     

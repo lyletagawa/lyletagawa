@@ -2,7 +2,7 @@
 title: "Turn the Ship Around!"
 date: 2019-08-05
 publishdate: 2019-08-05
-lastmod: 2026-06-07
+lastmod: 2026-06-17
 summary: "Concentrating decisions at the top discards the intelligence of people closest to the work. Marquet's leader-leader model distributes authority to where information lives, producing organizations that outlast their leaders."
 tags: ["intent", "leadership"]
 image: /images/influence-by-alignment.jpg
@@ -10,7 +10,7 @@ draft: false
 ---
 
 ![](/images/influence-by-alignment.jpg)
-*Photo: U.S. Indo-Pacific Command (2017). USS Santa Fe (SSN-763). CC BY-NC-ND 2.0.*
+*Photo: [U.S. Indo-Pacific Command (2017)](https://www.flickr.com/photos/us-pacific-command/36465016822). USS Santa Fe (SSN-763). CC BY-NC-ND 2.0.*
 
 ## Turn the Ship Around!
 
@@ -18,7 +18,7 @@ On his first day in command of USS Santa Fe, L. David Marquet gave an order that
 
 That moment defined what Marquet spent the next year dismantling. He called it the Leader-Follower model. Authority concentrates at the top and decisions flow back down. The model suits physical labor and breaks down where work requires judgment.
 
-Santa Fe had the worst retention and performance record in the Pacific fleet when Marquet arrived. Three years later it was ranked first, and reenlistments went from three to thirty-three in a single year (Marquet, 2013).
+Santa Fe had the worst retention and performance record in the Pacific fleet when Marquet arrived. Three years later it was ranked first, and reenlistments went from three to thirty-three in a single year {{< cite 1 "Marquet, L. David (2013). Turn the Ship Around! A True Story of Turning Followers into Leaders. Portfolio/Penguin." >}}.
 
 ## What Is the Leader-Leader Model?
 
@@ -28,7 +28,7 @@ In Marquet's Leader-Leader model, authority moves to where information lives, ev
 
 Empowerment is a top-down concept. When a leader grants power to a subordinate, the act reinforces the hierarchy it claims to dismantle. Distributed authority assumes the capability is already there and that structure is what blocks it. The leader's job is to remove the structure.
 
-Organizations where information flows freely and authority matches expertise outperform hierarchical ones on performance and safety (Westrum, 2004).
+Organizations where information flows freely and authority matches expertise outperform hierarchical ones on performance and safety {{< cite 2 "Westrum, Ron (2004). A Typology of Organisational Cultures. BMJ Quality & Safety, 13(suppl 2): ii22-ii27." >}}.
 
 ## Control, Competence, Clarity
 
@@ -48,7 +48,7 @@ The speaker must formulate a plan and a rationale before speaking, which transfe
 
 The crew began taking initiative before problems escalated. Communication became more specific, and officers stopped asking for permission and started informing superiors of plans already in motion.
 
-Research on autonomy and intrinsic motivation supports what Marquet found in practice. When people direct their own work, engagement and performance improve (Pink, 2009). "I intend to" creates that condition while preserving accountability.
+Research on autonomy and intrinsic motivation supports what Marquet found in practice. When people direct their own work, engagement and performance improve {{< cite 3 "Pink, Daniel H. (2009). Drive: The Surprising Truth About What Motivates Us. Riverhead Books." >}}. "I intend to" creates that condition while preserving accountability.
 
 ## Common Mistakes
 
@@ -58,9 +58,9 @@ Research on autonomy and intrinsic motivation supports what Marquet found in pra
 
 **Treating "I intend to" as ceremony.** The phrase only transfers ownership if the speaker genuinely thinks through the plan and the rationale. Used as a ritual to satisfy a process, it produces the right words with none of the effect.
 
-**Measuring leadership by the leader's presence.** In Leader-Follower organizations, performance drops when a strong leader departs. This is typically read as evidence of effectiveness. In Leader-Leader organizations, the departure changes nothing. The test is what happens after. High-performing technical teams show the same pattern. Elite performers deploy continuously and recover from failures without a single point of human control (Forsgren et al., 2018).
+**Measuring leadership by the leader's presence.** In Leader-Follower organizations, performance drops when a strong leader departs. This is typically read as evidence of effectiveness. In Leader-Leader organizations, the departure changes nothing. The test is what happens after. High-performing technical teams show the same pattern. Elite performers deploy continuously and recover from failures without a single point of human control {{< cite 4 "Forsgren, Nicole, et al. (2018). Accelerate: The Science of Lean Software and DevOps. IT Revolution Press." >}}.
 
-**Confusing flat hierarchies with distributed authority.** Removing layers from an org chart does not distribute decision rights. Team cognitive load and communication boundaries reveal where authority actually sits, regardless of what the hierarchy diagram shows (Skelton and Pais, 2019).
+**Confusing flat hierarchies with distributed authority.** Removing layers from an org chart does not distribute decision rights. Team cognitive load and communication boundaries reveal where authority actually sits, regardless of what the hierarchy diagram shows {{< cite 5 "Skelton, Matthew, and Manuel Pais (2019). Team Topologies. IT Revolution Press." >}}.
 
 ## Put It Into Practice
 
@@ -74,17 +74,13 @@ Measure progress by what happens when you step back. If performance holds or imp
 
 ## References
 
-Forsgren, Nicole, Jez Humble, and Gene Kim (2018). *Accelerate: The Science of Lean Software and DevOps*. Portland: IT Revolution Press. [https://itrevolution.com/product/accelerate/](https://itrevolution.com/product/accelerate/)
-
-Marquet, L. David (2013). *Turn the Ship Around! A True Story of Turning Followers into Leaders*. New York: Portfolio/Penguin. [https://davidmarquet.com/books/turn-the-ship-around-book/](https://davidmarquet.com/books/turn-the-ship-around-book/)
-
-Pink, Daniel H. (2009). *Drive: The Surprising Truth About What Motivates Us*. New York: Riverhead Books. [https://www.danpink.com/books/drive/](https://www.danpink.com/books/drive/)
-
-Skelton, Matthew, and Manuel Pais (2019). *Team Topologies: Organizing Business and Technology Teams for Fast Flow*. IT Revolution Press. [https://itrevolution.com/product/team-topologies/](https://itrevolution.com/product/team-topologies/)
-
-U.S. Indo-Pacific Command (2017). "USS Santa Fe returns to Pearl Harbor." Flickr. CC BY-NC-ND 2.0. [https://www.flickr.com/photos/us-pacific-command/36465016822](https://www.flickr.com/photos/us-pacific-command/36465016822)
-
-Westrum, Ron (2004). "A typology of organisational cultures." *BMJ Quality & Safety*, 13(suppl 2): ii22–ii27. [https://qualitysafety.bmj.com/content/13/suppl_2/ii22](https://qualitysafety.bmj.com/content/13/suppl_2/ii22)
+<ol class="references">
+  <li id="ref-1">Marquet, L. David (2013). <em>Turn the Ship Around! A True Story of Turning Followers into Leaders</em>. New York: Portfolio/Penguin. <a href="https://davidmarquet.com/books/turn-the-ship-around-book/">https://davidmarquet.com/books/turn-the-ship-around-book/</a></li>
+  <li id="ref-2">Westrum, Ron (2004). "A typology of organisational cultures." <em>BMJ Quality & Safety</em>, 13(suppl 2): ii22-ii27. <a href="https://qualitysafety.bmj.com/content/13/suppl_2/ii22">https://qualitysafety.bmj.com/content/13/suppl_2/ii22</a></li>
+  <li id="ref-3">Pink, Daniel H. (2009). <em>Drive: The Surprising Truth About What Motivates Us</em>. New York: Riverhead Books. <a href="https://www.danpink.com/books/drive/">https://www.danpink.com/books/drive/</a></li>
+  <li id="ref-4">Forsgren, Nicole, Jez Humble, and Gene Kim (2018). <em>Accelerate: The Science of Lean Software and DevOps</em>. Portland: IT Revolution Press. <a href="https://itrevolution.com/product/accelerate/">https://itrevolution.com/product/accelerate/</a></li>
+  <li id="ref-5">Skelton, Matthew, and Manuel Pais (2019). <em>Team Topologies: Organizing Business and Technology Teams for Fast Flow</em>. IT Revolution Press. <a href="https://itrevolution.com/product/team-topologies/">https://itrevolution.com/product/team-topologies/</a></li>
+</ol>
 
 ---
 

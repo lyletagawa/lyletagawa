@@ -105,50 +105,50 @@
       
     </div>
     
-    <h6 class="subtitle is-6" style="line-height:0em">Jun. 25, 2020&nbsp;&middot; 6 min read
+    <h6 class="subtitle is-6" style="line-height:0em">Jun. 25, 2020&nbsp;&middot; 4 min read
     </h6>
     
 
     <div class="content">
       <p><img src="/images/chaos-engineering.jpg" alt="">
-<em>&ldquo;Chaos Monkey&rdquo; by BUNKA Artoyz. Photo: BFLV (2008). CC BY-NC 2.0.</em></p>
+<em>&ldquo;Chaos Monkey&rdquo; by BUNKA Artoyz. Photo: <a href="https://www.flickr.com/photos/bflv/2849375040/">BFLV (2008)</a>. CC BY-NC 2.0.</em></p>
 <h2 id="chaos-engineering">Chaos Engineering</h2>
 <p>Modern distributed systems fail in ways we cannot predict.</p>
 <p>Production incidents reveal unexpected interactions between services, infrastructure, and operators. Chaos Engineering takes a different approach, deliberately introducing controlled failures to discover systemic weaknesses before they cause customer-impacting outages.</p>
 <h2 id="why-chaos-engineering-matters">Why Chaos Engineering Matters</h2>
-<p>In distributed systems, the failure of a component your team never directly touches can cascade into failures your users experience. Multiple and unexpected interactions of failures are inevitable in complex systems (Perrow, 1999).</p>
-<p>Complexity sorts into two kinds, accidental and essential (Brooks, 1986). Accidental complexity accrues continuously, while essential complexity grows with the scope of what the system must do. Organizations can&rsquo;t eliminate complexity, only learn to navigate it.</p>
+<p>In distributed systems, the failure of a component your team never directly touches can cascade into failures your users experience. Multiple and unexpected interactions of failures are inevitable in complex systems <sup><a href="#ref-1" title="Perrow, Charles (1999). Normal Accidents: Living with High-Risk Technologies. Princeton University Press.">[1]</a></sup>.</p>
+<p>Complexity sorts into two kinds, accidental and essential <sup><a href="#ref-2" title="Brooks, Frederick P. (1986). No Silver Bullet: Essence and Accidents of Software Engineering. IEEE Computer, 20(4): 10-19.">[2]</a></sup>. Accidental complexity accrues continuously, while essential complexity grows with the scope of what the system must do. Organizations can&rsquo;t eliminate complexity, only learn to navigate it.</p>
 <h2 id="the-dynamic-safety-model">The Dynamic Safety Model</h2>
-<p>Rasmussen&rsquo;s Dynamic Safety Model describes three competing pressures on engineering work (Rasmussen, 1997). The Safety boundary marks where failures become likely, the Economic boundary where work becomes unaffordable, and the Workload boundary where teams become overwhelmed.</p>
+<p>Rasmussen&rsquo;s Dynamic Safety Model describes three competing pressures on engineering work <sup><a href="#ref-3" title="Rasmussen, Jens (1997). Risk Management in a Dynamic Society: A Modelling Problem. Safety Science, 27(2-3): 183-213.">[3]</a></sup>. The Safety boundary marks where failures become likely, the Economic boundary where work becomes unaffordable, and the Workload boundary where teams become overwhelmed.</p>
 <p>When the Safety boundary is not visible, engineers drift toward the other two, optimizing for cost and speed without knowing how close they are to failure. Chaos Engineering makes the Safety boundary visible through experimentation, giving teams the intuition to maintain appropriate margins.</p>
 <h2 id="optimizing-for-reversibility">Optimizing for Reversibility</h2>
-<p>Nygard&rsquo;s concept of optimizing for reversibility maps naturally to Chaos Engineering (Nygard, 2018). Chaos experiments expose properties that work against reversibility.</p>
-<p>Efficiency is a valid business goal, but highly optimized systems lack the slack to absorb unexpected conditions. Chaos experiments surface this brittleness, enabling the rest of the system to adapt when a piece breaks (Nygard, 2018).</p>
+<p>Nygard&rsquo;s concept of optimizing for reversibility maps naturally to Chaos Engineering <sup><a href="#ref-4" title="Nygard, Michael T. (2018). Release It! Design and Deploy Production-Ready Software, 2nd ed. Pragmatic Bookshelf.">[4]</a></sup>. Chaos experiments expose properties that work against reversibility.</p>
+<p>Efficiency is a valid business goal, but highly optimized systems lack the slack to absorb unexpected conditions. Chaos experiments surface this brittleness, enabling the rest of the system to adapt when a piece breaks <sup><a href="#ref-4" title="Nygard, Michael T. (2018). Release It! Design and Deploy Production-Ready Software, 2nd ed. Pragmatic Bookshelf.">[4]</a></sup>.</p>
 <h2 id="what-chaos-engineering-is">What Chaos Engineering Is</h2>
-<p>Chaos Engineering is the discipline of experimenting on a system to build confidence in the system&rsquo;s capability to withstand turbulent conditions in production (Principles of Chaos Engineering, 2016).</p>
-<p>The process follows a scientific method (Basiri et al., 2016):</p>
+<p>Chaos Engineering is the discipline of experimenting on a system to build confidence in the system&rsquo;s capability to withstand turbulent conditions in production <sup><a href="#ref-5" title="Principles of Chaos Engineering (2016). principlesofchaos.org.">[5]</a></sup>.</p>
+<p>The process follows a scientific method <sup><a href="#ref-6" title="Basiri, Ali, et al. (2016). Chaos Engineering. IEEE Software, 33(3): 35-41.">[6]</a></sup>:</p>
 <ol>
 <li><strong>Define the steady state</strong> as measurable output indicating normal behavior</li>
 <li><strong>Hypothesize</strong> that this steady state will continue in both control and experimental groups</li>
 <li><strong>Introduce variables</strong> that reflect real-world events like server crashes, network partitions, or resource exhaustion</li>
 <li><strong>Try to disprove the hypothesis</strong> by looking for differences in steady state</li>
 </ol>
-<p>Testing makes assertions based on existing knowledge. Experimentation creates new knowledge, either building confidence or revealing new properties about the system. Fewer errors, more insights (Klein, 2013).</p>
-<p>Chaos Engineering favors observing behavior at system boundaries over inspecting internal components (Rosenthal et al., 2020). Checking whether the system serves users correctly under failure tells you more than checking whether individual parts behave as designed.</p>
+<p>Testing makes assertions based on existing knowledge. Experimentation creates new knowledge, either building confidence or revealing new properties about the system. Fewer errors, more insights <sup><a href="#ref-7" title="Klein, Gary (2013). Seeing What Others Don&#39;t: The Remarkable Ways We Gain Insights. PublicAffairs.">[7]</a></sup>.</p>
+<p>Chaos Engineering favors observing behavior at system boundaries over inspecting internal components <sup><a href="#ref-8" title="Rosenthal, Casey, et al. (2020). Chaos Engineering: System Resiliency in Practice. O&#39;Reilly Media.">[8]</a></sup>. Checking whether the system serves users correctly under failure tells you more than checking whether individual parts behave as designed.</p>
 <h2 id="what-chaos-engineering-is-not">What Chaos Engineering Is Not</h2>
-<p><strong>Chaos Engineering is not &ldquo;breaking stuff.&rdquo;</strong> It focuses solely on proactively improving safety in complex systems (Rosenthal et al., 2020).</p>
-<p><strong>Chaos Engineering is not &ldquo;antifragility.&rdquo;</strong> Antifragile systems get stronger when exposed to random stress (Taleb, 2012). Chaos Engineering educates operators about chaos already inherent in the system. Antifragility adds chaos hoping the system will grow stronger in response.</p>
-<p>Hunting for what goes right is more informative than hunting for what goes wrong, and redundancy can contribute to safety failures by adding complexity (Hollnagel, 2014).</p>
+<p><strong>Chaos Engineering is not &ldquo;breaking stuff.&rdquo;</strong> It focuses solely on proactively improving safety in complex systems <sup><a href="#ref-8" title="Rosenthal, Casey, et al. (2020). Chaos Engineering: System Resiliency in Practice. O&#39;Reilly Media.">[8]</a></sup>.</p>
+<p><strong>Chaos Engineering is not &ldquo;antifragility.&rdquo;</strong> Antifragile systems get stronger when exposed to random stress <sup><a href="#ref-9" title="Taleb, Nassim Nicholas (2012). Antifragile: Things That Gain from Disorder. Random House.">[9]</a></sup>. Chaos Engineering educates operators about chaos already inherent in the system. Antifragility adds chaos hoping the system will grow stronger in response.</p>
+<p>Hunting for what goes right is more informative than hunting for what goes wrong, and redundancy can contribute to safety failures by adding complexity <sup><a href="#ref-10" title="Hollnagel, Erik (2014). Safety-I and Safety-II: The Past and Future of Safety Management. Ashgate.">[10]</a></sup>.</p>
 <h2 id="run-experiments">Run Experiments</h2>
-<p><strong>Define steady state and form a hypothesis.</strong> Define normal behavior using business metrics such as order completion rate, search success rate, and video start time (Principles of Chaos Engineering, 2016). Then form a specific prediction: &ldquo;We believe that terminating 10% of our API servers will not impact order completion rate because our load balancers will route traffic to healthy instances within 30 seconds.&rdquo;</p>
-<p><strong>Vary real-world events.</strong> Introduce failures that reflect actual production conditions. Server crashes, network partitions, resource exhaustion, and dependency failures are all valid variables (Basiri et al., 2016).</p>
-<p><strong>Run in production.</strong> Only production contains the true complexity, scale, and interactions that matter (Principles of Chaos Engineering, 2016).</p>
-<p><strong>Start small.</strong> Begin with failure injection testing on non-critical services (Rosenthal et al., 2020). Target a small percentage of traffic and expand scope as confidence grows.</p>
-<p><strong>Monitor and abort if needed.</strong> Execute during business hours when teams can respond. Abort if steady state degrades beyond acceptable thresholds (Rosenthal et al., 2020).</p>
-<p><strong>Learn, iterate, and automate.</strong> Document findings, address weaknesses, expand scope, and automate successful experiments. Like continuous integration catches code regressions, continuous chaos engineering catches resilience regressions as systems evolve (Basiri et al., 2016).</p>
+<p><strong>Define steady state and form a hypothesis.</strong> Define normal behavior using business metrics such as order completion rate, search success rate, and video start time <sup><a href="#ref-5" title="Principles of Chaos Engineering (2016). principlesofchaos.org.">[5]</a></sup>. Then form a specific prediction: &ldquo;We believe that terminating 10% of our API servers will not impact order completion rate because our load balancers will route traffic to healthy instances within 30 seconds.&rdquo;</p>
+<p><strong>Vary real-world events.</strong> Introduce failures that reflect actual production conditions. Server crashes, network partitions, resource exhaustion, and dependency failures are all valid variables <sup><a href="#ref-6" title="Basiri, Ali, et al. (2016). Chaos Engineering. IEEE Software, 33(3): 35-41.">[6]</a></sup>.</p>
+<p><strong>Run in production.</strong> Only production contains the true complexity, scale, and interactions that matter <sup><a href="#ref-5" title="Principles of Chaos Engineering (2016). principlesofchaos.org.">[5]</a></sup>.</p>
+<p><strong>Start small.</strong> Begin with failure injection testing on non-critical services <sup><a href="#ref-8" title="Rosenthal, Casey, et al. (2020). Chaos Engineering: System Resiliency in Practice. O&#39;Reilly Media.">[8]</a></sup>. Target a small percentage of traffic and expand scope as confidence grows.</p>
+<p><strong>Monitor and abort if needed.</strong> Execute during business hours when teams can respond. Abort if steady state degrades beyond acceptable thresholds <sup><a href="#ref-8" title="Rosenthal, Casey, et al. (2020). Chaos Engineering: System Resiliency in Practice. O&#39;Reilly Media.">[8]</a></sup>.</p>
+<p><strong>Learn, iterate, and automate.</strong> Document findings, address weaknesses, expand scope, and automate successful experiments. Like continuous integration catches code regressions, continuous chaos engineering catches resilience regressions as systems evolve <sup><a href="#ref-6" title="Basiri, Ali, et al. (2016). Chaos Engineering. IEEE Software, 33(3): 35-41.">[6]</a></sup>.</p>
 <h2 id="game-days">Game Days</h2>
-<p>You don&rsquo;t choose the moment, the moment chooses you. You do choose how prepared you are when it does (Robbins, 2011).</p>
-<p>Game Days are scheduled exercises where teams deliberately cause failures to practice incident response, build muscle memory, reveal gaps in runbooks, and improve team coordination (Robbins, 2011).</p>
+<p>You don&rsquo;t choose the moment, the moment chooses you. You do choose how prepared you are when it does <sup><a href="#ref-11" title="Robbins, Jesse (2011). GameDay: Creating Resiliency Through Destruction. USENIX LISA11.">[11]</a></sup>.</p>
+<p>Game Days are scheduled exercises where teams deliberately cause failures to practice incident response, build muscle memory, reveal gaps in runbooks, and improve team coordination <sup><a href="#ref-11" title="Robbins, Jesse (2011). GameDay: Creating Resiliency Through Destruction. USENIX LISA11.">[11]</a></sup>.</p>
 <p>Three useful benchmarks:</p>
 <ul>
 <li><strong>99.9%³ = 99.7%.</strong> Three nines across three dependencies yields only two nines overall.</li>
@@ -156,24 +156,25 @@
 <li><strong>Latent defects exist.</strong> You choose when you discover them and how much they cost you.</li>
 </ul>
 <h2 id="put-it-into-practice">Put It Into Practice</h2>
-<p>Chaos Engineering shifts organizations from reactive incident response to proactive resilience building, discovering systemic weaknesses before they cause outages (Rosenthal et al., 2020).</p>
-<p>The discipline requires cultural change. Teams must embrace experimentation and accept that failures will occur, while leadership supports time invested in activities that don&rsquo;t directly deliver features (Rosenthal et al., 2020).</p>
-<p>Organizations that adopt Chaos Engineering build more resilient systems, respond to incidents more effectively, and operate with greater confidence (Basiri et al., 2016). They transform the question from &ldquo;will our system fail?&rdquo; to &ldquo;when our system fails, how will it behave, and are we prepared?&rdquo;</p>
+<p>Chaos Engineering shifts organizations from reactive incident response to proactive resilience building, discovering systemic weaknesses before they cause outages <sup><a href="#ref-8" title="Rosenthal, Casey, et al. (2020). Chaos Engineering: System Resiliency in Practice. O&#39;Reilly Media.">[8]</a></sup>.</p>
+<p>The discipline requires cultural change. Teams must embrace experimentation and accept that failures will occur, while leadership supports time invested in activities that don&rsquo;t directly deliver features <sup><a href="#ref-8" title="Rosenthal, Casey, et al. (2020). Chaos Engineering: System Resiliency in Practice. O&#39;Reilly Media.">[8]</a></sup>.</p>
+<p>Organizations that adopt Chaos Engineering build more resilient systems, respond to incidents more effectively, and operate with greater confidence <sup><a href="#ref-6" title="Basiri, Ali, et al. (2016). Chaos Engineering. IEEE Software, 33(3): 35-41.">[6]</a></sup>. They transform the question from &ldquo;will our system fail?&rdquo; to &ldquo;when our system fails, how will it behave, and are we prepared?&rdquo;</p>
 <p>Start small. Run your first experiment this week, discover one weakness, fix it, and repeat.</p>
 <hr>
 <h2 id="references">References</h2>
-<p>Basiri, Ali, et al. (2016). &ldquo;Chaos Engineering.&rdquo; <em>IEEE Software</em>, 33(3): 35-41. <a href="https://doi.org/10.1109/MS.2016.60">https://doi.org/10.1109/MS.2016.60</a></p>
-<p>BFLV (2008). &ldquo;Expos CHAOS MONKEY by BUNKA Artoyz.&rdquo; Flickr. CC BY-NC 2.0. <a href="https://www.flickr.com/photos/bflv/2849375040/">https://www.flickr.com/photos/bflv/2849375040/</a></p>
-<p>Brooks, Frederick P. (1986). &ldquo;No Silver Bullet: Essence and Accidents of Software Engineering.&rdquo; <em>IEEE Computer</em>, 20(4): 10-19. <a href="https://www.cs.unc.edu/techreports/86-020.pdf">https://www.cs.unc.edu/techreports/86-020.pdf</a></p>
-<p>Hollnagel, Erik (2014). <em>Safety-I and Safety-II: The Past and Future of Safety Management</em>. Farnham: Ashgate. <a href="https://erikhollnagel.com/books/safety-i-safety-ii-2014">https://erikhollnagel.com/books/safety-i-safety-ii-2014</a></p>
-<p>Klein, Gary (2013). <em>Seeing What Others Don&rsquo;t: The Remarkable Ways We Gain Insights</em>. New York: PublicAffairs. <a href="https://www.hachettebookgroup.com/titles/gary-klein/seeing-what-others-dont/9781610392754/">https://www.hachettebookgroup.com/titles/gary-klein/seeing-what-others-dont/9781610392754/</a></p>
-<p>Nygard, Michael T. (2018). <em>Release It! Design and Deploy Production-Ready Software</em>, 2nd ed. Raleigh: Pragmatic Bookshelf. <a href="https://pragprog.com/titles/mnee2/release-it-second-edition/">https://pragprog.com/titles/mnee2/release-it-second-edition/</a></p>
-<p>Perrow, Charles (1999). <em>Normal Accidents: Living with High-Risk Technologies</em>. Princeton: Princeton University Press. <a href="https://press.princeton.edu/books/paperback/9780691004129/normal-accidents">https://press.princeton.edu/books/paperback/9780691004129/normal-accidents</a></p>
-<p>Principles of Chaos Engineering (2016). <a href="https://principlesofchaos.org/">https://principlesofchaos.org/</a></p>
-<p>Rasmussen, Jens (1997). &ldquo;Risk Management in a Dynamic Society: A Modelling Problem.&rdquo; <em>Safety Science</em>, 27(2-3): 183-213. <a href="https://doi.org/10.1016/S0925-7535(97)00052-0">https://doi.org/10.1016/S0925-7535(97)00052-0</a></p>
-<p>Robbins, Jesse (2011). &ldquo;GameDay: Creating Resiliency Through Destruction.&rdquo; <em>USENIX LISA11</em>. <a href="https://www.usenix.org/blog/gameday-creating-resiliency-through-destruction">https://www.usenix.org/blog/gameday-creating-resiliency-through-destruction</a></p>
-<p>Rosenthal, Casey, et al. (2020). <em>Chaos Engineering: System Resiliency in Practice</em>. Sebastopol: O&rsquo;Reilly Media. <a href="https://www.oreilly.com/library/view/chaos-engineering/9781492043850/">https://www.oreilly.com/library/view/chaos-engineering/9781492043850/</a></p>
-<p>Taleb, Nassim Nicholas (2012). <em>Antifragile: Things That Gain from Disorder</em>. New York: Random House. <a href="https://www.penguinrandomhouse.com/books/176227/antifragile-by-nassim-nicholas-taleb/">https://www.penguinrandomhouse.com/books/176227/antifragile-by-nassim-nicholas-taleb/</a></p>
+<ol class="references">
+  <li id="ref-1">Perrow, Charles (1999). <em>Normal Accidents: Living with High-Risk Technologies</em>. Princeton: Princeton University Press. <a href="https://press.princeton.edu/books/paperback/9780691004129/normal-accidents">https://press.princeton.edu/books/paperback/9780691004129/normal-accidents</a></li>
+  <li id="ref-2">Brooks, Frederick P. (1986). "No Silver Bullet: Essence and Accidents of Software Engineering." <em>IEEE Computer</em>, 20(4): 10-19. <a href="https://www.cs.unc.edu/techreports/86-020.pdf">https://www.cs.unc.edu/techreports/86-020.pdf</a></li>
+  <li id="ref-3">Rasmussen, Jens (1997). "Risk Management in a Dynamic Society: A Modelling Problem." <em>Safety Science</em>, 27(2-3): 183-213. <a href="https://doi.org/10.1016/S0925-7535(97)00052-0">https://doi.org/10.1016/S0925-7535(97)00052-0</a></li>
+  <li id="ref-4">Nygard, Michael T. (2018). <em>Release It! Design and Deploy Production-Ready Software</em>, 2nd ed. Raleigh: Pragmatic Bookshelf. <a href="https://pragprog.com/titles/mnee2/release-it-second-edition/">https://pragprog.com/titles/mnee2/release-it-second-edition/</a></li>
+  <li id="ref-5">Principles of Chaos Engineering (2016). <a href="https://principlesofchaos.org/">https://principlesofchaos.org/</a></li>
+  <li id="ref-6">Basiri, Ali, et al. (2016). "Chaos Engineering." <em>IEEE Software</em>, 33(3): 35-41. <a href="https://doi.org/10.1109/MS.2016.60">https://doi.org/10.1109/MS.2016.60</a></li>
+  <li id="ref-7">Klein, Gary (2013). <em>Seeing What Others Don't: The Remarkable Ways We Gain Insights</em>. New York: PublicAffairs. <a href="https://www.hachettebookgroup.com/titles/gary-klein/seeing-what-others-dont/9781610392754/">https://www.hachettebookgroup.com/titles/gary-klein/seeing-what-others-dont/9781610392754/</a></li>
+  <li id="ref-8">Rosenthal, Casey, et al. (2020). <em>Chaos Engineering: System Resiliency in Practice</em>. Sebastopol: O'Reilly Media. <a href="https://www.oreilly.com/library/view/chaos-engineering/9781492043850/">https://www.oreilly.com/library/view/chaos-engineering/9781492043850/</a></li>
+  <li id="ref-9">Taleb, Nassim Nicholas (2012). <em>Antifragile: Things That Gain from Disorder</em>. New York: Random House. <a href="https://www.penguinrandomhouse.com/books/176227/antifragile-by-nassim-nicholas-taleb/">https://www.penguinrandomhouse.com/books/176227/antifragile-by-nassim-nicholas-taleb/</a></li>
+  <li id="ref-10">Hollnagel, Erik (2014). <em>Safety-I and Safety-II: The Past and Future of Safety Management</em>. Farnham: Ashgate. <a href="https://erikhollnagel.com/books/safety-i-safety-ii-2014">https://erikhollnagel.com/books/safety-i-safety-ii-2014</a></li>
+  <li id="ref-11">Robbins, Jesse (2011). "GameDay: Creating Resiliency Through Destruction." <em>USENIX LISA11</em>. <a href="https://www.usenix.org/blog/gameday-creating-resiliency-through-destruction">https://www.usenix.org/blog/gameday-creating-resiliency-through-destruction</a></li>
+</ol>
 <hr>
 <h2 id="changelog">Changelog</h2>
 <p><strong>2026-06-07</strong> Added hero image.<br>

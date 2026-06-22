@@ -2,7 +2,7 @@
 title: "Distributed Causation"
 date: 2026-06-01
 publishdate: 2026-06-01
-lastmod: 2026-06-14
+lastmod: 2026-06-17
 summary: "Complex failures don't have a single root cause. They have many causes distributed across time, systems, and organizational boundaries, and fixing just one leaves the rest in place."
 tags: ["safety", "incidents", "resilience"]
 image: /images/distributed-causation.jpg
@@ -10,7 +10,7 @@ draft: false
 ---
 
 ![](/images/distributed-causation.jpg)
-*Photo: U.S. Nuclear Regulatory Commission (1979). CC BY-NC-ND 2.0.*
+*Photo: [U.S. Nuclear Regulatory Commission (1979)](https://www.flickr.com/photos/69383258@N08/7447157202). CC BY-NC-ND 2.0.*
 
 ## Distributed Causation
 
@@ -24,39 +24,39 @@ The team has been finding root causes for years. The incidents keep coming.
 
 On March 28, 1979, a pressure relief valve stuck open at the Three Mile Island (TMI) nuclear plant in Pennsylvania. Cooling water escaped and the reactor core partially melted. It was the most serious nuclear accident in American history.
 
-U.S. President Jimmy Carter appointed a commission to investigate, chaired by John Kemeny. The commission rejected the most convenient explanation. The accident wasn't caused by the valve, not by operator error alone, and not by equipment design alone. Metropolitan Edison (the plant's operator) made staffing and training decisions that contributed. Babcock and Wilcox (the reactor manufacturer) knew about similar valve events at other facilities and didn't share those warnings. The Nuclear Regulatory Commission (NRC) failed to act on those events or improve its oversight requirements (Kemeny Commission, 1979).
+U.S. President Jimmy Carter appointed a commission to investigate, chaired by John Kemeny. The commission rejected the most convenient explanation. The accident wasn't caused by the valve, not by operator error alone, and not by equipment design alone. Metropolitan Edison (the plant's operator) made staffing and training decisions that contributed. Babcock and Wilcox (the reactor manufacturer) knew about similar valve events at other facilities and didn't share those warnings. The Nuclear Regulatory Commission (NRC) failed to act on those events or improve its oversight requirements {{< cite 1 "Kemeny Commission (1979). Report of the President's Commission on the Accident at Three Mile Island. U.S. Government Printing Office." >}}.
 
 This is distributed causation. Failures in complex systems don't originate in one place. They pile up across organizational boundaries, across time, and across contributing factors that look unrelated until they converge.
 
-Twenty-four years later, the Columbia Accident Investigation Board (CAIB) reached the same conclusion about the Columbia space shuttle disaster. The shuttle broke apart on reentry in February 2003 after foam breached the heat shield during launch. The board named the foam strike as the physical cause. It also named NASA's organizational culture, eroded safety margins, and a communication structure that suppressed dissenting voices (CAIB, 2003).
+Twenty-four years later, the Columbia Accident Investigation Board (CAIB) reached the same conclusion about the Columbia space shuttle disaster. The shuttle broke apart on reentry in February 2003 after foam breached the heat shield during launch. The board named the foam strike as the physical cause. It also named NASA's organizational culture, eroded safety margins, and a communication structure that suppressed dissenting voices {{< cite 2 "Columbia Accident Investigation Board (2003). Columbia Accident Investigation Board Report, Volume 1. NASA." >}}.
 
-Every participant followed their training, their protocols, and their oversight requirements. But the system still failed (Kemeny Commission, 1979; CAIB, 2003).
+Every participant followed their training, their protocols, and their oversight requirements. But the system still failed {{< cite 1 "Kemeny Commission (1979). Report of the President's Commission on the Accident at Three Mile Island. U.S. Government Printing Office." >}}{{< cite 2 "Columbia Accident Investigation Board (2003). Columbia Accident Investigation Board Report, Volume 1. NASA." >}}.
 
 ## Why Root Cause Fails
 
 The desire to find a root cause isn't irrational. A single cause is actionable, but a distributed explanation requires simultaneous changes to multiple systems, multiple processes, and multiple organizations, which is slow and expensive.
 
-The problem is that complex systems don't produce failures that way. Catastrophe requires multiple failures, with latent conditions throughout the system waiting to combine with active failures (Cook, 1998). A single root cause, where it exists, usually explains only one contributing factor in a chain that required several.
+The problem is that complex systems don't produce failures that way. Catastrophe requires multiple failures, with latent conditions throughout the system waiting to combine with active failures {{< cite 3 "Cook, Richard I. (1998). How Complex Systems Fail. Cognitive Technologies Laboratory, University of Chicago." >}}. A single root cause, where it exists, usually explains only one contributing factor in a chain that required several.
 
-The SNAFUcatchers workshop documented in 2017 how software incidents consistently involve multiple interacting factors across organizational and system boundaries. Assigning a single root cause understates the complexity of what happened and the scope of changes required to prevent recurrence (Cook et al., 2017).
+The SNAFUcatchers workshop documented in 2017 how software incidents consistently involve multiple interacting factors across organizational and system boundaries. Assigning a single root cause understates the complexity of what happened and the scope of changes required to prevent recurrence {{< cite 4 "Cook, Richard I., et al. (2017). STELLA: Report from the SNAFUcatchers Workshop on Coping with Complexity. SNAFUcatchers." >}}.
 
 ## Where Engineering Teams Feel It
 
-**Postmortem format.** Most postmortems are structured to produce a root cause section. That format creates pressure to reduce a distributed failure to a single entry. "We identified the root cause" is used as evidence of rigor. The result is postmortems that are technically complete and organizationally useless (Cook, 1998).
+**Postmortem format.** Most postmortems are structured to produce a root cause section. That format creates pressure to reduce a distributed failure to a single entry. "We identified the root cause" is used as evidence of rigor. The result is postmortems that are technically complete and organizationally useless {{< cite 3 "Cook, Richard I. (1998). How Complex Systems Fail. Cognitive Technologies Laboratory, University of Chicago." >}}.
 
 **Cross-team incidents.** Distributed failures cross team boundaries. Each team contributed a factor, but no team caused the incident alone. The root cause framework assigns ownership to one team, which relieves the others of any obligation to change. The same distributed conditions produce another incident months later, attributed to a different team.
 
-**Latent conditions.** Latent conditions are failures waiting to happen, present in the system before any incident occurs (Cook, 1998). A postmortem that finds a root cause has found the active failure that triggered the incident, but rarely surfaces the latent conditions that made it consequential. Those conditions remain in place until the next combination.
+**Latent conditions.** Latent conditions are failures waiting to happen, present in the system before any incident occurs {{< cite 3 "Cook, Richard I. (1998). How Complex Systems Fail. Cognitive Technologies Laboratory, University of Chicago." >}}. A postmortem that finds a root cause has found the active failure that triggered the incident, but rarely surfaces the latent conditions that made it consequential. Those conditions remain in place until the next combination.
 
-**Vendor and dependency failures.** Incidents involving third-party services or cloud provider outages reveal the same pattern TMI demonstrated (Kemeny Commission, 1979). The failure is distributed across the organization's own systems and the external dependency. Attributing it entirely to the vendor obscures whatever internal factors made that external failure so damaging.
+**Vendor and dependency failures.** Incidents involving third-party services or cloud provider outages reveal the same pattern TMI demonstrated {{< cite 1 "Kemeny Commission (1979). Report of the President's Commission on the Accident at Three Mile Island. U.S. Government Printing Office." >}}. The failure is distributed across the organization's own systems and the external dependency. Attributing it entirely to the vendor obscures whatever internal factors made that external failure so damaging.
 
 ## How Teams Get This Wrong
 
 **Fixing the trigger and calling it done.** Patching the vulnerable dependency, alerting on the metric that wasn't alerting, and changing the failed configuration are all real improvements worth making. But a postmortem that stops at the trigger has identified one factor in a distributed failure. The latent conditions that amplified it remain.
 
-**Treating organizational contributors as context, not cause.** Staffing decisions, training programs, and regulatory culture all contributed to TMI (Kemeny Commission, 1979). Most postmortems treat these as background when they belong in the cause list.
+**Treating organizational contributors as context, not cause.** Staffing decisions, training programs, and regulatory culture all contributed to TMI {{< cite 1 "Kemeny Commission (1979). Report of the President's Commission on the Accident at Three Mile Island. U.S. Government Printing Office." >}}. Most postmortems treat these as background when they belong in the cause list.
 
-**Confusing blame-free with cause-free.** Blameless postmortems correctly remove individual blame, but they sometimes remove distributed causation as well, treating the absence of a blameworthy person as evidence that no structural failure occurred (Dekker, 2006).
+**Confusing blame-free with cause-free.** Blameless postmortems correctly remove individual blame, but they sometimes remove distributed causation as well, treating the absence of a blameworthy person as evidence that no structural failure occurred {{< cite 5 "Dekker, Sidney (2006). The Field Guide to Understanding Human Error. Ashgate." >}}.
 
 **Misreading incident patterns.** Teams that track incidents by root cause category watch for recurrence in that category, but distributed causation means the next incident will look different. The service changes and the trigger changes, but the underlying combination of latent conditions stays the same. The next incident looks new. It isn't.
 
@@ -70,17 +70,13 @@ For your next postmortem, write a contributing factors section before the root c
 
 ## References
 
-Columbia Accident Investigation Board (2003). *Columbia Accident Investigation Board Report, Volume 1*. NASA. [https://digital.library.unt.edu/ark:/67531/metadc1282018/](https://digital.library.unt.edu/ark:/67531/metadc1282018/)
-
-Cook, Richard I. (1998). "How Complex Systems Fail." Cognitive Technologies Laboratory, University of Chicago. [https://how.complexsystemsfail.com/](https://how.complexsystemsfail.com/)
-
-Cook, Richard I., John Allspaw, David D. Woods, et al. (2017). *STELLA: Report from the SNAFUcatchers Workshop on Coping with Complexity*. SNAFUcatchers. [https://snafucatchers.github.io/](https://snafucatchers.github.io/)
-
-Dekker, Sidney (2006). *The Field Guide to Understanding Human Error*. Ashgate. [https://www.routledge.com/The-Field-Guide-to-Understanding-Human-Error/Dekker/p/book/9781472439055](https://www.routledge.com/The-Field-Guide-to-Understanding-Human-Error/Dekker/p/book/9781472439055)
-
-Kemeny Commission (1979). *Report of the President's Commission on the Accident at Three Mile Island*. U.S. Government Printing Office. [https://www.osti.gov/servlets/purl/5082863](https://www.osti.gov/servlets/purl/5082863)
-
-Nuclear Regulatory Commission (2013). "Three Mile Island Plant Site in 1979." Flickr. CC BY-NC-ND 2.0. [https://www.flickr.com/photos/69383258@N08/7447157202](https://www.flickr.com/photos/69383258@N08/7447157202)
+<ol class="references">
+  <li id="ref-1">Kemeny Commission (1979). <em>Report of the President's Commission on the Accident at Three Mile Island</em>. U.S. Government Printing Office. <a href="https://www.osti.gov/servlets/purl/5082863">https://www.osti.gov/servlets/purl/5082863</a></li>
+  <li id="ref-2">Columbia Accident Investigation Board (2003). <em>Columbia Accident Investigation Board Report, Volume 1</em>. NASA. <a href="https://digital.library.unt.edu/ark:/67531/metadc1282018/">https://digital.library.unt.edu/ark:/67531/metadc1282018/</a></li>
+  <li id="ref-3">Cook, Richard I. (1998). "How Complex Systems Fail." Cognitive Technologies Laboratory, University of Chicago. <a href="https://how.complexsystemsfail.com/">https://how.complexsystemsfail.com/</a></li>
+  <li id="ref-4">Cook, Richard I., John Allspaw, David D. Woods, et al. (2017). <em>STELLA: Report from the SNAFUcatchers Workshop on Coping with Complexity</em>. SNAFUcatchers. <a href="https://snafucatchers.github.io/">https://snafucatchers.github.io/</a></li>
+  <li id="ref-5">Dekker, Sidney (2006). <em>The Field Guide to Understanding Human Error</em>. Ashgate. <a href="https://www.routledge.com/The-Field-Guide-to-Understanding-Human-Error/Dekker/p/book/9781472439055">https://www.routledge.com/The-Field-Guide-to-Understanding-Human-Error/Dekker/p/book/9781472439055</a></li>
+</ol>
 
 ---
 

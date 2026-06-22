@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Percentiles Don&#39;t Add Up | hi</title>
+
+
+
+<link href="https://lyletagawa.com/index.xml" rel="alternate" type="application/rss+xml" title="hi" />
+
+<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='https://lyletagawa.com/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="canonical" href="https://lyletagawa.com/posts/t-digest/">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Your p99 latency might not be a percentile. Averaging percentiles across replicas produces a number, not a statistic, and t-digest is the sketch algorithm that fixes it at scale.">
+<script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="Xi tn init mn Qr yn xn pn capture calculateEventProperties Tn register register_once register_for_session unregister unregister_for_session Pn getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync On identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException addExceptionStep captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty Mn Cn createPersonProfile setInternalOrTestUser Rn vn An opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Sn debug Kr En getPageViewId captureTraceFeedback captureTraceMetric hn".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_zrLjgptGCvrPgnVnoXPF87NEtESJtxuQLt26tRfFynhL', {
+        api_host: 'https://p.foureleven.org', 
+        ui_host: 'https://us.posthog.com', 
+        defaults: '2026-05-30',
+        person_profiles: 'identified_only', 
+    })
+</script>
+
+</head>
+<body>
+
+<section class="section">
+  <div class="container">
+    <nav id="nav-main" class="nav">
+      <div id="nav-name" class="nav-left">
+        <a id="nav-anchor" class="nav-item" href="https://lyletagawa.com">
+          <h1 id="nav-heading" class="title is-4">hi</h1>
+        </a>
+      </div>
+      <div class="nav-right">
+        <nav id="nav-items" class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/lyletagawa'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg>
+</i>
+            </span>
+          </a><a class="level-item" aria-label="linkedin" href='https://linkedin.com/in/lyletagawa'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg>
+</i>
+            </span>
+          </a><a class="level-item" aria-label="rss" href='/index.xml'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle>
+    
+  </svg>
+</i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+
+    <nav class="nav">
+      
+
+      
+    </nav>
+
+  </div>
+  <script src="/js/navicon-shift.js"></script>
+</section>
+<section class="section">
+  <div class="container">
+    <h1 class="title">Percentiles Don&#39;t Add Up</h1>
+    
+    <div class="subtitle tags is-6 is-pulled-right">
+      
+      
+<a class="subtitle is-6" href="/tags/observability/">#observability</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/metrics/">#metrics</a>
+  
+
+
+      
+    </div>
+    
+    <h6 class="subtitle is-6" style="line-height:0em">Jun. 21, 2026&nbsp;&middot; 6 min read
+    </h6>
+    
+
+    <div class="content">
+      <p><img src="/images/t-digest.png" alt="Your p99 latency might not be a percentile. Averaging percentiles across replicas produces a number, not a statistic, and t-digest is the sketch algorithm that fixes it at scale.">
+<em>Image: <a href="https://web.archive.org/web/20230319061101/https://dataorigami.net/2015/03/19/Percentile-and-Quantile-Estimation-of-Big-Data-The-t-Digest.html">Davidson-Pilon, Cameron (2015)</a>. &ldquo;Percentile and Quantile Estimation of Big Data: The t-Digest.&rdquo; DataOrigami.</em></p>
+<h2 id="percentiles-dont-add-up">Percentiles Don&rsquo;t Add Up</h2>
+<p>An on-call engineer was paged on a Saturday. Users were reporting three-second load times. The engineer checked the dashboard. p99 latency: 180ms. Stable for weeks.</p>
+<p>But the 180ms was meaningless. Six replicas were each computing a local p99 and shipping it to the monitoring system. The system averaged them, which produced a number, not a percentile. One replica was saturated while the others were fine. The saturated replica disappeared into the average. The fleet&rsquo;s actual p99 was 2.8 seconds.</p>
+<h2 id="why-exact-percentiles-dont-scale">Why Exact Percentiles Don&rsquo;t Scale</h2>
+<p>A percentile is a statement about rank. The 99th percentile of a set of latencies is the value below which 99% of requests fall. Computing it requires sorting the full set, which means keeping every data point.</p>
+<p>At scale, this is impractical. A service handling ten thousand requests per second accumulates 864 million latency values per day. Storing and sorting that dataset to answer &ldquo;what was the p99 in the last five minutes?&rdquo; isn&rsquo;t feasible in production.</p>
+<p>Monitoring systems solve this with sketches. A sketch compresses a large dataset into a compact structure that answers statistical queries with a predictable error ceiling, using a fraction of the memory that exact computation would require. The ceiling is configured when you create the sketch. More memory buys tighter accuracy.</p>
+<h2 id="what-t-digest-does">What t-Digest Does</h2>
+<p>Ted Dunning and Otmar Ertl introduced t-digest as a sketch optimized for quantile estimation<sup><a href="#ref-1" title="Dunning, Ted and Otmar Ertl (2019). Computing Extremely Accurate Quantiles Using t-Digests. arXiv:1902.04023.">[1]</a></sup>. The key property is that its accuracy is highest at the tails and lowest near the median.</p>
+<p>t-digest processes observations one at a time without holding the raw data. Each observation is absorbed into the nearest eligible centroid or starts a new one, then discarded. The only persistent structure is a list of centroids. Each stores a mean value and a weight representing the number of observations it covers.</p>
+<p>The compression is dramatic. A thousand latency measurements compress into dozens of centroids. Cameron Davidson-Pilon fed eight megabytes of Pareto-distributed data into a t-digest and measured the output at five kilobytes, with an error rate below 0.002%<sup><a href="#ref-2" title="Davidson-Pilon, Cameron (2015). Percentile and Quantile Estimation of Big Data: The t-Digest. DataOrigami.">[2]</a></sup>.</p>
+<p>Centroids near the tails are small and numerous, each representing few data points. Centroids near the median are large and few, each covering many values<sup><a href="#ref-1" title="Dunning, Ted and Otmar Ertl (2019). Computing Extremely Accurate Quantiles Using t-Digests. arXiv:1902.04023.">[1]</a></sup>.</p>
+<p>This asymmetry matches how you use latency metrics. In large distributed systems, the slowest requests determine what users experience, not the average. Jeff Dean and Luiz André Barroso made that case in 2013, and the industry shifted toward percentile-based SLOs as a result<sup><a href="#ref-3" title="Dean, Jeff and Luiz André Barroso (2013). The Tail at Scale. Communications of the ACM, 56(2): 74-80.">[3]</a></sup>.</p>
+<p>A compression parameter δ is configured when creating a t-digest instance. It sets a limit on how many centroids the sketch is allowed to maintain<sup><a href="#ref-1" title="Dunning, Ted and Otmar Ertl (2019). Computing Extremely Accurate Quantiles Using t-Digests. arXiv:1902.04023.">[1]</a></sup>. Raising δ improves accuracy at the cost of size.</p>
+<p>Separately computed t-digests merge without loss of accuracy<sup><a href="#ref-1" title="Dunning, Ted and Otmar Ertl (2019). Computing Extremely Accurate Quantiles Using t-Digests. arXiv:1902.04023.">[1]</a></sup>. Merging works by combining the centroid lists and re-compressing. The result is equivalent to having processed all observations in a single pass. Each replica computes and ships a t-digest instead of a finished p99. The monitoring system merges them. The 2.8-second tail doesn&rsquo;t disappear into an average.</p>
+<p>Netflix hit this problem. Storing raw latency observations at their scale was too expensive. t-digest let them summarize per instance and merge at query time, keeping memory flat as traffic grew<sup><a href="#ref-4" title="Ortiz, Thiara (2023). Measuring Real-Life Latency of the Internet: A Netflix Story. SREcon23 Americas. USENIX.">[4]</a></sup>.</p>
+<h2 id="histograms-vs-summaries-in-prometheus">Histograms vs. Summaries in Prometheus</h2>
+<p>Prometheus faces the same aggregation problem, and its two instrumentation approaches handle it differently<sup><a href="#ref-5" title="Prometheus (2024). Histograms and Summaries. Prometheus Documentation.">[5]</a></sup>. Histograms aggregate bucket counts across replicas, the way t-digest merges centroids. Summaries reproduce the opening mistake.</p>
+<p>Summaries compute quantiles inside the application process. Each replica computes its own p99 from local observations and exports the result as a single number. The raw observations are discarded, leaving the monitoring system nothing to combine with other replicas. Averaging those numbers is mathematically invalid, but the metric format makes it look valid. The documentation says summaries are &ldquo;not aggregatable,&rdquo; but this warning is often ignored.</p>
+<p>Histograms record observations in predefined buckets and ship the raw bucket counts. The monitoring system computes quantiles from the bucket data at query time. Because bucket counts are additive, you can aggregate across replicas first and compute percentiles from the combined data. Histogram quantiles are accurate to within the width of the relevant bucket<sup><a href="#ref-5" title="Prometheus (2024). Histograms and Summaries. Prometheus Documentation.">[5]</a></sup>.</p>
+<p>Native histograms, the newer Prometheus feature, use adaptive bucket boundaries instead of fixed ones. You get accurate quantile estimates without deciding on boundaries upfront.</p>
+<h2 id="how-teams-get-this-wrong">How Teams Get This Wrong</h2>
+<p><strong>Trusting pre-aggregated exports.</strong> Many APM tools receive metrics as precomputed percentile values from the source. A p99 arriving at the monitoring system as a single number can&rsquo;t be recomputed, decomposed by attribute, or combined with other data. The accuracy is invisible and the provenance is opaque.</p>
+<p><strong>Averaging percentile metrics.</strong> If three replicas report p99 values of 100ms, 150ms, and 1200ms, the fleet p99 is not their average. It depends on request distribution across those replicas. The average of percentiles tells you nothing useful about the tail.</p>
+<p><strong>The Prometheus summary trap.</strong> Prometheus summaries expose a <code>quantile</code> label that looks like histogram data, but each value is a finished percentile from a single replica. The format looks aggregatable. It isn&rsquo;t.</p>
+<p><strong>Setting bucket boundaries without looking at the data.</strong> Classic histograms require bucket definitions before any requests arrive. Boundaries at 0-100ms and 100-500ms look reasonable until your service develops a bimodal distribution with peaks at 20ms and 450ms. The p99 estimate becomes imprecise at the boundary that cuts through the slow population.</p>
+<h2 id="put-it-into-practice">Put It Into Practice</h2>
+<p>When reading a percentile metric in a dashboard or alert, ask where the computation happened. A p99 computed at query time from raw observations is different from a p99 computed client-side and exported as a finished number.</p>
+<p>When you see an aggregate percentile across replicas, verify the aggregation was done correctly. <code>histogram_quantile(0.99, sum(rate(...)))</code> is correct. <code>avg(metric{quantile=&quot;0.99&quot;})</code> is not.</p>
+<p>t-digest is the widely deployed answer to query-time quantile computation, with native implementations in <a href="https://clickhouse.com/docs/sql-reference/aggregate-functions/reference/quantiletdigest">ClickHouse</a>, <a href="https://redis.io/docs/latest/develop/data-types/probabilistic/t-digest/">Redis</a>, and <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics-percentile-aggregation.html">Elasticsearch</a>. Where you have the choice, use t-digest.</p>
+<h2 id="what-this-doesnt-cover">What This Doesn&rsquo;t Cover</h2>
+<p><strong>DDSketch.</strong> t-digest&rsquo;s error guarantee is rank-based. Accuracy is highest at the tails and degrades toward the median. DDSketch offers a relative-error guarantee instead, where error is proportional to the quantile value itself<sup><a href="#ref-6" title="Masson, Charles, Jee E. Rim, and Homin K. Lee (2019). DDSketch: A Fast and Fully-Mergeable Quantile Sketch with Relative-Error Guarantees. VLDB 2019.">[6]</a></sup>. Datadog uses it in production.</p>
+<p><strong>The scaling function.</strong> t-digest&rsquo;s tail accuracy comes from a scaling function that controls how centroid sizes grow toward the median. The Dunning and Ertl paper works through several variants, including a newer hybrid digest with tighter guarantees<sup><a href="#ref-1" title="Dunning, Ted and Otmar Ertl (2019). Computing Extremely Accurate Quantiles Using t-Digests. arXiv:1902.04023.">[1]</a></sup>. Worth reading if you&rsquo;re implementing or tuning one directly.</p>
+<hr>
+<h2 id="references">References</h2>
+<ol class="references">
+  <li id="ref-1">Dunning, Ted and Otmar Ertl (2019). "Computing Extremely Accurate Quantiles Using t-Digests." arXiv:1902.04023. <a href="https://arxiv.org/abs/1902.04023">https://arxiv.org/abs/1902.04023</a></li>
+  <li id="ref-2">Davidson-Pilon, Cameron (2015). "Percentile and Quantile Estimation of Big Data: The t-Digest." DataOrigami. <a href="https://web.archive.org/web/20230319061101/https://dataorigami.net/2015/03/19/Percentile-and-Quantile-Estimation-of-Big-Data-The-t-Digest.html">https://web.archive.org/web/20230319061101/https://dataorigami.net/2015/03/19/Percentile-and-Quantile-Estimation-of-Big-Data-The-t-Digest.html</a></li>
+  <li id="ref-3">Dean, Jeff and Luiz André Barroso (2013). "The Tail at Scale." <em>Communications of the ACM</em>, 56(2): 74-80. <a href="https://research.google/pubs/pub40801/">https://research.google/pubs/pub40801/</a></li>
+  <li id="ref-4">Ortiz, Thiara (2023). "Measuring Real-Life Latency of the Internet: A Netflix Story." SREcon23 Americas. USENIX. <a href="https://www.youtube.com/watch?v=wXWFrKiJXHE">https://www.youtube.com/watch?v=wXWFrKiJXHE</a></li>
+  <li id="ref-5">Prometheus (2024). "Histograms and Summaries." Prometheus Documentation. <a href="https://prometheus.io/docs/practices/histograms/">https://prometheus.io/docs/practices/histograms/</a></li>
+  <li id="ref-6">Masson, Charles, Jee E. Rim, and Homin K. Lee (2019). "DDSketch: A Fast and Fully-Mergeable Quantile Sketch with Relative-Error Guarantees." <em>VLDB 2019</em>. <a href="https://arxiv.org/abs/1908.10693">https://arxiv.org/abs/1908.10693</a></li>
+</ol>
+<hr>
+<h2 id="outtakes">Outtakes</h2>
+<p><strong>The sketch family.</strong> t-digest belongs to a family of probabilistic data structures called sketches. HyperLogLog estimates cardinality. Count-min sketch estimates frequency. Bloom filters test set membership. Each trades exactness for a fixed memory budget. t-digest does the same for rank statistics (<a href="https://doi.org/10.1016/j.jalgor.2003.12.001">Cormode and Muthukrishnan, 2005</a>).</p>
+<p><strong>The average of averages.</strong> If Group A (10 people, $50K average) and Group B (100 people, $100K average) merge, the combined average is $95.4K, not $75K. Averaging the group averages loses the size information. Percentiles fail for the same reason.</p>
+<p><strong>The exponential histogram alternative.</strong> OpenTelemetry&rsquo;s exponential histograms use a similar principle through a different mechanism: bucket boundaries scale geometrically, concentrating precision at the tails without upfront configuration. Both solve the same problem from different directions (<a href="https://opentelemetry.io/docs/specs/otel/metrics/data-model/#exponential-histograms">OpenTelemetry, 2024</a>).</p>
+<hr>
+<h2 id="changelog">Changelog</h2>
+<p><strong>2026-06-21</strong> Initial draft.</p>
+
+      <hr>
+      
+      <div class="related">
+
+<h3>Similar articles:</h3>
+<ul>
+	
+	<li><a href="/posts/goodharts-law/">Goodhart&#39;s Law</a></li>
+	
+</ul>
+</div>
+      
+    </div>
+    
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p></p>
+    
+  </div>
+</section>
+
+
+
+
+
+</body>
+</html>
+

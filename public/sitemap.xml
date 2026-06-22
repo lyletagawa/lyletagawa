@@ -2,101 +2,107 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://lyletagawa.com/tags/ai/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lyletagawa.com/tags/architecture/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://lyletagawa.com/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lyletagawa.com/posts/how-llms-work/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lyletagawa.com/tags/learning/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lyletagawa.com/posts/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lyletagawa.com/tags/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lyletagawa.com/posts/goodharts-law/</loc>
-    <lastmod>2026-06-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lyletagawa.com/tags/management/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/metrics/</loc>
-    <lastmod>2026-06-13T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/tags/observability/</loc>
+    <lastmod>2026-06-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/posts/t-digest/</loc>
+    <lastmod>2026-06-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/posts/</loc>
+    <lastmod>2026-06-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/tags/</loc>
+    <lastmod>2026-06-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/tags/ai/</loc>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/tags/architecture/</loc>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/posts/how-llms-work/</loc>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/tags/learning/</loc>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/posts/goodharts-law/</loc>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/tags/management/</loc>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/posts/distributed-causation/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/incidents/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/resilience/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/safety/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/decision/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/heuristics/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/posts/satisficing/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/posts/influence-by-alignment/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/influence/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/intent/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/leadership/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/posts/live-event-caching/</loc>
-    <lastmod>2026-05-16T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/caching/</loc>
-    <lastmod>2026-05-16T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/cdn/</loc>
-    <lastmod>2026-05-16T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/streaming/</loc>
-    <lastmod>2026-05-16T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/cognitive/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/posts/llm-context-biases/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/capacity/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/posts/jevons-paradox/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/adaptation/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/awareness/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/posts/ooda-loop/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/posts/robust-and-brittle/</loc>
     <lastmod>2023-01-08T15:07:19-05:00</lastmod>
@@ -114,10 +120,10 @@
     <lastmod>2020-08-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/chaos/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/posts/chaos-engineering/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/team/</loc>
     <lastmod>2020-05-14T00:00:00+00:00</lastmod>
@@ -138,7 +144,7 @@
     <lastmod>2020-03-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/posts/resilience/</loc>
-    <lastmod>2026-06-14T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/distributed/</loc>
     <lastmod>2019-10-30T00:00:00+00:00</lastmod>
@@ -150,7 +156,7 @@
     <lastmod>2019-10-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/posts/turn-the-ship-around/</loc>
-    <lastmod>2026-06-07T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/strategy/</loc>
     <lastmod>2019-01-21T00:00:00+00:00</lastmod>

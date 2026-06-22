@@ -2,7 +2,7 @@
 title: "Satisficing"
 date: 2026-05-26
 publishdate: 2026-05-26
-lastmod: 2026-06-14
+lastmod: 2026-06-17
 summary: "The best decision is often the fastest one you can defend, not the optimal one you never finish searching for."
 tags: ["decision", "heuristics"]
 image: /images/satisficing.jpg
@@ -10,7 +10,7 @@ draft: false
 ---
 
 ![](/images/satisficing.jpg)
-*Shopping on Aisle Eight. Photo: arbyreed (2016). CC BY-NC-SA 2.0.*
+*Shopping on Aisle Eight. Photo: [arbyreed (2016)](https://www.flickr.com/photos/19779889@N00/28347664145). CC BY-NC-SA 2.0.*
 
 ## Satisficing
 
@@ -20,9 +20,9 @@ This is what happens when you start a search without deciding when it ends.
 
 ## What Is Satisficing?
 
-Herbert Simon named it in 1956, a blend of "satisfying" and "sufficing" (Simon, 1956). The claim is that people don't actually optimize. They set a threshold, find the first option that clears it, then stop. Simon called that threshold an aspiration level.
+Herbert Simon named it in 1956, a blend of "satisfying" and "sufficing" {{< cite 1 "Simon, Herbert A. (1956). Rational Choice and the Structure of the Environment. Psychological Review, 63(2): 129-138." >}}. The claim is that people don't actually optimize. They set a threshold, find the first option that clears it, then stop. Simon called that threshold an aspiration level.
 
-We don't have unlimited time or perfect information, so hunting for the objectively best option is often irrational. At some point, continuing the search costs more than the value of finding something marginally better (Simon, 1955). Simon won the Nobel Prize in Economics in 1978 for this work (Nobel Prize Committee, 1978).
+We don't have unlimited time or perfect information, so hunting for the objectively best option is often irrational. At some point, continuing the search costs more than the value of finding something marginally better {{< cite 2 "Simon, Herbert A. (1955). A Behavioral Model of Rational Choice. Quarterly Journal of Economics, 69(1): 99-118." >}}. Simon won the Nobel Prize in Economics in 1978 for this work {{< cite 3 "Nobel Prize Committee (1978). The Prize in Economic Sciences 1978. Nobel Prize." >}}.
 
 The key word is threshold, not low bar. The threshold can be demanding. But past a certain point, more analysis is just delay dressed up as diligence. The responsible choice isn't the most exhaustive one. It's the first one that clears a well-defined bar.
 
@@ -32,7 +32,7 @@ Classical decision theory says to keep evaluating until you find the best option
 
 It isn't.
 
-If the evaluation takes six weeks, that's six weeks of engineering time, delayed roadmap items, and a team that's built up zero momentum. If most of those options would've worked fine, the extra five weeks didn't produce five weeks of value. They produced a marginal improvement over a decision that could've been made in week one. In uncertain environments, good-enough strategies often beat exhaustive ones anyway. The future is too unpredictable to fully optimize against (Gigerenzer and Todd, 1999).
+If the evaluation takes six weeks, that's six weeks of engineering time, delayed roadmap items, and a team that's built up zero momentum. If most of those options would've worked fine, the extra five weeks didn't produce five weeks of value. They produced a marginal improvement over a decision that could've been made in week one. In uncertain environments, good-enough strategies often beat exhaustive ones anyway. The future is too unpredictable to fully optimize against {{< cite 4 "Gigerenzer, Gerd and Peter M. Todd (1999). Simple Heuristics That Make Us Smart. Oxford University Press." >}}.
 
 ## Where Teams Get Stuck
 
@@ -44,7 +44,7 @@ If the evaluation takes six weeks, that's six weeks of engineering time, delayed
 
 **Hiring.** Teams that can't define what "good enough" looks like for a role keep interviewing indefinitely. Meanwhile, strong candidates accept offers elsewhere.
 
-Maximizers, people who always search for the best, make objectively better choices on measurable criteria. But they also report more regret and less satisfaction than satisficers, even after making the better choice (Schwartz, 2004). More searching doesn't produce better decisions. It produces more second-guessing.
+Maximizers, people who always search for the best, make objectively better choices on measurable criteria. But they also report more regret and less satisfaction than satisficers, even after making the better choice {{< cite 5 "Schwartz, Barry (2004). The Paradox of Choice: Why More Is Less. Ecco." >}}. More searching doesn't produce better decisions. It produces more second-guessing.
 
 ## How Teams Get This Wrong
 
@@ -68,17 +68,13 @@ For recurring decisions like code review and sprint planning, agree on the thres
 
 ## References
 
-arbyreed (2016). "Shopping on Aisle Eight." Flickr. CC BY-NC-SA 2.0. [https://www.flickr.com/photos/19779889@N00/28347664145](https://www.flickr.com/photos/19779889@N00/28347664145)
-
-Gigerenzer, Gerd and Peter M. Todd (1999). *Simple Heuristics That Make Us Smart*. Oxford University Press. [https://global.oup.com/academic/product/simple-heuristics-that-make-us-smart-9780195143812](https://global.oup.com/academic/product/simple-heuristics-that-make-us-smart-9780195143812)
-
-Nobel Prize Committee (1978). "The Prize in Economic Sciences 1978." *Nobel Prize*. [https://www.nobelprize.org/prizes/economic-sciences/1978/simon/facts/](https://www.nobelprize.org/prizes/economic-sciences/1978/simon/facts/)
-
-Schwartz, Barry (2004). *The Paradox of Choice: Why More Is Less*. Ecco. [https://openlibrary.org/works/OL272375W/The_Paradox_of_Choice](https://openlibrary.org/works/OL272375W/The_Paradox_of_Choice)
-
-Simon, Herbert A. (1955). "A Behavioral Model of Rational Choice." *Quarterly Journal of Economics*, 69(1): 99-118. [https://academic.oup.com/qje/article-abstract/69/1/99/1919737](https://academic.oup.com/qje/article-abstract/69/1/99/1919737)
-
-Simon, Herbert A. (1956). "Rational Choice and the Structure of the Environment." *Psychological Review*, 63(2): 129-138. [https://pages.ucsd.edu/~mckenzie/Simon1956PsychReview.pdf](https://pages.ucsd.edu/~mckenzie/Simon1956PsychReview.pdf)
+<ol class="references">
+  <li id="ref-1">Simon, Herbert A. (1956). "Rational Choice and the Structure of the Environment." <em>Psychological Review</em>, 63(2): 129-138. <a href="https://pages.ucsd.edu/~mckenzie/Simon1956PsychReview.pdf">https://pages.ucsd.edu/~mckenzie/Simon1956PsychReview.pdf</a></li>
+  <li id="ref-2">Simon, Herbert A. (1955). "A Behavioral Model of Rational Choice." <em>Quarterly Journal of Economics</em>, 69(1): 99-118. <a href="https://academic.oup.com/qje/article-abstract/69/1/99/1919737">https://academic.oup.com/qje/article-abstract/69/1/99/1919737</a></li>
+  <li id="ref-3">Nobel Prize Committee (1978). "The Prize in Economic Sciences 1978." <em>Nobel Prize</em>. <a href="https://www.nobelprize.org/prizes/economic-sciences/1978/simon/facts/">https://www.nobelprize.org/prizes/economic-sciences/1978/simon/facts/</a></li>
+  <li id="ref-4">Gigerenzer, Gerd and Peter M. Todd (1999). <em>Simple Heuristics That Make Us Smart</em>. Oxford University Press. <a href="https://global.oup.com/academic/product/simple-heuristics-that-make-us-smart-9780195143812">https://global.oup.com/academic/product/simple-heuristics-that-make-us-smart-9780195143812</a></li>
+  <li id="ref-5">Schwartz, Barry (2004). <em>The Paradox of Choice: Why More Is Less</em>. Ecco. <a href="https://openlibrary.org/works/OL272375W/The_Paradox_of_Choice">https://openlibrary.org/works/OL272375W/The_Paradox_of_Choice</a></li>
+</ol>
 
 ---
 

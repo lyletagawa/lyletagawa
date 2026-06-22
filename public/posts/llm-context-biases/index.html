@@ -105,13 +105,13 @@
       
     </div>
     
-    <h6 class="subtitle is-6" style="line-height:0em">May. 7, 2026&nbsp;&middot; 5 min read
+    <h6 class="subtitle is-6" style="line-height:0em">May. 7, 2026&nbsp;&middot; 4 min read
     </h6>
     
 
     <div class="content">
       <p><img src="/images/llm-context-biases.jpg" alt="">
-<em>&ldquo;Café wall illusion.&rdquo; Photo: Groume (2013). CC BY-SA 2.0.</em></p>
+<em>&ldquo;Café wall illusion.&rdquo; Photo: <a href="https://www.flickr.com/photos/groume/8628269781/">Groume (2013)</a>. CC BY-SA 2.0.</em></p>
 <h2 id="llm-context-biases">LLM Context Biases</h2>
 <p>You post a 20-page architecture document into your LLM and ask it to identify the three riskiest assumptions. The model returns a confident answer. It got the first and third risks right, but not the one buried on page 11, the one that matters most.</p>
 <p>This isn&rsquo;t a hallucination. The model read all 20 pages but didn&rsquo;t weight them equally.</p>
@@ -120,19 +120,19 @@
 <p>Context biases are predictable distortions in how language models weight and process information. They are structural tendencies, not random errors, emerging from how attention mechanisms are trained.</p>
 <p>The three most consequential for practitioners are primacy bias, recency bias, and sycophancy. A fourth, anchoring, compounds all three. None of them are bugs in a particular product, and they persist across models even as model quality improves.</p>
 <h2 id="primacy-and-recency-bias">Primacy and Recency Bias</h2>
-<p>When relevant information sits at the beginning or end of a long context, model performance is significantly higher than when it sits in the middle. Tested across multiple models on multi-document question answering tasks, the effect is consistent. Models show a U-shaped performance curve (Liu et al., 2023). Strong at the start and end, degraded in the middle.</p>
+<p>When relevant information sits at the beginning or end of a long context, model performance is significantly higher than when it sits in the middle. Tested across multiple models on multi-document question answering tasks, the effect is consistent. Models show a U-shaped performance curve <sup><a href="#ref-1" title="Liu, Nelson F., et al. (2023). Lost in the Middle: How Language Models Use Long Contexts. Transactions of the Association for Computational Linguistics, 12.">[1]</a></sup>. Strong at the start and end, degraded in the middle.</p>
 <p>The middle of a long prompt is where information goes to be ignored.</p>
-<p>For technical work, this has direct consequences. A 50-page policy document fed to an LLM will have its middle sections under-weighted regardless of their importance (Liu et al., 2023).</p>
+<p>For technical work, this has direct consequences. A 50-page policy document fed to an LLM will have its middle sections under-weighted regardless of their importance <sup><a href="#ref-1" title="Liu, Nelson F., et al. (2023). Lost in the Middle: How Language Models Use Long Contexts. Transactions of the Association for Computational Linguistics, 12.">[1]</a></sup>.</p>
 <h2 id="sycophancy">Sycophancy</h2>
-<p>Sycophancy is the tendency of LLMs to produce responses that align with what the user appears to want, rather than what is accurate (Malmqvist, 2024). When a user pushes back on a model&rsquo;s answer, the model frequently reverses its position even without new evidence. When a user frames a question to suggest a preferred answer, the model gravitates toward confirming it.</p>
+<p>Sycophancy is the tendency of LLMs to produce responses that align with what the user appears to want, rather than what is accurate <sup><a href="#ref-2" title="Malmqvist, Lars (2024). Sycophancy in Large Language Models: Causes and Mitigations. arXiv:2411.15287.">[2]</a></sup>. When a user pushes back on a model&rsquo;s answer, the model frequently reverses its position even without new evidence. When a user frames a question to suggest a preferred answer, the model gravitates toward confirming it.</p>
 <p>This creates a specific failure mode for technical decision-making. Ask an LLM to evaluate two architectural approaches and mention that your team prefers approach A. The model will find more merit in approach A. Your stated preference shaped the evaluation before the analysis began.</p>
-<p>Sycophancy is reinforced through reinforcement learning from human feedback (RLHF), where models learn that agreement produces higher human ratings than accurate but unwelcome responses (Malmqvist, 2024). The tendency is baked into how models are trained to please.</p>
+<p>Sycophancy is reinforced through reinforcement learning from human feedback (RLHF), where models learn that agreement produces higher human ratings than accurate but unwelcome responses <sup><a href="#ref-2" title="Malmqvist, Lars (2024). Sycophancy in Large Language Models: Causes and Mitigations. arXiv:2411.15287.">[2]</a></sup>. The tendency is baked into how models are trained to please.</p>
 <h2 id="anchoring">Anchoring</h2>
-<p>Anchoring bias occurs when initial information disproportionately shapes subsequent judgment. LLMs are notably sensitive to it, with 22% to 61% of questions affected depending on the model. Most tested LLMs show anchoring effects equivalent to or stronger than those observed in humans (Lou and Sun, 2024).</p>
+<p>Anchoring bias occurs when initial information disproportionately shapes subsequent judgment. LLMs are notably sensitive to it, with 22% to 61% of questions affected depending on the model. Most tested LLMs show anchoring effects equivalent to or stronger than those observed in humans <sup><a href="#ref-3" title="Lou, Jiaxu, and Yifan Sun (2024). Anchoring Bias in Large Language Models: An Experimental Study. arXiv:2412.06593.">[3]</a></sup>.</p>
 <p>Ask an LLM to estimate the timeline for a migration and mention that your last one took six months. The model&rsquo;s estimate pulls toward six months regardless of scope. The initial number anchors the output.</p>
-<p>Chain-of-Thought prompting and reflection prompts reduce anchoring but don&rsquo;t eliminate it. The most effective mitigation is comprehensive multi-angle information gathering before committing to an estimate (Lou and Sun, 2024).</p>
+<p>Chain-of-Thought prompting and reflection prompts reduce anchoring but don&rsquo;t eliminate it. The most effective mitigation is comprehensive multi-angle information gathering before committing to an estimate <sup><a href="#ref-3" title="Lou, Jiaxu, and Yifan Sun (2024). Anchoring Bias in Large Language Models: An Experimental Study. arXiv:2412.06593.">[3]</a></sup>.</p>
 <h2 id="how-teams-get-this-wrong">How Teams Get This Wrong</h2>
-<p><strong>Trusting position over content.</strong> Putting the most important context at the top of a prompt and assuming the model will find what matters elsewhere. Middle sections are systematically under-weighted, and adding more context can actively degrade performance by pushing critical information further in (Liu et al., 2023).</p>
+<p><strong>Trusting position over content.</strong> Putting the most important context at the top of a prompt and assuming the model will find what matters elsewhere. Middle sections are systematically under-weighted, and adding more context can actively degrade performance by pushing critical information further in <sup><a href="#ref-1" title="Liu, Nelson F., et al. (2023). Lost in the Middle: How Language Models Use Long Contexts. Transactions of the Association for Computational Linguistics, 12.">[1]</a></sup>.</p>
 <p><strong>Using pushback to get better answers.</strong> If you disagree with an LLM&rsquo;s response and push back without new evidence, the model will often reverse its position. That feels like progress, but the model didn&rsquo;t reconsider. It just agreed.</p>
 <p><strong>Treating LLM evaluation as neutral.</strong> Asking an LLM to compare options while including your team&rsquo;s stated preference contaminates the evaluation. The model will find evidence for what you have already indicated you want.</p>
 <p><strong>Anchoring with existing estimates.</strong> Mentioning a prior number, deadline, or precedent before asking for an estimate pulls the model&rsquo;s output toward that anchor. If you want an independent estimate, ask for it before providing your reference point.</p>
@@ -142,10 +142,11 @@
 <p>Pick one task you regularly use an LLM for. Before your next run, note everything in the prompt that precedes your actual question. That context shaped the answer. Adjust the order and see what changes.</p>
 <hr>
 <h2 id="references">References</h2>
-<p>Groume (2013). &ldquo;Illusion.&rdquo; Flickr. CC BY-SA 2.0. <a href="https://www.flickr.com/photos/groume/8628269781/">https://www.flickr.com/photos/groume/8628269781/</a></p>
-<p>Liu, Nelson F., et al. (2023). &ldquo;Lost in the Middle: How Language Models Use Long Contexts.&rdquo; <em>Transactions of the Association for Computational Linguistics</em>, 12. <a href="https://arxiv.org/abs/2307.03172">https://arxiv.org/abs/2307.03172</a></p>
-<p>Lou, Jiaxu, and Yifan Sun (2024). &ldquo;Anchoring Bias in Large Language Models: An Experimental Study.&rdquo; arXiv preprint arXiv:2412.06593. <a href="https://arxiv.org/abs/2412.06593">https://arxiv.org/abs/2412.06593</a></p>
-<p>Malmqvist, Lars (2024). &ldquo;Sycophancy in Large Language Models: Causes and Mitigations.&rdquo; arXiv preprint arXiv:2411.15287. <a href="https://arxiv.org/abs/2411.15287">https://arxiv.org/abs/2411.15287</a></p>
+<ol class="references">
+  <li id="ref-1">Liu, Nelson F., et al. (2023). "Lost in the Middle: How Language Models Use Long Contexts." <em>Transactions of the Association for Computational Linguistics</em>, 12. <a href="https://arxiv.org/abs/2307.03172">https://arxiv.org/abs/2307.03172</a></li>
+  <li id="ref-2">Malmqvist, Lars (2024). "Sycophancy in Large Language Models: Causes and Mitigations." arXiv preprint arXiv:2411.15287. <a href="https://arxiv.org/abs/2411.15287">https://arxiv.org/abs/2411.15287</a></li>
+  <li id="ref-3">Lou, Jiaxu, and Yifan Sun (2024). "Anchoring Bias in Large Language Models: An Experimental Study." arXiv preprint arXiv:2412.06593. <a href="https://arxiv.org/abs/2412.06593">https://arxiv.org/abs/2412.06593</a></li>
+</ol>
 <hr>
 <h2 id="outtakes">Outtakes</h2>
 <p><strong>Bias.</strong> A lawn bowling ball weighted on one side so that it curves predictably from a straight path (Harper, n.d.).</p>
