@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>algorithms on hi</title>
+    <link>https://lyletagawa.com/tags/algorithms/</link>
+    <description>Recent content in algorithms on hi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 26 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/algorithms/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bloom Filter</title>
+      <link>https://lyletagawa.com/posts/bloom-filter/</link>
+      <pubDate>Fri, 26 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/bloom-filter/</guid>
+      <description>Your browser checks every HTTPS certificate&amp;rsquo;s revocation status without a network call. The data structure encodes nearly a billion certificates in 4 megabytes. Its only guarantee is what isn&amp;rsquo;t there.</description>
+      <media:content url="https://lyletagawa.com/images/bloom-filter.png" medium="image" />
+    </item>
+    
+  </channel>
+</rss>

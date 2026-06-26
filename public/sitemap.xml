@@ -2,8 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://lyletagawa.com/tags/algorithms/</loc>
+    <lastmod>2026-06-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/posts/bloom-filter/</loc>
+    <lastmod>2026-06-26T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://lyletagawa.com/</loc>
-    <lastmod>2026-06-21T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/tags/performance/</loc>
+    <lastmod>2026-06-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/posts/</loc>
+    <lastmod>2026-06-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/tags/</loc>
+    <lastmod>2026-06-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/metrics/</loc>
     <lastmod>2026-06-21T00:00:00+00:00</lastmod>
@@ -14,23 +29,17 @@
     <loc>https://lyletagawa.com/posts/t-digest/</loc>
     <lastmod>2026-06-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://lyletagawa.com/posts/</loc>
-    <lastmod>2026-06-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lyletagawa.com/tags/</loc>
-    <lastmod>2026-06-21T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://lyletagawa.com/tags/ai/</loc>
-    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/architecture/</loc>
-    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/posts/how-llms-work/</loc>
-    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/learning/</loc>
-    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/posts/goodharts-law/</loc>
     <lastmod>2026-06-17T00:00:00+00:00</lastmod>
@@ -69,7 +78,7 @@
     <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/leadership/</loc>
-    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/posts/live-event-caching/</loc>
     <lastmod>2026-06-17T00:00:00+00:00</lastmod>
@@ -84,10 +93,10 @@
     <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/cognitive/</loc>
-    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/posts/llm-context-biases/</loc>
-    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/capacity/</loc>
     <lastmod>2026-06-17T00:00:00+00:00</lastmod>

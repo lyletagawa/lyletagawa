@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Bloom Filter | hi</title>
+
+
+
+<link href="https://lyletagawa.com/index.xml" rel="alternate" type="application/rss+xml" title="hi" />
+
+<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='https://lyletagawa.com/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="canonical" href="https://lyletagawa.com/posts/bloom-filter/">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Your browser checks every HTTPS certificate&rsquo;s revocation status without a network call. The data structure encodes nearly a billion certificates in 4 megabytes. Its only guarantee is what isn&rsquo;t there.">
+<script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="Xi tn init mn Qr yn xn pn capture calculateEventProperties Tn register register_once register_for_session unregister unregister_for_session Pn getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync On identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException addExceptionStep captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty Mn Cn createPersonProfile setInternalOrTestUser Rn vn An opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Sn debug Kr En getPageViewId captureTraceFeedback captureTraceMetric hn".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_zrLjgptGCvrPgnVnoXPF87NEtESJtxuQLt26tRfFynhL', {
+        api_host: 'https://p.foureleven.org', 
+        ui_host: 'https://us.posthog.com', 
+        defaults: '2026-05-30',
+        person_profiles: 'identified_only', 
+    })
+</script>
+
+</head>
+<body>
+
+<section class="section">
+  <div class="container">
+    <nav id="nav-main" class="nav">
+      <div id="nav-name" class="nav-left">
+        <a id="nav-anchor" class="nav-item" href="https://lyletagawa.com">
+          <h1 id="nav-heading" class="title is-4">hi</h1>
+        </a>
+      </div>
+      <div class="nav-right">
+        <nav id="nav-items" class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/lyletagawa'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg>
+</i>
+            </span>
+          </a><a class="level-item" aria-label="linkedin" href='https://linkedin.com/in/lyletagawa'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg>
+</i>
+            </span>
+          </a><a class="level-item" aria-label="rss" href='/index.xml'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle>
+    
+  </svg>
+</i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+
+    <nav class="nav">
+      
+
+      
+    </nav>
+
+  </div>
+  <script src="/js/navicon-shift.js"></script>
+</section>
+<section class="section">
+  <div class="container">
+    <h1 class="title">Bloom Filter</h1>
+    
+    <div class="subtitle tags is-6 is-pulled-right">
+      
+      
+<a class="subtitle is-6" href="/tags/algorithms/">#algorithms</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/performance/">#performance</a>
+  
+
+
+      
+    </div>
+    
+    <h6 class="subtitle is-6" style="line-height:0em">Jun. 26, 2026&nbsp;&middot; 7 min read
+    </h6>
+    
+
+    <div class="content">
+      <p><img src="/images/bloom-filter.png" alt="A Bloom filter checks whether something is in a set without storing the set. It can guarantee an absence but not a presence. That asymmetry is the point.">
+<em>Image: <a href="https://en.wikipedia.org/wiki/File:Bloom_filter.svg">Eppstein, David (2008)</a>. Public domain.</em></p>
+<h2 id="bloom-filter">Bloom Filter</h2>
+<p>Every time a Firefox user visits an HTTPS site, the browser checks whether that site&rsquo;s certificate has been revoked. A revoked certificate means the site&rsquo;s identity can&rsquo;t be trusted. The traditional approach queries the certificate authority (CA) on every connection, a network call that leaks which sites you visit and fails if the CA&rsquo;s server is unreachable.</p>
+<p>Mozilla ships a compressed representation of every revoked certificate on the internet directly to Firefox. On every HTTPS connection, Firefox checks the certificate&rsquo;s revocation status against the local copy. If the result is &ldquo;definitely not revoked,&rdquo; the connection proceeds. If the result is &ldquo;might be revoked,&rdquo; Firefox falls back to a live query. The fallback happens rarely.</p>
+<p>The local data structure, called CRLite, was<sup><a href="#ref-10" title="Mozilla (2025). CRLite: Fast, Private, and Comprehensive Certificate Revocation Checking in Firefox. Mozilla Hacks.">[10]</a></sup> implemented as a cascade of Bloom filters, each layer handling the false positives of the previous one.</p>
+<h2 id="what-a-bloom-filter-does">What a Bloom Filter Does</h2>
+<p>A Bloom filter is a probabilistic data structure for testing set membership. Burton Howard Bloom invented it in 1970 to check membership without storing the members<sup><a href="#ref-1" title="Bloom, Burton H. (1970). Space/Time Trade-offs in Hash Coding with Allowable Errors. Communications of the ACM, 13(7): 422-426.">[1]</a></sup>.</p>
+<p>The structure is a bit array, all initialized to zero. Adding an item means running it through k hash functions, each producing an index into the array, and setting those k bits to 1. Testing an item means running it through the same k hash functions and checking those k bits. If any bit is 0, the item is definitely not in the set. If all k bits are 1, the item is probably in the set.</p>
+<p>Multiple items can hash to overlapping positions. When all of a tested item&rsquo;s bits are already 1, those bits might have been set by other items. That&rsquo;s a false positive. But false negatives are impossible. If an item was added, its bits were set, and the test always returns positive.</p>
+<p>This asymmetry is the design. The filter guarantees absence but only approximates presence. Every use case depends on that guarantee.</p>
+<p>Adding and testing both run in constant time. Each executes exactly k hash functions, regardless of set size.</p>
+<p>A hash set of one million strings needs 50 to 100 megabytes. A Bloom filter for the same set needs a few megabytes<sup><a href="#ref-2" title="Broder, Andrei and Michael Mitzenmacher (2004). Network Applications of Bloom Filters: A Survey. Internet Mathematics, 1(4): 485-509.">[2]</a></sup>, at the cost of occasional false positives.</p>
+<h2 id="tune-the-false-positive-rate">Tune the False Positive Rate</h2>
+<p>The false positive rate depends on bit array size, hash function count, and items added<sup><a href="#ref-2" title="Broder, Andrei and Michael Mitzenmacher (2004). Network Applications of Bloom Filters: A Survey. Internet Mathematics, 1(4): 485-509.">[2]</a></sup>. Set the parameters before loading data.</p>
+<p>At 10 bits per item, the false positive rate is around 1%. At 5 bits, it&rsquo;s around 10%. At 15 bits, it drops below 0.1%. More space buys lower error. The calculator at <a href="https://hur.st/bloomfilter/">hur.st/bloomfilter</a> works backward from a target error rate and item count to the exact bit array size and hash function count.</p>
+<p>Mozilla&rsquo;s CRLite filter encodes the revocation status of nearly a billion certificates in a 4 megabyte snapshot shipped to Firefox every 45 days<sup><a href="#ref-9" title="Larisch, James, et al. (2025). Clubcards for the WebPKI: Smaller Certificate Revocation Tests in Theory and Practice. IACR ePrint 2025/610.">[9]</a></sup><sup><a href="#ref-10" title="Mozilla (2025). CRLite: Fast, Private, and Comprehensive Certificate Revocation Checking in Firefox. Mozilla Hacks.">[10]</a></sup>. The fallback to a live query happens so rarely that users don&rsquo;t notice.</p>
+<p>Use the Bloom filter to rule out definite negatives. Invoke the expensive operation only for the remaining candidates. The space budget controls how many false candidates get through.</p>
+<h2 id="where-this-breaks-down">Where This Breaks Down</h2>
+<p><strong>You can&rsquo;t remove items.</strong> Setting bits to 1 is irreversible in a standard filter. Unsetting bits for a removed item could corrupt the signals for other items sharing those positions. Counting Bloom filters solve this by storing a counter per position instead of a single bit, using more memory.</p>
+<p><strong>The false positive rate rises as you add more items.</strong> The filter is designed for an expected maximum. Exceeding that fills the array and pushes the error rate above the design threshold. Set parameters for lifetime load, not current load.</p>
+<p><strong>You can&rsquo;t retrieve members.</strong> The filter records whether items might be present, not the items themselves. There&rsquo;s no way to enumerate what was added. To retrieve members, keep a separate data structure alongside the filter.</p>
+<p><strong>False positives aren&rsquo;t safe without a fallback.</strong> Firefox&rsquo;s CRLite works because a false positive triggers a live query, not a final decision. If the filter alone gates access to something security-critical, a false positive is an exploit. The structure requires a second gate.</p>
+<h2 id="put-it-into-practice">Put It Into Practice</h2>
+<p>Use a Bloom filter when three conditions hold. The &ldquo;no&rdquo; case is common and expensive to verify, a false positive triggers a recoverable fallback, and the full set is too large to store.</p>
+<p>Databases reach for them when most lookups return nothing. Apache Cassandra keeps a Bloom filter per SSTable (Sorted String Table)<sup><a href="#ref-4" title="Apache Cassandra (2024). Bloom Filters. Apache Cassandra Documentation.">[4]</a></sup>. If the filter says &ldquo;definitely not here,&rdquo; Cassandra skips the data file entirely. One extra disk read in a hundred is acceptable. One per lookup is not.</p>
+<p>Deduplication pipelines use them to avoid reprocessing items already handled. Recommendation systems use them to skip content users have already seen. Medium&rsquo;s reading history per user is too large to query on every request, so a Bloom filter answers &ldquo;definitely not read&rdquo; in microseconds<sup><a href="#ref-5" title="Talbot, Josh (2015). What are Bloom filters? Medium Engineering Blog.">[5]</a></sup>. A false positive occasionally withholds an unread article. An acceptable miss rate for the savings.</p>
+<p>Size the filter for maximum expected load. A filter designed for one million items at 1% error reaches 5% error when you load two million items. This isn&rsquo;t adjustable after the fact. When a filter fills past its design threshold, rebuild it.</p>
+<h2 id="what-this-doesnt-cover">What This Doesn&rsquo;t Cover</h2>
+<p><strong>The probability math.</strong> The false positive rate isn&rsquo;t an approximation. It&rsquo;s exact. Broder and Mitzenmacher work through the full derivation. Given m bits, n items, and k hash functions, the rate is (1 - e^(-kn/m))^k, and the optimal k is (m/n) × ln(2)<sup><a href="#ref-2" title="Broder, Andrei and Michael Mitzenmacher (2004). Network Applications of Bloom Filters: A Survey. Internet Mathematics, 1(4): 485-509.">[2]</a></sup>. The numbers above come from that formula.</p>
+<p><strong>Estimating item count.</strong> Given how many bits are set to 1, you can estimate how many items were inserted without storing a separate counter. The formula follows from the same probability math. Given X bits currently set, n* ≈ -(m/k) × ln(1 - X/m)<sup><a href="#ref-2" title="Broder, Andrei and Michael Mitzenmacher (2004). Network Applications of Bloom Filters: A Survey. Internet Mathematics, 1(4): 485-509.">[2]</a></sup>. Useful for monitoring how close a filter is to its design threshold.</p>
+<p><strong>Cuckoo filters.</strong> A cuckoo filter achieves similar false positive rates with less memory and supports deletion natively<sup><a href="#ref-6" title="Fan, Bin et al. (2014). Cuckoo Filter: Practically Better Than Bloom. CoNEXT &#39;14.">[6]</a></sup>. Instead of a bit array, it stores short fingerprints in a hash table with two candidate buckets per item. Deleting an item means removing its fingerprint rather than unsetting shared bits.</p>
+<p><strong>Ribbon filters.</strong> A ribbon filter encodes set membership as a system of linear equations over GF(2), approaching the information-theoretic minimum of log₂(1/ε) bits per item, roughly 30% smaller than a Bloom filter at the same false positive rate. The tradeoff is that construction requires solving the system in batch; ribbon filters are static and don&rsquo;t support incremental insertion.</p>
+<p>Firefox replaced CRLite&rsquo;s Bloom filters with ribbon filters in 2025<sup><a href="#ref-10" title="Mozilla (2025). CRLite: Fast, Private, and Comprehensive Certificate Revocation Checking in Firefox. Mozilla Hacks.">[10]</a></sup>. The static constraint didn&rsquo;t matter for CRLite. The filter was already built in batch from Certificate Transparency logs and shipped wholesale. The 30% size reduction did matter. The filter ships to every Firefox user&rsquo;s browser. When the set is known upfront and space is tight, ribbon filters are the better choice. When items arrive incrementally and the full set isn&rsquo;t known in advance, Bloom filters win.</p>
+<p><strong>The sketch family.</strong> Bloom filters belong to a family of probabilistic data structures. HyperLogLog estimates how many distinct items are in a stream<sup><a href="#ref-7" title="Flajolet, Philippe et al. (2007). HyperLogLog: The Analysis of a Near-Optimal Cardinality Estimation Algorithm. AOFA &#39;07.">[7]</a></sup>. Count-min sketch estimates how often each item appears<sup><a href="#ref-8" title="Cormode, Graham and S. Muthukrishnan (2005). An Improved Data Stream Summary: The Count-Min Sketch and Its Applications. Journal of Algorithms, 55(1): 58-75.">[8]</a></sup>. Each makes a different tradeoff between memory and error.</p>
+<hr>
+<h2 id="references">References</h2>
+<ol class="references">
+  <li id="ref-1">Bloom, Burton H. (1970). "Space/Time Trade-offs in Hash Coding with Allowable Errors." <em>Communications of the ACM</em>, 13(7): 422-426. <a href="https://dl.acm.org/doi/10.1145/362686.362692">https://dl.acm.org/doi/10.1145/362686.362692</a></li>
+  <li id="ref-2">Broder, Andrei and Michael Mitzenmacher (2004). "Network Applications of Bloom Filters: A Survey." <em>Internet Mathematics</em>, 1(4): 485-509. <a href="https://www.eecs.harvard.edu/~michaelm/postscripts/im2005b.pdf">https://www.eecs.harvard.edu/~michaelm/postscripts/im2005b.pdf</a></li>
+  <li id="ref-3">Larisch, James, et al. (2017). "CRLite: A Scalable System for Pushing All TLS Revocations to All Browsers." <em>IEEE Symposium on Security and Privacy 2017</em>. <a href="https://obj.umiacs.umd.edu/papers_for_stories/crlite_oakland17.pdf">https://obj.umiacs.umd.edu/papers_for_stories/crlite_oakland17.pdf</a></li>
+  <li id="ref-4">Apache Cassandra (2024). "Bloom Filters." Apache Cassandra Documentation. <a href="https://cassandra.apache.org/doc/latest/cassandra/operating/bloom_filters.html">https://cassandra.apache.org/doc/latest/cassandra/operating/bloom_filters.html</a></li>
+  <li id="ref-5">Talbot, Josh (2015). "What are Bloom filters?" Medium Engineering Blog. <a href="https://medium.com/blog/what-are-bloom-filters-1ec2a50c68ff">https://medium.com/blog/what-are-bloom-filters-1ec2a50c68ff</a></li>
+  <li id="ref-6">Fan, Bin, Dave Andersen, Michael Kaminsky, and Michael Mitzenmacher (2014). "Cuckoo Filter: Practically Better Than Bloom." <em>CoNEXT '14</em>. <a href="https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf">https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf</a></li>
+  <li id="ref-7">Flajolet, Philippe, Éric Fusy, Olivier Gandouet, and Frédéric Meunier (2007). "HyperLogLog: The Analysis of a Near-Optimal Cardinality Estimation Algorithm." <em>AOFA '07</em>. <a href="https://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf">https://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf</a></li>
+  <li id="ref-8">Cormode, Graham and S. Muthukrishnan (2005). "An Improved Data Stream Summary: The Count-Min Sketch and Its Applications." <em>Journal of Algorithms</em>, 55(1): 58-75. <a href="https://doi.org/10.1016/j.jalgor.2003.12.001">https://doi.org/10.1016/j.jalgor.2003.12.001</a></li>
+  <li id="ref-9">Larisch, James, et al. (2025). "Clubcards for the WebPKI: Smaller Certificate Revocation Tests in Theory and Practice." <em>IACR ePrint 2025/610</em>. <a href="https://eprint.iacr.org/2025/610">https://eprint.iacr.org/2025/610</a></li>
+  <li id="ref-10">Mozilla (2025). "CRLite: Fast, Private, and Comprehensive Certificate Revocation Checking in Firefox." <em>Mozilla Hacks</em>. <a href="https://hacks.mozilla.org/2025/08/crlite-fast-private-and-comprehensive-certificate-revocation-checking-in-firefox/">https://hacks.mozilla.org/2025/08/crlite-fast-private-and-comprehensive-certificate-revocation-checking-in-firefox/</a></li>
+</ol>
+<hr>
+<h2 id="outtakes">Outtakes</h2>
+<p><strong>The one-hit wonder problem.</strong> Objects fetched exactly once and never again are called &ldquo;one-hit wonders,&rdquo; polluting the cache. Akamai fixed this with a Bloom filter, tracking first-time requests and promoting objects to the main cache only after a second fetch. Cache pollution dropped. (<a href="https://dl.acm.org/doi/10.1145/2805789.2805800">Maggs and Sitaraman, 2015</a>)</p>
+<p><strong>Google Bigtable.</strong> Bigtable uses Bloom filters to skip disk reads for missing rows. Each SSTable can have a filter attached. A read for a missing key never reaches disk. The original paper calls out this optimization explicitly. (<a href="https://research.google/pubs/pub27898/">Chang et al., 2006</a>)</p>
+<p><strong>Git.</strong> Since git 2.27, every <code>git log -- &lt;path&gt;</code> query runs against per-commit Bloom filters. Each commit in the commit graph stores a filter of which file paths it touched. Git skips commits that definitely didn&rsquo;t change the path you&rsquo;re querying. Most developers use it every day without knowing. (<a href="https://devblogs.microsoft.com/devops/updates-to-the-git-commit-graph-feature/">Singh, 2020</a>)</p>
+<p><strong>Bitcoin SPV.</strong> Light wallets can&rsquo;t download the full blockchain. They send a Bloom filter to full nodes, describing which transactions to return. The false positives are intentional. They add noise that hides which addresses the wallet actually owns. The error rate is the privacy mechanism. (<a href="https://github.com/bitcoin/bips/blob/master/bip-0037.mediawiki">BIP 37, 2012</a>)</p>
+<hr>
+<h2 id="changelog">Changelog</h2>
+<p><strong>2026-06-26</strong> Initial draft.</p>
+
+      <hr>
+      
+      <div class="related">
+</div>
+      
+    </div>
+    
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p></p>
+    
+  </div>
+</section>
+
+
+
+
+
+</body>
+</html>
+

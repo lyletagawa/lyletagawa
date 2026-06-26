@@ -31,7 +31,8 @@ Author a new Hugo blog post or edit an existing one. Follow all rules below prec
 - No academic register: avoid "it can be observed," "this suggests," "one might argue," "the literature indicates." Say the thing directly.
 - Avoid lead-ins that introduce citations like footnotes: "Research by X shows that..." or "According to X..." — fold the person into the sentence naturally or state the finding and cite it inline.
 - Avoid vague attributions and overgeneralizations: "many experts believe," "researchers agree," "some argue," "critics say," "people often think," "it is widely accepted." Name the source or cut the attribution.
-- Assertions must be backed by an embedded inline citation in the format (Author, Year). All cited works must appear in the References section with a valid URL.
+- Assertions must be backed by an inline citation using the cite shortcode: `{{< cite n "Author (Year). Title. Publisher." >}}`. Assign numbers sequentially in order of first appearance. All cited works must appear in the References section with a valid URL. Place the shortcode immediately after the preceding word with no space before it and no space after it: `word{{< cite 1 "..." >}}.` not `word {{< cite 1 "..." >}}.`
+- The hero image alt text must be the frontmatter `summary` value verbatim: `![{summary text}](image-url)`.
 - Never include tracking parameters in URLs: strip `utm_source=`, `utm_medium=`, `utm_campaign=`, `utm_term=`, `utm_content=`, and `referrer=` query arguments before using any URL.
 - Avoid patterns that read as AI-generated: excessive parallelism in bullet lists, transitions that summarize what was just said, conclusions that restate the introduction verbatim, overly formal academic language, the "it's not X, it's Y" reframe construction.
 
@@ -58,9 +59,10 @@ Choose the title that best fits the post's intent — see the Template for optio
 
 ### Sections After Body
 The body sections must be followed in this order:
-1. `## References` — all cited works, formatted as: `Author, First (Year). *Title*. Publisher. [url](url)` for books, or `Author, First (Year). "Title." *Journal/Publication*, Vol(Issue): pages. [url](url)` for articles and posts.
-2. `## Outtakes` — optional. 2–4 short anecdotes that didn't fit the main article. See the Template for format rules.
-3. `## Changelog` — one entry per revision, format: `**YYYY-MM-DD** Brief description of changes.`
+1. `## [Further Reading Section]` — optional. Points the reader toward advanced topics the post doesn't cover. Use bold inline headers for each item (2–4 items). Each item names an advanced topic, describes what the reader will find, and includes an inline citation. Title options: "What This Doesn't Cover," "Go Further," "Keep Going," "Dig Deeper," or similar. Choose based on tone.
+2. `## References` — an HTML `<ol class="references">` where each `<li id="ref-n">` matches the cite shortcode number. Format: author, year, title (use `<em>` for book and journal titles), publisher, and the full URL as link text. List items in order of first citation.
+3. `## Outtakes` — optional. 2–4 short anecdotes that didn't fit the main article. See the Template for format rules.
+4. `## Changelog` — one entry per revision, format: `**YYYY-MM-DD** Brief description of changes.`
 
 ## Template
 
@@ -77,6 +79,9 @@ tags: []
 image: 
 draft: true
 ---
+
+![{{summary}}]()
+*"Caption text." Photo: [Author (Year)](url). License.*
 
 ## [Title]
 
@@ -111,11 +116,19 @@ Choose the section title that best fits the concept:
 
 Regardless of title: 2–3 tight paragraphs maximum. End with a direct, specific call to action or closing thought. Do not summarize what the article already said.
 
+## [Further Reading Section]
+
+Choose a title: "What This Doesn't Cover," "Go Further," "Keep Going," "Dig Deeper," or similar.
+
+[2–4 items using bold inline headers. Each names an advanced topic the post doesn't cover, says what the reader will find there, and cites a source. Citations appear in References like all other inline citations.]
+
 ---
 
 ## References
 
-[Full citations for all inline references, alphabetical by author last name, each with a valid URL.]
+<ol class="references">
+  <li id="ref-1">Author, First (Year). <em>Title</em>. Publisher. <a href="url">url</a></li>
+</ol>
 
 ---
 
@@ -140,6 +153,9 @@ Regardless of title: 2–3 tight paragraphs maximum. End with a direct, specific
 5. Report word count and any rule violations found.
 
 ### Editing an existing post
+Run two full passes. Complete all steps of pass 1 before starting pass 2.
+
+**Pass 1**
 1. Read the file before making any changes.
 2. Apply the same writing rules above to all edits — voice, style, structure, citation, and word count constraints apply regardless of whether content is new or revised. Do not change the `draft` field.
 3. Do a tightening pass: cut filler and redundant phrases, remove LLM-cliché transitions (e.g. "in conclusion," "it's worth noting," "it's important to remember"), and shorten without changing meaning.
@@ -148,3 +164,8 @@ Regardless of title: 2–3 tight paragraphs maximum. End with a direct, specific
 6. Add a Changelog entry describing the change: `**YYYY-MM-DD** Brief description.  ` (include the trailing whitespace)
 7. Re-verify the full rule checklist: word count 800–1,100, no em-dashes or en-dashes or semicolons, all assertions cited, all citations in References with URLs.
 8. Report word count before and after, and any rule violations found.
+
+**Pass 2**
+9. Re-read the file as edited.
+10. Repeat steps 3–4: a second tightening and consistency pass to catch anything the first pass missed.
+11. Apply any remaining changes. If no changes remain, report "Pass 2: no further changes."

@@ -14,7 +14,7 @@
     {{if not .Date.IsZero }}
     <h6 class="subtitle is-6" style="line-height:0em">
       {{- $.Site.Params.Info.dateFormat | default "Jan. 2, 2006" | .Date.Format -}}
-      &nbsp;&middot; {{ .ReadingTime }} min read
+      &nbsp;&middot; {{ sub .ReadingTime 1 | math.Max 0 | int }} min read
     </h6>
     {{ end }}
 
