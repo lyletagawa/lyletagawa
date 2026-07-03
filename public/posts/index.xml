@@ -6,14 +6,24 @@
     <description>Recent content in Posts on hi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 26 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From Reno to BBR</title>
+      <link>https://lyletagawa.com/posts/tcp-congestion-control/</link>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/tcp-congestion-control/</guid>
+      <description>No one tells TCP how fast to send. Forty years of algorithms, from Reno to BBR, have tried to teach it, and the one in your kernel still chases a ceiling.</description>
+      <media:content url="https://lyletagawa.com/images/tcp-congestion-control.png" medium="image" />
+    </item>
+    
     <item>
       <title>Bloom Filter</title>
       <link>https://lyletagawa.com/posts/bloom-filter/</link>
       <pubDate>Fri, 26 Jun 2026 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/bloom-filter/</guid>
-      <description>Your browser checks every HTTPS certificate&amp;rsquo;s revocation status without a network call. The data structure encodes nearly a billion certificates in 4 megabytes. Its only guarantee is what isn&amp;rsquo;t there.</description>
+      <description>Your browser checks every website certificate&amp;rsquo;s revocation status without a network call. The data structure encodes nearly a billion certificates in 4 megabytes. Its only guarantee is what isn&amp;rsquo;t there.</description>
       <media:content url="https://lyletagawa.com/images/bloom-filter.png" medium="image" />
     </item>
     

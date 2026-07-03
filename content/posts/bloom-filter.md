@@ -4,7 +4,7 @@ date: 2026-06-26
 publishdate: 2026-06-26
 lastmod: 2026-06-26
 
-summary: "Your browser checks every HTTPS certificate's revocation status without a network call. The data structure encodes nearly a billion certificates in 4 megabytes. Its only guarantee is what isn't there."
+summary: "Your browser checks every website certificate's revocation status without a network call. The data structure encodes nearly a billion certificates in 4 megabytes. Its only guarantee is what isn't there."
 tags: ["algorithms", "performance"]
 image: /images/bloom-filter.png
 draft: false
@@ -15,9 +15,9 @@ draft: false
 
 ## Bloom Filter
 
-Every time a Firefox user visits an HTTPS site, the browser checks whether that site's certificate has been revoked. A revoked certificate means the site's identity can't be trusted. The traditional approach queries the certificate authority (CA) on every connection, a network call that leaks which sites you visit and fails if the CA's server is unreachable.
+Every time a Firefox user visits a TLS-protected website, the browser checks whether that site's certificate has been revoked. A revoked certificate means the site's identity can't be trusted. The traditional approach queries the certificate authority (CA) on every connection, a network call that leaks which sites you visit and fails if the CA's server is unreachable.
 
-Mozilla ships a compressed representation of every revoked certificate on the internet directly to Firefox. On every HTTPS connection, Firefox checks the certificate's revocation status against the local copy. If the result is "definitely not revoked," the connection proceeds. If the result is "might be revoked," Firefox falls back to a live query. The fallback happens rarely.
+Mozilla ships a compressed representation of every revoked certificate on the internet directly to Firefox. On every HTTP/TLS connection, Firefox checks the certificate's revocation status against the local copy. If the result is "definitely not revoked," the connection proceeds. If the result is "might be revoked," Firefox falls back to a live query. The fallback happens rarely.
 
 The local data structure, called CRLite, was{{< cite 10 "Mozilla (2025). CRLite: Fast, Private, and Comprehensive Certificate Revocation Checking in Firefox. Mozilla Hacks." >}} implemented as a cascade of Bloom filters, each layer handling the false positives of the previous one.
 
@@ -37,7 +37,7 @@ A hash set of one million strings needs 50 to 100 megabytes. A Bloom filter for 
 
 ## Tune the False Positive Rate
 
-The false positive rate depends on bit array size, hash function count, and items added{{< cite 2 "Broder, Andrei and Michael Mitzenmacher (2004). Network Applications of Bloom Filters: A Survey. Internet Mathematics, 1(4): 485-509." >}}. Set the parameters before loading data.
+The false positive rate depends on bit array size, hash function count, and items added{{< cite 2 "Broder, Andrei and Michael Mitzenmacher (2004). Network Applications of Bloom Filters: A Survey. Internet Mathematics, 1(4): 485-509." >}}.
 
 At 10 bits per item, the false positive rate is around 1%. At 5 bits, it's around 10%. At 15 bits, it drops below 0.1%. More space buys lower error. The calculator at [hur.st/bloomfilter](https://hur.st/bloomfilter/) works backward from a target error rate and item count to the exact bit array size and hash function count.
 
@@ -73,9 +73,9 @@ Size the filter for maximum expected load. A filter designed for one million ite
 
 **Cuckoo filters.** A cuckoo filter achieves similar false positive rates with less memory and supports deletion natively{{< cite 6 "Fan, Bin et al. (2014). Cuckoo Filter: Practically Better Than Bloom. CoNEXT '14." >}}. Instead of a bit array, it stores short fingerprints in a hash table with two candidate buckets per item. Deleting an item means removing its fingerprint rather than unsetting shared bits.
 
-**Ribbon filters.** A ribbon filter encodes set membership as a system of linear equations over GF(2), approaching the information-theoretic minimum of log₂(1/ε) bits per item, roughly 30% smaller than a Bloom filter at the same false positive rate. The tradeoff is that construction requires solving the system in batch; ribbon filters are static and don't support incremental insertion.
+**Ribbon filters.** A ribbon filter encodes set membership as a system of binary linear equations, approaching the theoretical minimum of log₂(1/ε) bits per item, roughly 30% smaller than a Bloom filter at the same false positive rate. The tradeoff is that construction requires solving the system in batch. Ribbon filters are static and don't support incremental insertion.
 
-Firefox replaced CRLite's Bloom filters with ribbon filters in 2025{{< cite 10 "Mozilla (2025). CRLite: Fast, Private, and Comprehensive Certificate Revocation Checking in Firefox. Mozilla Hacks." >}}. The static constraint didn't matter for CRLite. The filter was already built in batch from Certificate Transparency logs and shipped wholesale. The 30% size reduction did matter. The filter ships to every Firefox user's browser. When the set is known upfront and space is tight, ribbon filters are the better choice. When items arrive incrementally and the full set isn't known in advance, Bloom filters win.
+Firefox replaced CRLite's Bloom filters with ribbon filters in 2025{{< cite 10 "Mozilla (2025). CRLite: Fast, Private, and Comprehensive Certificate Revocation Checking in Firefox. Mozilla Hacks." >}}. CRLite was already built in batch from Certificate Transparency logs, so the static-only constraint wasn't relevant. The 30% size reduction was. The filter ships to every Firefox user's browser every 45 days. When the set is known upfront and space is tight, ribbon filters are the better choice. When items arrive incrementally and the full set isn't known in advance, Bloom filters win.
 
 **The sketch family.** Bloom filters belong to a family of probabilistic data structures. HyperLogLog estimates how many distinct items are in a stream{{< cite 7 "Flajolet, Philippe et al. (2007). HyperLogLog: The Analysis of a Near-Optimal Cardinality Estimation Algorithm. AOFA '07." >}}. Count-min sketch estimates how often each item appears{{< cite 8 "Cormode, Graham and S. Muthukrishnan (2005). An Improved Data Stream Summary: The Count-Min Sketch and Its Applications. Journal of Algorithms, 55(1): 58-75." >}}. Each makes a different tradeoff between memory and error.
 
@@ -87,7 +87,7 @@ Firefox replaced CRLite's Bloom filters with ribbon filters in 2025{{< cite 10 "
   <li id="ref-1">Bloom, Burton H. (1970). "Space/Time Trade-offs in Hash Coding with Allowable Errors." <em>Communications of the ACM</em>, 13(7): 422-426. <a href="https://dl.acm.org/doi/10.1145/362686.362692">https://dl.acm.org/doi/10.1145/362686.362692</a></li>
   <li id="ref-2">Broder, Andrei and Michael Mitzenmacher (2004). "Network Applications of Bloom Filters: A Survey." <em>Internet Mathematics</em>, 1(4): 485-509. <a href="https://www.eecs.harvard.edu/~michaelm/postscripts/im2005b.pdf">https://www.eecs.harvard.edu/~michaelm/postscripts/im2005b.pdf</a></li>
   <li id="ref-3">Larisch, James, et al. (2017). "CRLite: A Scalable System for Pushing All TLS Revocations to All Browsers." <em>IEEE Symposium on Security and Privacy 2017</em>. <a href="https://obj.umiacs.umd.edu/papers_for_stories/crlite_oakland17.pdf">https://obj.umiacs.umd.edu/papers_for_stories/crlite_oakland17.pdf</a></li>
-  <li id="ref-4">Apache Cassandra (2024). "Bloom Filters." Apache Cassandra Documentation. <a href="https://cassandra.apache.org/doc/latest/cassandra/operating/bloom_filters.html">https://cassandra.apache.org/doc/latest/cassandra/operating/bloom_filters.html</a></li>
+  <li id="ref-4">Apache Cassandra (2024). "Bloom Filters." Apache Cassandra Documentation. <a href="https://cassandra.apache.org/doc/latest/cassandra/managing/operating/bloom_filters.html">https://cassandra.apache.org/doc/latest/cassandra/managing/operating/bloom_filters.html</a></li>
   <li id="ref-5">Talbot, Josh (2015). "What are Bloom filters?" Medium Engineering Blog. <a href="https://medium.com/blog/what-are-bloom-filters-1ec2a50c68ff">https://medium.com/blog/what-are-bloom-filters-1ec2a50c68ff</a></li>
   <li id="ref-6">Fan, Bin, Dave Andersen, Michael Kaminsky, and Michael Mitzenmacher (2014). "Cuckoo Filter: Practically Better Than Bloom." <em>CoNEXT '14</em>. <a href="https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf">https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf</a></li>
   <li id="ref-7">Flajolet, Philippe, Éric Fusy, Olivier Gandouet, and Frédéric Meunier (2007). "HyperLogLog: The Analysis of a Near-Optimal Cardinality Estimation Algorithm." <em>AOFA '07</em>. <a href="https://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf">https://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf</a></li>

@@ -13,7 +13,7 @@
       <pubDate>Fri, 26 Jun 2026 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/bloom-filter/</guid>
-      <description>Your browser checks every HTTPS certificate&amp;rsquo;s revocation status without a network call. The data structure encodes nearly a billion certificates in 4 megabytes. Its only guarantee is what isn&amp;rsquo;t there.</description>
+      <description>Your browser checks every website certificate&amp;rsquo;s revocation status without a network call. The data structure encodes nearly a billion certificates in 4 megabytes. Its only guarantee is what isn&amp;rsquo;t there.</description>
       <media:content url="https://lyletagawa.com/images/bloom-filter.png" medium="image" />
     </item>
     

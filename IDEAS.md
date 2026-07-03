@@ -19,6 +19,28 @@ Exist in `content/posts/` as `draft: true`. Finish these first.
 
 ---
 
+## Systems, Networking & Queueing
+*The systems track: how packets, queues, and probability behave under load. Built around primary sources, not management analogies. Posts cross-link each other heavily.*
+
+| Concept | Source | Post Angle | Status / Closest Existing |
+|---|---|---|---|
+| ~~Bloom Filters~~ | ~~Bloom, 1970~~ | ~~A probabilistic structure that trades exactness for space~~ | **draft** — `bloom-filter.md` |
+| ~~Little's Law~~ | ~~Little, 1961~~ | ~~L = λW. Three numbers run every queue, you pick two~~ | **draft** — `littles-law.md` |
+| ~~The Tail at Scale~~ | ~~Dean & Barroso, 2013~~ | ~~Latency percentiles fan out under load; p99 is a system property~~ | **draft** — `the-tail-at-scale.md` |
+| ~~Backpressure~~ | ~~Reactive Streams, 2015~~ | ~~The signal that slows a producer instead of dropping data~~ | **draft** — `backpressure.md` |
+| ~~Bufferbloat~~ | ~~Gettys & Nichols, 2011~~ | ~~Oversized buffers hoard packets and trade throughput for seconds of lag~~ | **draft** — `bufferbloat.md` |
+| ~~TCP Congestion Control~~ | ~~Jacobson, 1988~~ | ~~AIMD, the sawtooth, and what Linux and FreeBSD actually ship~~ | **draft** — `tcp-congestion-control.md` |
+| ~~Head-of-Line Blocking~~ | ~~Karol et al., 1987~~ | ~~One stuck item at the front of a shared queue stalls everything behind it~~ | **draft** — `head-of-line-blocking.md` |
+| ~~Retrieval-Augmented Generation~~ | ~~Lewis et al., 2020~~ | ~~Grounding an LLM by retrieving evidence at query time~~ | **draft** — `retrieval-augmented-generation.md` |
+| Coordinated Omission | Tene, 2014 | The load test reports a false p99 because the slow requests never got sent | The Tail at Scale |
+| The CAP Theorem & PACELC | Brewer, 2000; Hale, 2010 | CAP is a trick question you only face during a partition; PACELC asks the trade you face every day | Resilience |
+| HyperLogLog | Flajolet et al., 2007 | Count a billion uniques in ~1.5 KB by watching hashed coincidences | Bloom Filters |
+| Consistent Hashing | Karger et al., 1997 | Add a node without reshuffling every key. The ring behind every shard map | Bloom Filters |
+| The Universal Scalability Law | Gunther, 2007 | Amdahl plus a coordination term that makes throughput go down past a point | Little's Law |
+| Idempotency | — | The one property that makes retries, queues, and at-least-once delivery survivable | Backpressure |
+
+---
+
 ## Named Laws & Effects
 *Like Goodhart's Law and Jevons Paradox: named concepts from outside tech with direct, non-obvious application to engineering leadership.*
 
@@ -28,7 +50,7 @@ Exist in `content/posts/` as `draft: true`. Finish these first.
 | Campbell's Law | Campbell, 1976 | Direct companion to Goodhart's: social indicators corrupt under decision-making pressure | Jevons Paradox |
 | The Planning Fallacy | Kahneman & Tversky, 1979 | Systematic underestimation of time and cost even when historical data says otherwise | Vantasner Danger Meridian |
 | ~~Hofstadter's Law~~ | ~~Hofstadter, 1979~~ | ~~Always takes longer than expected, even accounting for Hofstadter's Law~~ | **draft** — `hofstadters-law.md` |
-| Little's Law | Little, 1961 | Queuing theory applied to WIP limits and engineering throughput | Making Work Visible |
+| ~~Little's Law~~ | ~~Little, 1961~~ | ~~Queuing theory applied to WIP limits and engineering throughput~~ | **draft** — `littles-law.md` |
 | ~~Parkinson's Law of Triviality~~ | ~~Parkinson, 1957~~ | ~~Committees fixate on trivial decisions — long debates about variable names, silence on architecture~~ | **draft** — `parkinsons-law-of-triviality.md` |
 | Brooks' Law | Brooks, 1975 | Adding people to a late project makes it later — the math behind communication overhead | Team Topologies |
 | ~~Gall's Law~~ | ~~Gall, 1977~~ | ~~Complex systems that work evolved from simple systems that worked~~ | **draft** — `galls-law.md` |

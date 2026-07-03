@@ -47,7 +47,7 @@ Author a new Hugo blog post or edit an existing one. Follow all rules below prec
 - **Understatement for high-stakes moments.** When describing something that's actually a big deal, use a flat, matter-of-fact tone. The gap between magnitude and casualness is where the humor lives. "We decided in the car to start over." beats "We made the difficult decision to fundamentally rethink our approach."
 
 ### Structure
-- **Word count**: 800–1,100 words (body content only, excluding frontmatter, References, Outtakes, and Changelog).
+- **Word count**: 800–1,200 words (body content only, excluding frontmatter, References, Outtakes, and Changelog).
 - **Frontmatter summary**: under 36 words. Two sentences maximum. No hedging or filler.
 - **Frontmatter tags**: Three tags maximum. Single words only. No hyphenated phrases.
 - **Reading grade level**: 10–12 (Flesch-Kincaid or equivalent). Prefer concrete nouns and active verbs over abstract nominalizations. Use simple, direct language.
@@ -62,7 +62,7 @@ The body sections must be followed in this order:
 1. `## [Further Reading Section]` — optional. Points the reader toward advanced topics the post doesn't cover. Use bold inline headers for each item (2–4 items). Each item names an advanced topic, describes what the reader will find, and includes an inline citation. Title options: "What This Doesn't Cover," "Go Further," "Keep Going," "Dig Deeper," or similar. Choose based on tone.
 2. `## References` — an HTML `<ol class="references">` where each `<li id="ref-n">` matches the cite shortcode number. Format: author, year, title (use `<em>` for book and journal titles), publisher, and the full URL as link text. List items in order of first citation.
 3. `## Outtakes` — optional. 2–4 short anecdotes that didn't fit the main article. See the Template for format rules.
-4. `## Changelog` — one entry per revision, format: `**YYYY-MM-DD** Brief description of changes.`
+4. `## Changelog` — one entry per calendar day, listed in reverse chronological order with the newest entry at the top. Format: `**YYYY-MM-DD** Brief description of changes.` If an entry for a given date already exists, fold new changes into that day's entry rather than adding a second entry for the same day. The first (oldest) entry, marking the post's creation, stays simple and needs no description of changes (for example `Initial release`, `Initial draft`, or `Initial publish`).
 
 ## Template
 
@@ -149,7 +149,7 @@ Choose a title: "What This Doesn't Cover," "Go Further," "Keep Going," "Dig Deep
 1. Ask the user for the topic if not provided as an argument.
 2. Research the topic: find the primary source(s) and 2–3 supporting references with valid URLs before drafting.
 3. Draft the full post using the template above. Set `draft: true`.
-4. After drafting, verify: word count is 800–1,100, frontmatter summary is under 36 words, no em-dashes or en-dashes are present, all assertions have inline citations, all citations have corresponding references with URLs, a critical section and a closing section are present, the post ends with the closing section followed by References then Changelog.
+4. After drafting, verify: word count is 800–1,200, frontmatter summary is under 36 words, no em-dashes or en-dashes are present, all assertions have inline citations, all citations have corresponding references with URLs, a critical section and a closing section are present, the post ends with the closing section followed by References then Changelog.
 5. Report word count and any rule violations found.
 
 ### Editing an existing post
@@ -161,8 +161,8 @@ Run two full passes. Complete all steps of pass 1 before starting pass 2.
 3. Do a tightening pass: cut filler and redundant phrases, remove LLM-cliché transitions (e.g. "in conclusion," "it's worth noting," "it's important to remember"), and shorten without changing meaning.
 4. Do a consistency pass: confirm all reference URLs are valid, confirm every factual assertion has an inline citation, confirm assertions are consistent with the evidence presented in the article, confirm that any example used more than once is described consistently each time.
 5. After editing, update `lastmod` in the frontmatter to today's date.
-6. Add a Changelog entry describing the change: `**YYYY-MM-DD** Brief description.  ` (include the trailing whitespace)
-7. Re-verify the full rule checklist: word count 800–1,100, no em-dashes or en-dashes or semicolons, all assertions cited, all citations in References with URLs.
+6. Record the change in the Changelog: `**YYYY-MM-DD** Brief description.  ` (include the trailing whitespace). Entries run newest-first, so place today's entry at the top of the list. If an entry for today's date already exists, revise it to cover this change rather than adding a second entry for the same day.
+7. Re-verify the full rule checklist: word count 800–1,200, no em-dashes or en-dashes or semicolons, all assertions cited, all citations in References with URLs.
 8. Report word count before and after, and any rule violations found.
 
 **Pass 2**

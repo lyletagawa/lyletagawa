@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>From Reno to BBR | hi</title>
+
+
+
+<link href="https://lyletagawa.com/index.xml" rel="alternate" type="application/rss+xml" title="hi" />
+
+<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='https://lyletagawa.com/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="canonical" href="https://lyletagawa.com/posts/tcp-congestion-control/">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="No one tells TCP how fast to send. Forty years of algorithms, from Reno to BBR, have tried to teach it, and the one in your kernel still chases a ceiling.">
+<script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="Xi tn init mn Qr yn xn pn capture calculateEventProperties Tn register register_once register_for_session unregister unregister_for_session Pn getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync On identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException addExceptionStep captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty Mn Cn createPersonProfile setInternalOrTestUser Rn vn An opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Sn debug Kr En getPageViewId captureTraceFeedback captureTraceMetric hn".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_zrLjgptGCvrPgnVnoXPF87NEtESJtxuQLt26tRfFynhL', {
+        api_host: 'https://p.foureleven.org', 
+        ui_host: 'https://us.posthog.com', 
+        defaults: '2026-05-30',
+        person_profiles: 'identified_only', 
+    })
+</script>
+
+</head>
+<body>
+
+<section class="section">
+  <div class="container">
+    <nav id="nav-main" class="nav">
+      <div id="nav-name" class="nav-left">
+        <a id="nav-anchor" class="nav-item" href="https://lyletagawa.com">
+          <h1 id="nav-heading" class="title is-4">hi</h1>
+        </a>
+      </div>
+      <div class="nav-right">
+        <nav id="nav-items" class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/lyletagawa'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg>
+</i>
+            </span>
+          </a><a class="level-item" aria-label="linkedin" href='https://linkedin.com/in/lyletagawa'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg>
+</i>
+            </span>
+          </a><a class="level-item" aria-label="rss" href='/index.xml'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle>
+    
+  </svg>
+</i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+
+    <nav class="nav">
+      
+
+      
+    </nav>
+
+  </div>
+  <script src="/js/navicon-shift.js"></script>
+</section>
+<section class="section">
+  <div class="container">
+    <h1 class="title">From Reno to BBR</h1>
+    
+    <div class="subtitle tags is-6 is-pulled-right">
+      
+      
+<a class="subtitle is-6" href="/tags/networking/">#networking</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/protocols/">#protocols</a>
+  
+  | <a class="subtitle is-6" href="/tags/latency/">#latency</a>
+  
+
+
+      
+    </div>
+    
+    <h6 class="subtitle is-6" style="line-height:0em">Jun. 28, 2026&nbsp;&middot; 7 min read
+    </h6>
+    
+
+    <div class="content">
+      <p><img src="/images/tcp-congestion-control.png" alt="No one tells TCP how fast to send. Forty years of algorithms, from Reno to BBR, have tried to teach it, and the one in your kernel still chases a ceiling.">
+<em>Image generated with Google Gemini (2026).</em></p>
+<h2 id="from-reno-to-bbr">From Reno to BBR</h2>
+<p>In the fall of 1986, the network between Van Jacobson&rsquo;s lab and the Berkeley campus a quarter mile away stopped working. Throughput between Lawrence Berkeley Laboratory and the university fell from 32 kilobits per second to 40 bits, nearly a thousandfold<sup><a href="#ref-1" title="Jacobson, Van (1988). Congestion Avoidance and Control. SIGCOMM &#39;88.">[1]</a></sup>.</p>
+<p>Jacobson went looking for the cause. He realized the senders had no idea when to slow down, so the instant the link filled they kept pushing and strangled it. He gave TCP a way to feel the congestion and back off, and the link came back to life. That was congestion collapse, and the fix he and Michael Karels built is the reason the internet kept working as it grew<sup><a href="#ref-1" title="Jacobson, Van (1988). Congestion Avoidance and Control. SIGCOMM &#39;88.">[1]</a></sup>.</p>
+<p>That fix still runs on every device you&rsquo;re holding right now.</p>
+<h2 id="what-is-congestion-control">What Is Congestion Control?</h2>
+<p>Congestion control is the algorithm a TCP sender runs to guess its own speed. The network never tells it the right rate. There is no spare-bandwidth dial and no slow-down message. The sender is blind and has to probe by pushing until something fails<sup><a href="#ref-1" title="Jacobson, Van (1988). Congestion Avoidance and Control. SIGCOMM &#39;88.">[1]</a></sup>.</p>
+<p>In 1988, Jacobson published the first answer that worked<sup><a href="#ref-2" title="Allman, Mark, Vern Paxson, and Ethan Blanton (2009). TCP Congestion Control. RFC 5681.">[2]</a></sup>. Send a little, ramp up fast, and the moment a packet drops, cut back hard. Loss is the only feedback the sender trusts. That idea still runs on every device you&rsquo;re holding right now.</p>
+<h2 id="the-sawtooth">The Sawtooth</h2>
+<p>The classic algorithm has two modes. Both drive the congestion window or cwnd, which is how much data the sender keeps in flight. Slow start doubles the cwnd every round trip until congestion avoidance takes over<sup><a href="#ref-2" title="Allman, Mark, Vern Paxson, and Ethan Blanton (2009). TCP Congestion Control. RFC 5681.">[2]</a></sup>. Congestion avoidance then creeps forward, adding one packet&rsquo;s worth per round trip. When a packet is lost, the sender halves cwnd and starts climbing again<sup><a href="#ref-1" title="Jacobson, Van (1988). Congestion Avoidance and Control. SIGCOMM &#39;88.">[1]</a></sup>.</p>
+<p>Additive increase, multiplicative decrease. Grow slow, cut deep. Plot the sending rate over time and you get a sawtooth, forever climbing toward the ceiling and getting knocked back down. That sawtooth is TCP Reno, and it worked for twenty years.</p>
+<h2 id="cubic-took-over">CUBIC Took Over</h2>
+<p>Reno&rsquo;s flaw shows on long, fast links. On a 10-gigabit connection after a loss, additive increase adds one packet per round trip. A 100-millisecond round trip means roughly 40,000 round trips to refill the pipe, over an hour<sup><a href="#ref-3" title="Ha, Sangtae, Injong Rhee, and Lisong Xu (2008). CUBIC: A New TCP-Friendly High-Speed TCP Variant. ACM SIGOPS Operating Systems Review 42(5).">[3]</a></sup>. The bigger and faster the network grows, the worse the old approach performs.</p>
+<p>CUBIC replaced the straight line with a curve. It tracks the time since the last loss and grows as a cubic function of it, rushing back toward the previous ceiling, flattening out as it gets close, then probing carefully past it<sup><a href="#ref-3" title="Ha, Sangtae, Injong Rhee, and Lisong Xu (2008). CUBIC: A New TCP-Friendly High-Speed TCP Variant. ACM SIGOPS Operating Systems Review 42(5).">[3]</a></sup>. It spread quickly and became the default across the internet.</p>
+<p>CUBIC is faster and smarter, and it still uses the same loss-based model as Reno. A full buffer is the goal, which turns oversized buffers into a latency problem.</p>
+<h2 id="bbr-changed-the-question">BBR Changed the Question</h2>
+<p>In 2016 a team at Google asked why loss should be the signal at all<sup><a href="#ref-4" title="Cardwell, Neal, et al. (2016). BBR: Congestion-Based Congestion Control. ACM Queue 14(5).">[4]</a></sup>. Their algorithm, BBR (bottleneck, bandwidth and round-trip propagation time) builds a small model of the path instead of reacting to packet loss. It measures the fastest rate the bottleneck can deliver and the lowest round-trip time it sees when the queue is empty, then paces packets to fill the pipe<sup><a href="#ref-4" title="Cardwell, Neal, et al. (2016). BBR: Congestion-Based Congestion Control. ACM Queue 14(5).">[4]</a></sup>.</p>
+<p>The bandwidth-delay product (bandwidth times RTT) is how much data it takes to fill a path. BBR aims to keep exactly that much in flight, which keeps the bottleneck busy while leaving its buffer near empty. Low latency and high throughput at once, without waiting for a packet to drop. Google deployed BBR on its B4 wide-area network and measured 2 to 25 times higher throughput than CUBIC, with a peak of 133 times on one intercontinental path<sup><a href="#ref-4" title="Cardwell, Neal, et al. (2016). BBR: Congestion-Based Congestion Control. ACM Queue 14(5).">[4]</a></sup>.</p>
+<h2 id="what-actually-ships-today">What Actually Ships Today</h2>
+<p>The early variants are mostly history. Tahoe added fast retransmit in 1988, so a sender no longer waits for a retransmission timeout to learn of a loss. Three duplicate ACKs from the receiver announce a gap and trigger a resend. Reno added fast recovery in 1990 so one loss halved cwnd instead of dropping the sender back to slow start, and NewReno refined that recovery to survive several losses at once<sup><a href="#ref-5" title="Henderson, Tom, et al. (2012). The NewReno Modification to TCP&#39;s Fast Recovery Algorithm. RFC 6582.">[5]</a></sup>. When a kernel today says Reno, it means NewReno.</p>
+<p>Linux defaulted to CUBIC since 2006<sup><a href="#ref-6" title="The Linux Kernel (2024). IP Sysctl: TCP Variables. Linux Kernel Documentation.">[6]</a></sup>. BBR has been available as a loadable kernel module since 2016<sup><a href="#ref-4" title="Cardwell, Neal, et al. (2016). BBR: Congestion-Based Congestion Control. ACM Queue 14(5).">[4]</a></sup>.</p>
+<p>FreeBSD reached the same place a little later. NewReno held the default for years, until FreeBSD 14 switched to CUBIC in 2023<sup><a href="#ref-7" title="The FreeBSD Project (2023). FreeBSD 14.0-RELEASE Release Notes.">[7]</a></sup>. On FreeBSD the algorithms are pluggable modules in a framework called <code>mod_cc</code>, alongside Vegas, HTCP, and DCTCP<sup><a href="#ref-8" title="The FreeBSD Project (2024). mod_cc: Modular Congestion Control. FreeBSD Kernel Interfaces Manual.">[8]</a></sup>.</p>
+<p>BBR and RACK are configured differently on FreeBSD, as alternate TCP stacks rather than congestion modules. RACK detects loss using SACK (selective ACK), which reports gaps and timing measurements rather than counting duplicate ACKs. Netflix wrote RACK and runs it across its OpenConnect CDN<sup><a href="#ref-9" title="The FreeBSD Project (2024). tcp_rack: TCP RACK-TLP Loss Detection Algorithm. FreeBSD Kernel Interfaces Manual.">[9]</a></sup>.</p>
+<p>Windows and macOS both default to CUBIC<sup><a href="#ref-11" title="Iyengar, Janardhan, et al. (2024). CUBIC for Fast and Long-Distance Networks. RFC 9438.">[11]</a></sup>. Windows Server uses DCTCP for datacenter connections, but CUBIC for clients<sup><a href="#ref-10" title="Microsoft (2024). Get-NetTCPSetting (NetTCPIP). PowerShell Documentation.">[10]</a></sup>.</p>
+<p>Neither BBR nor RACK are enabled by default. Loss-based, buffer-filling control still handles most internet traffic.</p>
+<h2 id="where-this-breaks-down">Where This Breaks Down</h2>
+<p><strong>Loss-based control mistakes a full buffer for success.</strong> Reno and CUBIC ease off only when a packet drops, so they fill every queue to the brim before backing down. On today&rsquo;s oversized buffers, that means high throughput bought with seconds of latency<sup><a href="#ref-3" title="Ha, Sangtae, Injong Rhee, and Lisong Xu (2008). CUBIC: A New TCP-Friendly High-Speed TCP Variant. ACM SIGOPS Operating Systems Review 42(5).">[3]</a></sup>.</p>
+<p><strong>A drop doesn&rsquo;t always mean congestion.</strong> Over wireless, packets get lost to interference, not a full queue. A loss-based sender reads that corruption as congestion and throttles itself for nothing, which is why a strong signal can still crawl<sup><a href="#ref-4" title="Cardwell, Neal, et al. (2016). BBR: Congestion-Based Congestion Control. ACM Queue 14(5).">[4]</a></sup>.</p>
+<p><strong>A model can be unfair.</strong> BBR holds its own queue empty by design, but its first version could grab more than its share when it shared a link with loss-based flows, and later versions had to rework that coexistence<sup><a href="#ref-4" title="Cardwell, Neal, et al. (2016). BBR: Congestion-Based Congestion Control. ACM Queue 14(5).">[4]</a></sup>.</p>
+<p><strong>No single algorithm fits every path.</strong> A datacenter with microsecond round trips wants nothing like what a flaky cellular link wants, which is why datacenters run their own congestion control built around explicit signals<sup><a href="#ref-10" title="Alizadeh, Mohammad, et al. (2010). Data Center TCP (DCTCP). SIGCOMM &#39;10.">[10]</a></sup>.</p>
+<h2 id="put-it-into-practice">Put It Into Practice</h2>
+<p>Most people never touch this dial, and most never need to. The defaults are good and getting better. But if you run servers that move real traffic, the algorithm is an important setting.</p>
+<p>But if your servers stream bulk data over long or lossy paths, the gain is real, and it tends to show up in tail latency more than in raw throughput. For services with WAN exposure or high tail-latency sensitivity, measure your current algorithm on a representative subset of traffic. Test BBR in a staged canary by routing a fraction of traffic to a cohort running BBR, measure p99 latency and retransmit rates before rolling wider.</p>
+<p>Check which algorithm is active on a Linux server, capture baseline TCP stats before a load test, run the test, then capture stats again:</p>
+<pre tabindex="0"><code>$ sysctl net.ipv4.tcp_congestion_control
+net.ipv4.tcp_congestion_control = cubic
+
+$ netstat -s | grep &#39;segments retransmitted&#39;
+    1847 segments retransmitted
+
+# Run 5-minute load test
+# ...
+
+$ netstat -s | grep &#39;segments retransmitted&#39;
+    2156 segments retransmitted
+
+# Retransmits during test = 2156 - 1847 = 309
+</code></pre><p>Repeat the same load test with BBR:</p>
+<pre tabindex="0"><code>$ echo bbr | sudo tee /proc/sys/net/ipv4/tcp_congestion_control
+
+$ netstat -s | grep &#39;segments retransmitted&#39;
+    2200 segments retransmitted
+
+# Run same 5-minute load test
+# ...
+
+$ netstat -s | grep &#39;segments retransmitted&#39;
+    2418 segments retransmitted
+
+# Retransmits during test = 2418 - 2200 = 218
+</code></pre><p>The same load produced 309 retransmits under CUBIC and 218 under BBR. Compare your application&rsquo;s p99 latency metrics from the two test windows. If retransmit rates fell and tail latency improved while throughput stayed flat or rose, you have evidence worth expanding the canary to more servers.</p>
+<h2 id="go-further">Go Further</h2>
+<p><strong>Congestion control for the datacenter.</strong> Inside a datacenter, round trips are microseconds and ordinary loss-based control is far too coarse. DCTCP uses explicit congestion marks instead of drops to keep queues a few packets deep<sup><a href="#ref-10" title="Alizadeh, Mohammad, et al. (2010). Data Center TCP (DCTCP). SIGCOMM &#39;10.">[10]</a></sup>.</p>
+<p><strong>A signal that isn&rsquo;t a drop.</strong> The long arc of this field bends toward telling senders about congestion without throwing data away. L4S builds that explicit, low-latency signaling into the network itself<sup><a href="#ref-11" title="Briscoe, Bob, et al. (2023). Low Latency, Low Loss, and Scalable Throughput (L4S) Internet Service: Architecture. RFC 9330.">[11]</a></sup>.</p>
+<hr>
+<h2 id="references">References</h2>
+<ol class="references">
+  <li id="ref-1">Jacobson, Van (1988). "Congestion Avoidance and Control." <em>SIGCOMM '88</em>. <a href="https://ee.lbl.gov/papers/congavoid.pdf">https://ee.lbl.gov/papers/congavoid.pdf</a></li>
+  <li id="ref-2">Allman, Mark, Vern Paxson, and Ethan Blanton (2009). "TCP Congestion Control." <em>RFC 5681</em>. <a href="https://www.rfc-editor.org/rfc/rfc5681.html">https://www.rfc-editor.org/rfc/rfc5681.html</a></li>
+  <li id="ref-3">Ha, Sangtae, Injong Rhee, and Lisong Xu (2008). "CUBIC: A New TCP-Friendly High-Speed TCP Variant." <em>ACM SIGOPS Operating Systems Review</em>, 42(5). <a href="https://www.cs.princeton.edu/courses/archive/fall16/cos561/papers/Cubic08.pdf">https://www.cs.princeton.edu/courses/archive/fall16/cos561/papers/Cubic08.pdf</a></li>
+  <li id="ref-4">Cardwell, Neal, et al. (2016). "BBR: Congestion-Based Congestion Control." <em>ACM Queue</em>, 14(5). <a href="https://research.google/pubs/pub45646/">https://research.google/pubs/pub45646/</a></li>
+  <li id="ref-5">Henderson, Tom, et al. (2012). "The NewReno Modification to TCP's Fast Recovery Algorithm." <em>RFC 6582</em>. <a href="https://www.rfc-editor.org/rfc/rfc6582.html">https://www.rfc-editor.org/rfc/rfc6582.html</a></li>
+  <li id="ref-6">The Linux Kernel (2024). "IP Sysctl: TCP Variables." <em>Linux Kernel Documentation</em>. <a href="https://docs.kernel.org/networking/ip-sysctl.html">https://docs.kernel.org/networking/ip-sysctl.html</a></li>
+  <li id="ref-7">The FreeBSD Project (2023). "FreeBSD 14.0-RELEASE Release Notes." <a href="https://www.freebsd.org/releases/14.0R/relnotes/">https://www.freebsd.org/releases/14.0R/relnotes/</a></li>
+  <li id="ref-8">The FreeBSD Project (2024). "mod_cc: Modular Congestion Control." <em>FreeBSD Kernel Interfaces Manual</em>. <a href="https://man.freebsd.org/cgi/man.cgi?query=mod_cc&sektion=9">https://man.freebsd.org/cgi/man.cgi?query=mod_cc&sektion=9</a></li>
+  <li id="ref-9">The FreeBSD Project (2024). "tcp_rack: TCP RACK-TLP Loss Detection Algorithm." <em>FreeBSD Kernel Interfaces Manual</em>. <a href="https://man.freebsd.org/cgi/man.cgi?query=tcp_rack&sektion=4">https://man.freebsd.org/cgi/man.cgi?query=tcp_rack&sektion=4</a></li>
+  <li id="ref-10">Microsoft (2024). "Get-NetTCPSetting (NetTCPIP)." <em>PowerShell Documentation</em>. <a href="https://learn.microsoft.com/en-us/powershell/module/nettcpip/get-nettcpsetting">https://learn.microsoft.com/en-us/powershell/module/nettcpip/get-nettcpsetting</a></li>
+  <li id="ref-11">Iyengar, Janardhan, et al. (2024). "CUBIC for Fast and Long-Distance Networks." <em>RFC 9438</em>. <a href="https://www.rfc-editor.org/rfc/rfc9438.html">https://www.rfc-editor.org/rfc/rfc9438.html</a></li>
+  <li id="ref-12">Alizadeh, Mohammad, et al. (2010). "Data Center TCP (DCTCP)." <em>SIGCOMM '10</em>. <a href="https://people.csail.mit.edu/alizadeh/papers/dctcp-sigcomm10.pdf">https://people.csail.mit.edu/alizadeh/papers/dctcp-sigcomm10.pdf</a></li>
+  <li id="ref-13">Briscoe, Bob, et al. (2023). "Low Latency, Low Loss, and Scalable Throughput (L4S) Internet Service: Architecture." <em>RFC 9330</em>. <a href="https://www.rfc-editor.org/rfc/rfc9330.html">https://www.rfc-editor.org/rfc/rfc9330.html</a></li>
+</ol>
+<hr>
+<h2 id="changelog">Changelog</h2>
+<p><strong>2026-06-28</strong> Initial release.</p>
+
+      <hr>
+      
+      <div class="related">
+</div>
+      
+    </div>
+    
+  </div>
+</section>
+
+    <script src="/js/copycode.js"></script>
+
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p></p>
+    
+  </div>
+</section>
+
+
+
+
+
+</body>
+</html>
+
