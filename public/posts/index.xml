@@ -6,11 +6,21 @@
     <description>Recent content in Posts on hi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 28 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Functioning As Designed</title>
+      <link>https://lyletagawa.com/posts/functioning-as-designed/</link>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/functioning-as-designed/</guid>
+      <description>Traditional accident models assume every failure traces back to a broken part. STAMP treats safety as a control problem instead, which explains disasters where every component worked exactly as designed.</description>
+      <media:content url="https://lyletagawa.com/images/functioning-as-designed.jpg" medium="image" />
+    </item>
+    
     <item>
       <title>From Reno to BBR</title>
       <link>https://lyletagawa.com/posts/tcp-congestion-control/</link>
-      <pubDate>Sun, 28 Jun 2026 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/tcp-congestion-control/</guid>
       <description>No one tells TCP how fast to send. Forty years of algorithms, from Reno to BBR, have tried to teach it, and the one in your kernel still chases a ceiling.</description>

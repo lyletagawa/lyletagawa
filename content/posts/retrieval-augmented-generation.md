@@ -1,8 +1,8 @@
 ---
 title: "Retrieval-Augmented Generation"
-date: 2026-06-27
-publishdate: 2026-06-27
-lastmod: 2026-06-27
+date: 2026-07-03
+publishdate: 2026-07-03
+lastmod: 2026-07-03
 summary: "RAG gives a language model an open book at answer time. It fixes stale knowledge and cuts hallucination, but only as far as the retriever reaches."
 tags: ["ai", "architecture", "search"]
 image: /images/retrieval-augmented-generation.png
@@ -100,6 +100,4 @@ Pick one question your system answers badly. Pull the passages it retrieved and 
 
 ## Changelog
 
-**2026-06-27** Initial release.  
-**2026-06-27** Defined the RAG acronym on first use and cited the fourth failure mode. Tightening pass.  
-**2026-06-27** Rebuilt Go Further with three advanced topics and fresh sources: cross-encoder reranking, retrieval versus long context, and self-directed retrieval.  
+**2026-07-03** Initial release.  

@@ -2,26 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://lyletagawa.com/posts/tcp-congestion-control/</loc>
-    <lastmod>2026-07-01T00:00:00+00:00</lastmod>
+    <loc>https://lyletagawa.com/tags/complexity/</loc>
+    <lastmod>2026-07-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/posts/functioning-as-designed/</loc>
+    <lastmod>2026-07-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/</loc>
-    <lastmod>2026-07-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lyletagawa.com/tags/latency/</loc>
-    <lastmod>2026-07-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lyletagawa.com/tags/networking/</loc>
-    <lastmod>2026-07-01T00:00:00+00:00</lastmod>
+    <lastmod>2026-07-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/posts/</loc>
-    <lastmod>2026-07-01T00:00:00+00:00</lastmod>
+    <lastmod>2026-07-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://lyletagawa.com/tags/protocols/</loc>
-    <lastmod>2026-07-01T00:00:00+00:00</lastmod>
+    <loc>https://lyletagawa.com/tags/safety/</loc>
+    <lastmod>2026-07-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/tags/systems/</loc>
+    <lastmod>2026-07-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/</loc>
-    <lastmod>2026-07-01T00:00:00+00:00</lastmod>
+    <lastmod>2026-07-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/posts/tcp-congestion-control/</loc>
+    <lastmod>2026-07-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/tags/latency/</loc>
+    <lastmod>2026-07-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/tags/networking/</loc>
+    <lastmod>2026-07-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/tags/protocols/</loc>
+    <lastmod>2026-07-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/algorithms/</loc>
     <lastmod>2026-06-26T00:00:00+00:00</lastmod>
@@ -66,9 +78,6 @@
     <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/resilience/</loc>
-    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lyletagawa.com/tags/safety/</loc>
     <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/decision/</loc>

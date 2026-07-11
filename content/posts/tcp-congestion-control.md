@@ -1,8 +1,8 @@
 ---
 title: "From Reno to BBR"
-date: 2026-06-28
-publishdate: 2026-06-28
-lastmod: 2026-07-01
+date: 2026-07-03
+publishdate: 2026-07-03
+lastmod: 2026-07-03
 summary: "No one tells TCP how fast to send. Forty years of algorithms, from Reno to BBR, have tried to teach it, and the one in your kernel still chases a ceiling."
 tags: ["networking", "protocols", "latency"]
 image: /images/tcp-congestion-control.png
@@ -143,4 +143,4 @@ The same load produced 309 retransmits under CUBIC and 218 under BBR. Compare yo
 
 ## Changelog
 
-**2026-06-28** Initial release.  
+**2026-07-03** Initial release.  

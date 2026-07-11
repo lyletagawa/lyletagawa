@@ -2,7 +2,7 @@
 title: "Stochastic Parrot"
 date: 2026-06-21
 publishdate: 2026-06-21
-lastmod: 2026-06-21
+lastmod: 2026-07-06
 summary: "A language model that generates fluent text without understanding it. The term comes from a 2021 paper that cost its lead author her job at Google."
 tags: ["ai", "language", "llm"]
 image: /images/stochastic-parrot.png
@@ -14,15 +14,17 @@ draft: true
 
 ## Stochastic Parrot
 
-The email arrived in December 2020. Google management asked Timnit Gebru, co-lead of the company's Ethical AI team, to retract a paper she'd submitted for peer review or remove the names of all Google employees from it. She refused. The next morning, Google informed her it was accepting her resignation. She hadn't tendered one.
+The email arrived in December 2020. Google management asked Timnit Gebru, co-lead of the company's Ethical AI team, to retract a paper she'd submitted for peer review or remove the names of all Google employees from it. She refused, and her email set a condition, meet her demands for transparency about the review or she'd need to know so she could plan her exit. The next morning, Google told her it was accepting her resignation.
 
-Roughly 2,700 Google employees signed a letter condemning the action{{< cite 1 "Hao, Karen (2020). We read the paper that forced Timnit Gebru out of Google. Here's what it says. MIT Technology Review." >}}. Several prominent AI researchers quit in protest. The backlash continued for months.
+Jeff Dean, head of Google Research, gave staff a different account. He said the paper had been shared with only a day's notice when the company requires two weeks for that kind of review, and that it was submitted before reviewers' feedback came back. It "didn't meet our bar for publication," he wrote, and Google was accepting a resignation, not issuing a firing{{< cite 1 "Newton, Casey (2020). The Withering Email That Got an Ethical AI Researcher Fired at Google. Platformer." >}}. Employees pushed back, noting no hard two-week rule actually existed.
+
+Roughly 2,700 Google employees signed a letter condemning the action, and several prominent AI researchers quit in protest{{< cite 2 "Hao, Karen (2020). We read the paper that forced Timnit Gebru out of Google. Here's what it says. MIT Technology Review." >}}. The backlash continued for months.
 
 The paper was called "On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?" It became one of the most-cited papers in AI ethics. The term it coined became a shorthand in every argument about what large language models can and can't do.
 
 ## What a Stochastic Parrot Is
 
-The paper was published at the ACM Conference on Fairness, Accountability, and Transparency (FAccT) in 2021{{< cite 2 "Bender, Emily M., Timnit Gebru, Angelina McMillan-Major, and Shmargaret Shmitchell (2021). On the Dangers of Stochastic Parrots: Can Language Models Be Too Big? Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency." >}}. Its central metaphor is a parrot that has heard an enormous amount of human speech and learned to recombine it convincingly, without any model of what the words mean.
+The paper was published at the ACM Conference on Fairness, Accountability, and Transparency (FAccT) in 2021{{< cite 3 "Bender, Emily M., Timnit Gebru, Angelina McMillan-Major, and Shmargaret Shmitchell (2021). On the Dangers of Stochastic Parrots: Can Language Models Be Too Big? Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency." >}}. Its central metaphor is a parrot that has heard an enormous amount of human speech and learned to recombine it convincingly, without any model of what the words mean.
 
 "Stochastic" means probabilistic. The model picks the next token based on statistical likelihood, not comprehension. "Parrot" means mimicry of form without expression of content.
 
@@ -32,11 +34,13 @@ This gap between fluency and understanding is the core of the parrot critique.
 
 ## What the Paper Actually Argued
 
-The stochastic parrot framing is often cited as a philosophical claim about machine consciousness. The paper was more concrete. It made four distinct arguments, and three of them have nothing to do with philosophy.
+The stochastic parrot framing is often cited as a philosophical claim about machine consciousness. The paper was more concrete. It made five distinct arguments, and four of them have nothing to do with philosophy.
 
-**Environmental costs.** Training large models requires enormous compute. Earlier work had estimated that training a single large transformer could emit as much carbon as five cars over their lifetimes{{< cite 3 "Strubell, Emma, Ananya Ganesh, and Andrew McCallum (2019). Energy and Policy Considerations for Deep Learning in NLP. Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics." >}}. That number has been contested, but the order of magnitude held up.
+**Environmental costs.** Training large models requires enormous compute. Earlier work had estimated that training a single large transformer could emit as much carbon as five cars over their lifetimes{{< cite 4 "Strubell, Emma, Ananya Ganesh, and Andrew McCallum (2019). Energy and Policy Considerations for Deep Learning in NLP. Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics." >}}. That number has been contested, but the order of magnitude held up.
 
 **Bias encoded at scale.** Training data comes from the internet, which is not a neutral sample of human thought. It's English-heavy, Western-heavy, and skewed toward the kind of people who were online before the mid-2010s. Models don't just absorb the biases in that data. They amplify them, because biased associations are statistically reinforced. Deployed at scale, those amplified biases affect real people in ways that are hard to trace back to the model.
+
+**Data theft and labor exploitation.** Training text is scraped from the people who wrote it, without consent, and the resulting datasets are rarely documented well enough for anyone to know what's actually in them. Cleaning and moderating that data leans on outsourced human labor, often underpaid, to filter out the worst of it{{< cite 3 "Bender, Emily M., Timnit Gebru, Angelina McMillan-Major, and Shmargaret Shmitchell (2021). On the Dangers of Stochastic Parrots: Can Language Models Be Too Big? Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency." >}}.
 
 **Hallucinated coherence.** Fluent output creates a false impression of understanding. Readers attribute meaning and intent to text generated by predicting likely tokens. The model sounds certain because certainty is a common pattern in the training data. Builders make the same mistake when evaluating model outputs.
 
@@ -46,9 +50,9 @@ The stochastic parrot framing is often cited as a philosophical claim about mach
 
 The stochastic parrot framing is precise and useful, but it has limits that matter for how you use it.
 
-**"Understanding" is a moving target.** The paper assumes a clear distinction between pattern matching and genuine understanding. That distinction is philosophically contested. The Chinese Room thought experiment has been at the center of this debate for decades. A system can manipulate symbols without understanding their meaning, but philosophers still disagree about what this actually proves{{< cite 4 "Searle, John (1980). Minds, Brains, and Programs. Behavioral and Brain Sciences, 3(3): 417-424." >}}. Describing human cognition as electrochemical pattern matching doesn't resolve anything either.
+**"Understanding" isn't just asserted, it's defined, and still contested.** Bender's own definition, developed with Alexander Koller, is specific. Understanding requires grounding, a mapping between linguistic form and communicative intent or the world outside the text, and a system trained only on form has no way to acquire that mapping{{< cite 5 "Bender, Emily M., and Alexander Koller (2020). Climbing towards NLU: On Meaning, Form, and Understanding in the Age of Data. Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics." >}}. Philosophers still argue about whether that settles anything. The Chinese Room thought experiment has occupied that argument for decades, with no consensus on what manipulating symbols without grounding actually proves{{< cite 6 "Searle, John (1980). Minds, Brains, and Programs. Behavioral and Brain Sciences, 3(3): 417-424." >}}.
 
-**The behaviors are surprising.** Models trained on next-token prediction demonstrate capabilities not explicit in the training data. Mathematical reasoning, analogical transfer, novel code generation. Whether this counts as "understanding" depends entirely on your definition. What's clear is that "it's just a parrot" undersells what frontier models can do.
+**Novel-looking output doesn't refute the framing, and Bender says so directly.** Mathematical reasoning, analogical transfer, and novel code generation can look like understanding. But "stochastic" was never meant to exclude that. Bender describes the output as a remix shaped by training, system prompts, and user input, papier-mâché molded around whatever balloon you hand it{{< cite 7 "Bender, Emily M. (2026). Stochastic Parrots: Frequently Unasked Questions. Medium." >}}. The result can be new without the model grounding any of it, and calling the model "just a parrot" was never her claim to begin with.
 
 **The critique scales unevenly.** A model trained on a few hundred megabytes of text is closer to the parrot framing than a model trained on most of the written internet. The metaphor is most accurate at the low end and least accurate where it gets applied most often.
 
@@ -69,10 +73,13 @@ Read the paper, not just the term.
 ## References
 
 <ol class="references">
-  <li id="ref-1">Hao, Karen (2020). "We read the paper that forced Timnit Gebru out of Google. Here's what it says." <em>MIT Technology Review</em>. <a href="https://www.technologyreview.com/2020/12/04/1013294/google-ai-ethics-research-paper-forced-out-timnit-gebru/">https://www.technologyreview.com/2020/12/04/1013294/google-ai-ethics-research-paper-forced-out-timnit-gebru/</a></li>
-  <li id="ref-2">Bender, Emily M., Timnit Gebru, Angelina McMillan-Major, and Shmargaret Shmitchell (2021). "On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?" <em>Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency (FAccT '21)</em>. <a href="https://dl.acm.org/doi/10.1145/3442188.3445922">https://dl.acm.org/doi/10.1145/3442188.3445922</a></li>
-  <li id="ref-3">Strubell, Emma, Ananya Ganesh, and Andrew McCallum (2019). "Energy and Policy Considerations for Deep Learning in NLP." <em>Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics</em>. <a href="https://arxiv.org/abs/1906.02243">https://arxiv.org/abs/1906.02243</a></li>
-  <li id="ref-4">Searle, John (1980). "Minds, Brains, and Programs." <em>Behavioral and Brain Sciences</em>, 3(3): 417-424. <a href="https://plato.stanford.edu/entries/chinese-room/">https://plato.stanford.edu/entries/chinese-room/</a></li>
+  <li id="ref-1">Newton, Casey (2020). "The Withering Email That Got an Ethical AI Researcher Fired at Google." <em>Platformer</em>. <a href="https://www.platformer.news/the-withering-email-that-got-an-ethical/">https://www.platformer.news/the-withering-email-that-got-an-ethical/</a></li>
+  <li id="ref-2">Hao, Karen (2020). "We read the paper that forced Timnit Gebru out of Google. Here's what it says." <em>MIT Technology Review</em>. <a href="https://www.technologyreview.com/2020/12/04/1013294/google-ai-ethics-research-paper-forced-out-timnit-gebru/">https://www.technologyreview.com/2020/12/04/1013294/google-ai-ethics-research-paper-forced-out-timnit-gebru/</a></li>
+  <li id="ref-3">Bender, Emily M., Timnit Gebru, Angelina McMillan-Major, and Shmargaret Shmitchell (2021). "On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?" <em>Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency (FAccT '21)</em>. <a href="https://dl.acm.org/doi/10.1145/3442188.3445922">https://dl.acm.org/doi/10.1145/3442188.3445922</a></li>
+  <li id="ref-4">Strubell, Emma, Ananya Ganesh, and Andrew McCallum (2019). "Energy and Policy Considerations for Deep Learning in NLP." <em>Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics</em>. <a href="https://arxiv.org/abs/1906.02243">https://arxiv.org/abs/1906.02243</a></li>
+  <li id="ref-5">Bender, Emily M., and Alexander Koller (2020). "Climbing towards NLU: On Meaning, Form, and Understanding in the Age of Data." <em>Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics</em>: 5185-5198. <a href="https://aclanthology.org/2020.acl-main.463/">https://aclanthology.org/2020.acl-main.463/</a></li>
+  <li id="ref-6">Searle, John (1980). "Minds, Brains, and Programs." <em>Behavioral and Brain Sciences</em>, 3(3): 417-424. <a href="https://plato.stanford.edu/entries/chinese-room/">https://plato.stanford.edu/entries/chinese-room/</a></li>
+  <li id="ref-7">Bender, Emily M. (2026). "Stochastic Parrots: Frequently Unasked Questions." <em>Medium</em>. <a href="https://medium.com/@emilymenonbender/stochastic-parrots-frequently-unasked-questions-49c2e7d22d11">https://medium.com/@emilymenonbender/stochastic-parrots-frequently-unasked-questions-49c2e7d22d11</a></li>
 </ol>
 
 ---
@@ -87,4 +94,5 @@ Read the paper, not just the term.
 
 ## Changelog
 
+**2026-07-06** Added Google's side of the Gebru dispute (Jeff Dean's internal memo, via Platformer) so the intro presents both contested accounts instead of only Gebru's, added a data theft and labor exploitation argument to the paper's core claims, and rewrote the "Understanding" and "surprising behaviors" points against Bender's own 2026 clarifications so the post no longer treats arguments she has directly rebutted as if they still stand.  
 **2026-06-21** Initial release.

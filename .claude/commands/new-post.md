@@ -61,7 +61,7 @@ Choose the title that best fits the post's intent — see the Template for optio
 The body sections must be followed in this order:
 1. `## [Further Reading Section]` — optional. Points the reader toward advanced topics the post doesn't cover. Use bold inline headers for each item (2–4 items). Each item names an advanced topic, describes what the reader will find, and includes an inline citation. Title options: "What This Doesn't Cover," "Go Further," "Keep Going," "Dig Deeper," or similar. Choose based on tone.
 2. `## References` — an HTML `<ol class="references">` where each `<li id="ref-n">` matches the cite shortcode number. Format: author, year, title (use `<em>` for book and journal titles), publisher, and the full URL as link text. List items in order of first citation.
-3. `## Outtakes` — optional. 2–4 short anecdotes that didn't fit the main article. See the Template for format rules.
+3. `## Outtakes` — optional. 2–5 short anecdotes that didn't fit the main article. See the Template for format rules.
 4. `## Changelog` — one entry per calendar day, listed in reverse chronological order with the newest entry at the top. Format: `**YYYY-MM-DD** Brief description of changes.` If an entry for a given date already exists, fold new changes into that day's entry rather than adding a second entry for the same day. The first (oldest) entry, marking the post's creation, stays simple and needs no description of changes (for example `Initial release`, `Initial draft`, or `Initial publish`).
 
 ## Template
@@ -134,7 +134,7 @@ Choose a title: "What This Doesn't Cover," "Go Further," "Keep Going," "Dig Deep
 
 ## Outtakes
 
-[Optional. 2–4 short anecdotes related to the topic that didn't fit the main article. Each should be fun, quirky, or surprising — complementary to the topic but outside its narrow scope. Format each as a bold title followed by prose. No bullet points. Each outtake must be under 50 words. Inline citations are allowed in (Author, Year) format where relevant, but Outtakes citations do not appear in the References section.]
+[Optional. 2–4 short anecdotes related to the topic that didn't fit the main article. Each should be fun, quirky, or surprising — complementary to the topic but outside its narrow scope. Format each as a bold title followed by prose. No bullet points. Each outtake must be under 50 words. Every factual claim needs a citation in `([Author, Year](url))` format, the author/year wrapped in a markdown link to the source, so the reader can click through. Outtakes citations do not get a numbered `{{< cite n >}}` shortcode and do not appear in the References section, but the href is still required.]
 
 ---
 

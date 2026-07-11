@@ -6,11 +6,11 @@
     <description>Recent content in protocols on hi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 28 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/protocols/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/protocols/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>From Reno to BBR</title>
       <link>https://lyletagawa.com/posts/tcp-congestion-control/</link>
-      <pubDate>Sun, 28 Jun 2026 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/tcp-congestion-control/</guid>
       <description>No one tells TCP how fast to send. Forty years of algorithms, from Reno to BBR, have tried to teach it, and the one in your kernel still chases a ceiling.</description>
