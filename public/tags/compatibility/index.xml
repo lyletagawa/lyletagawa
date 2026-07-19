@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>compatibility on hi</title>
+    <link>https://lyletagawa.com/tags/compatibility/</link>
+    <description>Recent content in compatibility on hi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 19 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/compatibility/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hyrum&#39;s Law</title>
+      <link>https://lyletagawa.com/posts/hyrums-law/</link>
+      <pubDate>Sun, 19 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/hyrums-law/</guid>
+      <description>With enough users, every observable behavior becomes a depended-upon feature. Your implementation details become your API contract, regardless of documentation or intent.</description>
+      <media:content url="https://lyletagawa.com/images/hyrums-law.jpg" medium="image" />
+    </item>
+    
+  </channel>
+</rss>

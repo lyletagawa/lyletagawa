@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Hyrum&#39;s Law | hi</title>
+
+
+
+<link href="https://lyletagawa.com/index.xml" rel="alternate" type="application/rss+xml" title="hi" />
+
+<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='https://lyletagawa.com/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="canonical" href="https://lyletagawa.com/posts/hyrums-law/">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="With enough users, every observable behavior becomes a depended-upon feature. Your implementation details become your API contract, regardless of documentation or intent.">
+<script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="Xi tn init mn Qr yn xn pn capture calculateEventProperties Tn register register_once register_for_session unregister unregister_for_session Pn getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync On identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException addExceptionStep captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty Mn Cn createPersonProfile setInternalOrTestUser Rn vn An opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Sn debug Kr En getPageViewId captureTraceFeedback captureTraceMetric hn".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_zrLjgptGCvrPgnVnoXPF87NEtESJtxuQLt26tRfFynhL', {
+        api_host: 'https://p.foureleven.org', 
+        ui_host: 'https://us.posthog.com', 
+        defaults: '2026-05-30',
+        person_profiles: 'identified_only', 
+    })
+</script>
+
+</head>
+<body>
+
+<section class="section">
+  <div class="container">
+    <nav id="nav-main" class="nav">
+      <div id="nav-name" class="nav-left">
+        <a id="nav-anchor" class="nav-item" href="https://lyletagawa.com">
+          <h1 id="nav-heading" class="title is-4">hi</h1>
+        </a>
+      </div>
+      <div class="nav-right">
+        <nav id="nav-items" class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/lyletagawa'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg>
+</i>
+            </span>
+          </a><a class="level-item" aria-label="linkedin" href='https://linkedin.com/in/lyletagawa'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg>
+</i>
+            </span>
+          </a><a class="level-item" aria-label="rss" href='/index.xml'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle>
+    
+  </svg>
+</i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+
+    <nav class="nav">
+      
+
+      
+    </nav>
+
+  </div>
+  <script src="/js/navicon-shift.js"></script>
+</section>
+<section class="section">
+  <div class="container">
+    <h1 class="title">Hyrum&#39;s Law</h1>
+    
+    <div class="subtitle tags is-6 is-pulled-right">
+      
+      
+<a class="subtitle is-6" href="/tags/api/">#api</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/architecture/">#architecture</a>
+  
+  | <a class="subtitle is-6" href="/tags/compatibility/">#compatibility</a>
+  
+
+
+      
+    </div>
+    
+    <h6 class="subtitle is-6" style="line-height:0em">Jul. 19, 2026&nbsp;&middot; 6 min read
+    </h6>
+    
+
+    <div class="content">
+      <p><img src="/images/hyrums-law.jpg" alt="With enough users, every observable behavior becomes a depended-upon feature. Your implementation details become your API contract, regardless of documentation or intent.">
+<em>&ldquo;Desire path, Belém, Lisbon.&rdquo; Photo: <a href="https://commons.wikimedia.org/wiki/File:Desire_path_(19811581366).jpg">Metro Centric (2015)</a>. CC BY 2.0.</em></p>
+<h2 id="hyrums-law">Hyrum&rsquo;s Law</h2>
+<p>Your API returns results in alphabetical order. The documentation says nothing about ordering. It&rsquo;s an implementation detail, not a promise.</p>
+<p>Six months later, you optimize the query, and results start coming back in insertion order instead. Production breaks. Dozens of clients had quietly built pagination and diffing logic on alphabetical sorting. They never told you. They just assumed it was guaranteed.</p>
+<p>Every observable behavior becomes a contract, whether or not you documented it or intended it that way. If users can observe something, someone will depend on it.</p>
+<h2 id="what-is-hyrums-law">What Is Hyrum&rsquo;s Law?</h2>
+<p>Hyrum&rsquo;s Law states, &ldquo;With a sufficient number of users of an API, it does not matter what you promise in the contract: all observable behaviors of your system will be depended on by somebody&quot;<sup><a href="#ref-1" title="Wright, Hyrum (2020). Hyrum&#39;s Law. Software Engineering at Google.">[1]</a></sup>.</p>
+<p>Hyrum Wright formulated this while running large-scale API deprecation at Google, migrating thousands of callers off old internal APIs. Changing any of them meant understanding not just the documented contract but every behavior a caller might have come to depend on, since a contract promising nothing about some behavior never stopped someone from relying on it anyway<sup><a href="#ref-2" title="Winters, Titus, Tom Manshreck, and Hyrum Wright (2020). Software Engineering at Google: Lessons Learned from Programming Over Time. O&#39;Reilly Media.">[2]</a></sup>.</p>
+<p>The principle applies beyond APIs. It governs any interface with multiple users, from command-line tools and file formats to network protocols and database schemas. With ten users, you might coordinate changes. With ten thousand, coordination becomes impossible.</p>
+<h2 id="why-implementation-details-become-contracts">Why Implementation Details Become Contracts</h2>
+<p>Users optimize for their immediate needs, observing behavior and depending on it before moving on. The dependency becomes implicit knowledge, undocumented and forgotten<sup><a href="#ref-3" title="Parnas, David L. (1972). On the Criteria To Be Used in Decomposing Systems into Modules. Communications of the ACM, 15(12).">[3]</a></sup>.</p>
+<p><strong>Timing dependencies emerge.</strong> Your API responds in 50 milliseconds, and a client sets its timeout to 100 milliseconds, a comfortable margin based on observed behavior, since there&rsquo;s no documented SLA to go by. You add a validation step, and response time creeps up to 150 milliseconds. The client&rsquo;s timeout starts firing, and requests that used to succeed now fail. The timing was never specified, but it was observable, and someone built on it anyway.</p>
+<p><strong>Error messages become APIs.</strong> Your function returns &ldquo;Error: invalid input&rdquo; for malformed data, and a client starts parsing that string to detect the error type. You improve the message to &ldquo;Error: field &rsquo;email&rsquo; must be valid email address,&rdquo; and the client breaks. It was never part of the contract. It was just visible.</p>
+<p><strong>Ordering becomes guaranteed.</strong> Your database query happens to return results in primary key order, even though the documentation says order is undefined. Clients assume the current order and build pagination around it. Then you add an index, the query planner shifts, and results come back differently. Pagination breaks across the entire system.</p>
+<p><strong>Side effects become features.</strong> Your cache implementation writes to disk, though the documentation says nothing about persistence. Clients restart and expect the cached data to still be there. You switch to an in-memory cache and clients break, because the persistence was never promised, just observed<sup><a href="#ref-4" title="Lehman, Meir M. (1980). Programs, Life Cycles, and Laws of Software Evolution. Proceedings of the IEEE, 68(9).">[4]</a></sup>.</p>
+<h2 id="the-scale-problem">The Scale Problem</h2>
+<p>Small systems can coordinate changes. Large systems cannot.</p>
+<p>At ten users, you know them all, and you can coordinate breaking changes directly. At one thousand, you know few of them, hidden dependencies multiply, and breaking changes require migration tools and long deprecation windows. At a hundred thousand, you know almost none of them, and hidden dependencies dominate. The observable behavior is the contract<sup><a href="#ref-5" title="Booch, Grady (1994). Object-Oriented Analysis and Design with Applications, Second Edition. Benjamin/Cummings.">[5]</a></sup>.</p>
+<p>Google&rsquo;s experience shows this at extreme scale. Changing a widely-used internal API requires automated tooling just to find and update every call site, and even then some dependencies hide in generated code, reflection, or dynamic dispatch. The cost of a change grows faster than the number of users who make it<sup><a href="#ref-2" title="Winters, Titus, Tom Manshreck, and Hyrum Wright (2020). Software Engineering at Google: Lessons Learned from Programming Over Time. O&#39;Reilly Media.">[2]</a></sup>.</p>
+<h2 id="real-world-examples">Real-World Examples</h2>
+<p>Python&rsquo;s dictionary iteration order illustrates the principle. Before Python 3.7, dictionaries had no defined iteration order, but the CPython implementation happened to preserve insertion order, and code started depending on it. When PyPy used a different ordering, that code broke. Python 3.7 made insertion order official<sup><a href="#ref-6" title="Van Rossum, Guido (2017). PEP 520: Preserving Class Attribute Definition Order. Python Enhancement Proposals.">[6]</a></sup>.</p>
+<p>Linux system calls show how a contract can become permanent. The kernel maintains binary compatibility with userspace, and every syscall behavior, bugs included, becomes part of the permanent API. Linus Torvalds put it plainly: &ldquo;we do not break userspace&quot;<sup><a href="#ref-7" title="Torvalds, Linus (2012). We do not break userspace. Linux Kernel Mailing List.">[7]</a></sup>.</p>
+<p>AWS S3&rsquo;s eventual consistency created an implicit contract of its own. Applications built retry logic around the delay between a write and a read reflecting it. When S3 added strong consistency, some of those applications broke, because they&rsquo;d built timing assumptions into code, and only the consistency model was ever documented, never the specific timing<sup><a href="#ref-8" title="Brooker, Marc (2020). Amazon S3 Update: Strong Read-After-Write Consistency. AWS News Blog.">[8]</a></sup>.</p>
+<p>Browser user-agent strings show how a workaround outlives its reason. Early sites only served frames to browsers claiming &ldquo;Mozilla,&rdquo; so every browser claimed it too. WebKit claimed to be KHTML, KHTML claimed Gecko, and Chrome ships a string naming four engines it isn&rsquo;t running<sup><a href="#ref-9" title="Andersen, Aaron (2008). History of the Browser User-Agent String. WebAIM.">[9]</a></sup>. Nobody can drop the claims without breaking sites sniffing for them.</p>
+<h2 id="common-mistakes">Common Mistakes</h2>
+<p><strong>Assuming documentation defines the contract.</strong> Documentation describes intent, but observable behavior defines reality. Users depend on what they observe, and when that disagrees with documentation, behavior wins.</p>
+<p><strong>Believing &ldquo;undefined&rdquo; means &ldquo;free to change.&rdquo;</strong> Undefined behavior is still observable, and if it&rsquo;s observable, someone depends on it. Marking something undefined doesn&rsquo;t prevent dependencies. It just makes them harder to find.</p>
+<p><strong>Thinking you can deprecate implementation details.</strong> You can&rsquo;t deprecate what users never knew they were using. They didn&rsquo;t read a note saying &ldquo;this is an implementation detail.&rdquo; They just observed behavior and built on it, so the deprecation notice is invisible to the people who need to see it.</p>
+<p><strong>Expecting users to report dependencies.</strong> Users don&rsquo;t know they depend on implementation details until the behavior changes and their code breaks. By then, it&rsquo;s too late to ask.</p>
+<p><strong>Treating internal and external APIs differently.</strong> Internal APIs with many users face the same constraints as external ones. User count sets the boundary. Org chart position is irrelevant. A thousand internal users create the same dependency problems as a thousand external ones<sup><a href="#ref-2" title="Winters, Titus, Tom Manshreck, and Hyrum Wright (2020). Software Engineering at Google: Lessons Learned from Programming Over Time. O&#39;Reilly Media.">[2]</a></sup>.</p>
+<h2 id="put-it-into-practice">Put It Into Practice</h2>
+<p>Audit your APIs for observable behavior beyond the documented contract. Response timing, error message formats, result ordering, cleanup timing, and side effects all create implicit contracts whether you meant them to or not. Document them, or eliminate them.</p>
+<p>Build tooling to find dependencies before your users do. Static analysis catches some dependencies, runtime monitoring catches others, and Google&rsquo;s Kythe project indexes code relationships at a scale that makes large refactors possible<sup><a href="#ref-2" title="Winters, Titus, Tom Manshreck, and Hyrum Wright (2020). Software Engineering at Google: Lessons Learned from Programming Over Time. O&#39;Reilly Media.">[2]</a></sup>. Smaller teams can get most of the way there with grep and a call graph.</p>
+<p>When you change behavior, assume someone depends on it. Add the new behavior alongside the old, deprecate gradually, and watch for breakage. The cost of coordinating a change grows with the number of people who&rsquo;d notice it. Plan for that cost before you need it.</p>
+<hr>
+<h2 id="references">References</h2>
+<ol class="references">
+  <li id="ref-1">Wright, Hyrum (2020). "Hyrum's Law." Software Engineering at Google. <a href="https://www.hyrumslaw.com/">https://www.hyrumslaw.com/</a></li>
+  <li id="ref-2">Winters, Titus, Tom Manshreck, and Hyrum Wright (2020). <em>Software Engineering at Google: Lessons Learned from Programming Over Time</em>. O'Reilly Media. <a href="https://abseil.io/resources/swe-book">https://abseil.io/resources/swe-book</a></li>
+  <li id="ref-3">Parnas, David L. (1972). "On the Criteria To Be Used in Decomposing Systems into Modules." <em>Communications of the ACM</em>, 15(12): 1053-1058. <a href="https://dl.acm.org/doi/10.1145/361598.361623">https://dl.acm.org/doi/10.1145/361598.361623</a></li>
+  <li id="ref-4">Lehman, Meir M. (1980). "Programs, Life Cycles, and Laws of Software Evolution." <em>Proceedings of the IEEE</em>, 68(9): 1060-1076. <a href="https://ieeexplore.ieee.org/document/1456074">https://ieeexplore.ieee.org/document/1456074</a></li>
+  <li id="ref-5">Booch, Grady (1994). <em>Object-Oriented Analysis and Design with Applications, Second Edition</em>. Benjamin/Cummings. <a href="https://www.informit.com/store/object-oriented-analysis-and-design-with-applications-9780805353402">https://www.informit.com/store/object-oriented-analysis-and-design-with-applications-9780805353402</a></li>
+  <li id="ref-6">Van Rossum, Guido (2017). "PEP 520: Preserving Class Attribute Definition Order." Python Enhancement Proposals. <a href="https://www.python.org/dev/peps/pep-0520/">https://www.python.org/dev/peps/pep-0520/</a></li>
+  <li id="ref-7">Torvalds, Linus (2012). "We do not break userspace." Linux Kernel Mailing List. <a href="https://lkml.org/lkml/2012/12/23/75">https://lkml.org/lkml/2012/12/23/75</a></li>
+  <li id="ref-8">Brooker, Marc (2020). "Amazon S3 Update: Strong Read-After-Write Consistency." AWS News Blog. <a href="https://aws.amazon.com/blogs/aws/amazon-s3-update-strong-read-after-write-consistency/">https://aws.amazon.com/blogs/aws/amazon-s3-update-strong-read-after-write-consistency/</a></li>
+  <li id="ref-9">Andersen, Aaron (2008). "History of the Browser User-Agent String." WebAIM. <a href="https://webaim.org/blog/user-agent-string-history/">https://webaim.org/blog/user-agent-string-history/</a></li>
+</ol>
+<hr>
+<h2 id="outtakes">Outtakes</h2>
+<p><strong>The permanent leap day.</strong> Excel treats 1900 as a leap year, a bug copied from Lotus 1-2-3 for spreadsheet compatibility. February 29, 1900, never existed, but millions of spreadsheets now depend on Excel counting it, and Microsoft won&rsquo;t remove a day that isn&rsquo;t real (<a href="https://learn.microsoft.com/en-us/troubleshoot/microsoft-365-apps/excel/wrongly-assumes-1900-is-leap-year">Microsoft, 2024</a>).</p>
+<p><strong>The filename Windows still can&rsquo;t allow.</strong> CON, PRN, AUX, NUL, and COM1 through LPT9 are reserved device names left over from MS-DOS. In 2023, cloning the opnsense/tools repository on Windows failed outright because it contained a file named aux.conf (<a href="https://github.com/desktop/desktop/issues/17149">GitHub, 2023</a>).</p>
+<p><strong>Go named the law in its own source code.</strong> MaxBytesReader&rsquo;s error string, &ldquo;http: request body too large,&rdquo; had no structured type, so callers matched it by text. Go added a proper MaxBytesError type in 2022, but the string itself couldn&rsquo;t change. Too much code depended on it (<a href="https://go.dev/src/net/http/request.go#L1199">Go, n.d.</a>).</p>
+<p><strong>A security fix broke Steam, Discord, and MATLAB in one release.</strong> glibc 2.41 stopped automatically making a program&rsquo;s stack executable, closing a real security gap. Nobody had promised that behavior would last, but enough software depended on it that glibc shipped an emergency compatibility flag weeks later (<a href="https://www.phoronix.com/news/Glibc-WA-Steam-Exec-Stack">Phoronix, 2025</a>).</p>
+<p><strong>The button that slowed your PC down.</strong> Early PC games timed themselves off raw CPU cycles, so faster processors made them unplayably fast. The fix wasn&rsquo;t in software. 1980s and 1990s PCs shipped a &ldquo;turbo&rdquo; button that throttled the CPU back down to the original speed (<a href="https://en.wikipedia.org/wiki/Turbo_button">Wikipedia, n.d.</a>).</p>
+<hr>
+<h2 id="changelog">Changelog</h2>
+<p><strong>2026-07-19</strong> Initial publication.</p>
+
+      <hr>
+      
+      <div class="related">
+
+<h3>Similar articles:</h3>
+<ul>
+	
+	<li><a href="/posts/how-llms-work/">How LLMs Work</a></li>
+	
+</ul>
+</div>
+      
+    </div>
+    
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p></p>
+    
+  </div>
+</section>
+
+
+
+
+
+</body>
+</html>
+
