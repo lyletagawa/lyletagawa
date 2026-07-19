@@ -13,7 +13,7 @@
       <pubDate>Sun, 21 Jun 2026 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/t-digest/</guid>
-      <description>Your p99 latency might not be a percentile. Averaging percentiles across replicas produces a number, not a statistic, and t-digest is the sketch algorithm that fixes it at scale.</description>
+      <description>Your p99 latency might not be a percentile. Averaging percentiles across replicas produces a meaningless number, and t-digest is the sketch algorithm that fixes it at scale.</description>
       <media:content url="https://lyletagawa.com/images/t-digest.png" medium="image" />
     </item>
     

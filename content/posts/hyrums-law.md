@@ -1,12 +1,12 @@
 ---
 title: "Hyrum's Law"
-date: 2026-07-03
-publishdate: 2026-07-03
-lastmod: 2026-07-03
+date: 2026-07-19
+publishdate: 2026-07-19
+lastmod: 2026-07-19
 summary: "With enough users, every observable behavior becomes a depended-upon feature. Your implementation details become your API contract, regardless of documentation or intent."
 tags: ["api", "architecture", "compatibility"]
 image: /images/hyrums-law.jpg
-draft: true
+draft: false
 ---
 
 ![With enough users, every observable behavior becomes a depended-upon feature. Your implementation details become your API contract, regardless of documentation or intent.](/images/hyrums-law.jpg)
@@ -30,11 +30,11 @@ The principle applies beyond APIs. It governs any interface with multiple users,
 
 ## Why Implementation Details Become Contracts
 
-Users optimize for their immediate needs. They observe behavior, depend on it, and move on. The dependency becomes implicit knowledge, undocumented and forgotten{{< cite 3 "Parnas, David L. (1972). On the Criteria To Be Used in Decomposing Systems into Modules. Communications of the ACM, 15(12)." >}}.
+Users optimize for their immediate needs, observing behavior and depending on it before moving on. The dependency becomes implicit knowledge, undocumented and forgotten{{< cite 3 "Parnas, David L. (1972). On the Criteria To Be Used in Decomposing Systems into Modules. Communications of the ACM, 15(12)." >}}.
 
-**Timing dependencies emerge.** Your API responds in 50 milliseconds, and a client sets its timeout to 100 milliseconds, a comfortable margin based on what it's observed rather than on any documented SLA. You add a validation step, and response time creeps up to 150 milliseconds. The client's timeout starts firing, and requests that used to succeed now fail. The timing was never specified, but it was observable, and someone built on it anyway.
+**Timing dependencies emerge.** Your API responds in 50 milliseconds, and a client sets its timeout to 100 milliseconds, a comfortable margin based on observed behavior, since there's no documented SLA to go by. You add a validation step, and response time creeps up to 150 milliseconds. The client's timeout starts firing, and requests that used to succeed now fail. The timing was never specified, but it was observable, and someone built on it anyway.
 
-**Error messages become APIs.** Your function returns "Error: invalid input" for malformed data, and a client starts parsing that exact string to detect the error type. You improve the message to "Error: field 'email' must be valid email address," and the client breaks. It was never part of the contract. It was just visible.
+**Error messages become APIs.** Your function returns "Error: invalid input" for malformed data, and a client starts parsing that string to detect the error type. You improve the message to "Error: field 'email' must be valid email address," and the client breaks. It was never part of the contract. It was just visible.
 
 **Ordering becomes guaranteed.** Your database query happens to return results in primary key order, even though the documentation says order is undefined. Clients assume the current order and build pagination around it. Then you add an index, the query planner shifts, and results come back differently. Pagination breaks across the entire system.
 
@@ -44,7 +44,7 @@ Users optimize for their immediate needs. They observe behavior, depend on it, a
 
 Small systems can coordinate changes. Large systems cannot.
 
-At ten users, you know them all, and you can coordinate breaking changes directly. At one thousand, you know few of them, hidden dependencies multiply, and breaking changes require migration tools and long deprecation windows. At a hundred thousand, you know almost none of them. Hidden dependencies dominate. The observable behavior is the contract{{< cite 5 "Booch, Grady (1994). Object-Oriented Analysis and Design with Applications, Second Edition. Benjamin/Cummings." >}}.
+At ten users, you know them all, and you can coordinate breaking changes directly. At one thousand, you know few of them, hidden dependencies multiply, and breaking changes require migration tools and long deprecation windows. At a hundred thousand, you know almost none of them, and hidden dependencies dominate. The observable behavior is the contract{{< cite 5 "Booch, Grady (1994). Object-Oriented Analysis and Design with Applications, Second Edition. Benjamin/Cummings." >}}.
 
 Google's experience shows this at extreme scale. Changing a widely-used internal API requires automated tooling just to find and update every call site, and even then some dependencies hide in generated code, reflection, or dynamic dispatch. The cost of a change grows faster than the number of users who make it{{< cite 2 "Winters, Titus, Tom Manshreck, and Hyrum Wright (2020). Software Engineering at Google: Lessons Learned from Programming Over Time. O'Reilly Media." >}}.
 
@@ -54,13 +54,13 @@ Python's dictionary iteration order illustrates the principle. Before Python 3.7
 
 Linux system calls show how a contract can become permanent. The kernel maintains binary compatibility with userspace, and every syscall behavior, bugs included, becomes part of the permanent API. Linus Torvalds put it plainly: "we do not break userspace"{{< cite 7 "Torvalds, Linus (2012). We do not break userspace. Linux Kernel Mailing List." >}}.
 
-AWS S3's eventual consistency created an implicit contract of its own. Applications built retry logic around the delay between a write and a read reflecting it. When S3 added strong consistency, some of those applications broke, because they'd built timing assumptions into code where only the consistency model, not the timing, was ever documented{{< cite 8 "Brooker, Marc (2020). Amazon S3 Update: Strong Read-After-Write Consistency. AWS News Blog." >}}.
+AWS S3's eventual consistency created an implicit contract of its own. Applications built retry logic around the delay between a write and a read reflecting it. When S3 added strong consistency, some of those applications broke, because they'd built timing assumptions into code, and only the consistency model was ever documented, never the specific timing{{< cite 8 "Brooker, Marc (2020). Amazon S3 Update: Strong Read-After-Write Consistency. AWS News Blog." >}}.
 
 Browser user-agent strings show how a workaround outlives its reason. Early sites only served frames to browsers claiming "Mozilla," so every browser claimed it too. WebKit claimed to be KHTML, KHTML claimed Gecko, and Chrome ships a string naming four engines it isn't running{{< cite 9 "Andersen, Aaron (2008). History of the Browser User-Agent String. WebAIM." >}}. Nobody can drop the claims without breaking sites sniffing for them.
 
 ## Common Mistakes
 
-**Assuming documentation defines the contract.** Documentation describes intent. Observable behavior defines reality. Users depend on what they observe, not what you wrote down, and when the two disagree, behavior wins.
+**Assuming documentation defines the contract.** Documentation describes intent, but observable behavior defines reality. Users depend on what they observe, and when that disagrees with documentation, behavior wins.
 
 **Believing "undefined" means "free to change."** Undefined behavior is still observable, and if it's observable, someone depends on it. Marking something undefined doesn't prevent dependencies. It just makes them harder to find.
 
@@ -68,13 +68,13 @@ Browser user-agent strings show how a workaround outlives its reason. Early site
 
 **Expecting users to report dependencies.** Users don't know they depend on implementation details until the behavior changes and their code breaks. By then, it's too late to ask.
 
-**Treating internal and external APIs differently.** Internal APIs with many users face the same constraints as external ones. The boundary is user count, not org chart. A thousand internal users create the same dependency problems as a thousand external ones{{< cite 2 "Winters, Titus, Tom Manshreck, and Hyrum Wright (2020). Software Engineering at Google: Lessons Learned from Programming Over Time. O'Reilly Media." >}}.
+**Treating internal and external APIs differently.** Internal APIs with many users face the same constraints as external ones. User count sets the boundary. Org chart position is irrelevant. A thousand internal users create the same dependency problems as a thousand external ones{{< cite 2 "Winters, Titus, Tom Manshreck, and Hyrum Wright (2020). Software Engineering at Google: Lessons Learned from Programming Over Time. O'Reilly Media." >}}.
 
 ## Put It Into Practice
 
 Audit your APIs for observable behavior beyond the documented contract. Response timing, error message formats, result ordering, cleanup timing, and side effects all create implicit contracts whether you meant them to or not. Document them, or eliminate them.
 
-Build tooling to find dependencies before your users do. Static analysis catches some. Runtime monitoring catches others. Google's Kythe project indexes code relationships at a scale that makes large refactors possible{{< cite 2 "Winters, Titus, Tom Manshreck, and Hyrum Wright (2020). Software Engineering at Google: Lessons Learned from Programming Over Time. O'Reilly Media." >}}, and smaller teams can get most of the way there with grep and a call graph.
+Build tooling to find dependencies before your users do. Static analysis catches some dependencies, runtime monitoring catches others, and Google's Kythe project indexes code relationships at a scale that makes large refactors possible{{< cite 2 "Winters, Titus, Tom Manshreck, and Hyrum Wright (2020). Software Engineering at Google: Lessons Learned from Programming Over Time. O'Reilly Media." >}}. Smaller teams can get most of the way there with grep and a call graph.
 
 When you change behavior, assume someone depends on it. Add the new behavior alongside the old, deprecate gradually, and watch for breakage. The cost of coordinating a change grows with the number of people who'd notice it. Plan for that cost before you need it.
 
@@ -102,9 +102,9 @@ When you change behavior, assume someone depends on it. Add the new behavior alo
 
 **The filename Windows still can't allow.** CON, PRN, AUX, NUL, and COM1 through LPT9 are reserved device names left over from MS-DOS. In 2023, cloning the opnsense/tools repository on Windows failed outright because it contained a file named aux.conf ([GitHub, 2023](https://github.com/desktop/desktop/issues/17149)).
 
-**Go named the law in its own source code.** MaxBytesReader used to return a bare error string, "http: request body too large", with no structured type behind it, so callers detected it by matching that exact text. In 2022, Go added an exported MaxBytesError type so new code could check it properly, but the string itself couldn't change. Too much existing code already matched it. The comment above the string says, "Due to Hyrum's law, this text cannot be changed" ([Go, n.d.](https://go.dev/src/net/http/request.go#L1199)).
+**Go named the law in its own source code.** MaxBytesReader's error string, "http: request body too large," had no structured type, so callers matched it by text. Go added a proper MaxBytesError type in 2022, but the string itself couldn't change. Too much code depended on it ([Go, n.d.](https://go.dev/src/net/http/request.go#L1199)).
 
-**A security fix broke Steam, Discord, and MATLAB in one release.** glibc 2.41 stopped automatically making a program's stack executable, closing a real security gap. Nobody had promised that behavior would last, but enough software silently depended on it that glibc shipped an emergency compatibility flag weeks later ([Phoronix, 2025](https://www.phoronix.com/news/Glibc-WA-Steam-Exec-Stack)).
+**A security fix broke Steam, Discord, and MATLAB in one release.** glibc 2.41 stopped automatically making a program's stack executable, closing a real security gap. Nobody had promised that behavior would last, but enough software depended on it that glibc shipped an emergency compatibility flag weeks later ([Phoronix, 2025](https://www.phoronix.com/news/Glibc-WA-Steam-Exec-Stack)).
 
 **The button that slowed your PC down.** Early PC games timed themselves off raw CPU cycles, so faster processors made them unplayably fast. The fix wasn't in software. 1980s and 1990s PCs shipped a "turbo" button that throttled the CPU back down to the original speed ([Wikipedia, n.d.](https://en.wikipedia.org/wiki/Turbo_button)).
 
@@ -112,4 +112,4 @@ When you change behavior, assume someone depends on it. Add the new behavior alo
 
 ## Changelog
 
-**2026-07-03** Initial publication.
+**2026-07-19** Initial publication.

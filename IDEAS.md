@@ -10,12 +10,27 @@ Exist in `content/posts/` as `draft: true`. Finish these first.
 | The Overton Window | `overton-window.md` | How to shift the range of acceptable proposals before making the ask |
 | Conway's Law in the Age of Agentic AI | `conways-law-agentic-ai.md` | AI agent access permissions as a communication structure |
 | The Andon Cord | `andon-cord.md` | Toyota's stop-the-line authority given to any worker — the software equivalent is deploying a culture that makes stopping cheap |
-| Distributed Causation | `distributed-causation.md` | Incidents don't have single causes; they have contributing factors spread across people, systems, and time |
 | The Ironies of Automation | `ironies-of-automation.md` | Automation degrades the human skill it needs as a fallback — the more reliable the system, the less prepared humans are when it fails |
 | Normal Accident Theory | `normal-accident-theory.md` | Complex, tightly coupled systems will inevitably fail regardless of effort — some accidents aren't preventable, they're structural |
 | Normalization of Deviance | `normalization-of-deviance.md` | Teams gradually accept dangerous deviations as normal when nothing bad happens; each success makes the next deviation easier to justify |
 | Requisite Imagination | `requisite-imagination.md` | The capacity to imagine failure modes that haven't happened yet — what chaos engineering tries to institutionalize |
 | The Spiral of Silence | `spiral-of-silence.md` | People with minority views stay quiet to avoid social isolation; their silence gets read as agreement, which makes the dominant view look stronger than it is |
+| The People Closest to the Work | `closest-to-the-work.md` | The people running a process see problems and fixes that management, several layers removed, never will — Deming's philosophy of trusting frontline knowledge |
+| Confabulation | `confabulation.md` | Cognitive science already built rigorous tests for confidently wrong explanations, decades before anyone had a transformer to test |
+| Curiosity | `curiosity.md` | Curiosity is triggered by the gap between what you know and what you want to know — organizations that reward answers over questions close that gap the wrong way |
+| Disagreeable Giver | `disagreeable-giver.md` | Whether feedback feels harsh or pleasant tells you nothing about whether the person giving it is actually trying to help you |
+| First Principles | `first-principles.md` | Barely started — just a reference link (fpt.guide), no draft content yet |
+| The Flywheel Effect | `flywheel-effect.md` | A thousand small, consistent turns compound into momentum — no single turn looks like the breakthrough |
+| Luck | `luck.md` | Hard work gets you into the game; luck determines much of the rest, and successful people underestimate how much of it they had |
+| The Luddites Were Right | `luddites.md` | The original Luddites weren't against machines — they were against wages being destroyed by machines, an argument being remade today |
+| Maslow's Hammer | `maslows-hammer.md` | Deep expertise in one tool makes you reach for it even when a different one solves the problem better |
+| Napkin Maths | `napkin-maths.md` | A back-of-envelope calculation gets you within 10x of the truth in five minutes, using a handful of memorized numbers |
+| Negative Capability | `negative-capability.md` | Keats' term for staying in uncertainty without reaching for premature answers — where the best debugging and architecture decisions start |
+| Off the Critical Path | `off-the-critical-path.md` | The critical path determines how fast a system can run — moving work off it is often the fastest optimization available |
+| n% of People Are Not Cut Out to Join a Startup | `startups.md` | Very early draft, rough prose on what makes someone suited to startup chaos, not yet fact-checked or structured |
+| Stochastic Parrot | `stochastic-parrot.md` | A language model that generates fluent text without understanding it — the term that cost its coiner her job at Google |
+| Trie | `trie.md` | A trie stores strings by character, one per node, so prefix search comes free with the structure |
+| The Vantasner Danger Meridian | `vantasner-danger-meridian.md` | The threshold past which danger to your mission increases exponentially — recognizing it before crossing separates deliberate risk from drift |
 
 ---
 
@@ -24,12 +39,12 @@ Exist in `content/posts/` as `draft: true`. Finish these first.
 
 | Concept | Source | Post Angle | Status / Closest Existing |
 |---|---|---|---|
-| ~~Bloom Filters~~ | ~~Bloom, 1970~~ | ~~A probabilistic structure that trades exactness for space~~ | **draft** — `bloom-filter.md` |
+| ~~Bloom Filters~~ | ~~Bloom, 1970~~ | ~~A probabilistic structure that trades exactness for space~~ | **published** — `bloom-filter.md` |
 | ~~Little's Law~~ | ~~Little, 1961~~ | ~~L = λW. Three numbers run every queue, you pick two~~ | **draft** — `littles-law.md` |
 | ~~The Tail at Scale~~ | ~~Dean & Barroso, 2013~~ | ~~Latency percentiles fan out under load; p99 is a system property~~ | **draft** — `the-tail-at-scale.md` |
 | ~~Backpressure~~ | ~~Reactive Streams, 2015~~ | ~~The signal that slows a producer instead of dropping data~~ | **draft** — `backpressure.md` |
 | ~~Bufferbloat~~ | ~~Gettys & Nichols, 2011~~ | ~~Oversized buffers hoard packets and trade throughput for seconds of lag~~ | **draft** — `bufferbloat.md` |
-| ~~TCP Congestion Control~~ | ~~Jacobson, 1988~~ | ~~AIMD, the sawtooth, and what Linux and FreeBSD actually ship~~ | **draft** — `tcp-congestion-control.md` |
+| ~~TCP Congestion Control~~ | ~~Jacobson, 1988~~ | ~~AIMD, the sawtooth, and what Linux and FreeBSD actually ship~~ | **published** — `tcp-congestion-control.md` (titled "From Reno to BBR") |
 | ~~Head-of-Line Blocking~~ | ~~Karol et al., 1987~~ | ~~One stuck item at the front of a shared queue stalls everything behind it~~ | **draft** — `head-of-line-blocking.md` |
 | ~~Retrieval-Augmented Generation~~ | ~~Lewis et al., 2020~~ | ~~Grounding an LLM by retrieving evidence at query time~~ | **draft** — `retrieval-augmented-generation.md` |
 | Coordinated Omission | Tene, 2014 | The load test reports a false p99 because the slow requests never got sent | The Tail at Scale |
@@ -46,13 +61,13 @@ Exist in `content/posts/` as `draft: true`. Finish these first.
 
 | Concept | Source | Post Angle | Closest Existing |
 |---|---|---|---|
-| ~~Goodhart's Law~~ | ~~Goodhart, 1975~~ | ~~When a measure becomes a target it ceases to be a good measure~~ | **draft** — `goodharts-law.md` |
+| ~~Goodhart's Law~~ | ~~Goodhart, 1975~~ | ~~When a measure becomes a target it ceases to be a good measure~~ | **published** — `goodharts-law.md` |
 | Campbell's Law | Campbell, 1976 | Direct companion to Goodhart's: social indicators corrupt under decision-making pressure | Jevons Paradox |
 | The Planning Fallacy | Kahneman & Tversky, 1979 | Systematic underestimation of time and cost even when historical data says otherwise | Vantasner Danger Meridian |
 | ~~Hofstadter's Law~~ | ~~Hofstadter, 1979~~ | ~~Always takes longer than expected, even accounting for Hofstadter's Law~~ | **draft** — `hofstadters-law.md` |
 | ~~Little's Law~~ | ~~Little, 1961~~ | ~~Queuing theory applied to WIP limits and engineering throughput~~ | **draft** — `littles-law.md` |
 | ~~Parkinson's Law of Triviality~~ | ~~Parkinson, 1957~~ | ~~Committees fixate on trivial decisions — long debates about variable names, silence on architecture~~ | **draft** — `parkinsons-law-of-triviality.md` |
-| Brooks' Law | Brooks, 1975 | Adding people to a late project makes it later — the math behind communication overhead | Team Topologies |
+| ~~Brooks' Law~~ | ~~Brooks, 1975~~ | ~~Adding people to a late project makes it later — the math behind communication overhead~~ | **published** — `brooks-law.md` |
 | ~~Gall's Law~~ | ~~Gall, 1977~~ | ~~Complex systems that work evolved from simple systems that worked~~ | **draft** — `galls-law.md` |
 | The Second System Effect | Brooks, 1975 | The second project is always over-engineered — how engineers overcorrect from the first | Gall's Law |
 | The Law of Leaky Abstractions | Spolsky, 2002 | All non-trivial abstractions leak — the gap between interface promise and implementation reality | Hyrum's Law |

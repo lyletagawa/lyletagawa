@@ -1,6 +1,7 @@
 ---
 description: Author a new Hugo blog post or edit an existing one. Enforces voice, style, citation, and structure rules.
 argument-hint: "[topic] or [path to existing post]"
+disable-model-invocation: true
 ---
 
 # Blog Post
@@ -25,16 +26,17 @@ Author a new Hugo blog post or edit an existing one. Follow all rules below prec
 - Define obscure acronyms on first use: write out the full term followed by the abbreviation in parentheses, e.g. "feed-forward network (FFN)." Use the abbreviation alone on subsequent mentions.
 - No rhetorical questions used as section openers or transitions.
 - No filler phrases: "it's worth noting," "it's important to remember," "in other words," "at the end of the day," "needless to say," "this is crucial."
-- Banned phrases: "is a testament," "underscores its importance/significance," "reflects broader," "symbolizing its ongoing/enduring/lasting," "setting the stage for," "marking/shaping the," "represents/marks a shift," "key turning point," "evolving landscape," "focal point," "indelible mark," "deeply rooted," "a vital/significant/crucial/pivotal/key role/moment," "boasts," "bolstered," "fostering," "garner," "interplay," "intricacies," "tapestry," "vibrant," "delve," "genuinely."
-- No hedging language: "somewhat," "rather," "quite," "very," "fairly."
+- Banned phrases: "is a testament," "underscores its importance/significance," "reflects broader," "symbolizing its ongoing/enduring/lasting," "setting the stage for," "marking/shaping the," "represents/marks a shift," "key turning point," "evolving landscape," "focal point," "indelible mark," "deeply rooted," "a vital/significant/crucial/pivotal/key role/moment," "boasts," "bolstered," "fostering," "garner," "interplay," "intricacies," "tapestry," "vibrant," "delve," "genuine," "genuinely," "seam," "honest," "honestly," "honest take," "load bearing," "exact," "exactly," "sit with that/this/it," "you already know," "that's/this is the whole point/game/thing," "is the entire point/game/business model," "the punchline."
+- No hedging language: "somewhat," "rather," "quite," "very," "fairly." State the claim at full strength.
 - No meta-commentary about the article itself ("this article explores," "we will examine," "as discussed above").
 - No academic register: avoid "it can be observed," "this suggests," "one might argue," "the literature indicates." Say the thing directly.
 - Avoid lead-ins that introduce citations like footnotes: "Research by X shows that..." or "According to X..." — fold the person into the sentence naturally or state the finding and cite it inline.
 - Avoid vague attributions and overgeneralizations: "many experts believe," "researchers agree," "some argue," "critics say," "people often think," "it is widely accepted." Name the source or cut the attribution.
 - Assertions must be backed by an inline citation using the cite shortcode: `{{< cite n "Author (Year). Title. Publisher." >}}`. Assign numbers sequentially in order of first appearance. All cited works must appear in the References section with a valid URL. Place the shortcode immediately after the preceding word with no space before it and no space after it: `word{{< cite 1 "..." >}}.` not `word {{< cite 1 "..." >}}.`
+- Prefer original sources over third-party sources. Order of preference: the primary document (the paper, book, patent, statute, transcript, or firsthand account itself) > an official publisher or organization page > reputable journalism > secondary blogs or aggregators. Avoid citing Wikipedia, Medium, and other crowdsourced or blogging platforms when a primary or official source is available and verifiable. Only fall back to a third-party source when no better one exists. Crowdsourced sites and blogs are fine to use during research to locate and identify the underlying primary source, the restriction is on what gets cited, not what's read along the way. archive.org is a good tool for both, it often hosts the scanned original document itself (old journal issues, out-of-print books, primary records), which makes it a legitimate citation target, not just a research stop.
 - The hero image alt text must be the frontmatter `summary` value verbatim: `![{summary text}](image-url)`.
 - Never include tracking parameters in URLs: strip `utm_source=`, `utm_medium=`, `utm_campaign=`, `utm_term=`, `utm_content=`, and `referrer=` query arguments before using any URL.
-- Avoid patterns that read as AI-generated: excessive parallelism in bullet lists, transitions that summarize what was just said, conclusions that restate the introduction verbatim, overly formal academic language, the "it's not X, it's Y" reframe construction.
+- Avoid patterns that read as AI-generated: excessive parallelism in bullet lists, transitions that summarize what was just said, conclusions that restate the introduction verbatim, overly formal academic language, the "it's not X, it's Y" reframe construction (including variants like "X, not Y" and "not X, but Y"), the "don't verb it, verb it" construction, the "the X is real, and/not..." construction.
 
 **Tone and humor:**
 - Use dry humor to land key points, especially after concrete examples.
@@ -55,7 +57,14 @@ Author a new Hugo blog post or edit an existing one. Follow all rules below prec
 - **Intro section**: Open with a specific, concrete situation or observation that creates tension or curiosity. Drop the reader mid-scene without preamble. Avoid dictionary definitions and "Have you ever..." constructions.
 
 ### Closing Section
-Choose the title that best fits the post's intent — see the Template for options. Regardless of title, the closing section must be 2–3 paragraphs maximum, end with a direct call to action or closing thought, and not summarize what the article already said.
+Choose the title that best fits the post's intent:
+- **"Put It Into Practice"** — when the post is actionable and the reader can change behavior immediately.
+- **"What To Do About It"** — when the post diagnoses a problem and the closing is remediation-focused.
+- **"How to Succeed"** — when the concept is a positive practice and the closing is about doing it well.
+- **"Conclusion"** — when the concept is primarily explanatory and a direct call to action would feel forced.
+- Other titles are allowed if none of the above fit.
+
+Regardless of title, the closing section must be 2–3 paragraphs maximum, end with a direct call to action or closing thought, and not summarize what the article already said.
 
 ### Sections After Body
 The body sections must be followed in this order:
@@ -64,92 +73,47 @@ The body sections must be followed in this order:
 3. `## Outtakes` — optional. 2–5 short anecdotes that didn't fit the main article. See the Template for format rules.
 4. `## Changelog` — one entry per calendar day, listed in reverse chronological order with the newest entry at the top. Format: `**YYYY-MM-DD** Brief description of changes.` If an entry for a given date already exists, fold new changes into that day's entry rather than adding a second entry for the same day. The first (oldest) entry, marking the post's creation, stays simple and needs no description of changes (for example `Initial release`, `Initial draft`, or `Initial publish`).
 
+### Verification Checklist
+Confirm every item below before reporting the work done. This is the single checklist for both authoring and editing.
+- Word count 800–1,200 (body only, excluding frontmatter, References, Outtakes, Changelog).
+- Frontmatter summary under 36 words, two sentences maximum.
+- Frontmatter tags: three maximum, single words only.
+- No em-dashes, en-dashes, or semicolons anywhere in the post.
+- No curly/smart quotes anywhere.
+- Colons minimized in prose (frontmatter and References formatting are exempt).
+- No emoji.
+- No rhetorical questions used as section openers or transitions.
+- No filler phrases or banned phrases (see Voice and Style) present.
+- No hedging language present.
+- No meta-commentary about the article itself.
+- No academic-register phrases.
+- No footnote-style citation lead-ins.
+- No vague attributions or overgeneralizations.
+- Every assertion has an inline citation, numbered sequentially in order of first appearance.
+- Every citation has a matching References entry with a valid URL.
+- Cited sources prefer primary or official sources over third-party ones.
+- Hero image alt text matches the frontmatter summary verbatim.
+- No tracking parameters in any URL.
+- No patterns that read as AI-generated.
+- Section headings are 3–5 words, verb-first and opinionated.
+- Intro opens mid-scene, no dictionary-definition opener.
+- A critical section and a closing section are both present.
+- Closing section is 2–3 paragraphs, ends with a direct call to action, and doesn't summarize the post.
+- Sections after the body are in order: Further Reading (optional), References, Outtakes (optional), Changelog.
+- Each Outtake is under 50 words and has a working href.
+- Changelog has an entry for today, folded into an existing same-day entry if one already exists.
+
 ## Template
 
-Use this skeleton. Replace all placeholder values. Do not alter the frontmatter field names or section order.
-
-```markdown
----
-title: ""
-date: YYYY-MM-DD
-publishdate: YYYY-MM-DD
-lastmod: YYYY-MM-DD
-summary: ""
-tags: []
-image: 
-draft: true
----
-
-![{{summary}}]()
-*"Caption text." Photo: [Author (Year)](url). License.*
-
-## [Title]
-
-[Introductory paragraph(s). Concrete, specific, creates tension or curiosity. 2–3 short paragraphs maximum.]
-
-## What Is [Title]?
-
-[Define the concept with historical or foundational context. Cite the primary source. 2–3 paragraphs.]
-
-## [Section titles and structure here are determined by the topic]
-
-[Define as many sections as the topic warrants. Section titles should reflect the specific content, not a generic formula. A post on a paradox will have different natural sections than a post on a leadership practice or a technical pattern. Use bold inline headers, numbered subsections, or plain prose as the content dictates. Include concrete examples from real organizations with citations where appropriate.]
-
-## [Critical Section]
-
-Choose the section title that best fits the concept:
-- **"Common Mistakes"** — when the primary risk is misapplication: people understand the concept but use it wrong.
-- **"Counterarguments"** — when there are legitimate opposing positions worth steelmanning.
-- **"Limits"** or **"Where This Breaks Down"** — when the concept is sound but has meaningful scope constraints or failure modes.
-- Other titles are allowed if none of the above fit.
-
-Regardless of title: use bold inline headers for each point, 3–5 items maximum, cite where applicable.
-
-## [Closing Section]
-
-Choose the section title that best fits the concept:
-- **"Put It Into Practice"** — when the post is actionable and the reader can change behavior immediately.
-- **"What To Do About It"** — when the post diagnoses a problem and the closing is remediation-focused.
-- **"How to Succeed"** — when the concept is a positive practice and the closing is about doing it well.
-- **"Conclusion"** — when the concept is primarily explanatory and a direct call to action would feel forced.
-- Other titles are allowed if none of the above fit.
-
-Regardless of title: 2–3 tight paragraphs maximum. End with a direct, specific call to action or closing thought. Do not summarize what the article already said.
-
-## [Further Reading Section]
-
-Choose a title: "What This Doesn't Cover," "Go Further," "Keep Going," "Dig Deeper," or similar.
-
-[2–4 items using bold inline headers. Each names an advanced topic the post doesn't cover, says what the reader will find there, and cites a source. Citations appear in References like all other inline citations.]
-
----
-
-## References
-
-<ol class="references">
-  <li id="ref-1">Author, First (Year). <em>Title</em>. Publisher. <a href="url">url</a></li>
-</ol>
-
----
-
-## Outtakes
-
-[Optional. 2–4 short anecdotes related to the topic that didn't fit the main article. Each should be fun, quirky, or surprising — complementary to the topic but outside its narrow scope. Format each as a bold title followed by prose. No bullet points. Each outtake must be under 50 words. Every factual claim needs a citation in `([Author, Year](url))` format, the author/year wrapped in a markdown link to the source, so the reader can click through. Outtakes citations do not get a numbered `{{< cite n >}}` shortcode and do not appear in the References section, but the href is still required.]
-
----
-
-## Changelog
-
-**YYYY-MM-DD** Initial release.
-```
+The full skeleton lives in `new-post-template.md`, in this directory. Read it when drafting a new post (step 3 below). Editing an existing post never needs it.
 
 ## Instructions
 
 ### Authoring a new post
 1. Ask the user for the topic if not provided as an argument.
 2. Research the topic: find the primary source(s) and 2–3 supporting references with valid URLs before drafting.
-3. Draft the full post using the template above. Set `draft: true`.
-4. After drafting, verify: word count is 800–1,200, frontmatter summary is under 36 words, no em-dashes or en-dashes are present, all assertions have inline citations, all citations have corresponding references with URLs, a critical section and a closing section are present, the post ends with the closing section followed by References then Changelog.
+3. Read `new-post-template.md` and draft the full post using its skeleton. Set `draft: true`.
+4. Run the Verification Checklist above.
 5. Report word count and any rule violations found.
 
 ### Editing an existing post
@@ -158,11 +122,11 @@ Run two full passes. Complete all steps of pass 1 before starting pass 2.
 **Pass 1**
 1. Read the file before making any changes.
 2. Apply the same writing rules above to all edits — voice, style, structure, citation, and word count constraints apply regardless of whether content is new or revised. Do not change the `draft` field.
-3. Do a tightening pass: cut filler and redundant phrases, remove LLM-cliché transitions (e.g. "in conclusion," "it's worth noting," "it's important to remember"), and shorten without changing meaning.
+3. Do a tightening pass: cut filler and redundant phrases per Voice and Style above, remove LLM-cliché transitions (e.g. "in conclusion"), and shorten without changing meaning.
 4. Do a consistency pass: confirm all reference URLs are valid, confirm every factual assertion has an inline citation, confirm assertions are consistent with the evidence presented in the article, confirm that any example used more than once is described consistently each time.
 5. After editing, update `lastmod` in the frontmatter to today's date.
 6. Record the change in the Changelog: `**YYYY-MM-DD** Brief description.  ` (include the trailing whitespace). Entries run newest-first, so place today's entry at the top of the list. If an entry for today's date already exists, revise it to cover this change rather than adding a second entry for the same day.
-7. Re-verify the full rule checklist: word count 800–1,200, no em-dashes or en-dashes or semicolons, all assertions cited, all citations in References with URLs.
+7. Run the Verification Checklist above.
 8. Report word count before and after, and any rule violations found.
 
 **Pass 2**

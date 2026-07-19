@@ -2,29 +2,29 @@
 title: "Percentiles Don't Add Up"
 date: 2026-06-21
 publishdate: 2026-06-21
-lastmod: 2026-06-21
-summary: "Your p99 latency might not be a percentile. Averaging percentiles across replicas produces a number, not a statistic, and t-digest is the sketch algorithm that fixes it at scale."
+lastmod: 2026-07-19
+summary: "Your p99 latency might not be a percentile. Averaging percentiles across replicas produces a meaningless number, and t-digest is the sketch algorithm that fixes it at scale."
 tags: ["observability", "metrics"]
 image: /images/t-digest.png
 draft: false
 ---
 
-![Your p99 latency might not be a percentile. Averaging percentiles across replicas produces a number, not a statistic, and t-digest is the sketch algorithm that fixes it at scale.](/images/t-digest.png)
+![Your p99 latency might not be a percentile. Averaging percentiles across replicas produces a meaningless number, and t-digest is the sketch algorithm that fixes it at scale.](/images/t-digest.png)
 *Image: [Davidson-Pilon, Cameron (2015)](https://web.archive.org/web/20230319061101/https://dataorigami.net/2015/03/19/Percentile-and-Quantile-Estimation-of-Big-Data-The-t-Digest.html). "Percentile and Quantile Estimation of Big Data: The t-Digest." DataOrigami.*
 
 ## Percentiles Don't Add Up
 
-An on-call engineer was paged on a Saturday. Users were reporting three-second load times. The engineer checked the dashboard. p99 latency: 180ms. Stable for weeks.
+An on-call engineer was paged on a Saturday, users reporting three-second load times. The engineer checked the dashboard. p99 latency: 180ms, stable for weeks.
 
-But the 180ms was meaningless. Six replicas were each computing a local p99 and shipping it to the monitoring system. The system averaged them, which produced a number, not a percentile. One replica was saturated while the others were fine. The saturated replica disappeared into the average. The fleet's actual p99 was 2.8 seconds.
+But the 180ms was meaningless. Six replicas were each computing a local p99 and shipping it to the monitoring system. The system averaged them, which produced a meaningless number instead of a percentile. One replica was saturated while the others were fine, and that saturated replica disappeared into the average. The fleet's actual p99 was 2.8 seconds.
 
-## Why Exact Percentiles Don't Scale
+## Why Percentiles Don't Scale
 
 A percentile is a statement about rank. The 99th percentile of a set of latencies is the value below which 99% of requests fall. Computing it requires sorting the full set, which means keeping every data point.
 
 At scale, this is impractical. A service handling ten thousand requests per second accumulates 864 million latency values per day. Storing and sorting that dataset to answer "what was the p99 in the last five minutes?" isn't feasible in production.
 
-Monitoring systems solve this with sketches. A sketch compresses a large dataset into a compact structure that answers statistical queries with a predictable error ceiling, using a fraction of the memory that exact computation would require. The ceiling is configured when you create the sketch. More memory buys tighter accuracy.
+Monitoring systems solve this with sketches. A sketch compresses a large dataset into a compact structure that answers statistical queries with a predictable error ceiling, using a fraction of the memory that computing it directly would require. The ceiling is configured when you create the sketch. More memory buys tighter accuracy.
 
 ## What t-Digest Does
 
@@ -36,7 +36,7 @@ The compression is dramatic. A thousand latency measurements compress into dozen
 
 Centroids near the tails are small and numerous, each representing few data points. Centroids near the median are large and few, each covering many values{{< cite 1 "Dunning, Ted and Otmar Ertl (2019). Computing Extremely Accurate Quantiles Using t-Digests. arXiv:1902.04023." >}}.
 
-This asymmetry matches how you use latency metrics. In large distributed systems, the slowest requests determine what users experience, not the average. Jeff Dean and Luiz André Barroso made that case in 2013, and the industry shifted toward percentile-based SLOs as a result{{< cite 3 "Dean, Jeff and Luiz André Barroso (2013). The Tail at Scale. Communications of the ACM, 56(2): 74-80." >}}.
+This asymmetry matches how you use latency metrics. In large distributed systems, the slowest requests determine what users experience. The average doesn't capture that. Jeff Dean and Luiz André Barroso made that case in 2013, and the industry shifted toward percentile-based SLOs as a result{{< cite 3 "Dean, Jeff and Luiz André Barroso (2013). The Tail at Scale. Communications of the ACM, 56(2): 74-80." >}}.
 
 A compression parameter δ is configured when creating a t-digest instance. It sets a limit on how many centroids the sketch is allowed to maintain{{< cite 1 "Dunning, Ted and Otmar Ertl (2019). Computing Extremely Accurate Quantiles Using t-Digests. arXiv:1902.04023." >}}. Raising δ improves accuracy at the cost of size.
 
@@ -95,9 +95,9 @@ t-digest is the widely deployed answer to query-time quantile computation, with 
 
 ## Outtakes
 
-**The sketch family.** t-digest belongs to a family of probabilistic data structures called sketches. HyperLogLog estimates cardinality. Count-min sketch estimates frequency. Bloom filters test set membership. Each trades exactness for a fixed memory budget. t-digest does the same for rank statistics ([Cormode and Muthukrishnan, 2005](https://doi.org/10.1016/j.jalgor.2003.12.001)).
+**The sketch family.** t-digest belongs to a family of probabilistic data structures called sketches. HyperLogLog estimates cardinality. Count-min sketch estimates frequency. Bloom filters test set membership. Each trades precision for a fixed memory budget. t-digest does the same for rank statistics ([Cormode and Muthukrishnan, 2005](https://doi.org/10.1016/j.jalgor.2003.12.001)).
 
-**The average of averages.** If Group A (10 people, $50K average) and Group B (100 people, $100K average) merge, the combined average is $95.4K, not $75K. Averaging the group averages loses the size information. Percentiles fail for the same reason.
+**The average of averages.** If Group A (10 people, $50K average) and Group B (100 people, $100K average) merge, the combined average is $95.4K. A naive average of the two group averages gives $75K, which loses the size information. Percentiles fail for the same reason.
 
 **The exponential histogram alternative.** OpenTelemetry's exponential histograms use a similar principle through a different mechanism: bucket boundaries scale geometrically, concentrating precision at the tails without upfront configuration. Both solve the same problem from different directions ([OpenTelemetry, 2024](https://opentelemetry.io/docs/specs/otel/metrics/data-model/#exponential-histograms)).
 

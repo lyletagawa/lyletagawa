@@ -2,7 +2,7 @@
 title: "From Reno to BBR"
 date: 2026-07-03
 publishdate: 2026-07-03
-lastmod: 2026-07-03
+lastmod: 2026-07-19
 summary: "No one tells TCP how fast to send. Forty years of algorithms, from Reno to BBR, have tried to teach it, and the one in your kernel still chases a ceiling."
 tags: ["networking", "protocols", "latency"]
 image: /images/tcp-congestion-control.png
@@ -44,7 +44,7 @@ CUBIC is faster and smarter, and it still uses the same loss-based model as Reno
 
 In 2016 a team at Google asked why loss should be the signal at all{{< cite 4 "Cardwell, Neal, et al. (2016). BBR: Congestion-Based Congestion Control. ACM Queue 14(5)." >}}. Their algorithm, BBR (bottleneck, bandwidth and round-trip propagation time) builds a small model of the path instead of reacting to packet loss. It measures the fastest rate the bottleneck can deliver and the lowest round-trip time it sees when the queue is empty, then paces packets to fill the pipe{{< cite 4 "Cardwell, Neal, et al. (2016). BBR: Congestion-Based Congestion Control. ACM Queue 14(5)." >}}.
 
-The bandwidth-delay product (bandwidth times RTT) is how much data it takes to fill a path. BBR aims to keep exactly that much in flight, which keeps the bottleneck busy while leaving its buffer near empty. Low latency and high throughput at once, without waiting for a packet to drop. Google deployed BBR on its B4 wide-area network and measured 2 to 25 times higher throughput than CUBIC, with a peak of 133 times on one intercontinental path{{< cite 4 "Cardwell, Neal, et al. (2016). BBR: Congestion-Based Congestion Control. ACM Queue 14(5)." >}}.
+The bandwidth-delay product (bandwidth times RTT) is how much data it takes to fill a path. BBR aims to keep that much in flight, which keeps the bottleneck busy while leaving its buffer near empty. Low latency and high throughput at once, without waiting for a packet to drop. Google deployed BBR on its B4 wide-area network and measured 2 to 25 times higher throughput than CUBIC, with a peak of 133 times on one intercontinental path{{< cite 4 "Cardwell, Neal, et al. (2016). BBR: Congestion-Based Congestion Control. ACM Queue 14(5)." >}}.
 
 ## What Actually Ships Today
 
@@ -54,9 +54,9 @@ Linux defaulted to CUBIC since 2006{{< cite 6 "The Linux Kernel (2024). IP Sysct
 
 FreeBSD reached the same place a little later. NewReno held the default for years, until FreeBSD 14 switched to CUBIC in 2023{{< cite 7 "The FreeBSD Project (2023). FreeBSD 14.0-RELEASE Release Notes." >}}. On FreeBSD the algorithms are pluggable modules in a framework called `mod_cc`, alongside Vegas, HTCP, and DCTCP{{< cite 8 "The FreeBSD Project (2024). mod_cc: Modular Congestion Control. FreeBSD Kernel Interfaces Manual." >}}.
 
-BBR and RACK are configured differently on FreeBSD, as alternate TCP stacks rather than congestion modules. RACK detects loss using SACK (selective ACK), which reports gaps and timing measurements rather than counting duplicate ACKs. Netflix wrote RACK and runs it across its OpenConnect CDN{{< cite 9 "The FreeBSD Project (2024). tcp_rack: TCP RACK-TLP Loss Detection Algorithm. FreeBSD Kernel Interfaces Manual." >}}.
+BBR and RACK are configured differently on FreeBSD, as alternate TCP stacks instead of congestion modules. RACK detects loss using SACK (selective ACK), which reports gaps and timing measurements instead of counting duplicate ACKs. Netflix wrote RACK and runs it across its OpenConnect CDN{{< cite 9 "The FreeBSD Project (2024). tcp_rack: TCP RACK-TLP Loss Detection Algorithm. FreeBSD Kernel Interfaces Manual." >}}.
 
-Windows and macOS both default to CUBIC{{< cite 11 "Iyengar, Janardhan, et al. (2024). CUBIC for Fast and Long-Distance Networks. RFC 9438." >}}. Windows Server uses DCTCP for datacenter connections, but CUBIC for clients{{< cite 10 "Microsoft (2024). Get-NetTCPSetting (NetTCPIP). PowerShell Documentation." >}}.
+Windows and macOS both default to CUBIC{{< cite 10 "Iyengar, Janardhan, et al. (2024). CUBIC for Fast and Long-Distance Networks. RFC 9438." >}}. Windows Server uses DCTCP for datacenter connections, but CUBIC for clients{{< cite 11 "Microsoft (2024). Get-NetTCPSetting (NetTCPIP). PowerShell Documentation." >}}.
 
 Neither BBR nor RACK are enabled by default. Loss-based, buffer-filling control still handles most internet traffic.
 
@@ -64,60 +64,25 @@ Neither BBR nor RACK are enabled by default. Loss-based, buffer-filling control 
 
 **Loss-based control mistakes a full buffer for success.** Reno and CUBIC ease off only when a packet drops, so they fill every queue to the brim before backing down. On today's oversized buffers, that means high throughput bought with seconds of latency{{< cite 3 "Ha, Sangtae, Injong Rhee, and Lisong Xu (2008). CUBIC: A New TCP-Friendly High-Speed TCP Variant. ACM SIGOPS Operating Systems Review 42(5)." >}}.
 
-**A drop doesn't always mean congestion.** Over wireless, packets get lost to interference, not a full queue. A loss-based sender reads that corruption as congestion and throttles itself for nothing, which is why a strong signal can still crawl{{< cite 4 "Cardwell, Neal, et al. (2016). BBR: Congestion-Based Congestion Control. ACM Queue 14(5)." >}}.
+**A drop doesn't always mean congestion.** Over wireless, packets get lost to interference more often than to a full queue. A loss-based sender reads that corruption as congestion and throttles itself for nothing, which is why a strong signal can still crawl{{< cite 4 "Cardwell, Neal, et al. (2016). BBR: Congestion-Based Congestion Control. ACM Queue 14(5)." >}}.
 
 **A model can be unfair.** BBR holds its own queue empty by design, but its first version could grab more than its share when it shared a link with loss-based flows, and later versions had to rework that coexistence{{< cite 4 "Cardwell, Neal, et al. (2016). BBR: Congestion-Based Congestion Control. ACM Queue 14(5)." >}}.
 
-**No single algorithm fits every path.** A datacenter with microsecond round trips wants nothing like what a flaky cellular link wants, which is why datacenters run their own congestion control built around explicit signals{{< cite 10 "Alizadeh, Mohammad, et al. (2010). Data Center TCP (DCTCP). SIGCOMM '10." >}}.
+**No single algorithm fits every path.** A datacenter with microsecond round trips wants nothing like what a flaky cellular link wants, which is why datacenters run their own congestion control built around explicit signals{{< cite 12 "Alizadeh, Mohammad, et al. (2010). Data Center TCP (DCTCP). SIGCOMM '10." >}}.
 
 ## Put It Into Practice
 
-Most people never touch this dial, and most never need to. The defaults are good and getting better. But if you run servers that move real traffic, the algorithm is an important setting.
+Most people never touch this dial, and most never need to. The defaults keep getting better on their own.
 
-But if your servers stream bulk data over long or lossy paths, the gain is real, and it tends to show up in tail latency more than in raw throughput. For services with WAN exposure or high tail-latency sensitivity, measure your current algorithm on a representative subset of traffic. Test BBR in a staged canary by routing a fraction of traffic to a cohort running BBR, measure p99 latency and retransmit rates before rolling wider.
+If your servers stream bulk data over long or lossy paths, that's different. Route a fraction of traffic to a canary running BBR, then watch two numbers against your CUBIC baseline, retransmit rate and p99 latency. Throughput alone won't tell you enough. The gain tends to show up more in tail latency than in raw speed.
 
-Check which algorithm is active on a Linux server, capture baseline TCP stats before a load test, run the test, then capture stats again:
-
-```
-$ sysctl net.ipv4.tcp_congestion_control
-net.ipv4.tcp_congestion_control = cubic
-
-$ netstat -s | grep 'segments retransmitted'
-    1847 segments retransmitted
-
-# Run 5-minute load test
-# ...
-
-$ netstat -s | grep 'segments retransmitted'
-    2156 segments retransmitted
-
-# Retransmits during test = 2156 - 1847 = 309
-```
-
-Repeat the same load test with BBR:
-
-```
-$ echo bbr | sudo tee /proc/sys/net/ipv4/tcp_congestion_control
-
-$ netstat -s | grep 'segments retransmitted'
-    2200 segments retransmitted
-
-# Run same 5-minute load test
-# ...
-
-$ netstat -s | grep 'segments retransmitted'
-    2418 segments retransmitted
-
-# Retransmits during test = 2418 - 2200 = 218
-```
-
-The same load produced 309 retransmits under CUBIC and 218 under BBR. Compare your application's p99 latency metrics from the two test windows. If retransmit rates fell and tail latency improved while throughput stayed flat or rose, you have evidence worth expanding the canary to more servers.
+Check what's active with `sysctl net.ipv4.tcp_congestion_control`, switch the canary with `echo bbr | sudo tee /proc/sys/net/ipv4/tcp_congestion_control`, and compare. If retransmits drop and tail latency improves while throughput holds steady or climbs, you've got evidence worth expanding the canary further.
 
 ## Go Further
 
-**Congestion control for the datacenter.** Inside a datacenter, round trips are microseconds and ordinary loss-based control is far too coarse. DCTCP uses explicit congestion marks instead of drops to keep queues a few packets deep{{< cite 10 "Alizadeh, Mohammad, et al. (2010). Data Center TCP (DCTCP). SIGCOMM '10." >}}.
+**Congestion control for the datacenter.** Inside a datacenter, round trips are microseconds and ordinary loss-based control is far too coarse. DCTCP uses explicit congestion marks instead of drops to keep queues a few packets deep{{< cite 12 "Alizadeh, Mohammad, et al. (2010). Data Center TCP (DCTCP). SIGCOMM '10." >}}.
 
-**A signal that isn't a drop.** The long arc of this field bends toward telling senders about congestion without throwing data away. L4S builds that explicit, low-latency signaling into the network itself{{< cite 11 "Briscoe, Bob, et al. (2023). Low Latency, Low Loss, and Scalable Throughput (L4S) Internet Service: Architecture. RFC 9330." >}}.
+**A signal that isn't a drop.** The long arc of this field bends toward telling senders about congestion without throwing data away. L4S builds that explicit, low-latency signaling into the network itself{{< cite 13 "Briscoe, Bob, et al. (2023). Low Latency, Low Loss, and Scalable Throughput (L4S) Internet Service: Architecture. RFC 9330." >}}.
 
 ---
 
@@ -133,8 +98,8 @@ The same load produced 309 retransmits under CUBIC and 218 under BBR. Compare yo
   <li id="ref-7">The FreeBSD Project (2023). "FreeBSD 14.0-RELEASE Release Notes." <a href="https://www.freebsd.org/releases/14.0R/relnotes/">https://www.freebsd.org/releases/14.0R/relnotes/</a></li>
   <li id="ref-8">The FreeBSD Project (2024). "mod_cc: Modular Congestion Control." <em>FreeBSD Kernel Interfaces Manual</em>. <a href="https://man.freebsd.org/cgi/man.cgi?query=mod_cc&sektion=9">https://man.freebsd.org/cgi/man.cgi?query=mod_cc&sektion=9</a></li>
   <li id="ref-9">The FreeBSD Project (2024). "tcp_rack: TCP RACK-TLP Loss Detection Algorithm." <em>FreeBSD Kernel Interfaces Manual</em>. <a href="https://man.freebsd.org/cgi/man.cgi?query=tcp_rack&sektion=4">https://man.freebsd.org/cgi/man.cgi?query=tcp_rack&sektion=4</a></li>
-  <li id="ref-10">Microsoft (2024). "Get-NetTCPSetting (NetTCPIP)." <em>PowerShell Documentation</em>. <a href="https://learn.microsoft.com/en-us/powershell/module/nettcpip/get-nettcpsetting">https://learn.microsoft.com/en-us/powershell/module/nettcpip/get-nettcpsetting</a></li>
-  <li id="ref-11">Iyengar, Janardhan, et al. (2024). "CUBIC for Fast and Long-Distance Networks." <em>RFC 9438</em>. <a href="https://www.rfc-editor.org/rfc/rfc9438.html">https://www.rfc-editor.org/rfc/rfc9438.html</a></li>
+  <li id="ref-10">Iyengar, Janardhan, et al. (2024). "CUBIC for Fast and Long-Distance Networks." <em>RFC 9438</em>. <a href="https://www.rfc-editor.org/rfc/rfc9438.html">https://www.rfc-editor.org/rfc/rfc9438.html</a></li>
+  <li id="ref-11">Microsoft (2024). "Get-NetTCPSetting (NetTCPIP)." <em>PowerShell Documentation</em>. <a href="https://learn.microsoft.com/en-us/powershell/module/nettcpip/get-nettcpsetting">https://learn.microsoft.com/en-us/powershell/module/nettcpip/get-nettcpsetting</a></li>
   <li id="ref-12">Alizadeh, Mohammad, et al. (2010). "Data Center TCP (DCTCP)." <em>SIGCOMM '10</em>. <a href="https://people.csail.mit.edu/alizadeh/papers/dctcp-sigcomm10.pdf">https://people.csail.mit.edu/alizadeh/papers/dctcp-sigcomm10.pdf</a></li>
   <li id="ref-13">Briscoe, Bob, et al. (2023). "Low Latency, Low Loss, and Scalable Throughput (L4S) Internet Service: Architecture." <em>RFC 9330</em>. <a href="https://www.rfc-editor.org/rfc/rfc9330.html">https://www.rfc-editor.org/rfc/rfc9330.html</a></li>
 </ol>

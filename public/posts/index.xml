@@ -6,14 +6,24 @@
     <description>Recent content in Posts on hi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hyrum&#39;s Law</title>
+      <link>https://lyletagawa.com/posts/hyrums-law/</link>
+      <pubDate>Sun, 19 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/hyrums-law/</guid>
+      <description>With enough users, every observable behavior becomes a depended-upon feature. Your implementation details become your API contract, regardless of documentation or intent.</description>
+      <media:content url="https://lyletagawa.com/images/hyrums-law.jpg" medium="image" />
+    </item>
+    
     <item>
       <title>Functioning As Designed</title>
       <link>https://lyletagawa.com/posts/functioning-as-designed/</link>
       <pubDate>Thu, 09 Jul 2026 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/functioning-as-designed/</guid>
-      <description>Traditional accident models assume every failure traces back to a broken part. STAMP treats safety as a control problem instead, which explains disasters where every component worked exactly as designed.</description>
+      <description>Traditional accident models assume every failure traces back to a broken part. STAMP treats safety as a control problem instead, which explains disasters where every component worked as designed.</description>
       <media:content url="https://lyletagawa.com/images/functioning-as-designed.jpg" medium="image" />
     </item>
     
@@ -43,7 +53,7 @@
       <pubDate>Sun, 21 Jun 2026 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/t-digest/</guid>
-      <description>Your p99 latency might not be a percentile. Averaging percentiles across replicas produces a number, not a statistic, and t-digest is the sketch algorithm that fixes it at scale.</description>
+      <description>Your p99 latency might not be a percentile. Averaging percentiles across replicas produces a meaningless number, and t-digest is the sketch algorithm that fixes it at scale.</description>
       <media:content url="https://lyletagawa.com/images/t-digest.png" medium="image" />
     </item>
     
