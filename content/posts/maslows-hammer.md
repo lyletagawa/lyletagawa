@@ -2,7 +2,7 @@
 title: "Maslow's Hammer"
 date: 2026-07-04
 publishdate: 2026-07-04
-lastmod: 2026-07-04
+lastmod: 2026-07-25
 summary: "Deep expertise in one tool makes you reach for it even when a different one solves the problem better. Psychologists named this the law of the instrument."
 tags: ["expertise", "innovation", "teams"]
 image: /images/maslows-hammer.jpg
@@ -14,7 +14,7 @@ draft: true
 
 ## Maslow's Hammer
 
-In 2005, 196 teams entered the DARPA Grand Challenge to build a vehicle that could drive itself across 132 miles of Mojave desert with no human input. 195 of them were hardware teams. They ripped apart existing vehicles, replaced the components, and rebuilt them from scratch{{< cite 1 "Bessemer Venture Partners. Seven Lessons for Every Robotics Founder from the Godfather of Self-Driving Cars." >}}.
+In 2005, 196 teams entered the DARPA Grand Challenge, competing to build a vehicle that could qualify for a 132-mile Mojave desert race with no human input. 195 of them treated it as a hardware problem, ripping apart existing vehicles, replacing the components, and rebuilding them from scratch{{< cite 1 "Bessemer Venture Partners. Seven Lessons for Every Robotics Founder from the Godfather of Self-Driving Cars." >}}.
 
 Sebastian Thrun's team at Stanford took a Volkswagen Touareg, named it Stanley, added sensors, and spent almost all their effort on the software. Stanley finished the course in under seven hours and won{{< cite 2 "Thrun, Sebastian, et al. (2006). Stanley: The Robot that Won the DARPA Grand Challenge. Journal of Field Robotics, 23(9)." >}}.
 
@@ -24,19 +24,19 @@ The challenge was solvable with a standard rental car. The hard part was making 
 
 Philosopher Abraham Kaplan named this the "law of the instrument" in 1964. Give a small boy a hammer, he wrote, and he'll find that everything he encounters needs pounding{{< cite 3 "Kaplan, Abraham (1964). The Conduct of Inquiry: Methodology for Behavioral Science. Chandler Publishing Company." >}}. Two years later, Abraham Maslow gave the idea its sharper, more famous phrasing: if the only tool you have is a hammer, it's tempting to treat everything as if it were a nail{{< cite 4 "Maslow, Abraham H. (1966). The Psychology of Science: A Reconnaissance. Harper & Row." >}}.
 
-The mechanism is familiarity, not stupidity. The tool you've mastered is the one you reach for first, and mastery makes that reach feel like judgment instead of habit.
+The mechanism is familiarity. Stupidity has nothing to do with it. The tool you've mastered is the one you reach for first, and mastery makes that reach feel like judgment instead of habit.
 
 ## Why Expertise Makes It Worse
 
-You'd expect more expertise to fix this. Thrun found the opposite. "You get blinded by what you're confident in doing," he said, describing exactly what happened to the 195 hardware teams{{< cite 1 "Bessemer Venture Partners. Seven Lessons for Every Robotics Founder from the Godfather of Self-Driving Cars." >}}. Deep skill in one tool doesn't just make that tool available. It makes every other tool harder to see.
+You'd expect more expertise to fix this. Thrun found the opposite. "You get blinded by what you're confident in doing," he said, describing what happened to the 195 hardware teams{{< cite 1 "Bessemer Venture Partners. Seven Lessons for Every Robotics Founder from the Godfather of Self-Driving Cars." >}}. Deep skill in one tool makes that tool available. It also makes every other tool harder to see.
 
-The DARPA teams weren't short on talent. Some of the best vehicle engineers in the country entered that race. Their skill was real, and it pointed in exactly one direction, toward a hardware solution to a problem that mostly wasn't a hardware problem. Thrun has put the general version of this more bluntly since. Experts are experts of the past, not the future. If you ask an expert about innovation, they're the least likely to say yes, it can be done{{< cite 5 "Sebastian Thrun, quoted in Design News (2025). Sebastian Thrun Is Driving a Future Where Cars Fly Themselves." >}}.
+The DARPA teams weren't short on talent. Some of the best vehicle engineers in the country entered that race. Their skill was real, and it pointed in one direction, toward a hardware solution to a problem that mostly wasn't a hardware problem. Thrun has put the general version of this more bluntly since. Experts are experts of the past. Reading the future is what they're worst at. If you ask an expert about innovation, they're the least likely to say yes, it can be done{{< cite 5 "Sebastian Thrun, quoted in Design News (2025). Sebastian Thrun Is Driving a Future Where Cars Fly Themselves." >}}.
 
 ## Type A And Type B
 
 Thrun later described two kinds of people he meets. Type A is the expert who arrives with a complete plan and wants everyone to sign onto it. "These are the people I run away from as fast as I can," he said{{< cite 6 "Sebastian Thrun, interviewed in Designboom (2013). What Makes an Innovator? An Interview with Sebastian Thrun." >}}.
 
-Type B is rarer. They have a vision, admit they don't know how they'll get there, and aren't afraid to fail trying. Thrun calls Type B the stronger position, not because uncertainty is virtuous, but because a Type A's confidence is usually confidence in the tool, not in the problem's actual shape{{< cite 6 "Sebastian Thrun, interviewed in Designboom (2013). What Makes an Innovator? An Interview with Sebastian Thrun." >}}.
+Type B is rarer. They have a vision, admit they don't know how they'll get there, and aren't afraid to fail trying. Thrun calls Type B the stronger position. The reason has nothing to do with uncertainty being virtuous. A Type A's confidence is usually confidence in the tool, and it rarely matches the problem's actual shape{{< cite 6 "Sebastian Thrun, interviewed in Designboom (2013). What Makes an Innovator? An Interview with Sebastian Thrun." >}}.
 
 ## Where It Shows Up
 
@@ -44,13 +44,13 @@ Type B is rarer. They have a vision, admit they don't know how they'll get there
 
 **The database expert's answer is always an index.** A performance problem gets diagnosed as a missing index because indexes are the tool the DBA knows best, even when the query itself is fetching data nobody needs.
 
-**The consultant's answer is always the framework they sell.** A methodology firm brought in for a specific operational problem recommends the same restructuring template they recommend everywhere, because the template is the product, not a response to what they found.
+**The consultant's answer is always the framework they sell.** A methodology firm brought in for a specific operational problem recommends the same restructuring template they recommend everywhere, because the template is the product. It was never a response to what they found.
 
 ## Common Mistakes
 
 **Hiring for tool depth over problem range.** A team stacked with specialists in one stack solves every problem as if it lives in that stack, because collectively that's the only hammer in the room.
 
-**Mistaking a confident answer for the right one.** A fast, detailed proposal from your most experienced person feels safer than a vague one from someone still figuring out the shape of the problem. Confidence measures familiarity, not fit.
+**Mistaking a confident answer for the right one.** A fast, detailed proposal from your most experienced person feels safer than a vague one from someone still figuring out the shape of the problem. Confidence measures familiarity. Fit is a different question entirely.
 
 **Rewarding tool mastery instead of problem framing.** Performance reviews that credit "deep Kubernetes expertise" over "diagnosed the actual bottleneck" train people to reach for the hammer, because that's what gets recognized.
 
@@ -64,7 +64,7 @@ Watch for the DARPA pattern in your own team. When 195 out of 196 people reach f
 
 ## Go Further
 
-**Functional fixedness has its own classic experiment.** Karl Duncker's candle problem asked people to mount a candle on a wall using only a candle, matches, and a box of tacks. Most never saw that the box itself, not just its contents, was part of the available toolkit{{< cite 7 "Duncker, Karl (1945). On Problem-Solving. Psychological Monographs, 58(5)." >}}.
+**Functional fixedness has its own classic experiment.** Karl Duncker's candle problem asked people to mount a candle on a wall using only a candle, matches, and a box of tacks. Most people saw the box only as packaging for the tacks. Its own potential as part of the solution stayed invisible{{< cite 7 "Duncker, Karl (1945). On Problem-Solving. Psychological Monographs, 58(5)." >}}.
 
 **Larry Page pushed Thrun past his own expertise.** Thrun has said the entire self-driving car project inside Google might not have happened without Page pressing him to think like a visionary instead of an expert, the same Type A versus Type B tension applied to Thrun himself{{< cite 8 "Mobility21, Carnegie Mellon University. Sebastian Thrun, the Godfather of the Self-Driving Car Industry, Explains How Larry Page Taught Him to Be a Visionary, Not Just an 'Expert.'" >}}.
 
@@ -101,4 +101,4 @@ Watch for the DARPA pattern in your own team. When 195 out of 196 people reach f
 
 ## Changelog
 
-**2026-07-04** Initial release.
+**2026-07-04** Initial release.  

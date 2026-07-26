@@ -2,15 +2,15 @@
 title: "Backpressure"
 date: 2026-06-28
 publishdate: 2026-06-28
-lastmod: 2026-06-28
+lastmod: 2026-07-26
 summary: "When a fast producer outruns a slow consumer, something has to give. Backpressure is the signal that slows the producer down instead of dropping data or running the queue out of memory."
 tags: ["streaming", "concurrency", "reliability"]
-image: /images/backpressure.png
+image: /images/backpressure.jpg
 draft: true
 ---
 
-![When a fast producer outruns a slow consumer, something has to give. Backpressure is the signal that slows the producer down instead of dropping data or running the queue out of memory.](/images/backpressure.png)
-*Image: placeholder.*
+![When a fast producer outruns a slow consumer, something has to give. Backpressure is the signal that slows the producer down instead of dropping data or running the queue out of memory.](/images/backpressure.jpg)
+*A ramp meter on Auckland's State Highway 1, throttling cars onto the freeway one green light at a time. Photo: [Benpaul12 (2007)](https://commons.wikimedia.org/wiki/File:North_Western_to_Northern_On.jpg). Public domain.*
 
 ## Backpressure
 
@@ -28,7 +28,7 @@ The pattern is older than the spec. TCP has carried it since 1981. Every receive
 
 ## Something Has To Give
 
-When the consumer falls behind, the system has three options, and physics picks the menu. Grow the buffer to hold the backlog. Drop whatever doesn't fit. Or slow the producer until the consumer catches up{{< cite 3 "Nygard, Michael T. (2018). Release It! Design and Deploy Production-Ready Software, 2nd ed. Pragmatic Bookshelf." >}}.
+When the consumer falls behind, the system has three options, and physics picks the menu. Grow the buffer to hold the backlog, drop whatever doesn't fit, or slow the producer until the consumer catches up{{< cite 3 "Nygard, Michael T. (2018). Release It! Design and Deploy Production-Ready Software, 2nd ed. Pragmatic Bookshelf." >}}.
 
 The first two happen by default. An unbounded queue grows until the process runs out of memory and the kernel kills it, taking the backlog with it. A fixed buffer that overflows drops data quietly, which you discover later, in a report that doesn't add up. Only the third option is backpressure, and it's the only one you have to build on purpose.
 
@@ -50,9 +50,9 @@ They were wrong. TCP reads a dropped packet as its signal to slow down. Hide the
 
 **Backpressure that stops at one hop.** Bounding a single queue feels like a fix, but the backlog just relocates to the next unbounded buffer upstream. The signal has to reach the source, or you have only moved the crash{{< cite 1 "Reactive Streams (2015). Reactive Streams Specification 1.0. reactive-streams.org." >}}.
 
-**Blocking the front door.** Push backpressure all the way to a user-facing entry point and it turns into requests that hang until they time out. At the edge you want to shed load with a fast rejection, not hold the caller hostage{{< cite 5 "Welsh, Matt, David Culler, and Eric Brewer (2001). SEDA: An Architecture for Well-Conditioned, Scalable Internet Services. SOSP." >}}.
+**Blocking the front door.** Push backpressure all the way to a user-facing entry point and it turns into requests that hang until they time out. At the edge you want to shed load with a fast rejection instead of holding the caller hostage{{< cite 5 "Welsh, Matt, David Culler, and Eric Brewer (2001). SEDA: An Architecture for Well-Conditioned, Scalable Internet Services. SOSP." >}}.
 
-**Retries that refill the queue.** Clients that retry on a slow or failed response re-inject the exact load you just pushed back, and a polite system melts down anyway. Your backpressure and your retry budget have to agree{{< cite 3 "Nygard, Michael T. (2018). Release It! Design and Deploy Production-Ready Software, 2nd ed. Pragmatic Bookshelf." >}}.
+**Retries that refill the queue.** Clients that retry on a slow or failed response re-inject the same load you just pushed back, and a polite system melts down anyway. Your backpressure and your retry budget have to agree{{< cite 3 "Nygard, Michael T. (2018). Release It! Design and Deploy Production-Ready Software, 2nd ed. Pragmatic Bookshelf." >}}.
 
 ## Put It Into Practice
 
@@ -66,7 +66,7 @@ Pick your highest-throughput pipeline this week. Find the one queue in it with n
 
 **Load shedding and admission control.** When backpressure reaches the front door, the move is to refuse work fast rather than queue it. Staged designs put explicit admission control between stages to keep each one well-conditioned under overload{{< cite 5 "Welsh, Matt, David Culler, and Eric Brewer (2001). SEDA: An Architecture for Well-Conditioned, Scalable Internet Services. SOSP." >}}.
 
-**Backpressure and Little's Law.** Bounding a queue bounds the number of items in flight, and Little's Law turns that cap straight into a cap on latency. The arithmetic behind why a smaller queue means a shorter wait is the whole point of Little's Law{{< cite 6 "Little, John D. C., and Stephen C. Graves (2008). Little's Law. In Building Intuition. Springer." >}}.
+**Backpressure and Little's Law.** Bounding a queue bounds the number of items in flight, and Little's Law turns that cap straight into a cap on latency. That arithmetic, why a smaller queue means a shorter wait, is Little's Law{{< cite 6 "Little, John D. C., and Stephen C. Graves (2008). Little's Law. In Building Intuition. Springer." >}}.
 
 ---
 
@@ -78,7 +78,7 @@ Pick your highest-throughput pipeline this week. Find the one queue in it with n
   <li id="ref-3">Nygard, Michael T. (2018). <em>Release It! Design and Deploy Production-Ready Software</em>, 2nd ed. Pragmatic Bookshelf. <a href="https://pragprog.com/titles/mnee2/release-it-second-edition/">https://pragprog.com/titles/mnee2/release-it-second-edition/</a></li>
   <li id="ref-4">Gettys, Jim, and Kathleen Nichols (2011). "Bufferbloat: Dark Buffers in the Internet." <em>ACM Queue</em>, 9(11). <a href="https://web.archive.org/web/2021/https://queue.acm.org/detail.cfm?id=2071893">https://queue.acm.org/detail.cfm?id=2071893</a></li>
   <li id="ref-5">Welsh, Matt, David Culler, and Eric Brewer (2001). "SEDA: An Architecture for Well-Conditioned, Scalable Internet Services." <em>SOSP 2001</em>. <a href="https://people.eecs.berkeley.edu/~brewer/papers/SEDA-sosp.pdf">https://people.eecs.berkeley.edu/~brewer/papers/SEDA-sosp.pdf</a></li>
-  <li id="ref-6">Little, John D. C., and Stephen C. Graves (2008). "Little's Law." In <em>Building Intuition: Insights from Basic Operations Management Models and Principles</em>. Springer. <a href="http://www.mit.edu/~sgraves/www/papers/Little%27s%20Law-Published.pdf">http://www.mit.edu/~sgraves/www/papers/Little's Law-Published.pdf</a></li>
+  <li id="ref-6">Little, John D. C., and Stephen C. Graves (2008). "Little's Law." In <em>Building Intuition: Insights from Basic Operations Management Models and Principles</em>. Springer. <a href="http://www.mit.edu/~sgraves/www/papers/Little%27s%20Law-Published.pdf">http://www.mit.edu/~sgraves/www/papers/Little%27s%20Law-Published.pdf</a></li>
 </ol>
 
 ---
@@ -87,8 +87,6 @@ Pick your highest-throughput pipeline this week. Find the one queue in it with n
 
 **TCP had it first.** Backpressure sounds like a modern streaming concern, but the receive window has throttled senders since 1981. Every web page you load quietly negotiates how fast it's allowed to arrive, thousands of times, and you never notice ([Postel, 1981](https://www.rfc-editor.org/rfc/rfc793.html)).
 
-**The grocery store version.** A cashier who stops scanning until you finish bagging is applying backpressure. The line backs up, a manager opens another lane, and the system finds its rate. Nothing hits the floor.
-
 **Drop early, drop often.** The bufferbloat fix sounds backwards. To make the network faster, throw packets away sooner. A small buffer that drops beats a huge one that hides the truth until everything is seconds behind ([Gettys, 2011](https://web.archive.org/web/2021/https://queue.acm.org/detail.cfm?id=2071893)).
 
 ---
@@ -96,4 +94,3 @@ Pick your highest-throughput pipeline this week. Find the one queue in it with n
 ## Changelog
 
 **2026-06-28** Initial release.  
-**2026-06-28** Edit pass: fixed the intro backlog arithmetic and trimmed a repeated phrase.  

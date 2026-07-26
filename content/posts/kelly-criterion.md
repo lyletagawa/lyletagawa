@@ -2,7 +2,7 @@
 title: "The Kelly Criterion"
 date: 2026-07-11
 publishdate: 2026-07-11
-lastmod: 2026-07-11
+lastmod: 2026-07-26
 summary: "A Bell Labs engineer solved a telephone noise problem in 1956 and accidentally invented the formula professional gamblers and investors use to size every bet. Betting the mathematically obvious amount is usually a mistake."
 tags: ["risk", "strategy", "probability"]
 image: /images/kelly-criterion.jpg
@@ -14,7 +14,7 @@ draft: true
 
 ## The Kelly Criterion
 
-In the early 1960s, Claude Shannon and Ed Thorp built a computer the size of a cigarette pack, wired it to a shoe, and wore it into a Las Vegas casino. It timed a roulette wheel and predicted which octant the ball would land in, giving them a 44 percent expected edge on that bet{{< cite 1 "Thorp, Edward O. (2017). A Man for All Markets: From Las Vegas to Wall Street, How I Beat the Dealer and the Market. Random House." >}}. The wires kept breaking. The earpiece kept falling out. But the math behind it worked, and it wasn't roulette math. It was a formula for how much to bet, not what to bet on.
+In the early 1960s, Claude Shannon and Ed Thorp built a computer the size of a cigarette pack, wired it to a shoe, and wore it into a Las Vegas casino. It timed a roulette wheel and predicted which octant the ball would land in, giving them a 44 percent expected edge on that bet{{< cite 1 "Thorp, Edward O. (2017). A Man for All Markets: From Las Vegas to Wall Street, How I Beat the Dealer and the Market. Random House." >}}. The wires kept breaking. The earpiece kept falling out. But the math behind it worked, and it wasn't roulette math. It was a formula for how much to bet. What to bet on was a separate question entirely.
 
 That formula came from a colleague of Shannon's at Bell Labs named John Kelly, and he hadn't been thinking about casinos at all.
 
@@ -22,25 +22,27 @@ That formula came from a colleague of Shannon's at Bell Labs named John Kelly, a
 
 In 1956, John Kelly published a paper solving a problem in telephone engineering, how to interpret information sent over a noisy line{{< cite 2 "Kelly, J.L. (1956). A New Interpretation of Information Rate. Bell System Technical Journal, 35(4): 917-926." >}}. He wanted to title it "Information Theory and Gambling." AT&T's executives made him change it to the blander "A New Interpretation of Information Rate," worried the company's name shouldn't be anywhere near betting{{< cite 3 "Poundstone, William (2005). Fortune's Formula: The Untold Story of the Scientific Betting System That Beat the Casinos and Wall Street. Hill and Wang." >}}.
 
-Kelly had shown that if you know your edge, the probability that a bet pays off and the odds it pays at, there's an exact fraction of your bankroll you should risk on it. Bet less than that fraction and you're leaving growth on the table. Bet more and you're not just risking more, you're making your long-run outcome worse, not better. The formula is simple. f* = (bp - q) / b, where b is the net odds, p is your probability of winning, and q is the probability of losing.
+Kelly had shown that if you know your edge, the probability that a bet pays off and the odds it pays at, there's a specific fraction of your bankroll you should risk on it. Bet less than that fraction and you're leaving growth on the table. Bet more than that fraction and the extra risk doesn't pay for itself. Your long-run outcome actively gets worse. The formula is simple. f* = (bp - q) / b, where b is the net odds, p is your probability of winning, and q is the probability of losing.
 
 ## Why It's Not About Expected Value
 
 The obvious strategy for a bet with positive expected value is to bet everything you have on it, repeatedly. Expected value maximization says so directly. Kelly's insight was that this obvious strategy is wrong the moment you're betting the same pot more than once, because a single loss at 100 percent staked ends the game. There is no bet size big enough to recover from betting your whole bankroll and losing once.
 
-Kelly maximized something different, the expected logarithm of wealth, which is the same thing as the long-run compound growth rate. That's a subtly different target than expected value, and it produces a subtly different answer. It says bet in proportion to your edge, not in proportion to how good the bet looks in a single shot.
+Kelly maximized something different, the expected logarithm of wealth, which is the same thing as the long-run compound growth rate. That's a subtly different target than expected value, and it produces a subtly different answer. It says bet in proportion to your edge. How good the bet looks in a single shot is beside the point.
 
 ## Where This Shows Up Today
 
 Thorp took the same logic from roulette into blackjack, publishing card-counting strategies that used Kelly sizing, bet small when the deck favors the house, bet large when it favors the player, in a book that became a bestseller and got him banned from casinos across the country{{< cite 1 "Thorp, Edward O. (2017). A Man for All Markets: From Las Vegas to Wall Street, How I Beat the Dealer and the Market. Random House." >}}.
 
-Warren Buffett has never named Kelly directly, but his portfolio behaves like a fractional Kelly bettor's. In 1968, he wrote to his partnership that a single position, American Express, had grown to 40 percent of the fund's assets, the largest concentration he'd ever held, because he was confident enough in the edge to size the bet accordingly{{< cite 4 "Looking Back at Warren Buffett and American Express in 1962. GuruFocus." >}}. He runs concentrated, not diversified, and he almost never uses leverage. Concentration says he sees an edge. No leverage says he still respects the possibility he's wrong.
+Warren Buffett has never named Kelly directly, but his portfolio behaves like a fractional Kelly bettor's. In 1968, he wrote to his partnership that a single position, American Express, had grown to 40 percent of the fund's assets, the largest concentration he'd ever held, because he was confident enough in the edge to size the bet accordingly{{< cite 4 "Looking Back at Warren Buffett and American Express in 1962. GuruFocus." >}}. He runs concentrated instead of diversified, and he almost never uses leverage. Concentration says he sees an edge. No leverage says he still respects the possibility he's wrong.
+
+Long-Term Capital Management shows what ignoring Kelly costs. The hedge fund, co-founded by two Nobel laureates, borrowed roughly $30 for every $1 of capital chasing small, correlated trades across global markets. Thorp has called their approach the anti-Kelly, sized for a world where nothing goes wrong at once{{< cite 1 "Thorp, Edward O. (2017). A Man for All Markets: From Las Vegas to Wall Street, How I Beat the Dealer and the Market. Random House." >}}. In August 1998, Russia defaulted on its debt, every position moved against the fund at the same time, and it took a $3.6 billion bailout brokered by the Federal Reserve to avoid a market-wide collapse.
 
 ## Common Mistakes
 
 **Betting full Kelly in practice.** The formula's optimal fraction is also brutally volatile. A bettor sizing every wager at full Kelly should expect a 50 percent drawdown at some point even while playing an actually winning strategy. Most professionals bet a fraction of Kelly, often half, trading some growth for a survivable amount of variance.
 
-**Confusing Kelly with expected value maximization.** They agree on which side of a bet to take. They disagree completely on how much to risk. Treating Kelly's output as "the biggest bet that still makes sense" misses the entire point of the formula.
+**Confusing Kelly with expected value maximization.** They agree on which side of a bet to take. They disagree completely on how much to risk. Treating Kelly's output as "the biggest bet that still makes sense" gets the formula backward.
 
 **Trusting an estimated edge as if it were a known one.** Kelly's formula is only as good as your estimate of p, the probability of winning. Overestimate your edge, which almost everyone does, and the formula will confidently tell you to overbet.
 
@@ -48,9 +50,9 @@ Warren Buffett has never named Kelly directly, but his portfolio behaves like a 
 
 ## Put It Into Practice
 
-Before sizing any bet, whether it's money, time, or headcount, write down your actual estimated edge as a number, not a feeling. If you can't state a probability and a payoff, you don't have enough information to size the bet at all, let alone maximize it.
+Before sizing any bet, whether it's money, time, or headcount, write down your actual estimated edge as a number. A feeling doesn't count. If you can't state a probability and a payoff, you don't have enough information to size the bet at all, let alone maximize it.
 
-Default to fractional Kelly, not full Kelly, for anything you plan to do more than once. Half the theoretical optimum gives up less growth than the drawdown it avoids is worth.
+Default to fractional Kelly instead of full Kelly for anything you plan to do more than once. Half the theoretical optimum gives up less growth than the drawdown it avoids is worth.
 
 Ask whether your current bets are actually independent or secretly correlated. A string of decisions that all depend on the same underlying assumption is a single concentrated bet, whether or not it looks that way from the inside.
 

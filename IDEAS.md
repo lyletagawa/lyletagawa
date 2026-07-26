@@ -48,11 +48,14 @@ Exist in `content/posts/` as `draft: true`. Finish these first.
 | ~~Head-of-Line Blocking~~ | ~~Karol et al., 1987~~ | ~~One stuck item at the front of a shared queue stalls everything behind it~~ | **draft** — `head-of-line-blocking.md` |
 | ~~Retrieval-Augmented Generation~~ | ~~Lewis et al., 2020~~ | ~~Grounding an LLM by retrieving evidence at query time~~ | **draft** — `retrieval-augmented-generation.md` |
 | Coordinated Omission | Tene, 2014 | The load test reports a false p99 because the slow requests never got sent | The Tail at Scale |
-| The CAP Theorem & PACELC | Brewer, 2000; Hale, 2010 | CAP is a trick question you only face during a partition; PACELC asks the trade you face every day | Resilience |
-| HyperLogLog | Flajolet et al., 2007 | Count a billion uniques in ~1.5 KB by watching hashed coincidences | Bloom Filters |
-| Consistent Hashing | Karger et al., 1997 | Add a node without reshuffling every key. The ring behind every shard map | Bloom Filters |
+| ~~The CAP Theorem & PACELC~~ | ~~Brewer, 2000; Hale, 2010~~ | ~~CAP is a trick question you only face during a partition; PACELC asks the trade you face every day~~ | **draft** — `partition-tolerance-isnt-optional.md` (titled "Partition Tolerance Isn't Optional") |
+| ~~HyperLogLog~~ | ~~Flajolet et al., 2007~~ | ~~Count a billion uniques in ~1.5 KB by watching hashed coincidences~~ | **draft** — `how-redis-counts-to-18-quintillion-in-12-kb.md` (titled "How Redis Counts to 18 Quintillion in 12 KB") |
+| ~~Consistent Hashing~~ | ~~Karger et al., 1997~~ | ~~Add a node without reshuffling every key. The ring behind every shard map~~ | **draft** — `consistent-hashing.md` |
 | The Universal Scalability Law | Gunther, 2007 | Amdahl plus a coordination term that makes throughput go down past a point | Little's Law |
 | Idempotency | — | The one property that makes retries, queues, and at-least-once delivery survivable | Backpressure |
+| ~~t-Digest / Quantile Sketches~~ | ~~Dunning & Ertl, 2019~~ | ~~Averaging percentiles across replicas produces a number, not a statistic~~ | **published** — `t-digest.md` (titled "Percentiles Don't Add Up") |
+| ~~Change Data Capture~~ | ~~Kleppmann, 2015~~ | ~~Reading a database's write-ahead log beats polling for changes, and most things called "CDC" aren't~~ | **draft** — `bottling-a-stream-of-changes.md` (titled "Bottling a Stream of Changes") |
+| ~~Materialized Views~~ | ~~Gupta & Mumick, 1995~~ | ~~Not every "materialized view" behaves like a stored snapshot, and assuming so can empty a table~~ | **draft** — `materialized-views-arent-snapshots.md` |
 
 ---
 
@@ -66,12 +69,12 @@ Exist in `content/posts/` as `draft: true`. Finish these first.
 | The Planning Fallacy | Kahneman & Tversky, 1979 | Systematic underestimation of time and cost even when historical data says otherwise | Vantasner Danger Meridian |
 | ~~Hofstadter's Law~~ | ~~Hofstadter, 1979~~ | ~~Always takes longer than expected, even accounting for Hofstadter's Law~~ | **draft** — `hofstadters-law.md` |
 | ~~Little's Law~~ | ~~Little, 1961~~ | ~~Queuing theory applied to WIP limits and engineering throughput~~ | **draft** — `littles-law.md` |
-| ~~Parkinson's Law of Triviality~~ | ~~Parkinson, 1957~~ | ~~Committees fixate on trivial decisions — long debates about variable names, silence on architecture~~ | **draft** — `parkinsons-law-of-triviality.md` |
+| ~~Parkinson's Law of Triviality~~ | ~~Parkinson, 1957~~ | ~~Committees fixate on trivial decisions — long debates about variable names, silence on architecture~~ | **draft** — `bikeshedding.md` (titled "Bikeshedding"). The older duplicate `parkinsons-law-of-triviality.md` was merged in and removed. |
 | ~~Brooks' Law~~ | ~~Brooks, 1975~~ | ~~Adding people to a late project makes it later — the math behind communication overhead~~ | **published** — `brooks-law.md` |
 | ~~Gall's Law~~ | ~~Gall, 1977~~ | ~~Complex systems that work evolved from simple systems that worked~~ | **draft** — `galls-law.md` |
 | The Second System Effect | Brooks, 1975 | The second project is always over-engineered — how engineers overcorrect from the first | Gall's Law |
 | The Law of Leaky Abstractions | Spolsky, 2002 | All non-trivial abstractions leak — the gap between interface promise and implementation reality | Hyrum's Law |
-| ~~Hyrum's Law~~ | ~~Wright, 2020~~ | ~~All observable behaviors of a system will be depended on — the contract you ship, not the one you promise~~ | **draft** — `hyrums-law.md` |
+| ~~Hyrum's Law~~ | ~~Wright, 2020~~ | ~~All observable behaviors of a system will be depended on — the contract you ship, not the one you promise~~ | **published** — `hyrums-law.md` |
 | Zawinski's Law | Zawinski, 1990s | Every program expands until it can read email — feature creep as organizational gravity | Jevons Paradox |
 | Amdahl's Law | Amdahl, 1967 | Theoretical speedup from parallelization is limited by the serial portion — applied to team scaling | Brooks' Law |
 | Amara's Law | Amara | We overestimate technology short-term, underestimate long-term — calibrating AI expectations | LLM Context Biases |
@@ -91,7 +94,7 @@ Exist in `content/posts/` as `draft: true`. Finish these first.
 | The Bus Factor | — | Knowledge concentration risk — how many people need to leave before the system becomes unmaintainable | Team Topologies |
 | The Seam Problem | Feathers, 2004 | Complexity and failure accumulate at team and system boundaries — where Conway's Law bites hardest | Conway's Law (draft) |
 | The Two-Pizza Rule | Bezos, 2002 | Team size as a proxy for communication overhead — the operational version of the Dunbar Number | Team Topologies |
-| The Theory of Constraints | Goldratt, 1984 | Every system has one bottleneck; optimizing anything else is waste — applied to pipelines and team throughput | Making Work Visible |
+| ~~The Theory of Constraints~~ | ~~Goldratt, 1984~~ | ~~Every system has one bottleneck; optimizing anything else is waste — applied to pipelines and team throughput~~ | **draft** — `theory-of-constraints.md` |
 | The Ringelmann Effect | Ringelmann, 1913 | Individual contribution decreases as group size increases — the productivity math behind small teams | Brooks' Law |
 | Cargo Cult Architecture | — | Adopting Netflix's architecture without Netflix's org structure — why microservices produce distributed monoliths | Conway's Law (draft) |
 | Sociotechnical Systems Theory | Trist & Bamforth, 1951 | Technical and social systems must be jointly optimized — the academic ground Conway's Law stands on | Team Topologies |

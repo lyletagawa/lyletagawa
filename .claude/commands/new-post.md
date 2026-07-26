@@ -12,7 +12,7 @@ Author a new Hugo blog post or edit an existing one. Follow all rules below prec
 
 ### Voice and Style
 - Write in second person ("you") or third person. Avoid first person.
-- Casual, conversational tone. Write like a smart friend who read the book so the reader doesn't have to — not like a summary of the book itself.
+- Casual, conversational tone. Write like a smart friend who read the book so the reader doesn't have to, not like a summary of the book itself.
 - Use contractions freely. "You don't" beats "one does not."
 - Prefer active voice. Passive voice distances the reader.
 - Sentence fragments are fine for emphasis. Use them deliberately.
@@ -23,14 +23,14 @@ Author a new Hugo blog post or edit an existing one. Follow all rules below prec
 - Use straight quotation marks (`"`) and straight apostrophes (`'`). Never use curly/smart quotes (`"` `"` `'` `'`).
 - Minimize colons in prose. Don't use a colon to introduce a list when a new sentence or fragments work better. "The cost is real. Back-and-forth, context switching, a slower pipeline." beats "The cost is real: back-and-forth, context switching, pipeline slowdown." Colons in frontmatter and References formatting are fine.
 - No emoji.
-- Define obscure acronyms on first use: write out the full term followed by the abbreviation in parentheses, e.g. "feed-forward network (FFN)." Use the abbreviation alone on subsequent mentions.
+- Define obscure acronyms on first use. Write out the full term followed by the abbreviation in parentheses, e.g. "feed-forward network (FFN)." Use the abbreviation alone on subsequent mentions.
 - No rhetorical questions used as section openers or transitions.
 - No filler phrases: "it's worth noting," "it's important to remember," "in other words," "at the end of the day," "needless to say," "this is crucial."
-- Banned phrases: "is a testament," "underscores its importance/significance," "reflects broader," "symbolizing its ongoing/enduring/lasting," "setting the stage for," "marking/shaping the," "represents/marks a shift," "key turning point," "evolving landscape," "focal point," "indelible mark," "deeply rooted," "a vital/significant/crucial/pivotal/key role/moment," "boasts," "bolstered," "fostering," "garner," "interplay," "intricacies," "tapestry," "vibrant," "delve," "genuine," "genuinely," "seam," "honest," "honestly," "honest take," "load bearing," "exact," "exactly," "sit with that/this/it," "you already know," "that's/this is the whole point/game/thing," "is the entire point/game/business model," "the punchline."
-- No hedging language: "somewhat," "rather," "quite," "very," "fairly." State the claim at full strength.
+- Banned phrases: "is a testament," "underscores its importance/significance," "reflects broader," "symbolizing its ongoing/enduring/lasting," "setting the stage for," "marking/shaping the," "represents/marks a shift," "key turning point," "evolving landscape," "focal point," "indelible mark," "deeply rooted," "a vital/significant/crucial/pivotal/key role/moment," "boasts," "bolstered," "fostering," "garner," "interplay," "intricacies," "tapestry," "vibrant," "delve," "genuine," "genuinely," "seam," "honest," "honestly," "honest take," "load bearing," "exact," "exactly" (unless part of an established technical term, like "exactly-once delivery" or "exact match"), "sit with that/this/it," "you already know," "that's/this is the whole point/game/thing," "is the entire point/game/business model," "the punchline."
+- No hedging language: "somewhat," "rather" (as a hedge or intensifier, e.g. "rather difficult," not the comparative "rather than"), "quite," "very," "fairly." State the claim at full strength.
 - No meta-commentary about the article itself ("this article explores," "we will examine," "as discussed above").
 - No academic register: avoid "it can be observed," "this suggests," "one might argue," "the literature indicates." Say the thing directly.
-- Avoid lead-ins that introduce citations like footnotes: "Research by X shows that..." or "According to X..." — fold the person into the sentence naturally or state the finding and cite it inline.
+- Avoid lead-ins that introduce citations like footnotes, such as "Research by X shows that..." or "According to X..." Fold the person into the sentence naturally, or state the finding and cite it inline.
 - Avoid vague attributions and overgeneralizations: "many experts believe," "researchers agree," "some argue," "critics say," "people often think," "it is widely accepted." Name the source or cut the attribution.
 - Assertions must be backed by an inline citation using the cite shortcode: `{{< cite n "Author (Year). Title. Publisher." >}}`. Assign numbers sequentially in order of first appearance. All cited works must appear in the References section with a valid URL. Place the shortcode immediately after the preceding word with no space before it and no space after it: `word{{< cite 1 "..." >}}.` not `word {{< cite 1 "..." >}}.`
 - Prefer original sources over third-party sources. Order of preference: the primary document (the paper, book, patent, statute, transcript, or firsthand account itself) > an official publisher or organization page > reputable journalism > secondary blogs or aggregators. Avoid citing Wikipedia, Medium, and other crowdsourced or blogging platforms when a primary or official source is available and verifiable. Only fall back to a third-party source when no better one exists. Crowdsourced sites and blogs are fine to use during research to locate and identify the underlying primary source, the restriction is on what gets cited, not what's read along the way. archive.org is a good tool for both, it often hosts the scanned original document itself (old journal issues, out-of-print books, primary records), which makes it a legitimate citation target, not just a research stop.
@@ -47,9 +47,11 @@ Author a new Hugo blog post or edit an existing one. Follow all rules below prec
 - **Specificity is the humor vehicle.** A precise number or operational detail makes absurdity concrete without a punchline. "The team ran 14 postmortems, fixed 14 root causes, and had 14 new incidents the next quarter." hits harder than any clever observation about postmortem culture.
 - **One-liner zingers after buildup.** After 3–4 sentences of context and tension, a standalone one- or two-word sentence lands hard. "It worked." "Nobody noticed." "They were wrong." Let it breathe as its own line, not tacked onto the prior sentence.
 - **Understatement for high-stakes moments.** When describing something that's actually a big deal, use a flat, matter-of-fact tone. The gap between magnitude and casualness is where the humor lives. "We decided in the car to start over." beats "We made the difficult decision to fundamentally rethink our approach."
+- **Name the pattern.** Give a recurring, unnamed situation a short label the reader can reuse in their own head, dropped once, plainly, mid-paragraph rather than as a section header. A recurring meeting that only exists because someone's calendar defaults to it becomes memorable the moment you call it the Zombie Meeting.
+- **Undercut your own authority once, deliberately.** A brief, honest admission that the advice-giver is improvising too keeps the "smart friend" voice from tipping into "consultant with all the answers." Use it sparingly, once per post at most, and only where it's true.
 
 ### Structure
-- **Word count**: 800–1,200 words (body content only, excluding frontmatter, References, Outtakes, and Changelog).
+- **Word count**: 750–1,250 words (body content only, excluding frontmatter, References, Outtakes, and Changelog).
 - **Frontmatter summary**: under 36 words. Two sentences maximum. No hedging or filler.
 - **Frontmatter tags**: Three tags maximum. Single words only. No hyphenated phrases.
 - **Reading grade level**: 10–12 (Flesch-Kincaid or equivalent). Prefer concrete nouns and active verbs over abstract nominalizations. Use simple, direct language.
@@ -75,7 +77,7 @@ The body sections must be followed in this order:
 
 ### Verification Checklist
 Confirm every item below before reporting the work done. This is the single checklist for both authoring and editing.
-- Word count 800–1,200 (body only, excluding frontmatter, References, Outtakes, Changelog).
+- Word count 750–1,250 (body only, excluding frontmatter, References, Outtakes, Changelog).
 - Frontmatter summary under 36 words, two sentences maximum.
 - Frontmatter tags: three maximum, single words only.
 - No em-dashes, en-dashes, or semicolons anywhere in the post.
