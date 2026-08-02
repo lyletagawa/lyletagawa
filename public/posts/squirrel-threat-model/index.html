@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>The Squirrel Threat Model | hi</title>
+
+
+
+<link href="https://lyletagawa.com/index.xml" rel="alternate" type="application/rss+xml" title="hi" />
+
+<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='https://lyletagawa.com/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="canonical" href="https://lyletagawa.com/posts/squirrel-threat-model/">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Squirrels have shut down Nasdaq trading twice. Beavers, cows, and sharks have taken down real networks too, but misconfiguration, sabotage, and copper theft cause far more damage than any animal ever has.">
+<script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="Xi tn init mn Qr yn xn pn capture calculateEventProperties Tn register register_once register_for_session unregister unregister_for_session Pn getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync On identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException addExceptionStep captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty Mn Cn createPersonProfile setInternalOrTestUser Rn vn An opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Sn debug Kr En getPageViewId captureTraceFeedback captureTraceMetric hn".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_zrLjgptGCvrPgnVnoXPF87NEtESJtxuQLt26tRfFynhL', {
+        api_host: 'https://p.foureleven.org', 
+        ui_host: 'https://us.posthog.com', 
+        defaults: '2026-05-30',
+        person_profiles: 'identified_only', 
+    })
+</script>
+
+</head>
+<body>
+
+<section class="section">
+  <div class="container">
+    <nav id="nav-main" class="nav">
+      <div id="nav-name" class="nav-left">
+        <a id="nav-anchor" class="nav-item" href="https://lyletagawa.com">
+          <h1 id="nav-heading" class="title is-4">hi</h1>
+        </a>
+      </div>
+      <div class="nav-right">
+        <nav id="nav-items" class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/lyletagawa'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg>
+</i>
+            </span>
+          </a><a class="level-item" aria-label="linkedin" href='https://linkedin.com/in/lyletagawa'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg>
+</i>
+            </span>
+          </a><a class="level-item" aria-label="rss" href='/index.xml'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle>
+    
+  </svg>
+</i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+
+    <nav class="nav">
+      
+
+      
+    </nav>
+
+  </div>
+  <script src="/js/navicon-shift.js"></script>
+</section>
+<section class="section">
+  <div class="container">
+    <h1 class="title">The Squirrel Threat Model</h1>
+    
+    <div class="subtitle tags is-6 is-pulled-right">
+      
+      
+<a class="subtitle is-6" href="/tags/networking/">#networking</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/reliability/">#reliability</a>
+  
+  | <a class="subtitle is-6" href="/tags/incidents/">#incidents</a>
+  
+
+
+      
+    </div>
+    
+    <h6 class="subtitle is-6" style="line-height:0em">Aug. 2, 2026&nbsp;&middot; 7 min read
+    </h6>
+    
+
+    <div class="content">
+      <p><img src="/images/wan-failures.jpg" alt="Squirrels have shut down Nasdaq trading twice. Beavers, cows, and sharks have taken down real networks too, but misconfiguration, sabotage, and copper theft cause far more damage than any animal ever has.">
+<em>Two squirrels on a utility cable in Brampton, Ontario. Photo: <a href="https://commons.wikimedia.org/wiki/File:Brampton.-_Ecureuils_canadiens.JPG">Pierre André Leclercq (2017)</a>. CC BY-SA 4.0.</em></p>
+<h2 id="the-squirrel-threat-model">The Squirrel Threat Model</h2>
+<p>On December 9, 1987, a squirrel got into a power substation in Trumbull, Connecticut, and touched something it shouldn&rsquo;t have. The substation fed Nasdaq&rsquo;s data center. Trading halted for roughly ninety minutes, and a Nasdaq official later estimated the outage kept more than 20 million shares from changing hands<sup><a href="#ref-1" title="UPI (1987). Power failure interrupts NASDAQ, hurts computer. UPI Archives, December 9, 1987.">[1]</a></sup>.</p>
+<p>Nobody fixed whatever allowed that, because on August 2, 1994, it happened again. A different squirrel found its way into the same power line and halted Nasdaq trading a second time. Both squirrels died. Trading resumed within the hour, both times<sup><a href="#ref-1" title="UPI (1987). Power failure interrupts NASDAQ, hurts computer. UPI Archives, December 9, 1987.">[1]</a></sup>.</p>
+<p>Somewhere there is a security budget built around nation-state actors and zero-day exploits. Somewhere else, twice, a squirrel took down the network under the entire US stock market by doing what squirrels do.</p>
+<h2 id="animals-get-the-headlines">Animals Get The Headlines</h2>
+<p>Every cause on this list happened. Each one is also a rounding error next to the causes nobody tells stories about.</p>
+<p><strong>Squirrels.</strong> Trumbull wasn&rsquo;t a fluke. John Inglis, a former deputy director of the National Security Agency, said on record that &ldquo;the No. 1 threat experienced to date by the U.S. electrical grid is squirrels<sup><a href="#ref-2" title="Smithsonian Magazine (2015). Move Over Hackers, Squirrels Are the Power Grid&#39;s Greatest Foe.">[2]</a></sup>.&rdquo; A crowdsourced tracker called Cyber Squirrel 1 logged more than 2,500 animal-caused power incidents before it stopped updating in 2021, over half of them squirrels<sup><a href="#ref-3" title="Cyber Squirrel 1 (2021). cybersquirrel1.com.">[3]</a></sup>.</p>
+<p><strong>Beavers.</strong> In April 2021, beavers in Tumbler Ridge, British Columbia, dug three feet down alongside a creek, chewed through a 4.5-inch protective conduit, and then chewed through the fiber cable inside it. About 900 people lost internet, phone, and TV service for 36 hours. A Telus spokesperson called it &ldquo;a bizarre and uniquely Canadian turn of events<sup><a href="#ref-4" title="CBC News (2022). For the second year in a row, a beaver is to blame for phone and internet outages in northern B.C.">[4]</a></sup>.&rdquo; It happened again to the same region the following year.</p>
+<p><strong>Cows.</strong> In May 2020, Google&rsquo;s own senior vice president of technical infrastructure, Urs Hölzle, live-tweeted an explanation for repeated short outages on a fiber path through Oregon. The fiber ran above ground along power poles, and a farmer had started grazing cattle nearby. Whenever a cow stepped on the fallen line, it bent enough to interrupt traffic. Google didn&rsquo;t work out why until someone drove out and looked<sup><a href="#ref-5" title="9to5Google (2020). Cows responsible for short outages to Google fiber network.">[5]</a></sup>.</p>
+<p><strong>Sharks.</strong> Real, and older than the internet joke about it. Bite marks turned up in an experimental undersea data line off the Canary Islands in 1985, and Google now wraps some shoreline cables in protective armor. But marine biologists and telecom engineers are blunt about the actual scale of the threat. As one put it, &ldquo;this is probably one of the biggest myths we see cited in the press<sup><a href="#ref-6" title="Marquez, Melissa Cristina (2020). Our Underwater World Is Full Of Cables, That Are Sometimes Attacked By Sharks. Forbes.">[6]</a></sup>.&rdquo; Nearly all undersea cable damage comes from something far less exciting: ship anchors and fishing trawlers.</p>
+<p>Every animal on that list is real, documented, and responsible for an actual outage. None of them comes close to the damage humans do to their own networks, whether on purpose or by accident.</p>
+<h2 id="one-bad-command">One Bad Command</h2>
+<p>On October 4, 2021, a Facebook engineer ran a routine command meant to check spare capacity on the company&rsquo;s backbone network. The command carried a bug, and a separate audit tool built to catch this kind of mistake had a bug of its own. The command took down every connection in Facebook&rsquo;s backbone<sup><a href="#ref-7" title="Meta Engineering (2021). More details about the October 4 outage.">[7]</a></sup>.</p>
+<p>The failure cascaded fast. With the backbone gone, Facebook&rsquo;s own DNS servers judged themselves unreachable and withdrew their routing advertisements, the same mechanism meant to route around a failure. That made the DNS servers unreachable too, even though the physical machines never stopped running. Facebook, Instagram, and WhatsApp disappeared from the internet for about six hours, and engineers reportedly struggled to get into the affected buildings, since the badge readers ran on that same downed network<sup><a href="#ref-7" title="Meta Engineering (2021). More details about the October 4 outage.">[7]</a></sup>.</p>
+<p>Facebook wasn&rsquo;t alone. In January 2017, an engineer at GitLab tried to fix a lagging secondary database, triggered the removal of the primary by mistake, and by the time anyone canceled it, only 4.5GB (of 300GB) remained. GitLab lost about six hours of production data, and when it turned to its backups, all five backup mechanisms had failed in one way or another<sup><a href="#ref-8" title="GitLab (2017). Postmortem of database outage of January 31. about.gitlab.com.">[8]</a></sup>. A month later, an AWS engineer running a routine maintenance command against Amazon&rsquo;s S3 storage service mistyped one input, removed far more servers than intended, and took down a large share of the internet, including Slack, Trello, and Medium, for about four hours. Amazon&rsquo;s status dashboard couldn&rsquo;t update to tell customers what was happening, because it depended on the same system that had just failed<sup><a href="#ref-9" title="Amazon Web Services (2017). Summary of the Amazon S3 Service Disruption in the Northern Virginia (US-EAST-1) Region. aws.amazon.com.">[9]</a></sup>.</p>
+<p>No squirrel has ever done that much damage in a single afternoon.</p>
+<h2 id="criminal-mischief">Criminal Mischief</h2>
+<p>On December 25, 2024, the oil tanker Eagle S dragged its anchor roughly 100 kilometers across the Baltic seabed, severing the Estlink 2 power cable between Finland and Estonia along with four telecom cables. Finnish investigators later matched the seabed drag mark to the ship&rsquo;s anchor. The Eagle S is flagged in the Cook Islands but is widely described as part of Russia&rsquo;s shadow fleet, tankers that move sanctioned oil while avoiding Western insurance and registry rules<sup><a href="#ref-10" title="NPR (2024). What to know about Finland, Russia&#39;s &#39;shadow fleet&#39; and a severed undersea cable.">[10]</a></sup>.</p>
+<p>Estlink 2 stayed offline for more than seven months, and repairs cost an estimated 60 million euros. Whether the anchor drag was deliberate sabotage or reckless navigation is still contested. Finnish prosecutors charged the ship&rsquo;s officers with aggravated criminal mischief rather than sabotage<sup><a href="#ref-10" title="NPR (2024). What to know about Finland, Russia&#39;s &#39;shadow fleet&#39; and a severed undersea cable.">[10]</a></sup>. Several other Baltic cables have been severed the same way since 2023.</p>
+<h2 id="salvage-value">Salvage Value</h2>
+<p>Between June and December 2024, nearly 6,000 incidents of telecom theft and vandalism disrupted service nationwide, affecting an estimated 1.5 million customers. Almost all of it targeted copper. A stolen spool of copper wire might fetch a few hundred dollars at a scrapyard. The societal cost, measured in lost productivity and disrupted access to emergency services, was estimated at 38 million to 188 million dollars<sup><a href="#ref-11" title="Lopez, Edward J. (2025). The Real Costs of Communications Outages due to Infrastructure Theft or Vandalism. NCTA.">[11]</a></sup>.</p>
+<p>Copper theft doesn&rsquo;t make headlines the way a shark or a squirrel does. There&rsquo;s no photo, no animal to name and forgive. It&rsquo;s also, by volume, one of the largest causes of communications outages in the country.</p>
+<h2 id="where-people-get-this-wrong">Where People Get This Wrong</h2>
+<p><strong>They treat the funny story as the common story.</strong> A shark bite or a squirrel outage travels because it makes a good story. Good stories don&rsquo;t need to be representative to spread, and the base rate for wildlife-caused outages is a rounding error next to human error and human theft.</p>
+<p><strong>They spend the budget on the wrong threat.</strong> Teams harden against dramatic, low-probability scenarios while a mistyped maintenance command or copper cable pulled out of a rural span is the far likelier way the network goes down.</p>
+<h2 id="put-it-into-practice">Put It Into Practice</h2>
+<p>Start by admitting that your threat model probably doesn&rsquo;t match your actual incident history. Pull the last two years of outage tickets and sort by contributing factors instead of by how good the postmortem story was. If misconfiguration or physical theft dominate the list, that&rsquo;s where the next dollar of resilience spending belongs.</p>
+<p>A command capable of disconnecting an entire backbone should never run without guardrails, and the safety check meant to catch that kind of mistake needs testing as carefully as the systems it protects. Peer review, staged rollouts, and continuous verification matter just as much.</p>
+<p>Build for the boring failure. The memorable one already gets plenty of attention. Route critical paths so a single severed cable, cut by an anchor, a backhoe, or a thief with wire cutters, can&rsquo;t take an entire region offline. The squirrel makes a better story. The thief who came back for the same copper three times this year is the one who puts you down.</p>
+<hr>
+<h2 id="references">References</h2>
+<ol class="references">
+  <li id="ref-1">UPI (1987). "Power failure interrupts NASDAQ, hurts computer." <em>UPI Archives</em>, December 9, 1987. <a href="https://www.upi.com/Archives/1987/12/09/Power-failure-interrupts-NASDAQ-hurts-computer/6430566024400/">https://www.upi.com/Archives/1987/12/09/Power-failure-interrupts-NASDAQ-hurts-computer/6430566024400/</a></li>
+  <li id="ref-2">Smithsonian Magazine (2015). "Move Over Hackers, Squirrels Are the Power Grid's Greatest Foe." <a href="https://www.smithsonianmag.com/smart-news/move-over-hackers-squirrels-power-grid-greatest-foe-180957834/">https://www.smithsonianmag.com/smart-news/move-over-hackers-squirrels-power-grid-greatest-foe-180957834/</a></li>
+  <li id="ref-3">Cyber Squirrel 1 (2021). <a href="https://www.cybersquirrel1.com/">https://www.cybersquirrel1.com/</a></li>
+  <li id="ref-4">CBC News (2022). "For the second year in a row, a beaver is to blame for phone and internet outages in northern B.C." <a href="https://www.cbc.ca/news/canada/british-columbia/beaver-bc-internet-outage-1.6483965">https://www.cbc.ca/news/canada/british-columbia/beaver-bc-internet-outage-1.6483965</a></li>
+  <li id="ref-5">9to5Google (2020). "Cows responsible for short outages to Google fiber network." <a href="https://9to5google.com/2020/05/21/google-outage-cows/">https://9to5google.com/2020/05/21/google-outage-cows/</a></li>
+  <li id="ref-6">Marquez, Melissa Cristina (2020). "Our Underwater World Is Full Of Cables, That Are Sometimes Attacked By Sharks." <em>Forbes</em>. <a href="https://www.forbes.com/sites/melissacristinamarquez/2020/07/20/our-underwater-world-is-full-of-cables-that-are-sometimes-attacked-by-sharks/">https://www.forbes.com/sites/melissacristinamarquez/2020/07/20/our-underwater-world-is-full-of-cables-that-are-sometimes-attacked-by-sharks/</a></li>
+  <li id="ref-7">Meta Engineering (2021). "More details about the October 4 outage." <a href="https://engineering.fb.com/2021/10/05/networking-traffic/outage-details/">https://engineering.fb.com/2021/10/05/networking-traffic/outage-details/</a></li>
+  <li id="ref-8">GitLab (2017). "Postmortem of database outage of January 31." <a href="https://about.gitlab.com/blog/postmortem-of-database-outage-of-january-31/">https://about.gitlab.com/blog/postmortem-of-database-outage-of-january-31/</a></li>
+  <li id="ref-9">Amazon Web Services (2017). "Summary of the Amazon S3 Service Disruption in the Northern Virginia (US-EAST-1) Region." <a href="https://aws.amazon.com/message/41926/">https://aws.amazon.com/message/41926/</a></li>
+  <li id="ref-10">NPR (2024). "What to know about Finland, Russia's 'shadow fleet' and a severed undersea cable." <a href="https://www.npr.org/2024/12/31/nx-s1-5243302/finland-russia-severed-undersea-cable-shadow-fleet">https://www.npr.org/2024/12/31/nx-s1-5243302/finland-russia-severed-undersea-cable-shadow-fleet</a></li>
+  <li id="ref-11">Lopez, Edward J. (2025). "The Real Costs of Communications Outages due to Infrastructure Theft or Vandalism." <em>NCTA</em>. <a href="https://www.ncta.com/wp-content/uploads/2025/10/Economic-Impact-Study_1001_2025.pdf">https://www.ncta.com/wp-content/uploads/2025/10/Economic-Impact-Study_1001_2025.pdf</a></li>
+</ol>
+<hr>
+<h2 id="outtakes">Outtakes</h2>
+<p><strong>A monkey blacked out an entire country.</strong> In 2016, a vervet monkey fell onto a transformer at Kenya&rsquo;s largest hydropower station, overloading nearby machines and cutting power to an estimated 4.7 million households and businesses for more than four hours. The monkey survived (<a href="https://www.npr.org/2016/06/08/481206952/monkey-knocks-out-power-across-kenya">NPR, 2016</a>).</p>
+<p><strong>Rats chewed through fiber.</strong> In 2023, nesting rats in Tring, England, chewed through ducting and multiple fiber cables that normally require a drill to cut, knocking out broadband for the whole town. Engineers rerouted 650 meters of cable around the nest (<a href="https://www.bbc.com/news/uk-england-beds-bucks-herts-66377029">BBC, 2023</a>).</p>
+<p><strong>Woodpeckers just want a home.</strong> Ireland&rsquo;s ESB Networks blames great spotted woodpeckers, roughly 100 nesting pairs, for a wave of pole damage across Wicklow and Wexford. The birds hollow out wooden poles hunting for nest sites, and rot forces the scheduled outages that follow (<a href="https://www.irishtimes.com/environment/2023/11/28/woodpeckers-blamed-for-power-outages-as-crews-race-to-repair-damaged-electricity-poles/">Irish Times, 2023</a>).</p>
+<p><strong>A raccoon and 6,700 lost customers.</strong> Before dawn in July 2025, a raccoon touched live equipment inside a New Jersey substation and set off an explosion that knocked out power across two states. Crews rerouted power to most of the affected customers within 35 minutes (<a href="https://newyork.news12.com/raccoon-causes-multistate-power-outage">News 12, 2025</a>).</p>
+<p><strong>A cat broke the pattern.</strong> In September 2018, a cat broke into a New Orleans substation and knocked out power to about 7,500 customers. Entergy told reporters the species was unusual for this kind of incident. Squirrels are normally the ones that get in (<a href="https://gizmodo.com/rest-in-peace-cat-that-broke-into-new-orleans-substati-1829127792">Gizmodo, 2018</a>).</p>
+<hr>
+<h2 id="changelog">Changelog</h2>
+<p><strong>2026-08-02</strong> Initial release.</p>
+
+      <hr>
+      
+      <div class="related">
+
+<h3>Similar articles:</h3>
+<ul>
+	
+	<li><a href="/posts/tcp-congestion-control/">From Reno to BBR</a></li>
+	
+	<li><a href="/posts/distributed-causation/">Distributed Causation</a></li>
+	
+	<li><a href="/posts/pagerduty-summit-2020/">PagerDuty Summit 2020</a></li>
+	
+	<li><a href="/posts/chaos-engineering/">Chaos Engineering</a></li>
+	
+	<li><a href="/posts/just-culture/">Just Culture</a></li>
+	
+</ul>
+</div>
+      
+    </div>
+    
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p></p>
+    
+  </div>
+</section>
+
+
+
+
+
+</body>
+</html>
+

@@ -51,7 +51,7 @@ Author a new Hugo blog post or edit an existing one. Follow all rules below prec
 - **Undercut your own authority once, deliberately.** A brief, honest admission that the advice-giver is improvising too keeps the "smart friend" voice from tipping into "consultant with all the answers." Use it sparingly, once per post at most, and only where it's true.
 
 ### Structure
-- **Word count**: 750–1,250 words (body content only, excluding frontmatter, References, Outtakes, and Changelog).
+- **Word count**: 750–1,350 words (body content only, excluding frontmatter, References, Outtakes, and Changelog).
 - **Frontmatter summary**: under 36 words. Two sentences maximum. No hedging or filler.
 - **Frontmatter tags**: Three tags maximum. Single words only. No hyphenated phrases.
 - **Reading grade level**: 10–12 (Flesch-Kincaid or equivalent). Prefer concrete nouns and active verbs over abstract nominalizations. Use simple, direct language.
@@ -77,7 +77,7 @@ The body sections must be followed in this order:
 
 ### Verification Checklist
 Confirm every item below before reporting the work done. This is the single checklist for both authoring and editing.
-- Word count 750–1,250 (body only, excluding frontmatter, References, Outtakes, Changelog).
+- Word count 750–1,350 (body only, excluding frontmatter, References, Outtakes, Changelog).
 - Frontmatter summary under 36 words, two sentences maximum.
 - Frontmatter tags: three maximum, single words only.
 - No em-dashes, en-dashes, or semicolons anywhere in the post.

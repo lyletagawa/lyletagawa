@@ -2,14 +2,14 @@
 title: "Distributed Causation"
 date: 2026-06-01
 publishdate: 2026-06-01
-lastmod: 2026-06-17
+lastmod: 2026-08-01
 summary: "Complex failures don't have a single root cause. They have many causes distributed across time, systems, and organizational boundaries, and fixing just one leaves the rest in place."
 tags: ["safety", "incidents", "resilience"]
 image: /images/distributed-causation.jpg
 draft: false
 ---
 
-![](/images/distributed-causation.jpg)
+![Complex failures don't have a single root cause. They have many causes distributed across time, systems, and organizational boundaries, and fixing just one leaves the rest in place.](/images/distributed-causation.jpg)
 *Photo: [U.S. Nuclear Regulatory Commission (1979)](https://www.flickr.com/photos/69383258@N08/7447157202). CC BY-NC-ND 2.0.*
 
 ## Distributed Causation
@@ -73,7 +73,7 @@ For your next postmortem, write a contributing factors section before the root c
 <ol class="references">
   <li id="ref-1">Kemeny Commission (1979). <em>Report of the President's Commission on the Accident at Three Mile Island</em>. U.S. Government Printing Office. <a href="https://www.osti.gov/servlets/purl/5082863">https://www.osti.gov/servlets/purl/5082863</a></li>
   <li id="ref-2">Columbia Accident Investigation Board (2003). <em>Columbia Accident Investigation Board Report, Volume 1</em>. NASA. <a href="https://digital.library.unt.edu/ark:/67531/metadc1282018/">https://digital.library.unt.edu/ark:/67531/metadc1282018/</a></li>
-  <li id="ref-3">Cook, Richard I. (1998). "How Complex Systems Fail." Cognitive Technologies Laboratory, University of Chicago. <a href="https://how.complexsystemsfail.com/">https://how.complexsystemsfail.com/</a></li>
+  <li id="ref-3">Cook, Richard I. (1998). "How Complex Systems Fail." Cognitive Technologies Laboratory, University of Chicago. <a href="https://www.adaptivecapacitylabs.com/HowComplexSystemsFail.pdf">https://www.adaptivecapacitylabs.com/HowComplexSystemsFail.pdf</a></li>
   <li id="ref-4">Cook, Richard I., John Allspaw, David D. Woods, et al. (2017). <em>STELLA: Report from the SNAFUcatchers Workshop on Coping with Complexity</em>. SNAFUcatchers. <a href="https://snafucatchers.github.io/">https://snafucatchers.github.io/</a></li>
   <li id="ref-5">Dekker, Sidney (2006). <em>The Field Guide to Understanding Human Error</em>. Ashgate. <a href="https://www.routledge.com/The-Field-Guide-to-Understanding-Human-Error/Dekker/p/book/9781472439055">https://www.routledge.com/The-Field-Guide-to-Understanding-Human-Error/Dekker/p/book/9781472439055</a></li>
 </ol>
@@ -82,14 +82,14 @@ For your next postmortem, write a contributing factors section before the root c
 
 ## Outtakes
 
-**The Five Whys and the Andon Cord.** Both the Five Whys and the Andon Cord come from the Toyota Production System. Ohno designed the Five Whys for linear mechanical failures on the assembly line. Postmortem culture adopted it for distributed failures it was never designed to handle (Ohno, 1988).
+**The Five Whys and the Andon Cord.** Both the Five Whys and the Andon Cord come from the Toyota Production System. Ohno designed the Five Whys for linear mechanical failures on the assembly line. Postmortem culture adopted it for distributed failures it was never designed to handle ([Ohno, 1988](https://archive.org/details/toyotaproduction0000onot)).
 
-**Tenerife.** The deadliest aviation accident in history (583 killed, 1977) is usually summarized as a captain who took off without clearance. The investigation also found overlapping radio transmissions, non-standard terminology, dense fog, and a runway layout change forced by a bomb threat at another airport (Weick, 1990).
+**Tenerife.** The deadliest aviation accident in history (583 killed, 1977) is usually summarized as a captain who took off without clearance. The investigation also found overlapping radio transmissions, non-standard terminology, dense fog, and a runway layout change forced by a bomb threat at another airport ([Weick, 1990](https://deepblue.lib.umich.edu/items/d6bcca51-c147-4142-8eb8-53a706f4b51b)).
 
-**Knight Capital.** Knight Capital lost $440 million in 45 minutes in 2012 after a deployment activated dormant code. The post-incident report named the deployment error. Investigation also found inadequate testing, no rollback capability, and a regulatory change that had created the latent condition months earlier (SEC, 2013).
+**Knight Capital.** Knight Capital lost $440 million in 45 minutes in 2012 after a deployment activated dormant code. The post-incident report named the deployment error. Investigation also found inadequate testing, no rollback capability, and a regulatory change that had created the latent condition months earlier ([SEC, 2013](https://www.sec.gov/files/litigation/admin/2013/34-70694.pdf)).
 
 ---
 
 ## Changelog
 
-**2026-06-01** Initial release.
+**2026-06-01** Initial release.  

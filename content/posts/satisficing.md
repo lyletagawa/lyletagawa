@@ -6,7 +6,7 @@ lastmod: 2026-06-17
 summary: "The best decision is often the fastest one you can defend, not the optimal one you never finish searching for."
 tags: ["decision", "heuristics"]
 image: /images/satisficing.jpg
-draft: false
+draft: true
 ---
 
 ![](/images/satisficing.jpg)

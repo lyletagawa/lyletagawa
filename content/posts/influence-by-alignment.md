@@ -2,14 +2,14 @@
 title: "Alignment Over Authority"
 date: 2026-05-21
 publishdate: 2026-05-21
-lastmod: 2026-06-17
+lastmod: 2026-08-01
 summary: "Authority centralizes decisions with whoever has the title. Alignment distributes them to whoever has the context, which is almost never the same person."
 tags: ["leadership", "intent", "influence"]
 image: /images/influence-by-alignment.jpg
 draft: false
 ---
 
-![](/images/influence-by-alignment.jpg)
+![Authority centralizes decisions with whoever has the title. Alignment distributes them to whoever has the context, which is almost never the same person.](/images/influence-by-alignment.jpg)
 *Photo: [U.S. Indo-Pacific Command (2017)](https://www.flickr.com/photos/us-pacific-command/36465016822). USS Santa Fe (SSN-763). CC BY-NC-ND 2.0.*
 
 ## Alignment Over Authority
@@ -22,51 +22,51 @@ The gap between formal authority and actual influence is where most technical le
 
 ## What Is Alignment?
 
-David Marquet documented the transformation of the USS Santa Fe from the fleet's worst submarine to its best by replacing the "leader-follower" model with "leader-leader" {{< cite 1 "Marquet, L. David (2012). Turn the Ship Around! A True Story of Turning Followers into Leaders. Portfolio." >}}. Instead of issuing orders, he trained crew members to say "I intend to..." and explain their reasoning. This required alignment around goals and decision frameworks, not just commands.
+David Marquet documented the transformation of the USS Santa Fe from the fleet's worst submarine to its best by replacing the "leader-follower" model with "leader-leader"{{< cite 1 "Marquet, L. David (2012). Turn the Ship Around! A True Story of Turning Followers into Leaders. Portfolio." >}}. Instead of issuing orders, he trained crew members to say "I intend to..." and explain their reasoning. This required alignment around goals and decision frameworks. Commands alone weren't enough.
 
-Distributed teams in McChrystal's *Team of Teams* made decisions the commander would have made without asking permission, because they understood the intent {{< cite 2 "McChrystal, Stanley, et al. (2015). Team of Teams: New Rules of Engagement for a Complex World. Portfolio." >}}. People follow leaders who articulate purpose, not those who wield positional power {{< cite 3 "Sinek, Simon (2009). Start with Why: How Great Leaders Inspire Everyone to Take Action. Portfolio." >}}.
+Distributed teams in McChrystal's *Team of Teams* made decisions the commander would have made without asking permission, because they understood the intent{{< cite 2 "McChrystal, Stanley, et al. (2015). Team of Teams: New Rules of Engagement for a Complex World. Portfolio." >}}. People follow leaders who articulate purpose more than leaders who simply wield positional power{{< cite 3 "Sinek, Simon (2009). Start with Why: How Great Leaders Inspire Everyone to Take Action. Portfolio." >}}.
 
 Alignment means shared understanding. Everyone understands the goal, the constraints, and the reasoning well enough to act independently, without needing to agree, vote, or compromise.
 
 ## Why Alignment Scales
 
-**Speed.** Authority requires escalation, but alignment enables local decision-making. Marquet's transformation of the Santa Fe reduced decision latency from hours to minutes by pushing decisions to crew members with the most context {{< cite 1 "Marquet, L. David (2012). Turn the Ship Around! A True Story of Turning Followers into Leaders. Portfolio." >}}.
+**Speed.** Authority requires escalation, but alignment enables local decision-making. Marquet's transformation of the Santa Fe reduced decision latency from hours to minutes by pushing decisions to crew members with the most context{{< cite 1 "Marquet, L. David (2012). Turn the Ship Around! A True Story of Turning Followers into Leaders. Portfolio." >}}.
 
-**Quality.** Authority centralizes decisions with people who have less context. The engineer debugging the production incident knows more than the VP. The IC who built the system understands constraints better than the architect {{< cite 4 "Fournier, Camille (2017). The Manager's Path: A Guide for Tech Leaders Navigating Growth and Change. O'Reilly Media." >}}. High-performing orgs distribute decisions to where context lives, enabling autonomous teams through shared goals rather than central control {{< cite 5 "Kim, Gene, et al. (2016). The DevOps Handbook. IT Revolution Press." >}}.
+**Quality.** Authority centralizes decisions with people who have less context. The engineer debugging the production incident knows more than the VP. The IC who built the system understands constraints better than the architect{{< cite 4 "Fournier, Camille (2017). The Manager's Path: A Guide for Tech Leaders Navigating Growth and Change. O'Reilly Media." >}}. High-performing orgs distribute decisions to where context lives, enabling autonomous teams through shared goals rather than central control{{< cite 5 "Kim, Gene, et al. (2016). The DevOps Handbook. IT Revolution Press." >}}.
 
 **Scale.** A director with authority is a bottleneck for 50 people. A director who creates alignment enables those same 50 people to make good decisions independently, in parallel. Authority doesn't scale. Alignment does.
 
-**Durability.** When people feel decisions are imposed rather than collaborative, they resist with slow implementation, minimal effort, and malicious compliance. DORA research identified psychological safety as one of the strongest cultural predictors of software delivery performance {{< cite 6 "Forsgren, Nicole, et al. (2018). Accelerate: The Science of Lean Software and DevOps. IT Revolution Press." >}}.
+**Durability.** When people feel decisions are imposed rather than collaborative, they resist with slow implementation, minimal effort, and malicious compliance. DORA research identified psychological safety as one of the strongest cultural predictors of software delivery performance{{< cite 6 "Forsgren, Nicole, et al. (2018). Accelerate: The Science of Lean Software and DevOps. IT Revolution Press." >}}.
 
 ## How to Build It
 
-**Articulate the why.** Most technical communication focuses on what and how, but alignment requires why. Marquet trained crew members to state their intent and reasoning before acting {{< cite 1 "Marquet, L. David (2012). Turn the Ship Around! A True Story of Turning Followers into Leaders. Portfolio." >}}. In practice, don't announce "we're moving to Kubernetes." Explain that current deployments require three hours of manual coordination per release, and the goal is deployment independence even at the cost of initial complexity.
+**Articulate the why.** Most technical communication focuses on what and how, but alignment requires why. Marquet trained crew members to state their intent and reasoning before acting{{< cite 1 "Marquet, L. David (2012). Turn the Ship Around! A True Story of Turning Followers into Leaders. Portfolio." >}}. In practice, don't announce "we're moving to Kubernetes." Explain that current deployments require three hours of manual coordination per release, and the goal is deployment independence even at the cost of initial complexity.
 
-**Make decision frameworks explicit.** Goals describe what you want. Strategy is the framework for making trade-offs to get there {{< cite 7 "Rumelt, Richard (2011). Good Strategy Bad Strategy: The Difference and Why It Matters. Crown Business." >}}. Give people the criteria, not just the conclusion. "We prioritize maintainability over performance unless data shows it's a user-facing problem."
+**Make decision frameworks explicit.** Goals describe what you want. Strategy is the framework for making trade-offs to get there{{< cite 7 "Rumelt, Richard (2011). Good Strategy Bad Strategy: The Difference and Why It Matters. Crown Business." >}}. Give people the criteria that produced the conclusion, instead of the conclusion by itself. "We prioritize maintainability over performance unless data shows it's a user-facing problem."
 
-**Write for rooms you're not in.** Senior ICs build influence without authority by making their thinking legible at scale. A technical vision document or architecture proposal carries your reasoning to teams you'll never meet with directly {{< cite 8 "Larson, Will (2021). Staff Engineer: Leadership Beyond the Management Track. Self-published." >}}. If people need you in the room to understand the direction, you haven't created alignment yet.
+**Write for rooms you're not in.** Senior ICs build influence without authority by making their thinking legible at scale. A technical vision document or architecture proposal carries your reasoning to teams you'll never meet with directly{{< cite 8 "Larson, Will (2021). Staff Engineer: Leadership Beyond the Management Track. Self-published." >}}. If people need you in the room to understand the direction, you haven't created alignment yet.
 
-**Document decisions and reasoning.** Every significant decision should capture what was decided, why, what alternatives were considered, and what would make you revisit it. This creates institutional memory so new team members can make decisions the team would have made. Without it, organizational knowledge lives only in the heads of long-tenured employees, and alignment erodes as teams change {{< cite 2 "McChrystal, Stanley, et al. (2015). Team of Teams: New Rules of Engagement for a Complex World. Portfolio." >}}.
+**Document decisions and reasoning.** Every significant decision should capture what was decided, why, what alternatives were considered, and what would make you revisit it. This creates institutional memory so new team members can make decisions the team would have made. Without it, organizational knowledge lives only in the heads of long-tenured employees, and alignment erodes as teams change{{< cite 2 "McChrystal, Stanley, et al. (2015). Team of Teams: New Rules of Engagement for a Complex World. Portfolio." >}}.
 
-**Delegate decisions, not tasks.** Marquet's "I intend to..." framework is the clearest example. Crew members state their intent, explain their reasoning, and act unless the captain sees a flaw in the logic. Task delegation creates dependency. Decision delegation creates alignment {{< cite 1 "Marquet, L. David (2012). Turn the Ship Around! A True Story of Turning Followers into Leaders. Portfolio." >}}.
+**Delegate the decision.** Marquet's "I intend to..." framework is the clearest example. Crew members state their intent, explain their reasoning, and act unless the captain sees a flaw in the logic. Task delegation creates dependency. Decision delegation creates alignment{{< cite 1 "Marquet, L. David (2012). Turn the Ship Around! A True Story of Turning Followers into Leaders. Portfolio." >}}.
 
-**Test understanding.** Alignment isn't one-way communication. Marquet's model requires two conditions: clarity about the goal, and competence to act on it {{< cite 1 "Marquet, L. David (2012). Turn the Ship Around! A True Story of Turning Followers into Leaders. Portfolio." >}}. Ask "What would you do in this situation?" If people can't answer, you haven't created alignment.
+**Test understanding.** Alignment isn't one-way communication. Marquet's model requires two conditions: clarity about the goal, and competence to act on it{{< cite 1 "Marquet, L. David (2012). Turn the Ship Around! A True Story of Turning Followers into Leaders. Portfolio." >}}. Ask "What would you do in this situation?" If people can't answer, you haven't created alignment.
 
 ## How Teams Get This Wrong
 
-**Confusing alignment with consensus.** Alignment requires understanding the reasoning well enough to act independently, not agreement. Chasing consensus slows decisions and doesn't produce alignment.
+**Confusing alignment with consensus.** Alignment requires understanding the reasoning well enough to act independently. It doesn't require agreement. Chasing consensus slows decisions and doesn't produce alignment.
 
-**Reaching for authority when alignment fails.** Using authority instead of building alignment creates dependency and resentment. Marquet used authority sparingly, to create conditions for alignment, then stepped back {{< cite 1 "Marquet, L. David (2012). Turn the Ship Around! A True Story of Turning Followers into Leaders. Portfolio." >}}. Using authority as a shortcut trains people to wait for orders rather than exercise judgment. Authority is appropriate in emergencies and during onboarding. The goal is to reduce reliance on it as the default, not eliminate it entirely.
+**Reaching for authority when alignment fails.** Using authority instead of building alignment creates dependency and resentment. Marquet used authority sparingly, to create conditions for alignment, then stepped back{{< cite 1 "Marquet, L. David (2012). Turn the Ship Around! A True Story of Turning Followers into Leaders. Portfolio." >}}. Using authority as a shortcut trains people to wait for orders rather than exercise judgment. Authority is appropriate in emergencies and during onboarding. The goal is to reduce reliance on it as the default without eliminating it entirely.
 
 **Skipping the why.** Announcing decisions without explaining reasoning produces the appearance of alignment. Six months later, teams make choices that contradict the original intent because they understood what to do but not why.
 
-**Treating alignment as a one-time event.** Alignment decays faster than people expect as context changes, people turn over, and strategy shifts. Teams that aligned around a decision two years ago may be operating on obsolete assumptions today. Re-alignment needs to be a recurring practice, not a kickoff meeting artifact.
+**Treating alignment as a one-time event.** Alignment decays faster than people expect as context changes, people turn over, and strategy shifts. Teams that aligned around a decision two years ago may be operating on obsolete assumptions today.
 
 ## Put It Into Practice
 
 Authority is a shortcut that lets you make decisions quickly without building understanding, but shortcuts have costs. Slower execution over time, lower-quality decisions, resentment, dependency. Alignment is slower to build and faster to scale.
 
-The test is simple. Could your team operate effectively without you present? If not, you've built dependency, not alignment. Marquet's crew went on to command positions at unprecedented rates because they learned to think like leaders, not followers {{< cite 1 "Marquet, L. David (2012). Turn the Ship Around! A True Story of Turning Followers into Leaders. Portfolio." >}}.
+The test is simple. Could your team operate effectively without you present? If not, you've built dependency. Alignment looks different. Marquet's crew went on to command positions at unprecedented rates because they learned to think like leaders rather than followers{{< cite 1 "Marquet, L. David (2012). Turn the Ship Around! A True Story of Turning Followers into Leaders. Portfolio." >}}.
 
 Pick one recurring decision your team escalates to you. Write down the why, the constraints, and the trade-off criteria. Share it. Then step back the next time the question comes up.
 
@@ -89,11 +89,11 @@ Pick one recurring decision your team escalates to you. Write down the why, the 
 
 ## Outtakes
 
-**No plan survives contact with the enemy.** Auftragstaktik (mission tactics) was a Prussian military doctrine developed by Helmuth von Moltke in the 1860s. No plan survives contact with the enemy, so officers must understand the goal well enough to improvise. (van Creveld, 1985).
+**No plan survives contact with the enemy.** Auftragstaktik (mission tactics) was a Prussian military doctrine developed by Helmuth von Moltke in the 1860s. No plan survives contact with the enemy, so officers must understand the goal well enough to improvise ([van Creveld, 1985](https://archive.org/details/commandinwar0000vanc)).
 
-**The Abilene Paradox.** In 1974, Jerry Harvey described a family that drove 53 miles to Abilene, Texas in 104-degree heat, even though nobody wanted to go. Each person assumed the others did, so nobody said otherwise. (Harvey, 1974).
+**The Abilene Paradox.** In 1974, Jerry Harvey described a family that drove 53 miles to Abilene, Texas in 104-degree heat, even though nobody wanted to go. Each person assumed the others did, so nobody said otherwise ([Harvey, 1974](https://web.mit.edu/curhan/www/docs/Articles/15341_Readings/Group_Dynamics/Harvey_Abilene_Paradox.pdf)).
 
-**Disagree and commit.** Bezos detailed this principle in his 2016 shareholder letter. Amazon leadership is expected to argue their position before a decision is made, then execute completely once it is, whether or not their position won. (Bezos, 2016).
+**Disagree and commit.** Bezos detailed this principle in his 2016 shareholder letter. Amazon leadership is expected to argue their position before a decision is made, then execute completely once it is, whether or not their position won ([Bezos, 2016](https://www.aboutamazon.com/news/company-news/2016-letter-to-shareholders)).
 
 ---
 

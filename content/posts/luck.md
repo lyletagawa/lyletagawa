@@ -3,13 +3,13 @@ title: "Luck"
 date: 2026-07-26
 publishdate: 2026-07-26
 lastmod: 2026-07-26
-summary: "Hard work and preparation get you into the game. Luck determines much of the rest, and successful people consistently underestimate how much of it they had."
+summary: "Luck decides more than most people are willing to admit. Hard work and grit determine how ready you are for it."
 tags: ["chance", "bias", "humility"]
 image: /images/luck.png
 draft: false
 ---
 
-![Hard work and preparation get you into the game. Luck determines much of the rest, and successful people consistently underestimate how much of it they had.](/images/luck.png)
+![Luck decides more than most people are willing to admit. Hard work and grit determine how ready you are for it.](/images/luck.png)
 *"Fortune Cookie on the Table." Photo: [Petr Kratochvil](https://www.publicdomainpictures.net/en/view-image.php?image=207648). CC0 Public Domain.*
 
 ## Luck

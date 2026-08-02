@@ -42,6 +42,8 @@ An L1 cache reference costs about half a nanosecond. A main memory reference cos
 
 The specific numbers matter less than the gaps between them. Memory to disk is a jump of roughly five orders of magnitude. Once that spacing is memorized, you can place almost any new operation somewhere on the same ladder and get a usable estimate, the same way Fermi's students could place an unfamiliar quantity between two familiar ones.
 
+The AI era has already produced its own anchor point worth adding to the table. Dean, seventeen years past the original talk, still reaches for the same technique, now pointed at inference hardware, and it's put a number on why energy rather than raw compute has become the binding constraint: moving a byte costs roughly 1,000 times more energy than operating on it once it's already at the compute unit{{< cite 10 "Dean, Jeff (2026). The 1% Rule for Building in AI. Y Combinator Startup Podcast." >}}. Same ladder, same rounding, a new rung.
+
 ## Common Mistakes
 
 **Treating the answer as precise.** Napkin maths earns its speed by giving up precision. An estimate that comes out to 96,000 requests per second isn't meaningfully different from one that comes out to 110,000.
@@ -82,6 +84,7 @@ Next time a question like that comes up in a meeting, don't wait for the benchma
   <li id="ref-7">Eskildsen, Simon (2020). "Estimating Systems with Napkin Math." <em>The Changelog</em>, Episode 412. <a href="https://changelog.com/podcast/412">https://changelog.com/podcast/412</a></li>
   <li id="ref-8">Cloudflare Radar. "Internet Quality." <a href="https://radar.cloudflare.com/quality">https://radar.cloudflare.com/quality</a></li>
   <li id="ref-9">Gregg, Brendan (2020). <em>Systems Performance, 2nd Edition</em>, Section 2.3.2, Table 2.2. Pearson. <a href="https://learning.oreilly.com/library/view/systems-performance-2nd/9780136821694/ch02.xhtml#ch02tab02">https://learning.oreilly.com/library/view/systems-performance-2nd/9780136821694/ch02.xhtml#ch02tab02</a></li>
+  <li id="ref-10">Dean, Jeff (2026). "The 1% Rule for Building in AI." <em>Y Combinator Startup Podcast</em>. <a href="https://www.youtube.com/watch?v=CxXgV54KzpQ">https://www.youtube.com/watch?v=CxXgV54KzpQ</a></li>
 </ol>
 
 ---

@@ -2,14 +2,14 @@
 title: "Goodhart's Law"
 date: 2026-06-07
 publishdate: 2026-06-07
-lastmod: 2026-06-17
+lastmod: 2026-08-01
 summary: "Every metric used to track progress will eventually be used to fake progress instead."
 tags: ["management", "metrics"]
 image: /images/goodharts-law.png
 draft: false
 ---
 
-![](/images/goodharts-law.png)
+![Every metric used to track progress will eventually be used to fake progress instead.](/images/goodharts-law.png)
 *Image generated with Google Gemini (2026).*
 
 ## Goodhart's Law
@@ -66,7 +66,7 @@ The measurement determines the behavior. The stated goal is irrelevant if the me
 
 Look at the metrics your team is currently measured on. For each one, ask what behavior a rational person would exhibit if this were their only goal. If that behavior diverges from what you actually want, the metric is already working against you, whether or not anyone is gaming it yet.
 
-Then ask how the metric is actually being used. A metric consulted in a retrospective to understand trends does different work than the same metric reported upward as evidence of team health. The same number carries very different damage potential depending on how it's used.
+Then ask how the metric is actually being used. A metric consulted in a retrospective to understand trends does different work than the same metric reported upward as evidence of team health. The same number carries different damage potential depending on how it's used.
 
 Pick one metric that has become a target. Spend thirty minutes with the team asking what it would look like for that metric to appear healthy while the underlying reality got worse. Write down the answers. Those are the gaming strategies your team already knows are available, and that list is where the real conversation starts.
 
@@ -86,16 +86,14 @@ Pick one metric that has become a target. Spend thirty minutes with the team ask
 
 ## Outtakes
 
-**Wells Fargo.** Wells Fargo employees opened millions of unauthorized accounts over more than a decade to meet cross-selling targets (CFPB, 2016). The metric was accounts opened per customer. The goal was customer relationships. The bank paid $3 billion in settlements.
+**Wells Fargo.** Wells Fargo employees opened millions of unauthorized accounts over more than a decade to meet cross-selling targets. The metric was accounts opened per customer. The goal was customer relationships. The bank paid $3 billion in settlements ([DOJ, 2020](https://www.justice.gov/archives/opa/pr/wells-fargo-agrees-pay-3-billion-resolve-criminal-and-civil-investigations-sales-practices)).
 
-**UK emergency wait times.** When the NHS introduced a four-hour emergency department wait target, some hospitals held patients in ambulances outside to avoid starting the clock (Bevan and Hood, 2006). The wait time metric improved while patients waited longer.
+**UK emergency wait times.** When the NHS introduced a four-hour emergency department wait target, some hospitals held patients in ambulances outside to avoid starting the clock ([Bevan and Hood, 2006](https://eprints.lse.ac.uk/16211/)). The wait time metric improved while patients waited longer.
 
-**The Soviet nail quota.** A 1957 cartoon in the Soviet satirical magazine *Krokodil* showed a factory worker proudly holding one giant nail. Production quotas by count produced tiny, unusable nails. Planners switched to weight quotas and factories made massive, unusable nails instead (Nove, 1977).
-
-**The cobra effect.** Colonial administrators in 1870s British India offered bounties for dead cobras to reduce the cobra population. Locals began breeding cobras for the reward. When the program ended, breeders released their snakes and the population increased (Siebert, 2001).
+**The Soviet nail quota.** A cartoon in the Soviet satirical magazine *Krokodil* showed a factory worker proudly holding one giant nail. Production quotas by count produced tiny, unusable nails. Planners switched to weight quotas and factories made massive, unusable nails instead ([Nove, 1977](https://archive.org/details/sovieteconomicsy0000nove)).
 
 ---
 
 ## Changelog
 
-**2026-06-07** Initial publication.
+**2026-06-07** Initial publication.  
