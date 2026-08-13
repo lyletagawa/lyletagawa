@@ -2,7 +2,7 @@
 title: "LLM Context Biases"
 date: 2026-05-07
 publishdate: 2026-05-07
-lastmod: 2026-06-26
+lastmod: 2026-08-08
 summary: "Primacy bias, recency bias, sycophancy, and anchoring are predictable distortions in how LLMs weight information. Understanding them changes how you prompt, evaluate, and trust model outputs."
 tags: ["ai", "cognitive", "leadership"]
 image: /images/llm-context-biases.jpg
@@ -14,15 +14,15 @@ draft: false
 
 ## LLM Context Biases
 
-You post a 20-page architecture document into your LLM and ask it to identify the three riskiest assumptions. The model returns a confident answer. It got the first and third risks right, but not the one buried on page 11, the one that matters most.
+You post a 20-page architecture document into your LLM and ask it to identify the three riskiest assumptions. The model returns a confident answer. It got the first and third risks right and missed the one buried on page 11, the one that matters most.
 
-This isn't a hallucination. The model read all 20 pages but didn't weight them equally.
+This isn't a hallucination. The model read all 20 pages. It just weighted them unevenly.
 
 LLMs process context with systematic biases based on position, order, and stated preferences. Understanding them is the difference between using LLMs effectively and trusting answers that were shaped more by where you put information than what it said.
 
 ## What Are Context Biases?
 
-Context biases are predictable distortions in how language models weight and process information. They are structural tendencies, not random errors, emerging from how attention mechanisms are trained.
+Context biases are predictable distortions in how language models weight and process information. They are structural tendencies emerging from how attention mechanisms are trained, consistent and predictable rather than random.
 
 The three most consequential for practitioners are primacy bias, recency bias, and sycophancy. A fourth, anchoring, compounds all three. None of them are bugs in a particular product, and they persist across models even as model quality improves.
 
@@ -44,17 +44,17 @@ Sycophancy is reinforced through reinforcement learning from human feedback (RLH
 
 ## Anchoring
 
-Anchoring bias occurs when initial information disproportionately shapes subsequent judgment. LLMs are notably sensitive to it, with 22% to 61% of questions affected depending on the model. Most tested LLMs show anchoring effects equivalent to or stronger than those observed in humans{{< cite 3 "Lou, Jiaxu, and Yifan Sun (2024). Anchoring Bias in Large Language Models: An Experimental Study. arXiv:2412.06593." >}}.
+Anchoring bias occurs when initial information disproportionately shapes subsequent judgment. LLMs show it too. Fact-based anchors shifted model estimates in about 89% of tested cases, and expert-opinion anchors shifted nearly all of them. But models anchor less than people do. GPT-4's anchoring index measured 0.45 against a human baseline of 0.61 in the same experimental design. Humans proved easier to pull toward an anchoring hint than the model was{{< cite 3 "Lou, Jiaxu, and Yifan Sun (2024). Anchoring Bias in Large Language Models: An Experimental Study. arXiv:2412.06593." >}}.
 
 Ask an LLM to estimate the timeline for a migration and mention that your last one took six months. The model's estimate pulls toward six months regardless of scope. The initial number anchors the output.
 
-Chain-of-Thought prompting and reflection prompts reduce anchoring but don't eliminate it. The most effective mitigation is gathering information from multiple angles before committing to an estimate{{< cite 3 "Lou, Jiaxu, and Yifan Sun (2024). Anchoring Bias in Large Language Models: An Experimental Study. arXiv:2412.06593." >}}.
+Chain-of-Thought prompting and reflection prompts reduce anchoring without eliminating it. The most effective mitigation is gathering information from multiple angles before committing to an estimate{{< cite 3 "Lou, Jiaxu, and Yifan Sun (2024). Anchoring Bias in Large Language Models: An Experimental Study. arXiv:2412.06593." >}}.
 
 ## How Teams Get This Wrong
 
 **Trusting position over content.** Putting the most important context at the top of a prompt and assuming the model will find what matters elsewhere. Middle sections are systematically under-weighted, and adding more context can actively degrade performance by pushing critical information further in{{< cite 1 "Liu, Nelson F., et al. (2023). Lost in the Middle: How Language Models Use Long Contexts. Transactions of the Association for Computational Linguistics, 12." >}}.
 
-**Using pushback to get better answers.** If you disagree with an LLM's response and push back without new evidence, the model will often reverse its position. That feels like progress, but the model didn't reconsider. It just agreed.
+**Using pushback to get better answers.** If you disagree with an LLM's response and push back without new evidence, the model will often reverse its position. That feels like progress, but the model skipped reconsidering. It just agreed.
 
 **Treating LLM evaluation as neutral.** Asking an LLM to compare options while including your team's stated preference contaminates the evaluation. The model will find evidence for what you have already indicated you want.
 
@@ -62,7 +62,7 @@ Chain-of-Thought prompting and reflection prompts reduce anchoring but don't eli
 
 ## Put It Into Practice
 
-These biases don't make LLMs unreliable. They make them predictably unreliable in specific ways, and knowing the pattern is most of the fix.
+These biases make LLMs unreliable in predictable, specific ways instead of randomly, and knowing the pattern is most of the fix.
 
 For long-document analysis, put the most critical information at the beginning or end of the context. Explicitly surface content in the middle by telling the model "The section on page 11 is the most important." For evaluation tasks, strip your stated preferences from the prompt entirely. Run the analysis once without your view, then share it afterward. For independent estimates, ask first and anchor second.
 
@@ -82,9 +82,9 @@ Pick one task you regularly use an LLM for. Before your next run, note everythin
 
 ## Outtakes
 
-**Bias.** A lawn bowling ball weighted on one side so that it curves predictably from a straight path (Harper, n.d.).
+**Bias.** A lawn bowling ball weighted on one side so that it curves predictably from a straight path ([Harper, n.d.](https://www.etymonline.com/word/bias)).
 
-**Context.** From the Latin "contexere," meaning to weave together. Same root as text and textile (Harper, n.d.).
+**Context.** From the Latin "contexere," meaning to weave together. Same root as text and textile ([Harper, n.d.](https://www.etymonline.com/word/context)).
 
 **The spinning wheel.** Kahneman and Tversky's original anchoring experiment had subjects watch a wheel spin to either 10 or 65, then estimate what percentage of African countries are in the UN. The group that saw 65 guessed significantly higher. A randomly observed number anchored their estimates. ([Kahneman, 2011](https://us.macmillan.com/books/9780374533557/thinkingfastandslow/))
 
@@ -94,6 +94,7 @@ Pick one task you regularly use an LLM for. Before your next run, note everythin
 
 ## Changelog
 
+**2026-08-08** Rewrote the Anchoring section.
 **2026-06-01** Added hero image.  
 **2026-05-16** Replaced Etymology with Outtakes. Added spinning wheel and jury research to Outtakes.  
 **2026-05-11** Added etymology section.  

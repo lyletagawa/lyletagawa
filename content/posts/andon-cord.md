@@ -2,7 +2,7 @@
 title: "The Andon Cord"
 date: 2026-07-04
 publishdate: 2026-07-04
-lastmod: 2026-07-04
+lastmod: 2026-08-08
 summary: "Toyota's Andon Cord gives any worker the authority to stop the production line when they detect a defect. Stopping is cheaper than passing problems forward, and the principle translates directly to software."
 tags: ["safety", "incidents", "management"]
 image: /images/andon-cord.png
@@ -97,10 +97,11 @@ Track the first pull. When someone uses the mechanism and nothing turns out to b
 
 **Toyota pulled the cord a thousand times more often than Ford.** At Toyota's Georgetown, Kentucky plant, workers pulled the andon cord about 2,000 times a week. At Ford's newly built Dearborn, Michigan truck plant, workers pulled it twice a week, same equipment, opposite cultures ([Graban, 2007](https://www.leanblog.org/2007/02/toyota-ford-andon-cord-culture-difference/)).
 
-**Toyota swapped the cord for a button.** In 2014, some Toyota plants started replacing the hanging pull-cord with a waist-high call button, mainly for ergonomics and to clear overhead clutter. The trust-based system behind it, and the name, stayed the same ([Graban, 2014](https://www.leanblog.org/2014/08/why-toyota-is-eliminating-the-andon-cord-from-its-factories/)).
+**Toyota swapped the cord for a button.** Starting in 2013, some Toyota plants began replacing the hanging pull-cord with a waist-high call button, mainly for ergonomics and to clear overhead clutter. The trust-based system behind it, and the name, stayed the same ([Graban, 2014](https://www.leanblog.org/2014/08/why-toyota-is-eliminating-the-andon-cord-from-its-factories/)).
 
 ---
 
 ## Changelog
 
+**2026-08-08** Fixed the Toyota button-swap date; the first test was 2013, not 2014.  
 **2026-07-04** Initial publication.

@@ -2,7 +2,7 @@
 title: "Conway's Law in the Age of Agentic AI"
 date: 2026-05-06
 publishdate: 2026-05-06
-lastmod: 2026-05-06
+lastmod: 2026-08-08
 summary: "Conway's Law says your system architecture mirrors your organization's communication structure. Agentic AI doesn't change the law. It changes what counts as communication."
 tags: ["team", "leadership", "management", "distributed"]
 image: /images/conways-law.jpg
@@ -17,11 +17,11 @@ Conway's Law didn't fail here. It worked exactly as described. The agent's acces
 
 ## What Is Conway's Law?
 
-In 1968, Melvin Conway published a deceptively simple observation: "Any organization that designs a system will inevitably produce a design whose structure is a copy of the organization's communication structure" (Conway, 1968). Systems mirror the communication paths of the people who build them. A team split across time zones builds loosely coupled services. A tightly integrated team builds a monolith.
+In 1968, Melvin Conway published a deceptively simple observation. The version usually quoted today, "Any organization that designs a system will inevitably produce a design whose structure is a copy of the organization's communication structure," is not the original 1968 wording. Conway added that cleaner phrasing decades later as an author's note to a reprint of the paper. The 1968 conclusion said the same thing more awkwardly: organizations "are constrained to produce designs which are copies of the communication structures of these organizations" (Conway, 1968/2010). Systems mirror the communication paths of the people who build them. A team split across time zones builds loosely coupled services. A tightly integrated team builds a monolith.
 
 This matters because communication structure constrains the solution space. Teams can only design clean interfaces where they communicate. Where that communication breaks down, so do the boundaries (Fowler, 2015). Architecture and org chart co-evolve, usually without anyone noticing.
 
-The inverse Conway maneuver, attributed to James Lewis and popularized by Skelton and Pais, turns this observation into a tool (Skelton and Pais, 2019). If systems mirror org structure, deliberately design the org structure to get the architecture you want. Loosely coupled microservices require small, autonomous teams with narrow ownership and minimal cross-team dependencies. The architecture is emergent. It grows from the org design, not from a separate technical specification.
+The inverse Conway maneuver, coined by Jonny LeRoy and Matt Simons in a December 2010 Cutter IT Journal article and popularized by Skelton and Pais, turns this observation into a tool (Fowler, 2015; Skelton and Pais, 2019). If systems mirror org structure, deliberately design the org structure to get the architecture you want. Loosely coupled microservices require small, autonomous teams with narrow ownership and minimal cross-team dependencies. The architecture is emergent. It grows from the org design, not from a separate technical specification.
 
 ## How Agents Change the Mechanism
 
@@ -73,7 +73,7 @@ Map every agent or agent network your team currently operates or plans to deploy
 
 ## References
 
-Conway, Melvin E. (1968). "How Do Committees Invent?" *Datamation*, 14(4): 28-31. [https://www.melconway.com/Home/Committees_Paper.html](https://www.melconway.com/Home/Committees_Paper.html)
+Conway, Melvin E. (1968). "How Do Committees Invent?" *Datamation*, 14(4): 28-31. Includes a 2010 author's note with the commonly quoted phrasing of the law. [https://www.melconway.com/Home/Committees_Paper.html](https://www.melconway.com/Home/Committees_Paper.html)
 
 Fowler, Martin (2015). "Conway's Law." *martinfowler.com*. [https://martinfowler.com/bliki/ConwaysLaw.html](https://martinfowler.com/bliki/ConwaysLaw.html)
 
@@ -83,4 +83,5 @@ Skelton, Matthew and Pais, Manuel (2025). "The Future of Team Topologies: When A
 
 ## Changelog
 
+**2026-08-08** Corrected the inverse Conway maneuver attribution (Jonny LeRoy and Matt Simons coined it in 2010, not James Lewis) and clarified that the commonly quoted Conway's Law phrasing comes from a 2010 author's note, not the original 1968 text.  
 **2026-05-06** Initial publication.

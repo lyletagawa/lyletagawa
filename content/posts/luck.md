@@ -2,61 +2,61 @@
 title: "Luck"
 date: 2026-07-26
 publishdate: 2026-07-26
-lastmod: 2026-07-26
-summary: "Luck decides more than most people are willing to admit. Hard work and grit determine how ready you are for it."
+lastmod: 2026-08-09
+summary: "Luck decides more than most are willing to admit. Hard work and grit determine how ready you are for it."
 tags: ["chance", "bias", "humility"]
 image: /images/luck.png
 draft: false
 ---
 
-![Luck decides more than most people are willing to admit. Hard work and grit determine how ready you are for it.](/images/luck.png)
+![Luck decides more than most are willing to admit. Hard work and grit determine how ready you are for it.](/images/luck.png)
 *"Fortune Cookie on the Table." Photo: [Petr Kratochvil](https://www.publicdomainpictures.net/en/view-image.php?image=207648). CC0 Public Domain.*
 
 ## Luck
 
 A Berkeley psychology study divided participants into groups of three and randomly assigned one person as team leader{{< cite 1 "Lewis, Michael (2012). Don't Eat Fortune's Cookie. Baccalaureate address, Princeton University." >}}. The leaders had no special qualifications and no additional responsibilities. When a plate of four cookies arrived, the team leader took the fourth cookie almost every time.
 
-Michael Lewis described the study in a 2012 Princeton commencement address. What struck him wasn't the grab. It was the absence of hesitation. The leaders didn't question whether they'd earned the extra cookie. The random assignment felt like a credential. "This is how people behave when they are blind to their own luck," he said{{< cite 1 "Lewis, Michael (2012). Don't Eat Fortune's Cookie. Baccalaureate address, Princeton University." >}}.
+Michael Lewis described the study in a 2012 Princeton commencement address. What struck him was the absence of hesitation, more than the grab itself. The leaders assumed they'd earned the extra cookie without a second thought. The random assignment felt like a credential. "This is how people behave when they are blind to their own luck," he said{{< cite 1 "Lewis, Michael (2012). Don't Eat Fortune's Cookie. Baccalaureate address, Princeton University." >}}.
 
-Most professionals with track records are doing something similar. They ate the cookie without noticing it was there.
+Many successful professionals are doing something similar. They are taking the extra cookie and assuming it is theirs to take.
 
 ## Hard Work Gets You to the Table
 
-Warren Buffett, who has spent decades being described as the greatest investor of his generation, has a different explanation for his success. At the 1997 Berkshire Hathaway shareholder meeting, he told the room he had won the "ovarian lottery"{{< cite 2 "Buffett, Warren (1997). Berkshire Hathaway Annual Shareholders Meeting." >}}. Before birth, you don't know whether you'll arrive in a wealthy country or a poor one, in a period of stability or war, in a body and mind wired in ways that happen to be valued by the economy you're born into. Those variables determine more than any skill you develop or effort you put in.
+Warren Buffett has a different explanation for his success. At the 1997 Berkshire Hathaway shareholder meeting, he told the room he had won the "ovarian lottery"{{< cite 2 "Buffett, Warren (1997). Berkshire Hathaway Annual Shareholders Meeting." >}}. Before birth, you don't know whether you'll arrive in a wealthy country or a poor one, in a period of stability or war, in a body and mind wired in ways that happen to be valued by the economy you're born into. Those variables determine more than any skill you develop or effort you put in.
 
-Preparation earns you access to the game. Everyone at the table has done the work. That doesn't determine who wins.
+Preparation earns you access to the game. Everyone at the table has done the work. Something else determines who wins.
 
-Robert Frank, economist at Cornell University, argues that winner-take-all markets amplify this dynamic{{< cite 3 "Frank, Robert H. (2016). Success and Luck: Good Fortune and the Myth of Meritocracy. Princeton University Press." >}}. When the difference between first and second place is enormous, small initial advantages compound into large outcome gaps over time. A slightly better initial break, a warmer introduction, a product launch timed to a market that no one predicted. Salganik, Dodds, and Watts tested the mechanism with music. The same songs produced wildly different outcomes depending on which group heard them first. Early random popularity determined all the attention that followed{{< cite 4 "Salganik, Dodds, and Watts (2006). Experimental Study of Inequality and Unpredictability in an Artificial Cultural Market. Science, 311(5762): 854-856." >}}. The preparation was similar. The breaks were not.
+Robert Frank, economist at Cornell University, argues that winner-take-all markets amplify this pattern{{< cite 3 "Frank, Robert H. (2016). Success and Luck: Good Fortune and the Myth of Meritocracy. Princeton University Press." >}}. When the difference between first and second place is enormous, small initial advantages compound into large outcome gaps over time: a slightly better initial break, a warmer introduction, a product launch timed to a market that no one predicted. Salganik, Dodds, and Watts tested the mechanism with music. The same songs produced wildly different outcomes depending on which group heard them first. Early random popularity determined all the attention that followed{{< cite 4 "Salganik, Dodds, and Watts (2006). Experimental Study of Inequality and Unpredictability in an Artificial Cultural Market. Science, 311(5762): 854-856." >}}.
 
-Two people with identical effort and skill can land in radically different places based on variables neither of them controlled. Mauboussin mapped this across investing, sports, and business and found that practitioners in most fields dramatically overestimate skill's share of their outcomes{{< cite 5 "Mauboussin, Michael J. (2012). The Success Equation: Untangling Skill and Luck in Business, Sports, and Investing. Harvard Business Review Press." >}}. The person who got the break rarely knows how much of it they didn't earn.
+Two people with identical effort and skill can land in radically different places based on variables neither of them controlled. Mauboussin mapped this across investing, sports, and business and found that practitioners in most fields dramatically overestimate skill's share of their outcomes{{< cite 5 "Mauboussin, Michael J. (2012). The Success Equation: Untangling Skill and Luck in Business, Sports, and Investing. Harvard Business Review Press." >}}.
 
-## The Aphorisms Don't Hold Up
+## The Aphorisms Fall Apart
 
 Three common framings of luck collapse under scrutiny.
 
-"Luck is where preparation meets opportunity." This assumes opportunity arrives. Plenty of prepared people waited for the conversation, the timing, the moment, and none of it came. The saying is consoling. It's not a description of what actually happens.
+"Luck is where preparation meets opportunity." This assumes opportunity arrives. Plenty of prepared people waited for the conversation, the timing, the moment, and none of it came.
 
-"You make your own luck." Ed Smith, a professional cricketer whose international career ended in a freak injury at Lord's, spent a book pulling this apart{{< cite 6 "Smith, Ed (2012). Luck: What It Means and Why It Matters. Bloomsbury Publishing." >}}. He reached the same conclusion. Making your own luck is self-contradictory. The definition of luck is something outside your control. You can position yourself. You can't manufacture the event.
+"You make your own luck." Ed Smith, a professional cricketer whose career ended when he broke his ankle in 2008, wrote a book pulling this apart{{< cite 6 "Smith, Ed (2012). Luck: What It Means and Why It Matters. Bloomsbury Publishing." >}}. He reached the same conclusion. Making your own luck is self-contradictory. The definition of luck is something outside your control. You can position yourself, but you can't manufacture the event.
 
 "Increase your surface area for luck." This framing at least acknowledges luck exists. But it mostly restates "work hard and persist." A wider surface area creates more chances. It doesn't create the chance.
 
-These stories persist because they're more comfortable than the alternative. Lewis said it plainly at Princeton. "People really don't like to hear success explained away as luck, especially successful people"{{< cite 1 "Lewis, Michael (2012). Don't Eat Fortune's Cookie. Baccalaureate address, Princeton University." >}}. Saying "I was prepared when fortune arrived" sounds earned. Winning the ovarian lottery doesn't have the same ring.
+These stories persist because they're more comfortable than the alternative. Lewis said it plainly at Princeton, "People really don't like to hear success explained away as luck, especially successful people"{{< cite 1 "Lewis, Michael (2012). Don't Eat Fortune's Cookie. Baccalaureate address, Princeton University." >}}. Saying "I was prepared when fortune arrived" sounds earned. Winning the ovarian lottery doesn't have the same ring.
 
 ## Where This Gets Misused
 
-**Survivorship bias shapes the narrative.** The people who prepared, showed up, and still never caught a lucky break aren't writing retrospective essays. They're the control group. Hard work is visible. The luck that didn't arrive is not.
+Survivorship bias shapes the narrative. The people who prepared, showed up, and missed every lucky break are the control group. Their story stays untold.
 
-**Fatalism is equally wrong.** Saying it's all luck misses the part where preparation matters. You have to be ready when the moment arrives, or you waste it. Lewis made this same point about professional sports. Even in a domain supposedly designed to measure skill, luck and skill are nearly impossible to separate{{< cite 1 "Lewis, Michael (2012). Don't Eat Fortune's Cookie. Baccalaureate address, Princeton University." >}}. Effort is required. Proportional outcomes are not guaranteed.
+Fatalism is equally wrong. Saying it's all luck misses the part where preparation matters. You have to be ready when the moment arrives, or you waste it. Lewis made this same point about professional sports. Even in a domain supposedly designed to measure skill, luck and skill are nearly impossible to separate{{< cite 1 "Lewis, Michael (2012). Don't Eat Fortune's Cookie. Baccalaureate address, Princeton University." >}}.
 
-**Underestimating luck breeds arrogance.** Frank's research suggests successful people consistently underestimate luck's contribution to their outcomes{{< cite 3 "Frank, Robert H. (2016). Success and Luck: Good Fortune and the Myth of Meritocracy. Princeton University Press." >}}. The attribution isn't random. Crediting skill is more comfortable for the ego. The cost is poor calibration and less generosity toward people who prepared just as hard but caught a worse break.
+Underestimating luck breeds arrogance. Frank's research suggests successful people consistently underestimate luck's contribution to their outcomes{{< cite 3 "Frank, Robert H. (2016). Success and Luck: Good Fortune and the Myth of Meritocracy. Princeton University Press." >}}. The attribution follows a pattern. Crediting skill is more comfortable for the ego. The cost is less generosity toward people who prepared just as hard but caught a worse break.
 
 ## Widen the Surface Anyway
 
-The behaviors that increase your chances for luck aren't complicated. Build mastery in one domain, cultivate curiosity across others, show up to places where fortunate accidents can happen, build relationships by giving before asking. None of that manufactures luck. It increases the number of chances for it to arrive, and makes sure you can capitalize when it does.
+The behaviors that increase your chances for luck are simple. Build mastery in one domain, cultivate curiosity across others, show up to places where fortunate accidents can happen, build relationships by giving before asking. None of that manufactures luck. It increases the number of chances for it to arrive, and helps you to capitalize when it does.
 
-Lewis ended his Princeton speech with a direct challenge. "With luck comes obligation," he said. "You owe a debt to the unlucky"{{< cite 1 "Lewis, Michael (2012). Don't Eat Fortune's Cookie. Baccalaureate address, Princeton University." >}}. Frank's research found that people who acknowledge luck's role invest more in the systems that enabled their success{{< cite 3 "Frank, Robert H. (2016). Success and Luck: Good Fortune and the Myth of Meritocracy. Princeton University Press." >}}. The acknowledgment isn't just accurate. It changes what you prioritize.
+Lewis ended his Princeton speech with a direct challenge. "With luck comes obligation," he said. "You owe a debt to the unlucky"{{< cite 1 "Lewis, Michael (2012). Don't Eat Fortune's Cookie. Baccalaureate address, Princeton University." >}}. Frank's research found that people who acknowledge luck's role invest more in the systems that enabled their success{{< cite 3 "Frank, Robert H. (2016). Success and Luck: Good Fortune and the Myth of Meritocracy. Princeton University Press." >}}. The acknowledgment does more than describe reality accurately. It changes what you prioritize.
 
-Audit your last three professional wins. Identify what you controlled and what you didn't. The luck ratio is probably higher than you've been crediting.
+Audit your last three wins. Identify what you controlled and what was luck. The luck ratio is probably higher than you've been crediting.
 
 ---
 
@@ -75,11 +75,11 @@ Audit your last three professional wins. Identify what you controlled and what y
 
 ## Outtakes
 
-**Fortuna.** The Roman goddess of luck was depicted spinning a wheel (rota fortunae) to raise and lower mortals at random. Boethius wrote about her while awaiting execution on charges of treason. The wheel doesn't care what you deserve ([Boethius, trans. James](https://www.gutenberg.org/files/14328/14328-h/14328-h.htm)).
+**Fortuna.** The Roman goddess of luck was depicted spinning a wheel (rota fortunae) to raise and lower mortals at random. Boethius wrote about her while awaiting execution on charges of treason ([Boethius, trans. James](https://www.gutenberg.org/files/14328/14328-h/14328-h.htm)).
 
-**Serendipity.** Horace Walpole coined the word in a 1754 letter, from a fairy tale about three princes who made happy discoveries "by accidents and sagacity." Both elements required. The accident comes first ([Silver, 2018](https://campuspress.yale.edu/walpole300/27-walpoles-x/)).
+**Serendipity.** Horace Walpole coined the word in a 1754 letter, from a fairy tale about three princes who made happy discoveries "by accidents and sagacity," where the accidents almost always come first ([Silver, 2018](https://campuspress.yale.edu/walpole300/27-walpoles-x/)).
 
-**The coin-flipping tournament.** Put 10,000 people through repeated rounds of coin-flipping. Someone will flip heads every round. The winner looks like a genius. Taleb argued you can't tell that person apart from a celebrated market-timer ([Taleb, 2001](https://www.penguin.co.uk/books/56147/fooled-by-randomness-by-taleb-nassim-nicholas/9780141031484)).
+**Coin-flipping.** Run 10,000 people through repeated rounds of coin-flipping, and someone will flip heads every single round. Taleb argued the survivor looks identical to a celebrated market-timer ([Taleb, 2001](https://www.penguin.co.uk/books/56147/fooled-by-randomness-by-taleb-nassim-nicholas/9780141031484)).
 
 ---
 

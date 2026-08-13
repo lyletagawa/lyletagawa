@@ -2,7 +2,7 @@
 title: "The Streetlight Effect"
 date: 2026-05-25
 publishdate: 2026-05-25
-lastmod: 2026-06-06
+lastmod: 2026-08-08
 summary: "People search where it's easy to look, not where answers hide. Engineers debug familiar systems while ignoring unfamiliar ones where problems actually live."
 tags: ["debugging", "observability", "monitoring"]
 image:
@@ -93,7 +93,7 @@ Schneier, Bruce (2000). *Secrets and Lies: Digital Security in a Networked World
 
 **The doctor who washed his hands got fired.** Ignaz Semmelweis cut maternal mortality from 18% to 2% by having doctors wash their hands between autopsies and deliveries. The medical establishment searched for causes in miasma, bad air, and cosmic influences. Hand washing seemed too simple. He died in an asylum before germ theory was accepted.
 
-**The Therac-25 killed patients because programmers only tested the happy path.** Between 1985 and 1987, the machine delivered doses 100 times too high, killing six people. The software had a race condition triggered only by fast-typing experienced operators. Programmers tested normal usage patterns. The bug lived where experts worked.
+**The Therac-25 killed patients because programmers only tested the happy path.** Between 1985 and 1987, the machine was involved in six accidents, delivering doses up to 100 times too high, and several patients died. Two of the six, both at the same Texas clinic, traced to a single race condition triggered only by fast-typing experienced operators. Programmers tested normal usage patterns. The bug lived where experts worked.
 
 **The Challenger disaster happened because everyone searched for reasons to launch.** Morton Thiokol engineers had data showing O-rings failed in cold weather and recommended delay. NASA managers asked for proof the O-rings would fail, not proof they would work. Engineers could show risk but not guarantee failure. The launch proceeded. Seven astronauts died.
 
@@ -103,4 +103,5 @@ Schneier, Bruce (2000). *Secrets and Lies: Digital Security in a Networked World
 
 ## Changelog
 
+**2026-08-08** Fixed the Therac-25 outtake; six was the number of accidents, not deaths, and the fast-typing race condition only caused two of them, not all six.  
 **2026-05-25** Initial publication.

@@ -2,106 +2,109 @@
 title: "Resilience"
 date: 2019-10-30
 publishdate: 2019-10-30
-lastmod: 2026-06-17
-summary: "Your system passed every test. Redundancy was in place. Then something unexpected happened anyway. Resilience Engineering is the framework for building systems that hold up when the unexpected is inevitable."
+lastmod: 2026-08-02
+summary: "Resilience Engineering is the framework for building systems that hold up when the unexpected is inevitable. Redundancy and rigorous testing still leave room for your system to fail anyway."
 tags: ["resilience", "safety", "capacity"]
 image: /images/resilience.jpg
 draft: false
 ---
 
-![](/images/resilience.jpg)
+![Resilience Engineering is the framework for building systems that hold up when the unexpected is inevitable. Redundancy and rigorous testing still leave room for your system to fail anyway.](/images/resilience.jpg)
 *"Windswept hawthorn tree in Ireland." Photo: [Eoin Gardiner (2008)](https://commons.wikimedia.org/wiki/File:Windswept_tree_in_Ireland.jpg). CC BY 2.0.*
 
 ## Resilience
 
-At some point, most engineers encounter an incident that shouldn't have been possible. Everything looked fine. Circuit breakers were in place. Retries were configured. The system failed anyway.
+At some point, most engineers encounter an incident their design should have prevented. Everything looked fine. Circuit breakers were in place and retries were configured, but the system failed anyway.
 
 That's the failure mode resilience engineering was built to understand.
 
 ## Resilience vs Robustness
 
-Robustness is the capacity to handle known failure modes. Resilience is the capacity to handle failures that weren't foreseeable by the designer. Robustness is designed in advance. Resilience is something a system does when conditions change {{< cite 1 "Allspaw, John (2012). Blameless PostMortems and a Just Culture. Etsy Code as Craft Blog." >}}.
+Robustness is the capacity to handle known failure modes. Resilience is the capacity to handle failures beyond what the designer foresaw. Robustness is designed in advance. Resilience is something a system does when conditions change{{< cite 1 "Allspaw, John (2012). Blameless PostMortems and a Just Culture. Etsy Code as Craft Blog." >}}.
 
 The distinction matters because complex systems regularly produce failures that fall outside what their designers imagined.
 
-## Why Testing Isn't Enough
+## Testing Has Limits
 
-Rigorous testing, redundancy, and defensive programming all rest on the assumption that every failure mode can be anticipated and prevented. For complex distributed systems, that assumption breaks down {{< cite 2 "Hollnagel, Erik (2011). Resilience Engineering in Practice: A Guidebook. Ashgate Publishing." >}}.
+Rigorous testing, redundancy, and defensive programming all rest on the assumption that every failure mode can be anticipated and prevented. For complex distributed systems, that assumption breaks down{{< cite 2 "Hollnagel, Erik (2011). Resilience Engineering in Practice: A Guidebook. Ashgate Publishing." >}}.
 
-Complexity and emergent behavior mean that distributed systems create interactions that can't be predicted from individual components. No amount of testing can explore all possible system states {{< cite 3 "Cook, Richard I. (2000). How Complex Systems Fail. Cognitive Technologies Laboratory, University of Chicago." >}}.
+Complexity and emergent behavior mean that distributed systems create interactions beyond what individual components predict. Testing can only explore a fraction of all possible system states{{< cite 3 "Cook, Richard I. (2000). How Complex Systems Fail. Cognitive Technologies Laboratory, University of Chicago." >}}.
 
 Cascading failures occur when localized problems propagate through system dependencies. A slow database query triggers connection pool exhaustion, causing application timeouts, leading to retry storms that overwhelm the database further.
 
-Human-computer interaction under pressure means operators are making decisions with incomplete information during the exact moments when systems are most likely to fail them {{< cite 3 "Cook, Richard I. (2000). How Complex Systems Fail. Cognitive Technologies Laboratory, University of Chicago." >}}. Experienced operators improvising around system brittleness is what keeps complex systems running. Human expertise is the adaptive capacity.
+Human-computer interaction under pressure means operators are making decisions with incomplete information during the moments when systems are most likely to fail them{{< cite 3 "Cook, Richard I. (2000). How Complex Systems Fail. Cognitive Technologies Laboratory, University of Chicago." >}}. Experienced operators improvising around system brittleness is what keeps complex systems running. Human expertise is the adaptive capacity.
 
 Resilience Engineering grew from studying safety-critical industries like aviation, healthcare, and nuclear power. Pioneered by Hollnagel, Cook, Dekker, and Woods, it shifts focus from preventing all failures to building systems that hold up when something unexpected happens.
 
 ## Core Principles
 
-Four capabilities define a resilient system {{< cite 2 "Hollnagel, Erik (2011). Resilience Engineering in Practice: A Guidebook. Ashgate Publishing." >}}:
+Four capabilities define a resilient system{{< cite 2 "Hollnagel, Erik (2011). Resilience Engineering in Practice: A Guidebook. Ashgate Publishing." >}}.
 
-**Anticipation:** knowing what to expect and preparing for potential disruptions. This extends beyond traditional risk assessment to include scenario planning, load testing, and chaos engineering.
+**Anticipation.** Knowing what to expect and preparing for potential disruptions. This extends beyond traditional risk assessment to include scenario planning, load testing, and chaos engineering.
 
-**Monitoring:** knowing what to look for in system behavior. Effective monitoring observes leading indicators of system stress, not just lagging indicators of failure, using observability that reveals how systems actually behave under varying conditions.
+**Monitoring.** Knowing what to look for in system behavior. Effective monitoring observes leading indicators of system stress, not just lagging indicators of failure, using observability that reveals how systems actually behave under varying conditions.
 
-**Response:** knowing what to do when anomalies occur. Response capability depends on technical mechanisms like circuit breakers and organizational practices like incident command structures.
+**Response.** Knowing what to do when anomalies occur. Response capability depends on technical mechanisms like circuit breakers and organizational practices like incident command structures.
 
-**Learning:** knowing what has happened and understanding why. This goes beyond documenting incidents to understanding how system behavior, human decisions, and organizational factors shaped the outcome.
-
+**Learning.** Knowing what has happened and understanding why. This goes beyond documenting incidents to understanding how system behavior, human decisions, and organizational factors shaped the outcome.
 
 ## Resilience and Safety
 
-Safety-I focuses on eliminating failure causes. Safety-II focuses on understanding successful adaptations, grounded in the observation that things go wrong and things go right for the same basic reasons {{< cite 4 "Hollnagel, Erik (2014). Safety-I and Safety-II: The Past and Future of Safety Management. Ashgate Publishing." >}}. Traditional software reliability is Safety-I thinking. You learn more about how a system actually works by studying the thousands of times people adapted successfully than by studying the handful of times it failed.
+Safety-I focuses on eliminating failure causes. Safety-II focuses on understanding successful adaptations, grounded in the observation that things go wrong and things go right for the same basic reasons{{< cite 4 "Hollnagel, Erik (2014). Safety-I and Safety-II: The Past and Future of Safety Management. Ashgate Publishing." >}}. Traditional software reliability is Safety-I thinking. You learn more about how a system actually works by studying the thousands of times people adapted successfully than by studying the handful of times it failed.
 
 ## Your Role in Building Resilience
 
 Your design decisions shape how much adaptive capacity a system has.
 
-**Design for graceful degradation.** Circuit breakers, bulkheads, and timeouts are the implementation {{< cite 5 "Nygard, Michael T. (2018). Release It! Design and Deploy Production-Ready Software, 2nd ed. Pragmatic Bookshelf." >}}. Think beyond happy paths. What happens when a dependency is slow, unavailable, or returning corrupt data? Build mechanisms that respond through fallbacks, cached data, or reduced functionality.
+**Design for graceful degradation.** Circuit breakers, bulkheads, and timeouts are the implementation{{< cite 5 "Nygard, Michael T. (2018). Release It! Design and Deploy Production-Ready Software, 2nd ed. Pragmatic Bookshelf." >}}. Think beyond happy paths. What happens when a dependency is slow, unavailable, or returning corrupt data? Build mechanisms that respond through fallbacks, cached data, or reduced functionality.
 
-**Build observability in from the start.** Good instrumentation reveals how the system behaved in the lead-up to a failure, not just that it failed {{< cite 6 "Beyer, Betsy, et al. (2016). Site Reliability Engineering: How Google Runs Production Systems. O'Reilly Media." >}}. Instrument for the operator who will be debugging this system at 3 AM, not just for normal operations.
+**Build observability in from the start.** Good instrumentation reveals how the system behaved in the lead-up to a failure, not just that it failed{{< cite 6 "Beyer, Betsy, et al. (2016). Site Reliability Engineering: How Google Runs Production Systems. O'Reilly Media." >}}. Instrument for the operator who will be debugging this system at 3 AM, not just for normal operations.
 
-**Participate in incident response.** Volunteer for on-call. Get involved in incidents outside your area. Incident commanders and escalation paths provide structure under pressure {{< cite 6 "Beyer, Betsy, et al. (2016). Site Reliability Engineering: How Google Runs Production Systems. O'Reilly Media." >}}. Game days make that structure practiced rather than improvised.
+**Participate in incident response.** Volunteer for on-call and get involved in incidents outside your area. Incident commanders and escalation paths provide structure under pressure{{< cite 6 "Beyer, Betsy, et al. (2016). Site Reliability Engineering: How Google Runs Production Systems. O'Reilly Media." >}}, and game days make that structure practiced rather than improvised.
 
-**Invest in learning.** Blameless postmortems surface how people adapted and held things together under pressure. That's the richest source of information about how a system actually works. Honest accounts only come when people aren't afraid to report them {{< cite 1 "Allspaw, John (2012). Blameless PostMortems and a Just Culture. Etsy Code as Craft Blog." >}}.
+**Invest in learning.** Blameless postmortems surface how people adapted and held things together under pressure. That's the richest source of information about how a system actually works. People report accurately only when they feel safe doing so{{< cite 1 "Allspaw, John (2012). Blameless PostMortems and a Just Culture. Etsy Code as Craft Blog." >}}.
 
-**Balance velocity with resilience.** Not every system needs chaos engineering or elaborate circuit breakers {{< cite 7 "Basiri, Ali, et al. (2016). Chaos Engineering. IEEE Software, 33(3): 35-41." >}}. Assess risk based on blast radius, recovery time objectives, and business impact.
+**Balance velocity with resilience.** Only some systems need chaos engineering or elaborate circuit breakers{{< cite 7 "Basiri, Ali, et al. (2016). Chaos Engineering. IEEE Software, 33(3): 35-41." >}}. Assess risk based on blast radius, recovery time objectives, and business impact.
 
-**Protect the conditions for human resilience.** Psychological safety, shared mental models, and the freedom to speak up about risk are what allow adaptive capacity to surface. An experienced operator who won't flag a problem because of how it will be received is a system with a silenced warning light.
+**Protect the conditions for human resilience.** Psychological safety, shared mental models, and the freedom to speak up about risk are what allow adaptive capacity to surface. An experienced operator who stays quiet about a problem because of how it will be received is a system with a silenced warning light.
 
-The work doesn't stop at the code. Model resilience thinking in design reviews, ask questions about failure modes, and share stories of how systems failed.
+The work extends beyond the code. Model resilience thinking in design reviews, ask questions about failure modes, and share stories of how systems failed.
 
 ## How Teams Get This Wrong
 
-Resilience is more than just redundancy. Adding more servers, databases, or availability zones improves fault tolerance but doesn't guarantee resilience. Resilient systems adapt to unexpected conditions; they don't just tolerate anticipated failures {{< cite 8 "Woods, David D. (2015). Four Concepts for Resilience and the Implications for the Future of Resilience Engineering. Reliability Engineering & System Safety, 141: 5-9." >}}.
+**Confusing redundancy with resilience.** Adding more servers, databases, or availability zones improves fault tolerance without guaranteeing resilience. Resilient systems adapt to unexpected conditions, a different skill than tolerating anticipated failures{{< cite 8 "Woods, David D. (2015). Four Concepts for Resilience and the Implications for the Future of Resilience Engineering. Reliability Engineering & System Safety, 141: 5-9." >}}.
 
-Over-engineering is not adaptive capacity. Resilience doesn't require elaborate mechanisms for every possible failure. Sometimes the most resilient solution is simple, well-understood, and easy to reason about during an incident.
+**Treating over-engineering as resilience.** Over-engineering is a false substitute for adaptive capacity. Resilience often needs simple, well-understood mechanisms instead of elaborate ones for every possible failure. The most resilient solution is often the one that's easy to reason about during an incident.
 
-Root causes are rarely singular. Complex system failures result from combinations of conditions, decisions, and circumstances {{< cite 9 "Dekker, Sidney (2006). The Field Guide to Understanding Human Error. Ashgate Publishing." >}}. Searching for a single cause impedes learning.
+**Searching for a single root cause.** Complex system failures result from combinations of conditions, decisions, and circumstances{{< cite 9 "Dekker, Sidney (2006). The Field Guide to Understanding Human Error. Ashgate Publishing." >}}. Chasing a single cause impedes learning.
 
-Metrics can hide system health. Aggregate metrics like average response time may look healthy while a subset of users experiences severe degradation. Percentile metrics, error budgets, and user-centric measurements give better visibility into what the system is actually doing {{< cite 6 "Beyer, Betsy, et al. (2016). Site Reliability Engineering: How Google Runs Production Systems. O'Reilly Media." >}}.
+**Trusting aggregate metrics alone.** Metrics can hide system health. Aggregate metrics like average response time may look healthy while a subset of users experiences severe degradation. Percentile metrics, error budgets, and user-centric measurements give better visibility into what the system is actually doing{{< cite 6 "Beyer, Betsy, et al. (2016). Site Reliability Engineering: How Google Runs Production Systems. O'Reilly Media." >}}.
 
 ## Put It Into Practice
 
-Pick one dependency your system relies on and ask what happens when it's slow, unavailable, or returning corrupt data. If the answer isn't "we degrade gracefully and we'd know within minutes," that's the work. Build the observability, add the circuit breaker, write the runbook, and run the game day.
+Pick one dependency your system relies on and ask what happens when it's slow, unavailable, or returning corrupt data. The answer should be "we degrade gracefully and we'd know within minutes." Getting there is the work. Build the observability, add the circuit breaker, write the runbook, and run the game day.
 
-Then talk to the people who operate this system under pressure. What do they know that isn't in any runbook? What are they quietly working around? Learning how people cope with surprise is the path to finding sources of resilience.
+Then talk to the people who operate this system under pressure. What do they know that the runbook missed? What are they quietly working around? Learning how people cope with surprise is the path to finding sources of resilience.
 
-Where is your system weakest? Where would your team struggle most, and what do they already know about it that you don't? Ask those questions in design reviews and postmortems. Resilience won't emerge from a single project or sprint. It's built by the people who ask consistently, and who create the conditions for honest answers.
+Where is your system weakest? Where would your team struggle most, and what do they know about it beyond what you do? Ask those questions in design reviews and postmortems. Resilience takes more than a single project or sprint to emerge. It's built by the people who ask consistently, and who create the conditions for truthful answers.
+
+---
 
 ## References
 
 <ol class="references">
   <li id="ref-1">Allspaw, John (2012). "Blameless PostMortems and a Just Culture." <em>Etsy Code as Craft Blog</em>. <a href="https://web.archive.org/web/20230601000000/https://codeascraft.com/2012/05/22/blameless-postmortems/">https://web.archive.org/web/20230601000000/https://codeascraft.com/2012/05/22/blameless-postmortems/</a></li>
-  <li id="ref-2">Hollnagel, Erik (2011). <em>Resilience Engineering in Practice: A Guidebook</em>. Ashgate Publishing. <a href="https://erikhollnagel.com/books/resilience-engineering-in-practice.html">https://erikhollnagel.com/books/resilience-engineering-in-practice.html</a></li>
+  <li id="ref-2">Hollnagel, Erik (2011). <em>Resilience Engineering in Practice: A Guidebook</em>. Ashgate Publishing. <a href="https://www.routledge.com/Resilience-Engineering-in-Practice-A-Guidebook/Hollnagel-Paries-Wreathall/p/book/9781472420749">https://www.routledge.com/Resilience-Engineering-in-Practice-A-Guidebook/Hollnagel-Paries-Wreathall/p/book/9781472420749</a></li>
   <li id="ref-3">Cook, Richard I. (2000). "How Complex Systems Fail." Cognitive Technologies Laboratory, University of Chicago. <a href="https://how.complexsystems.fail/">https://how.complexsystems.fail/</a></li>
-  <li id="ref-4">Hollnagel, Erik (2014). <em>Safety-I and Safety-II: The Past and Future of Safety Management</em>. Ashgate Publishing. <a href="https://erikhollnagel.com/books/safety-i-safety-ii-2014">https://erikhollnagel.com/books/safety-i-safety-ii-2014</a></li>
+  <li id="ref-4">Hollnagel, Erik (2014). <em>Safety-I and Safety-II: The Past and Future of Safety Management</em>. Ashgate Publishing. <a href="https://www.routledge.com/Safety-I-and-Safety-II-The-Past-and-Future-of-Safety-Management/Hollnagel/p/book/9781472423085">https://www.routledge.com/Safety-I-and-Safety-II-The-Past-and-Future-of-Safety-Management/Hollnagel/p/book/9781472423085</a></li>
   <li id="ref-5">Nygard, Michael T. (2018). <em>Release It! Design and Deploy Production-Ready Software</em>, 2nd ed. Pragmatic Bookshelf. <a href="https://pragprog.com/titles/mnee2/release-it-second-edition/">https://pragprog.com/titles/mnee2/release-it-second-edition/</a></li>
   <li id="ref-6">Beyer, Betsy, Chris Jones, Jennifer Petoff, and Niall Richard Murphy (2016). <em>Site Reliability Engineering: How Google Runs Production Systems</em>. O'Reilly Media. <a href="https://sre.google/sre-book/">https://sre.google/sre-book/</a></li>
   <li id="ref-7">Basiri, Ali, et al. (2016). "Chaos Engineering." <em>IEEE Software</em>, 33(3): 35-41. <a href="https://arxiv.org/abs/1702.05843">https://arxiv.org/abs/1702.05843</a></li>
   <li id="ref-8">Woods, David D. (2015). "Four Concepts for Resilience and the Implications for the Future of Resilience Engineering." <em>Reliability Engineering & System Safety</em>, 141: 5-9. <a href="https://maritimesafetyinnovationlab.org/wp-content/uploads/2021/06/4sensesofresiliencepublic.pdf">https://maritimesafetyinnovationlab.org/wp-content/uploads/2021/06/4sensesofresiliencepublic.pdf</a></li>
   <li id="ref-9">Dekker, Sidney (2006). <em>The Field Guide to Understanding Human Error</em>. Ashgate Publishing. <a href="https://sidneydekker.com/the-field-guide-to-understanding-human-error">https://sidneydekker.com/the-field-guide-to-understanding-human-error</a></li>
 </ol>
+
+---
 
 ## Changelog
 

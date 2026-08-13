@@ -2,7 +2,7 @@
 title: "Functioning As Designed"
 date: 2026-07-09
 publishdate: 2026-07-09
-lastmod: 2026-07-19
+lastmod: 2026-08-02
 summary: "Traditional accident models assume every failure traces back to a broken part. STAMP treats safety as a control problem instead, which explains disasters where every component worked as designed."
 tags: ["safety", "systems", "complexity"]
 image: /images/functioning-as-designed.jpg
@@ -24,7 +24,7 @@ That gap, between "nothing failed" and "26 people died," is what Nancy Leveson's
 
 Systems-Theoretic Accident Model and Processes (STAMP), developed by MIT professor Nancy Leveson and first published in 2004, starts from a claim that's obvious once stated and routinely ignored. Accidents in complex systems can happen without any component failing at all{{< cite 2 "Leveson, Nancy (2004). A New Accident Model for Engineering Safer Systems. Safety Science, 42(4): 237-270." >}}. The danger is often an interaction between working parts nobody designed for.
 
-Leveson's alternative reframes safety as a control problem. A system stays safe when a hierarchy of controls (regulations constraining companies, managers constraining operators, software constraining hardware) enforces a set of safety constraints, things that must never happen. An accident is a control action that should have prevented a hazard and didn't, usually because whoever issued it was working from an inaccurate picture of what was actually happening{{< cite 3 "Leveson, Nancy G. (2011). Engineering a Safer World: Systems Thinking Applied to Safety. MIT Press." >}}.
+Leveson's alternative reframes safety as a control problem. A system stays safe when a hierarchy of controls (regulations constraining companies, managers constraining operators, software constraining hardware) enforces a set of safety constraints, things that must never happen. An accident is a control action that failed to prevent a hazard it should have stopped, usually because whoever issued it was working from an inaccurate picture of what was actually happening{{< cite 3 "Leveson, Nancy G. (2011). Engineering a Safer World: Systems Thinking Applied to Safety. MIT Press." >}}.
 
 In the Black Hawk case, rules of engagement, radio protocols, IFF procedures, and AWACS oversight were all controls meant to prevent this. Each looked adequate alone. Together, that day, they weren't.
 
@@ -32,9 +32,9 @@ In the Black Hawk case, rules of engagement, radio protocols, IFF procedures, an
 
 The dominant accident model for most of the 20th century pictures an accident as a row of dominoes, or its more forgiving cousin, holes lining up in slices of Swiss cheese. Something starts a chain, each link triggers the next, and the accident is whatever falls out the far end. Find the link that shouldn't have broken and you've fixed the problem.
 
-That model works well when a part is actually broken. It works badly for software, which doesn't fail the way a bolt fails, and does what it was told, every time, while the danger lives in requirements nobody wrote. An investigation looking for the broken link in a system where nothing broke will force-fit a component as the culprit, or stop at "operator error."
+That model works well when a part is actually broken. It works badly for software, which fails differently than a bolt does. Software does what it was told, every time, while the danger lives in requirements nobody wrote. An investigation looking for the broken link in a system where nothing broke will force-fit a component as the culprit, or stop at "operator error."
 
-Leveson's point isn't that component failures don't matter. It's that treating them as the only source of danger leaves a whole category of modern accidents invisible to the investigation method itself.
+Leveson's point is that component failures still matter, but treating them as the only source of danger leaves a whole category of modern accidents invisible to the investigation method itself.
 
 ## The Core Concepts
 
@@ -50,7 +50,7 @@ Leveson's point isn't that component failures don't matter. It's that treating t
 
 STAMP produces two practical techniques, one for before an accident, one for after. **STPA (System-Theoretic Process Analysis)** is the forward-looking one. Applied during design, it asks what unsafe control actions the system could issue and works backward to the design flaws that would let that happen{{< cite 3 "Leveson, Nancy G. (2011). Engineering a Safer World: Systems Thinking Applied to Safety. MIT Press." >}}.
 
-**CAST (Causal Analysis based on System Theory)** is retrospective, STAMP's answer to a postmortem. Instead of tracing a chain back to a root cause, it maps the control structure that existed and asks, at every level, why the controls in place didn't prevent the loss{{< cite 3 "Leveson, Nancy G. (2011). Engineering a Safer World: Systems Thinking Applied to Safety. MIT Press." >}}.
+**CAST (Causal Analysis based on System Theory)** is retrospective, STAMP's answer to a postmortem. Instead of tracing a chain back to a root cause, it maps the control structure that existed and asks, at every level, why the controls in place came up short{{< cite 3 "Leveson, Nancy G. (2011). Engineering a Safer World: Systems Thinking Applied to Safety. MIT Press." >}}.
 
 Google's SRE organization has been exploring both, framing STPA as a way to find "unknown unknowns" that traditional reliability engineering misses, and CAST as a way to "supercharge" postmortems that would otherwise stop at the first plausible root cause{{< cite 4 "Systems-Theoretic Accident Model and Processes (STAMP) at Google. Google SRE." >}}.
 
@@ -62,11 +62,11 @@ A CAST-style postmortem asks a different question at every level, what informati
 
 ## Common Mistakes
 
-**Treating it as root-cause analysis with better vocabulary.** STAMP's premise is that there usually isn't a single root cause worth finding. A team that draws a control structure diagram and still writes "root cause: X" at the bottom has kept the old model and added drawing time.
+**Treating it as root-cause analysis with better vocabulary.** STAMP's premise is that a single root cause rarely exists. A team that draws a control structure diagram and still writes "root cause: X" at the bottom has kept the old model and added drawing time.
 
 **Skipping the control structure.** STPA and CAST both depend on mapping who controls what before asking what went wrong. Jumping straight to "what unsafe actions could occur" without that map produces guesswork dressed up as analysis.
 
-**Confusing no-blame with no-accountability.** STAMP doesn't ask who to punish, but it still names which control was inadequate and why. Treating "systemic" as a synonym for "nobody's job to fix" wastes the analysis.
+**Confusing no-blame with no-accountability.** STAMP skips the question of who to punish, but it still names which control was inadequate and why. Treating "systemic" as a synonym for "nobody's job to fix" wastes the analysis.
 
 **Only ever looking backward.** CAST after incidents without STPA before they happen leaves you permanently one accident behind. The forward-looking half is the one organizations skip most, since no incident forces it onto the calendar.
 
@@ -82,7 +82,7 @@ Do this once on a past incident before trying it live on your next one. The mapp
 
 **The full method, step by step.** Leveson and Thomas's STPA Handbook is the working reference for actually running an analysis, well beyond what a single post can cover{{< cite 5 "Leveson, Nancy G., and John P. Thomas (2018). STPA Handbook. MIT Partnership for Systems Approaches to Safety and Security." >}}.
 
-**A different kind of near-miss.** The U.S. Navy's SUBSAFE program, another of Leveson's case studies, has never lost a SUBSAFE-certified submarine since the program began in 1963, worth reading for what STAMP-style thinking looks like when it's actually working{{< cite 3 "Leveson, Nancy G. (2011). Engineering a Safer World: Systems Thinking Applied to Safety. MIT Press." >}}.
+**A different kind of near-miss.** The U.S. Navy's SUBSAFE program, another of Leveson's case studies, has kept every SUBSAFE-certified submarine safe since the program began in 1963, worth reading for what STAMP-style thinking looks like when it's actually working{{< cite 3 "Leveson, Nancy G. (2011). Engineering a Safer World: Systems Thinking Applied to Safety. MIT Press." >}}.
 
 ---
 

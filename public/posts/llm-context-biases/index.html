@@ -113,11 +113,11 @@
       <p><img src="/images/llm-context-biases.jpg" alt="Primacy bias, recency bias, sycophancy, and anchoring are predictable distortions in how LLMs weight information. Understanding them changes how you prompt, evaluate, and trust model outputs.">
 <em>&ldquo;Café wall illusion.&rdquo; Photo: <a href="https://www.flickr.com/photos/groume/8628269781/">Groume (2013)</a>. CC BY-SA 2.0.</em></p>
 <h2 id="llm-context-biases">LLM Context Biases</h2>
-<p>You post a 20-page architecture document into your LLM and ask it to identify the three riskiest assumptions. The model returns a confident answer. It got the first and third risks right, but not the one buried on page 11, the one that matters most.</p>
-<p>This isn&rsquo;t a hallucination. The model read all 20 pages but didn&rsquo;t weight them equally.</p>
+<p>You post a 20-page architecture document into your LLM and ask it to identify the three riskiest assumptions. The model returns a confident answer. It got the first and third risks right and missed the one buried on page 11, the one that matters most.</p>
+<p>This isn&rsquo;t a hallucination. The model read all 20 pages. It just weighted them unevenly.</p>
 <p>LLMs process context with systematic biases based on position, order, and stated preferences. Understanding them is the difference between using LLMs effectively and trusting answers that were shaped more by where you put information than what it said.</p>
 <h2 id="what-are-context-biases">What Are Context Biases?</h2>
-<p>Context biases are predictable distortions in how language models weight and process information. They are structural tendencies, not random errors, emerging from how attention mechanisms are trained.</p>
+<p>Context biases are predictable distortions in how language models weight and process information. They are structural tendencies emerging from how attention mechanisms are trained, consistent and predictable rather than random.</p>
 <p>The three most consequential for practitioners are primacy bias, recency bias, and sycophancy. A fourth, anchoring, compounds all three. None of them are bugs in a particular product, and they persist across models even as model quality improves.</p>
 <h2 id="primacy-and-recency-bias">Primacy and Recency Bias</h2>
 <p>When relevant information sits at the beginning or end of a long context, model performance is significantly higher than when it sits in the middle. Tested across multiple models on multi-document question answering tasks, the effect is consistent. The pattern holds across models and task types. Performance follows a U-shaped curve<sup><a href="#ref-1" title="Liu, Nelson F., et al. (2023). Lost in the Middle: How Language Models Use Long Contexts. Transactions of the Association for Computational Linguistics, 12.">[1]</a></sup>. Strong at the start and end, degraded in the middle.</p>
@@ -128,16 +128,16 @@
 <p>This creates a specific failure mode for technical decision-making. Ask an LLM to evaluate two architectural approaches and mention that your team prefers approach A. The model will find more merit in approach A. Your stated preference shaped the evaluation before the analysis began.</p>
 <p>Sycophancy is reinforced through reinforcement learning from human feedback (RLHF), where models learn that agreement produces higher human ratings than accurate but unwelcome responses<sup><a href="#ref-2" title="Malmqvist, Lars (2024). Sycophancy in Large Language Models: Causes and Mitigations. arXiv:2411.15287.">[2]</a></sup>. The tendency is baked into how models are trained to please.</p>
 <h2 id="anchoring">Anchoring</h2>
-<p>Anchoring bias occurs when initial information disproportionately shapes subsequent judgment. LLMs are notably sensitive to it, with 22% to 61% of questions affected depending on the model. Most tested LLMs show anchoring effects equivalent to or stronger than those observed in humans<sup><a href="#ref-3" title="Lou, Jiaxu, and Yifan Sun (2024). Anchoring Bias in Large Language Models: An Experimental Study. arXiv:2412.06593.">[3]</a></sup>.</p>
+<p>Anchoring bias occurs when initial information disproportionately shapes subsequent judgment. LLMs show it too. Fact-based anchors shifted model estimates in about 89% of tested cases, and expert-opinion anchors shifted nearly all of them. But models anchor less than people do. GPT-4&rsquo;s anchoring index measured 0.45 against a human baseline of 0.61 in the same experimental design. Humans proved easier to pull toward an anchoring hint than the model was<sup><a href="#ref-3" title="Lou, Jiaxu, and Yifan Sun (2024). Anchoring Bias in Large Language Models: An Experimental Study. arXiv:2412.06593.">[3]</a></sup>.</p>
 <p>Ask an LLM to estimate the timeline for a migration and mention that your last one took six months. The model&rsquo;s estimate pulls toward six months regardless of scope. The initial number anchors the output.</p>
-<p>Chain-of-Thought prompting and reflection prompts reduce anchoring but don&rsquo;t eliminate it. The most effective mitigation is gathering information from multiple angles before committing to an estimate<sup><a href="#ref-3" title="Lou, Jiaxu, and Yifan Sun (2024). Anchoring Bias in Large Language Models: An Experimental Study. arXiv:2412.06593.">[3]</a></sup>.</p>
+<p>Chain-of-Thought prompting and reflection prompts reduce anchoring without eliminating it. The most effective mitigation is gathering information from multiple angles before committing to an estimate<sup><a href="#ref-3" title="Lou, Jiaxu, and Yifan Sun (2024). Anchoring Bias in Large Language Models: An Experimental Study. arXiv:2412.06593.">[3]</a></sup>.</p>
 <h2 id="how-teams-get-this-wrong">How Teams Get This Wrong</h2>
 <p><strong>Trusting position over content.</strong> Putting the most important context at the top of a prompt and assuming the model will find what matters elsewhere. Middle sections are systematically under-weighted, and adding more context can actively degrade performance by pushing critical information further in<sup><a href="#ref-1" title="Liu, Nelson F., et al. (2023). Lost in the Middle: How Language Models Use Long Contexts. Transactions of the Association for Computational Linguistics, 12.">[1]</a></sup>.</p>
-<p><strong>Using pushback to get better answers.</strong> If you disagree with an LLM&rsquo;s response and push back without new evidence, the model will often reverse its position. That feels like progress, but the model didn&rsquo;t reconsider. It just agreed.</p>
+<p><strong>Using pushback to get better answers.</strong> If you disagree with an LLM&rsquo;s response and push back without new evidence, the model will often reverse its position. That feels like progress, but the model skipped reconsidering. It just agreed.</p>
 <p><strong>Treating LLM evaluation as neutral.</strong> Asking an LLM to compare options while including your team&rsquo;s stated preference contaminates the evaluation. The model will find evidence for what you have already indicated you want.</p>
 <p><strong>Anchoring with existing estimates.</strong> Mentioning a prior number, deadline, or precedent before asking for an estimate pulls the model&rsquo;s output toward that anchor. If you want an independent estimate, ask for it before providing your reference point.</p>
 <h2 id="put-it-into-practice">Put It Into Practice</h2>
-<p>These biases don&rsquo;t make LLMs unreliable. They make them predictably unreliable in specific ways, and knowing the pattern is most of the fix.</p>
+<p>These biases make LLMs unreliable in predictable, specific ways instead of randomly, and knowing the pattern is most of the fix.</p>
 <p>For long-document analysis, put the most critical information at the beginning or end of the context. Explicitly surface content in the middle by telling the model &ldquo;The section on page 11 is the most important.&rdquo; For evaluation tasks, strip your stated preferences from the prompt entirely. Run the analysis once without your view, then share it afterward. For independent estimates, ask first and anchor second.</p>
 <p>Pick one task you regularly use an LLM for. Before your next run, note everything in the prompt that precedes your actual question. That context shaped the answer. Adjust the order and see what changes.</p>
 <hr>
@@ -149,13 +149,14 @@
 </ol>
 <hr>
 <h2 id="outtakes">Outtakes</h2>
-<p><strong>Bias.</strong> A lawn bowling ball weighted on one side so that it curves predictably from a straight path (Harper, n.d.).</p>
-<p><strong>Context.</strong> From the Latin &ldquo;contexere,&rdquo; meaning to weave together. Same root as text and textile (Harper, n.d.).</p>
+<p><strong>Bias.</strong> A lawn bowling ball weighted on one side so that it curves predictably from a straight path (<a href="https://www.etymonline.com/word/bias">Harper, n.d.</a>).</p>
+<p><strong>Context.</strong> From the Latin &ldquo;contexere,&rdquo; meaning to weave together. Same root as text and textile (<a href="https://www.etymonline.com/word/context">Harper, n.d.</a>).</p>
 <p><strong>The spinning wheel.</strong> Kahneman and Tversky&rsquo;s original anchoring experiment had subjects watch a wheel spin to either 10 or 65, then estimate what percentage of African countries are in the UN. The group that saw 65 guessed significantly higher. A randomly observed number anchored their estimates. (<a href="https://us.macmillan.com/books/9780374533557/thinkingfastandslow/">Kahneman, 2011</a>)</p>
 <p><strong>Jury research.</strong> Studies on jury behavior show that the first and last witnesses in a trial have disproportionate influence on verdicts. Same U-shaped curve. Same mechanism. (<a href="https://www.researchgate.net/publication/385853184_THE_PSYCHOLOGY_OF_JURY_DECISION-MAKING_IN_CRIMINAL_TRIALS">source</a>)</p>
 <hr>
 <h2 id="changelog">Changelog</h2>
-<p><strong>2026-06-01</strong> Added hero image.<br>
+<p><strong>2026-08-08</strong> Rewrote the Anchoring section.
+<strong>2026-06-01</strong> Added hero image.<br>
 <strong>2026-05-16</strong> Replaced Etymology with Outtakes. Added spinning wheel and jury research to Outtakes.<br>
 <strong>2026-05-11</strong> Added etymology section.<br>
 <strong>2026-05-07</strong> Initial publication.</p>

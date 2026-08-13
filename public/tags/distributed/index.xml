@@ -6,7 +6,17 @@
     <description>Recent content in distributed on hi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 27 Sep 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/distributed/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 Aug 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/distributed/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Two Generals Problem</title>
+      <link>https://lyletagawa.com/posts/two-generals-problem/</link>
+      <pubDate>Thu, 13 Aug 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/two-generals-problem/</guid>
+      <description>The Two Generals Problem: neither general can ever confirm the other is ready to attack. Jim Gray proved it in 1978, and the same limit shapes how databases and networks handle failure.</description>
+      <media:content url="https://lyletagawa.com/images/two-generals-problem.jpg" medium="image" />
+    </item>
+    
     <item>
       <title>Remote-First vs Remote-Friendly</title>
       <link>https://lyletagawa.com/posts/remote-first/</link>

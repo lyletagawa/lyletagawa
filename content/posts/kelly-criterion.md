@@ -2,7 +2,7 @@
 title: "The Kelly Criterion"
 date: 2026-07-11
 publishdate: 2026-07-11
-lastmod: 2026-07-26
+lastmod: 2026-08-08
 summary: "A Bell Labs engineer solved a telephone noise problem in 1956 and accidentally invented the formula professional gamblers and investors use to size every bet. Betting the mathematically obvious amount is usually a mistake."
 tags: ["risk", "strategy", "probability"]
 image: /images/kelly-criterion.jpg
@@ -34,7 +34,7 @@ Kelly maximized something different, the expected logarithm of wealth, which is 
 
 Thorp took the same logic from roulette into blackjack, publishing card-counting strategies that used Kelly sizing, bet small when the deck favors the house, bet large when it favors the player, in a book that became a bestseller and got him banned from casinos across the country{{< cite 1 "Thorp, Edward O. (2017). A Man for All Markets: From Las Vegas to Wall Street, How I Beat the Dealer and the Market. Random House." >}}.
 
-Warren Buffett has never named Kelly directly, but his portfolio behaves like a fractional Kelly bettor's. In 1968, he wrote to his partnership that a single position, American Express, had grown to 40 percent of the fund's assets, the largest concentration he'd ever held, because he was confident enough in the edge to size the bet accordingly{{< cite 4 "Looking Back at Warren Buffett and American Express in 1962. GuruFocus." >}}. He runs concentrated instead of diversified, and he almost never uses leverage. Concentration says he sees an edge. No leverage says he still respects the possibility he's wrong.
+Warren Buffett has never named Kelly directly, but his portfolio behaves like a fractional Kelly bettor's. In the mid-1960s, he wrote to his partnership that a single position, American Express, had grown to 40 percent of the fund's assets, the largest concentration he'd ever held, because he was confident enough in the edge to size the bet accordingly{{< cite 4 "Looking Back at Warren Buffett and American Express in 1962. GuruFocus." >}}. He runs concentrated instead of diversified, and he almost never uses leverage. Concentration says he sees an edge. No leverage says he still respects the possibility he's wrong.
 
 Long-Term Capital Management shows what ignoring Kelly costs. The hedge fund, co-founded by two Nobel laureates, borrowed roughly $30 for every $1 of capital chasing small, correlated trades across global markets. Thorp has called their approach the anti-Kelly, sized for a world where nothing goes wrong at once{{< cite 1 "Thorp, Edward O. (2017). A Man for All Markets: From Las Vegas to Wall Street, How I Beat the Dealer and the Market. Random House." >}}. In August 1998, Russia defaulted on its debt, every position moved against the fund at the same time, and it took a $3.6 billion bailout brokered by the Federal Reserve to avoid a market-wide collapse.
 
@@ -84,10 +84,11 @@ Ask whether your current bets are actually independent or secretly correlated. A
 
 **Thorp beat Black and Scholes to their own formula.** In 1967, years before their famous 1973 paper, Thorp had already derived essentially the same options-pricing formula and kept it proprietary for his own trading, a story he told himself years later ([Thorp, 2002](https://www.wilmott.com/i-knew-i-knew-part-i/)).
 
-**Ant colonies run the same math without knowing it.** When two foraging patches have a 20 percent and an 80 percent chance of holding food, colonies split their foragers between the sites in close to that same ratio, the Kelly-optimal deployment for maximizing colony growth ([Baddeley, Franks, and Hunt, 2019](https://pmc.ncbi.nlm.nih.gov/articles/PMC6731492/)).
+**Ants may run the same math, at least in theory.** When two foraging patches have a 20 percent and an 80 percent chance of holding food, the Kelly-optimal strategy calls for a colony to split its foragers in that same ratio. Researchers have proposed this as a prediction, not yet a confirmed observation of real colony behavior ([Baddeley, Franks, and Hunt, 2019](https://pmc.ncbi.nlm.nih.gov/articles/PMC6731492/)).
 
 ---
 
 ## Changelog
 
+**2026-08-08** Fixed the Buffett/American Express date (his cited source and independent research place the concentrated bet in the mid-1960s, not 1968) and corrected the ant colony outtake, which stated a theoretical prediction from the cited paper as if it were a confirmed empirical finding.  
 **2026-07-11** Initial release.  

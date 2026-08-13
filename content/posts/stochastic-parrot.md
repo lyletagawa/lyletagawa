@@ -2,7 +2,7 @@
 title: "Stochastic Parrot"
 date: 2026-06-21
 publishdate: 2026-06-21
-lastmod: 2026-07-06
+lastmod: 2026-08-08
 summary: "A language model that generates fluent text without understanding it. The term comes from a 2021 paper that cost its lead author her job at Google."
 tags: ["ai", "language", "llm"]
 image: /images/stochastic-parrot.png
@@ -86,7 +86,7 @@ Read the paper, not just the term.
 
 ## Outtakes
 
-**The name behind the pseudonym.** "Shmargaret Shmitchell" was a pseudonym. The fourth author remained anonymous to protect against potential retaliation from their employer. The paper's political stakes were high enough to require a pseudonym before it was even published.
+**The name behind the pseudonym.** "Shmargaret Shmitchell" is a pseudonym for Margaret Mitchell, Gebru's Ethical AI co-lead and a coauthor on the paper, not an attempt at real anonymity. Her identity was never seriously hidden, and Google pushed her out too, not long after Gebru.
 
 **A parrot makes the case for its own sentience.** In 2022, a Google engineer published conversations with the company's LaMDA model and declared it sentient, citing its eloquent answers about inner experience. A stochastic parrot, generating text about consciousness, had convinced a human it was conscious.
 
@@ -94,5 +94,6 @@ Read the paper, not just the term.
 
 ## Changelog
 
+**2026-08-08** Fixed the "Shmargaret Shmitchell" outtake; it's a pseudonym for Margaret Mitchell, whose identity was never actually hidden, not a case of protected anonymity.  
 **2026-07-06** Added Google's side of the Gebru dispute (Jeff Dean's internal memo, via Platformer) so the intro presents both contested accounts instead of only Gebru's, added a data theft and labor exploitation argument to the paper's core claims, and rewrote the "Understanding" and "surprising behaviors" points against Bender's own 2026 clarifications so the post no longer treats arguments she has directly rebutted as if they still stand.  
 **2026-06-21** Initial release.

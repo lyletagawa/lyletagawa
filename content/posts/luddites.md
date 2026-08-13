@@ -2,7 +2,7 @@
 title: "The Luddites Were Right"
 date: 2026-06-25
 publishdate: 2026-06-25
-lastmod: 2026-06-25
+lastmod: 2026-08-08
 summary: "The original Luddites weren't against machines. They were against their wages being destroyed by machines. Two hundred years later, that argument is being made again."
 tags: ["history", "labor", "technology"]
 image: 
@@ -13,7 +13,7 @@ draft: true
 
 ## The Luddites
 
-Nottingham, March 11, 1811. A group of stocking workers breaks into a frame-knitting shop and destroys several machines with sledgehammers they call "Great Enoch." The shop owner uses the frames to produce inferior hosiery with unskilled workers at low wages, undercutting what trained craftsmen can charge for quality work.
+Nottinghamshire, March 11, 1811. Framework knitters gather peacefully in Nottingham's marketplace to protest wages and unemployment, then march a few miles out to the village of Arnold. By dawn they've broken into dozens of homes and workshops and destroyed roughly 60 stocking frames{{< cite 2 "\"Luddite.\" Wikipedia. https://en.wikipedia.org/wiki/Luddite" >}}. The targets aren't random. The hardest-hit hosiers are the ones using the frames to produce inferior hosiery with unskilled workers at low wages, undercutting what trained craftsmen can charge for quality work.
 
 The workers aren't against machines. They've built careers on them, and they're against being made poor by them.
 
@@ -57,7 +57,7 @@ Between 1840 and 1900, output per worker rose 90 percent and real wages rose 123
 
 What the optimists omit is the 50 years before 1840. Economic historian Robert Allen named this gap "Engels' pause" after Friedrich Engels, who documented the conditions firsthand. From 1790 to 1840, productivity grew 46 percent while real wages grew 12 percent. Capital's income share doubled. The workers smashing frames in 1811 were not imagining their deteriorating conditions. They were living in them.
 
-Whether AI follows the same arc is contested. Daron Acemoglu, who shared the 2024 Nobel Prize in Economics, estimates that AI will add roughly 0.06 percent annually to total factor productivity growth{{< cite 7 "Acemoglu, Daron (2024). What do we know about the economics of AI? MIT Economics. https://economics.mit.edu/news/daron-acemoglu-what-do-we-know-about-economics-ai" >}}. He argues that AI designed to replace workers rather than complement them won't distribute gains the way past automation eventually did.
+Whether AI follows the same arc is contested. Daron Acemoglu, who shared the 2024 Nobel Prize in Economics, estimates that AI will add roughly 0.05 percent annually to total factor productivity growth{{< cite 7 "Acemoglu, Daron (2024). What do we know about the economics of AI? MIT Economics. https://economics.mit.edu/news/daron-acemoglu-what-do-we-know-about-economics-ai" >}}. He argues that AI designed to replace workers rather than complement them won't distribute gains the way past automation eventually did.
 
 The long run is only comforting if you're not the generation doing the adjusting.
 
@@ -93,4 +93,5 @@ You probably won't need to smash anything.
 
 ## Changelog
 
+**2026-08-08** Fixed the Acemoglu productivity figure (0.05 percent, not 0.06) and rewrote the opening scene: the March 1811 origin happened in Arnold, not Nottingham proper, involved roughly 60 frames across dozens of workshops in one night, and "Great Enoch" hammers belong to a later, separate Yorkshire campaign against cropping frames, not the original Nottinghamshire stocking-frame attacks.  
 **2026-06-25** Initial release.

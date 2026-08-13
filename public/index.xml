@@ -6,14 +6,24 @@
     <description>Recent content on hi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 02 Aug 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 Aug 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Two Generals Problem</title>
+      <link>https://lyletagawa.com/posts/two-generals-problem/</link>
+      <pubDate>Thu, 13 Aug 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/two-generals-problem/</guid>
+      <description>The Two Generals Problem: neither general can ever confirm the other is ready to attack. Jim Gray proved it in 1978, and the same limit shapes how databases and networks handle failure.</description>
+      <media:content url="https://lyletagawa.com/images/two-generals-problem.jpg" medium="image" />
+    </item>
+    
     <item>
       <title>The Squirrel Threat Model</title>
       <link>https://lyletagawa.com/posts/squirrel-threat-model/</link>
       <pubDate>Sun, 02 Aug 2026 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/squirrel-threat-model/</guid>
-      <description>Squirrels have shut down Nasdaq trading twice. Beavers, cows, and sharks have taken down real networks too, but misconfiguration, sabotage, and copper theft cause far more damage than any animal ever has.</description>
+      <description>Squirrels have shut down Nasdaq trading twice. Beavers, cows, and sharks have taken down networks too, but misconfiguration, sabotage, and copper theft cause far more damage than any animal ever has.</description>
       <media:content url="https://lyletagawa.com/images/wan-failures.jpg" medium="image" />
     </item>
     
@@ -23,7 +33,7 @@
       <pubDate>Sun, 26 Jul 2026 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/luck/</guid>
-      <description>Luck decides more than most people are willing to admit. Hard work and grit determine how ready you are for it.</description>
+      <description>Luck decides more than most are willing to admit. Hard work and grit determine how ready you are for it.</description>
       <media:content url="https://lyletagawa.com/images/luck.png" medium="image" />
     </item>
     
@@ -33,7 +43,7 @@
       <pubDate>Sun, 19 Jul 2026 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/hyrums-law/</guid>
-      <description>With enough users, every observable behavior becomes a depended-upon feature. Your implementation details become your API contract, regardless of documentation or intent.</description>
+      <description>Hyrum&amp;rsquo;s Law says that with enough users, every observable behavior becomes a depended-upon feature. Your implementation details become your API contract, regardless of documentation or intent.</description>
       <media:content url="https://lyletagawa.com/images/hyrums-law.jpg" medium="image" />
     </item>
     
@@ -53,7 +63,7 @@
       <pubDate>Fri, 03 Jul 2026 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/tcp-congestion-control/</guid>
-      <description>No one tells TCP how fast to send. Forty years of algorithms, from Reno to BBR, have tried to teach it, and the one in your kernel still chases a ceiling.</description>
+      <description>In 1986, a network slowdown forced Van Jacobson to invent TCP congestion control. Reno, CUBIC, and BBR mark three different eras of solving that problem.</description>
       <media:content url="https://lyletagawa.com/images/tcp-congestion-control.png" medium="image" />
     </item>
     
@@ -63,7 +73,7 @@
       <pubDate>Fri, 26 Jun 2026 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/bloom-filter/</guid>
-      <description>Your browser checks every website certificate&amp;rsquo;s revocation status without a network call. The data structure encodes nearly a billion certificates in 4 megabytes. Its only guarantee is what isn&amp;rsquo;t there.</description>
+      <description>A Bloom filter checks whether something belongs to a set without storing the set. Firefox&amp;rsquo;s CRLite used one to compress revocation data for nearly a billion certificates into 6.7 megabytes.</description>
       <media:content url="https://lyletagawa.com/images/bloom-filter.png" medium="image" />
     </item>
     
@@ -93,7 +103,7 @@
       <pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/goodharts-law/</guid>
-      <description>Every metric used to track progress will eventually be used to fake progress instead.</description>
+      <description>Goodhart&amp;rsquo;s Law says every metric used to track progress eventually gets used to fake progress instead.</description>
       <media:content url="https://lyletagawa.com/images/goodharts-law.png" medium="image" />
     </item>
     
@@ -103,7 +113,7 @@
       <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/distributed-causation/</guid>
-      <description>Complex failures don&amp;rsquo;t have a single root cause. They have many causes distributed across time, systems, and organizational boundaries, and fixing just one leaves the rest in place.</description>
+      <description>Distributed causation means complex failures have many causes spread across time, systems, and organizational boundaries. Fixing just one leaves the rest in place.</description>
       <media:content url="https://lyletagawa.com/images/distributed-causation.jpg" medium="image" />
     </item>
     
@@ -113,7 +123,7 @@
       <pubDate>Thu, 21 May 2026 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/influence-by-alignment/</guid>
-      <description>Authority centralizes decisions with whoever has the title. Alignment distributes them to whoever has the context, which is almost never the same person.</description>
+      <description>Alignment distributes decisions to whoever has the context. Authority centralizes them with whoever has the title, which is almost never the same person.</description>
       <media:content url="https://lyletagawa.com/images/influence-by-alignment.jpg" medium="image" />
     </item>
     
@@ -123,7 +133,7 @@
       <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/live-event-caching/</guid>
-      <description>LRU evicts the segments live viewers need when they rewind. Netflix&amp;rsquo;s patent US 12,621,504 B2 fixes this with segment age and distributed ownership, without bloating every edge server.</description>
+      <description>LRU caching evicts the segments live viewers need when they rewind. Netflix&amp;rsquo;s patent US 12,621,504 B2 fixes this with segment age and distributed ownership, without bloating every edge server.</description>
       <media:content url="https://lyletagawa.com/images/live-event-caching.jpg" medium="image" />
     </item>
     
@@ -230,7 +240,7 @@
       <pubDate>Wed, 30 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/resilience/</guid>
-      <description>Your system passed every test. Redundancy was in place. Then something unexpected happened anyway. Resilience Engineering is the framework for building systems that hold up when the unexpected is inevitable.</description>
+      <description>Resilience Engineering is the framework for building systems that hold up when the unexpected is inevitable. Redundancy and rigorous testing still leave room for your system to fail anyway.</description>
       <media:content url="https://lyletagawa.com/images/resilience.jpg" medium="image" />
     </item>
     

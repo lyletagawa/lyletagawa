@@ -2,7 +2,7 @@
 title: "Brooks' Law"
 date: 2026-07-11
 publishdate: 2026-07-11
-lastmod: 2026-07-11
+lastmod: 2026-08-08
 summary: "Fred Brooks watched IBM add programmers to a late project and watched it get later. The math behind why still surprises engineering managers who reach for headcount as the first fix."
 tags: ["planning", "teams", "management"]
 image: /images/brooks-law.jpg
@@ -40,7 +40,7 @@ HealthCare.gov launched on October 1, 2013, and immediately fell over. Roughly 5
 
 The administration's first instinct matched IBM's in 1964. Add people. It didn't work any better this time, for the same reasons.
 
-What actually fixed it was different. A small team under a single named lead, Jeffrey Zients, ran daily meetings in a rented room in Maryland with one explicit rule: whoever knew the most about a problem talked, regardless of rank{{< cite 4 "Obama's Trauma Team. TIME." >}}. That's dozens of people added to a late project too, but organized around clear ownership and tight, specific coordination instead of general headcount. The site was stable within two months.
+What actually fixed it was different. Jeffrey Zients led the overall rescue effort, but the daily mechanics were run by Mikey Dickerson, a Google site reliability engineer who set up a war room in Maryland with one explicit rule posted on the wall: whoever knew the most about a problem talked, regardless of rank{{< cite 4 "Obama's Trauma Team. TIME." >}}. That's dozens of people added to a late project too, but organized around clear ownership and tight, specific coordination instead of general headcount. The site was stable within two months.
 
 ## Common Mistakes
 
@@ -90,4 +90,5 @@ If you do add people, add ownership first. Name who owns which piece before the 
 
 ## Changelog
 
+**2026-08-08** Fixed the HealthCare.gov fix attribution; Mikey Dickerson ran the daily stand-ups and set the "whoever knows most talks" rule, not Jeffrey Zients, who led the broader rescue effort.  
 **2026-07-11** Initial release.

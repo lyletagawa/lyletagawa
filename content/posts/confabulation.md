@@ -2,7 +2,7 @@
 title: "Confabulation"
 date: 2026-07-04
 publishdate: 2026-07-04
-lastmod: 2026-07-04
+lastmod: 2026-08-08
 summary: "Cognitive science already built rigorous tests for confidently wrong explanations and buried memories, decades before anyone had a transformer to test. AI research keeps reinventing the same experiments under new names."
 tags: ["cognitive", "testing", "ai"]
 image: /images/confabulation.jpg
@@ -88,7 +88,7 @@ The next strange model bug in your eval suite has probably already been run once
 
 **The surgery predates the psychology by decades.** Corpus callosotomy began in 1940 as a failed epilepsy treatment. It didn't work until Joseph Bogen and Philip Vogel severed the connection completely in 1962, accidentally creating the split-brain patients whose confabulated explanations Gazzaniga studied years later ([JNS, 2008](https://thejns.org/view/journals/j-neurosurg/108/3/article-p608.xml)).
 
-**Confabulation used to just mean chatting.** The word comes from Latin confabulari, "to talk together." Swiss psychiatrist Eugen Bleuler gave it its clinical meaning, fabricated memories standing in for real ones, only in 1924, centuries after it meant nothing more sinister than a fireside conversation ([Etymonline, n.d.](https://www.etymonline.com/word/confabulation)).
+**Confabulation used to just mean chatting.** The word comes from Latin confabulari, "to talk together" ([Etymonline, n.d.](https://www.etymonline.com/word/confabulation)). German neurologist Carl Wernicke gave it its clinical meaning, fabricated memories standing in for real ones, around 1900, centuries after it meant nothing more sinister than a fireside conversation ([Wikipedia, n.d.](https://en.wikipedia.org/wiki/Confabulation)).
 
 **Sperry won a Nobel Prize for taking the two hemispheres apart.** Roger Sperry shared the 1981 Nobel Prize in Physiology or Medicine for his split-brain research, the surgical and experimental groundwork Gazzaniga later built the interpreter studies on ([Nobel Prize, 1981](https://www.nobelprize.org/prizes/medicine/1981/sperry/facts/)).
 
@@ -96,4 +96,5 @@ The next strange model bug in your eval suite has probably already been run once
 
 ## Changelog
 
+**2026-08-08** Fixed the confabulation etymology outtake; Carl Wernicke gave the term its clinical meaning around 1900, not Eugen Bleuler in 1924, which wasn't supported by the cited source.  
 **2026-07-04** Initial release.

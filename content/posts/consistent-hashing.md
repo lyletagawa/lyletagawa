@@ -2,7 +2,7 @@
 title: "Consistent Hashing"
 date: 2026-07-11
 publishdate: 2026-07-11
-lastmod: 2026-07-11
+lastmod: 2026-08-08
 summary: "In 1997, MIT researchers solved a web caching problem so well two of them built a company on it. Adding or removing a server shouldn't force you to remap almost every key."
 tags: ["systems", "scaling", "distributed"]
 image: /images/consistent-hashing.jpg
@@ -28,7 +28,7 @@ Consistent hashing fixes this by hashing servers and keys onto the same ring ins
 
 A ring with one position per server has an obvious problem. With only a handful of servers, the gaps between them on the ring are wildly uneven by chance, one server might own 40 percent of the keyspace while another owns 10 percent.
 
-The fix is to give each physical server many positions on the ring instead of one, called virtual nodes. Apache Cassandra defaults to 256 virtual nodes per physical machine{{< cite 2 "Dynamo. Apache Cassandra Documentation." >}}. More positions per server means the law of large numbers does the work. The keyspace ends up close to evenly split, and when a server does fail, its load spreads across many neighbors instead of dumping onto just one.
+The fix is to give each physical server many positions on the ring instead of one, called virtual nodes. Apache Cassandra defaulted to 256 virtual nodes per physical machine for years; a smarter deterministic token allocator introduced in 3.x let that default drop to 16 as of Cassandra 4.0{{< cite 2 "Dynamo. Apache Cassandra Documentation." >}}. More positions per server means the law of large numbers does the work. The keyspace ends up close to evenly split, and when a server does fail, its load spreads across many neighbors instead of dumping onto just one.
 
 ## What Hashing Doesn't Fix
 
@@ -38,7 +38,7 @@ The usual fix is to salt the hot key with a random prefix, splitting its writes 
 
 ## Where This Shows Up Today
 
-Cassandra and DynamoDB both use a version of this ring directly. Cassandra hashes each key with Murmur3 onto a ring spanning -2^63 to 2^63 - 1, assigns every node a set of token ranges on that ring (256 of them by default, thanks to virtual nodes), and resolves ownership by walking the ring clockwise from the key's position{{< cite 2 "Dynamo. Apache Cassandra Documentation." >}}. Adding a node to a running cluster means it claims a slice of ring space from its neighbors and nothing else moves.
+Cassandra and DynamoDB both use a version of this ring directly. Cassandra hashes each key with Murmur3 onto a ring spanning -2^63 to 2^63 - 1, assigns every node a set of token ranges on that ring (16 of them by default as of Cassandra 4.0, down from 256 in earlier versions), and resolves ownership by walking the ring clockwise from the key's position{{< cite 2 "Dynamo. Apache Cassandra Documentation." >}}. Adding a node to a running cluster means it claims a slice of ring space from its neighbors and nothing else moves.
 
 ## Common Mistakes
 
@@ -92,4 +92,5 @@ Separate your partitioning question from your consistency question. They're solv
 
 ## Changelog
 
+**2026-08-08** Fixed the Cassandra virtual node default; it's 16 as of Cassandra 4.0, not 256, which was the older 2.x default.  
 **2026-07-11** Initial release.  

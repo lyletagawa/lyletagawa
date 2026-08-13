@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>The Two Generals Problem | hi</title>
+
+
+
+<link href="https://lyletagawa.com/index.xml" rel="alternate" type="application/rss+xml" title="hi" />
+
+<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='https://lyletagawa.com/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="canonical" href="https://lyletagawa.com/posts/two-generals-problem/">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="The Two Generals Problem: neither general can ever confirm the other is ready to attack. Jim Gray proved it in 1978, and the same limit shapes how databases and networks handle failure.">
+<script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="Xi tn init mn Qr yn xn pn capture calculateEventProperties Tn register register_once register_for_session unregister unregister_for_session Pn getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync On identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException addExceptionStep captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty Mn Cn createPersonProfile setInternalOrTestUser Rn vn An opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Sn debug Kr En getPageViewId captureTraceFeedback captureTraceMetric hn".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_zrLjgptGCvrPgnVnoXPF87NEtESJtxuQLt26tRfFynhL', {
+        api_host: 'https://p.foureleven.org', 
+        ui_host: 'https://us.posthog.com', 
+        defaults: '2026-05-30',
+        person_profiles: 'identified_only', 
+    })
+</script>
+
+</head>
+<body>
+
+<section class="section">
+  <div class="container">
+    <nav id="nav-main" class="nav">
+      <div id="nav-name" class="nav-left">
+        <a id="nav-anchor" class="nav-item" href="https://lyletagawa.com">
+          <h1 id="nav-heading" class="title is-4">hi</h1>
+        </a>
+      </div>
+      <div class="nav-right">
+        <nav id="nav-items" class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/lyletagawa'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg>
+</i>
+            </span>
+          </a><a class="level-item" aria-label="linkedin" href='https://linkedin.com/in/lyletagawa'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg>
+</i>
+            </span>
+          </a><a class="level-item" aria-label="rss" href='/index.xml'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle>
+    
+  </svg>
+</i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+
+    <nav class="nav">
+      
+
+      
+    </nav>
+
+  </div>
+  <script src="/js/navicon-shift.js"></script>
+</section>
+<section class="section">
+  <div class="container">
+    <h1 class="title">The Two Generals Problem</h1>
+    
+    <div class="subtitle tags is-6 is-pulled-right">
+      
+      
+<a class="subtitle is-6" href="/tags/distributed/">#distributed</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/networking/">#networking</a>
+  
+
+
+      
+    </div>
+    
+    <h6 class="subtitle is-6" style="line-height:0em">Aug. 13, 2026&nbsp;&middot; 4 min read
+    </h6>
+    
+
+    <div class="content">
+      <p><img src="/images/two-generals-problem.jpg" alt="The Two Generals Problem: neither general can ever confirm the other is ready to attack. Jim Gray proved it in 1978, and the same limit shapes how databases and networks handle failure.">
+<em>Fog filling the valley between two ridgelines, hiding one side from the other. Photo: <a href="https://commons.wikimedia.org/wiki/File:Fog_and_mist_below_the_Clee_Hill_-_geograph.org.uk_-_2163671.jpg">Peter Evans (2010)</a>. CC BY-SA 2.0.</em></p>
+<h2 id="the-two-generals-problem">The Two Generals Problem</h2>
+<p>Two generals camp a short distance apart, each with an eye on the same hill. Attack it together, and they win. Attack it alone, and they lose. The only way to coordinate is to send a runner, and with every trip, there&rsquo;s some chance one goes missing<sup><a href="#ref-1" title="Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag.">[1]</a></sup>.</p>
+<p>So the first general sends a message, &ldquo;Attack at dawn.&rdquo; If the runner makes it through, the second general knows the plan, but the first general has no way to know it arrived. Now the second general is in the same situation as the first, unsure if their own confirmation arrived<sup><a href="#ref-1" title="Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag.">[1]</a></sup>.</p>
+<p>There is no way to end the loop. Send one more runner to confirm the confirmation, and now you need one more runner after that.</p>
+<h2 id="grays-proof">Gray&rsquo;s Proof</h2>
+<p>Computer scientist Jim Gray named this scenario and provided its proof in a 1978 set of lecture notes on database operating systems, using it to show that guaranteeing coordination over an unreliable channel is impossible, even though getting close enough to certain just takes enough retries<sup><a href="#ref-1" title="Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag.">[1]</a></sup>. His proof is short. Assume the shortest possible protocol that works, call it P, and ask what happens to its last message.</p>
+<p>If that message gets lost, either it wasn&rsquo;t actually necessary, or the general who needed it fails to act. If it wasn&rsquo;t necessary, a shorter protocol would have worked, contradicting the claim that P was shortest. So the last message has to matter, which means losing it breaks the protocol, which means P never really guaranteed anything<sup><a href="#ref-1" title="Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag.">[1]</a></sup>.</p>
+<p>&ldquo;The generals paradox, which as you now see is not a paradox<sup><a href="#ref-1" title="Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag.">[1]</a></sup>.&rdquo; A paradox contradicts itself, but this doesn&rsquo;t. Certainty over an unreliable channel is impossible, no matter how clever the protocol.</p>
+<h2 id="not-the-byzantine-generals-problem">Not The Byzantine Generals Problem</h2>
+<p>A second, unrelated generals problem gets confused with this one. In 1982, Leslie Lamport, Robert Shostak, and Marshall Pease published the Byzantine Generals Problem, where multiple generals have to agree on a battle plan despite some of the messengers, or some of the generals themselves, being traitors who send contradictory orders on purpose<sup><a href="#ref-2" title="Lamport, Leslie, Robert Shostak, and Marshall Pease (1982). The Byzantine Generals Problem. ACM Transactions on Programming Languages and Systems, 4(3).">[2]</a></sup>.</p>
+<p>The Two Generals Problem is an unreliable channel between two cooperating parties, where messages just sometimes vanish. The Byzantine Generals Problem is unreliable parties on a channel that works fine, where messages arrive but might be lies. Consensus algorithms built to tolerate malicious or arbitrarily broken nodes, the kind behind blockchains, solve the Byzantine version. A retry loop and a timeout solve the Two Generals version.</p>
+<h2 id="the-two-phase-commit-answer">The Two-Phase Commit Answer</h2>
+<p>Gray followed the proof with an answer, the Two-Phase Commit Protocol, the mechanism that lets databases coordinate a commit across multiple machines despite the same failure mode<sup><a href="#ref-1" title="Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag.">[1]</a></sup>. It works by dropping the proof&rsquo;s core assumption, a fixed number of messages agreed on in advance. Instead, it promises to keep retrying, with a coordinator that remembers the outcome and asks again until every participant confirms<sup><a href="#ref-1" title="Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag.">[1]</a></sup>.</p>
+<p>A coordinator asks every participant whether it can commit. Each votes yes or no, then the coordinator records the final decision and keeps broadcasting it until everyone acknowledges. Gray illustrated the stakes using a computer in Tokyo and a cash machine in Fuessen, Germany. Both have to agree before the machine hands over a million marks, or either the bank loses money or a customer walks away without cash<sup><a href="#ref-1" title="Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag.">[1]</a></sup>.</p>
+<p>Two-Phase Commit can stall indefinitely if the coordinator crashes at the worst moment, leaving participants unable to safely commit or abort on their own. That moment is rare enough for teams to build reliable systems around, but without an actual guarantee.</p>
+<h2 id="where-people-get-this-wrong">Where People Get This Wrong</h2>
+<p>TCP&rsquo;s three-way handshake, SYN, SYN-ACK, ACK, looks like it settles whether both sides are ready<sup><a href="#ref-3" title="Postel, Jon (1981). Transmission Control Protocol. RFC 793.">[3]</a></sup>. It carries the identical last-message problem, since that final ACK can get lost the same way a general&rsquo;s runner can. TCP tolerates the rare failure instead of guaranteeing against it.</p>
+<p>Enough retries do not add up to certainty. Retrying lowers the odds of failure, but it never reaches zero. Each additional confirmation is another message that can be lost<sup><a href="#ref-1" title="Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag.">[1]</a></sup>.</p>
+<p>A team chasing five nines treats an unacknowledged request as an engineering failure rather than a property of the channel. Networks fail no matter how much engineering goes into them. The fix is a system that stays correct when they do.</p>
+<h2 id="what-to-do-about-it">What To Do About It</h2>
+<p>Stop designing as if certainty is possible, and design for its absence instead. Make operations idempotent, so a duplicate retry produces the same result as the original instead of double-charging a customer or double-shipping an order. Add a reconciliation step that checks actual state later instead of trusting the last message sent, the way a bank statement catches a transfer that never confirmed. Give every request an identifier so a retry reads as the same request.</p>
+<p>Two-Phase Commit&rsquo;s buys reliability by adding a coordinator and giving up a fixed message count, and it still has a failure mode where a crashed coordinator leaves everyone else stuck. Nothing closes every gap. Instead, fail smaller, less often, and in ways already planned for.</p>
+<p>Next time a request hangs and the instinct is to add a retry and call it handled, ask whether the acknowledgment might be the thing that got lost this time, instead of the request. That&rsquo;s the actual design problem, and no amount of retrying resolves it.</p>
+<hr>
+<h2 id="references">References</h2>
+<ol class="references">
+  <li id="ref-1">Gray, Jim N. (1978). "Notes on Data Base Operating Systems." In <em>Operating Systems: An Advanced Course</em>, Lecture Notes in Computer Science, Vol. 60. Berlin: Springer-Verlag. <a href="https://jimgray.azurewebsites.net/papers/dbos.pdf">https://jimgray.azurewebsites.net/papers/dbos.pdf</a></li>
+  <li id="ref-2">Lamport, Leslie, Robert Shostak, and Marshall Pease (1982). "The Byzantine Generals Problem." <em>ACM Transactions on Programming Languages and Systems</em>, 4(3). <a href="https://lamport.azurewebsites.net/pubs/byz.pdf">https://lamport.azurewebsites.net/pubs/byz.pdf</a></li>
+  <li id="ref-3">Postel, Jon (1981). "Transmission Control Protocol." <em>RFC 793</em>. <a href="https://www.rfc-editor.org/rfc/rfc793.html">https://www.rfc-editor.org/rfc/rfc793.html</a></li>
+</ol>
+<hr>
+<h2 id="outtakes">Outtakes</h2>
+<p>Three years before Gray gave the problem its name, Akkoyunlu, Ekanadham, and Huber proved the identical impossibility result in 1975, using two groups of gangsters instead of two armies (<a href="https://dl.acm.org/doi/10.1145/800213.806523">Akkoyunlu et al., 1975</a>).</p>
+<p>In January 2007, Gray disappeared while sailing alone near San Francisco. Neither he nor his boat was ever found, and no message ever confirmed what happened (<a href="https://www.npr.org/2007/02/04/7152514/computer-scientist-lost-at-sea-has-powerful-legacy">NPR, 2007</a>).</p>
+<hr>
+<h2 id="changelog">Changelog</h2>
+<p><strong>2026-08-13</strong> Initial release.</p>
+
+      <hr>
+      
+      <div class="related">
+
+<h3>Similar articles:</h3>
+<ul>
+	
+	<li><a href="/posts/squirrel-threat-model/">The Squirrel Threat Model</a></li>
+	
+	<li><a href="/posts/tcp-congestion-control/">From Reno to BBR</a></li>
+	
+	<li><a href="/posts/remote-first/">Remote-First vs Remote-Friendly</a></li>
+	
+</ul>
+</div>
+      
+    </div>
+    
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p></p>
+    
+  </div>
+</section>
+
+
+
+
+
+</body>
+</html>
+

@@ -13,7 +13,7 @@
       <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/live-event-caching/</guid>
-      <description>LRU evicts the segments live viewers need when they rewind. Netflix&amp;rsquo;s patent US 12,621,504 B2 fixes this with segment age and distributed ownership, without bloating every edge server.</description>
+      <description>LRU caching evicts the segments live viewers need when they rewind. Netflix&amp;rsquo;s patent US 12,621,504 B2 fixes this with segment age and distributed ownership, without bloating every edge server.</description>
       <media:content url="https://lyletagawa.com/images/live-event-caching.jpg" medium="image" />
     </item>
     

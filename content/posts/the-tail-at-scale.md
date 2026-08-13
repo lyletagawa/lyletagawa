@@ -2,7 +2,7 @@
 title: "The Tail at Scale"
 date: 2026-06-27
 publishdate: 2026-06-27
-lastmod: 2026-06-27
+lastmod: 2026-08-08
 summary: "A single slow server is a rounding error. Fan a request out to a hundred of them and that rounding error becomes the median user experience."
 tags: ["latency", "reliability", "performance"]
 image: /images/the-tail-at-scale.png
@@ -85,7 +85,7 @@ Pick one endpoint this week. Find out how many servers a single request touches,
 
 ## Outtakes
 
-**The number that ships the feature.** Amazon found that every 100 milliseconds of added latency cost about 1 percent in sales, which is why its teams fought over the 99.9th percentile and not the average ([Linden, 2006](https://glinden.blogspot.com/2006/11/marissa-mayer-at-web-20.html)). The average was already fine. The average was never the problem.
+**The number that ships the feature.** Amazon ran A/B tests delaying pages in 100-millisecond increments and found that even very small delays caused substantial, costly drops in revenue, which is why its teams fought over the 99.9th percentile and not the average ([Linden, 2006](https://glinden.blogspot.com/2006/11/marissa-mayer-at-web-20.html)). The average was already fine. The average was never the problem.
 
 **The straggler you scheduled.** A lot of tail latency is self-inflicted ([Dean and Barroso, 2013](https://www.barroso.org/publications/TheTailAtScale.pdf)). The backup job, the log rotation, the metrics flush. Your own infrastructure takes turns slowing down your own requests, politely, on a cron schedule.
 
@@ -95,4 +95,5 @@ Pick one endpoint this week. Find out how many servers a single request touches,
 
 ## Changelog
 
+**2026-08-08** Fixed the Amazon latency-revenue outtake; the cited source doesn't give a "1 percent per 100ms" figure, only that small delays caused substantial revenue drops.  
 **2026-06-27** Initial release.  

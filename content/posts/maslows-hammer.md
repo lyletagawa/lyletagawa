@@ -2,7 +2,7 @@
 title: "Maslow's Hammer"
 date: 2026-07-04
 publishdate: 2026-07-04
-lastmod: 2026-07-25
+lastmod: 2026-08-08
 summary: "Deep expertise in one tool makes you reach for it even when a different one solves the problem better. Psychologists named this the law of the instrument."
 tags: ["expertise", "innovation", "teams"]
 image: /images/maslows-hammer.jpg
@@ -93,7 +93,7 @@ Watch for the DARPA pattern in your own team. When 195 out of 196 people reach f
 
 **The quote gets misattributed to Mark Twain constantly.** Despite no evidence he ever said it, "to a man with a hammer, everything looks like a nail" circulates online as a Twain line more often than as a Maslow or Kaplan one ([Quote Investigator, 2014](https://quoteinvestigator.com/2014/05/08/hammer-nail/)).
 
-**Kodak's own engineer invented the thing that killed it.** Steve Sasson built Kodak's first digital camera in 1975 and demoed it to executives in 1976. Their reaction: "That's cute, but don't tell anyone about it." Film was Kodak's hammer, even after Kodak built the nail ([PetaPixel, 2017](https://petapixel.com/2017/09/21/kodak-said-digital-photography-1975/)).
+**Kodak's own engineer invented the thing that killed it.** Steve Sasson built Kodak's first digital camera in 1975 and demoed it to executives that December. Their reaction: "That's cute, but don't tell anyone about it." Film was Kodak's hammer, even after Kodak built the nail ([PetaPixel, 2017](https://petapixel.com/2017/09/21/kodak-said-digital-photography-1975/)).
 
 **Charlie Munger applied it to B.F. Skinner.** In his 1995 Harvard speech "The Psychology of Human Misjudgment," Munger said Skinner developed "man-with-a-hammer syndrome" so badly it damaged his own reputation, over-applying behaviorism to everything because it was the framework that made him famous ([James Clear, n.d.](https://jamesclear.com/great-speeches/psychology-of-human-misjudgment-by-charlie-munger)).
 
@@ -101,4 +101,5 @@ Watch for the DARPA pattern in your own team. When 195 out of 196 people reach f
 
 ## Changelog
 
+**2026-08-08** Fixed the Kodak demo date; Sasson demoed the camera to executives in December 1975, the same year he built it, not 1976.  
 **2026-07-04** Initial release.  

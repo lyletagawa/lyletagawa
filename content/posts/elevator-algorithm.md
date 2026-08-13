@@ -2,7 +2,7 @@
 title: "The Elevator Algorithm"
 date: 2026-08-01
 publishdate: 2026-08-01
-lastmod: 2026-08-01
+lastmod: 2026-08-08
 summary: "Every disk scheduler in the elevator algorithm family exists to minimize how far a mechanical arm has to travel. Flash storage removed that problem, and the simplest scheduler often wins."
 tags: ["algorithms", "performance", "systems"]
 image: /images/elevator-algorithms.jpg
@@ -40,11 +40,11 @@ Plain SCAN sweeps to one end, reverses, and sweeps back, but has an unevenness p
 
 LOOK reverses as soon as the last pending request in a direction is served, instead of always traveling to the disk's physical end. C-SCAN sweeps in one direction only, jumping back to the start without servicing anything on the return trip, spreading wait times more evenly than plain SCAN. C-LOOK does the same jump but stops short of the physical edge instead of running all the way there. N-Step-SCAN batches whatever requests exist at a pass's start and defers mid-sweep arrivals to the next one, closing off the starvation edge case{{< cite 4 "Coffman, E. G., L. A. Klimko, and B. Ryan (1972). Analysis of Scanning Policies for Reducing Disk Seek Times. SIAM Journal on Computing, 1(3)." >}}.
 
-None of the variants change the core idea. They're all tuning the same lever, how strictly to enforce sweeping in one direction before reversing. Coffman, Klimko, and Ryan gave the family its first rigorous treatment in 1972, deriving expected response times instead of relying on Knuth's informal experiments{{< cite 4 "Coffman, E. G., L. A. Klimko, and B. Ryan (1972). Analysis of Scanning Policies for Reducing Disk Seek Times. SIAM Journal on Computing, 1(3)." >}}.
+Every variant tunes the same lever, how strictly to enforce sweeping in one direction before reversing. Coffman, Klimko, and Ryan gave the family its first rigorous treatment in 1972, deriving expected response times instead of relying on Knuth's informal experiments{{< cite 4 "Coffman, E. G., L. A. Klimko, and B. Ryan (1972). Analysis of Scanning Policies for Reducing Disk Seek Times. SIAM Journal on Computing, 1(3)." >}}.
 
 ## Real Elevators Moved On
 
-While computing refined the same sweep-and-reverse idea for half a century, actual elevators mostly abandoned it. Otis had already been running SCAN-like "Collective Control" since the 1920s, well before Knuth named it{{< cite 5 "Elevator World. The History of Operatorless Elevators: Traffic Control Systems, Part One." >}}. By 1981, Otis replaced it with something far more complicated. A proprietary scoring system called RSR, Relative System Response, patented by engineer Joseph Bittar, scores every car against every new call, weighing arrival time, car load, whether sending two cars the same direction wastes capacity, and whether a car sits idle nearby{{< cite 6 "Bittar, Joseph (1982). Relative System Response Elevator Call Assignments. US Patent 4,363,381." >}}.
+While computing refined the same sweep-and-reverse idea for half a century, actual elevators mostly abandoned it. Otis had already been running SCAN-like "Collective Control" since the 1920s, well before Knuth named it{{< cite 5 "Elevator World. The History of Operatorless Elevators: Traffic Control Systems, Part One." >}}. By 1982, Otis replaced it with something far more complicated. A proprietary scoring system called RSR, Relative System Response, patented by engineer Joseph Bittar, scores every car against every new call, weighing arrival time, car load, whether sending two cars the same direction wastes capacity, and whether a car sits idle nearby{{< cite 6 "Bittar, Joseph (1982). Relative System Response Elevator Call Assignments. US Patent 4,363,381." >}}.
 
 Modern destination dispatch goes further, asking riders for their floor before boarding so the system can group nearby destinations onto the same car{{< cite 7 "John (n.d.). Elevator Algorithms. john.fun/elevators." >}}. Fewer stops carries a secondary benefit too, less wear on motors, brakes, and doors{{< cite 8 "Kroll, Karen (2015). Elevators and Destination Dispatch Technology. FacilitiesNet." >}}.
 
@@ -54,23 +54,23 @@ Elevator researcher Richard Peters found the same pattern studying real building
 
 ## Then The Disks Changed
 
-Every scheduling policy in this story, elevator-named or otherwise, exists to solve one problem, minimizing how far a mechanical arm has to travel, because physically moving it is slow. Solid-state drives don't have an arm. There's no seek time to optimize, and any address on a flash chip costs about the same to reach as any other, so reordering requests to minimize arm travel is pure overhead.
+Every scheduling policy in this story, elevator-named or otherwise, exists to solve one problem, minimizing how far a mechanical arm has to travel, because physically moving it is slow. Solid-state drives don't have an arm. Any address on a flash chip costs about the same to reach as any other, so reordering requests to minimize arm travel is pure overhead.
 
-Red Hat's own guidance for modern systems recommends the none scheduler, no reordering at all, for NVMe storage, while spinning disks still default to a deadline-based descendant of the same elevator family{{< cite 10 "Red Hat (2024). I/O Scheduler Recommendations for RHEL with Virtualization." >}}.
+Red Hat's own guidance for modern systems recommends the none scheduler, which passes requests straight through unmodified, for NVMe storage, while spinning disks still default to a deadline-based descendant of the same elevator family{{< cite 10 "Red Hat (2024). I/O Scheduler Recommendations for RHEL with Virtualization." >}}.
 
-The physical cost didn't vanish everywhere, though. It moved to a layer the OS scheduler never sees. A flash cell tolerates on the order of 10,000 program and erase cycles before it wears out, so SSD controllers run their own wear leveling and garbage collection, spreading writes evenly across cells instead of wearing out the same ones{{< cite 11 "Handy, Jim (2013). How Controllers Maximize SSD Life. SNIA SSSI Tech Notes." >}}.
+The physical cost just moved to a layer invisible to the OS scheduler. A flash cell tolerates on the order of 10,000 program and erase cycles before it wears out, so SSD controllers run their own wear leveling and garbage collection, spreading writes evenly across cells instead of wearing out the same ones{{< cite 11 "Handy, Jim (2013). How Controllers Maximize SSD Life. SNIA SSSI Tech Notes." >}}.
 
 ## Where People Get This Wrong
 
-**They assume reordering always helps.** Every scheduling policy in this family trades a small amount of latency for one request against less total arm travel. That trade only pays off when arm travel is actually expensive. On flash storage it isn't, and the same reordering that helps a spinning disk can just add queueing delay on an SSD{{< cite 10 "Red Hat (2024). I/O Scheduler Recommendations for RHEL with Virtualization." >}}.
+**They assume reordering always helps.** Every scheduling policy in this family trades a small amount of latency for one request against less total arm travel. That trade only pays off when arm travel is actually expensive, the situation on a spinning disk. Flash storage is cheap to reach anywhere, so the same reordering that helps a spinning disk can just add queueing delay on an SSD{{< cite 10 "Red Hat (2024). I/O Scheduler Recommendations for RHEL with Virtualization." >}}.
 
 **They assume more information means a better decision.** RSR and destination dispatch both have more visibility into the full request queue than plain SCAN or a two-button panel ever did. Peters's own research shows that visibility doesn't automatically convert into a better outcome, especially once the overhead of collecting and acting on it is counted{{< cite 9 "Peters, Richard D. (2006). Understanding the Benefits and Limitations of Destination Dispatch. Elevator Technology 16, Proceedings of ELEVCON 2006." >}}.
 
-**They tune for the wrong hardware.** A scheduler benchmarked and tuned on rotational disks carries assumptions about seek cost that don't hold on NVMe. Copying last decade's disk-scheduling defaults onto this decade's hardware is a quiet, common source of wasted performance.
+**They tune for the wrong hardware.** A scheduler benchmarked and tuned on rotational disks carries assumptions about seek cost that only apply to rotational media. Copying last decade's disk-scheduling defaults onto this decade's hardware is a quiet, common source of wasted performance.
 
 ## Put It Into Practice
 
-Before choosing or tuning a scheduler, know what physical cost you're actually paying for. If seek time actually dominates your storage medium, an elevator-style policy earns its complexity. On flash storage, it usually doesn't.
+Before choosing or tuning a scheduler, know what physical cost you're actually paying for. If seek time actually dominates your storage medium, an elevator-style policy earns its complexity. On flash storage, that complexity is usually just overhead.
 
 Measure under your real access pattern before trusting a default that was tuned for different hardware than yours.
 
@@ -116,4 +116,5 @@ Next time you're tuning a scheduler, whether it's moving disk requests or moving
 
 ## Changelog
 
+**2026-08-02** Rewrote several negated sentences into positive form per the updated style rules.  
 **2026-08-01** Initial release.  

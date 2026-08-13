@@ -2,7 +2,7 @@
 title: "Bufferbloat"
 date: 2026-06-28
 publishdate: 2026-06-28
-lastmod: 2026-06-28
+lastmod: 2026-08-08
 summary: "Your connection has plenty of bandwidth and still feels broken under load. Bufferbloat is the oversized buffer that hoards packets instead of dropping them, trading a little throughput for seconds of lag."
 tags: ["networking", "latency", "queueing"]
 image: /images/bufferbloat.png
@@ -30,7 +30,7 @@ TCP, the protocol behind most of your traffic, has no direct way to know how fas
 
 A giant buffer mutes that signal. Instead of dropping a packet when the link is full, the buffer swallows it and a hundred more, so the sender never hears the bad news and keeps accelerating. By the time the buffer finally overflows it holds seconds of backlog, and every packet behind your video call waits out that entire queue{{< cite 1 "Gettys, Jim, and Kathleen Nichols (2011). Bufferbloat: Dark Buffers in the Internet. ACM Queue 9(11)." >}}. Bandwidth looks fine because data keeps flowing. Latency falls apart because everything is waiting in the same long line.
 
-The failure has a pedigree. In 1986 the early internet suffered a string of congestion collapses, and throughput on one Berkeley link cratered from 32 kilobits per second to 40 bits, nearly a thousandfold drop, until Van Jacobson gave TCP the congestion control that rescued it{{< cite 2 "Jacobson, Van (1988). Congestion Avoidance and Control. SIGCOMM '88." >}}. That fix assumed the network would drop packets when it was full. Bufferbloat quietly broke the assumption.
+The failure has a pedigree. In 1986 the early internet suffered a string of congestion collapses, and throughput on one Berkeley link cratered from 32 kilobits per second to 40 bits, an 800-fold drop, until Van Jacobson gave TCP the congestion control that rescued it{{< cite 2 "Jacobson, Van (1988). Congestion Avoidance and Control. SIGCOMM '88." >}}. That fix assumed the network would drop packets when it was full. Bufferbloat quietly broke the assumption.
 
 ## The Fix Is Smarter Dropping
 
@@ -80,7 +80,7 @@ Test one thing this week. Start a big upload, ping your gateway, and watch the n
 
 ## Outtakes
 
-**The 400-yard collapse.** The 1986 congestion collapse that forced TCP to grow up struck between two buildings about 400 yards apart at Berkeley. Throughput fell nearly a thousandfold over a hop you could walk in five minutes ([Jacobson, 1988](https://ee.lbl.gov/papers/congavoid.pdf)).
+**The 400-yard collapse.** The 1986 congestion collapse that forced TCP to grow up struck between two buildings about 400 yards apart at Berkeley. Throughput fell 800-fold over a hop you could walk in five minutes ([Jacobson, 1988](https://ee.lbl.gov/papers/congavoid.pdf)).
 
 **Diagnosed in basements.** Bufferbloat got its name and a lot of its tooling outside the big standards bodies, in a volunteer project with its own test router firmware. Much of the internet's lag problem was chased down by people doing it on the side ([Gettys, 2011](https://web.archive.org/web/2021/https://queue.acm.org/detail.cfm?id=2071893)).
 
@@ -90,5 +90,6 @@ Test one thing this week. Start a big upload, ping your gateway, and watch the n
 
 ## Changelog
 
+**2026-08-08** Fixed the 1986 congestion collapse multiplier in both the body and the outtake; 32,000/40 is an 800-fold drop, not "nearly a thousandfold."  
 **2026-06-28** Initial release.  
 **2026-06-28** Edit pass: fixed an outtake that undersold the engineers behind the fix, minor tightening.  

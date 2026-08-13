@@ -2,7 +2,7 @@
 title: "The Overton Window"
 date: 2026-07-04
 publishdate: 2026-07-04
-lastmod: 2026-07-04
+lastmod: 2026-08-08
 summary: "Why good ideas get dismissed before evaluation and how leaders can shift the range of acceptable proposals to make previously unthinkable ideas inevitable."
 tags: ["leadership", "management", "cognitive"]
 image: /images/overton-window.jpg
@@ -22,7 +22,7 @@ For technical leaders, this is the difference between proposals dismissed as "un
 
 ## What Is the Overton Window?
 
-Joseph Overton, a policy analyst at the Mackinac Center, developed this framework in the 1990s to explain how public policy ideas move from unthinkable to popular{{< cite 1 "Mackinac Center for Public Policy (2006). The Overton Window." >}}. The window represents the range of policies acceptable to the mainstream at any given time.
+Joseph Overton, a policy analyst at the Mackinac Center, originated this idea in the 1990s to explain how public policy ideas move from unthinkable to popular. His colleague Joseph Lehman developed it further and named it after him following Overton's death{{< cite 1 "Mackinac Center for Public Policy (2006). The Overton Window." >}}. The window represents the range of policies acceptable to the mainstream at any given time.
 
 Ideas outside the window are dismissed without serious consideration. Ideas inside it get debated. In technical organizations, the same dynamic applies, and the window shifts not through gradual acceptance but through deliberate effort to make a previously unthinkable idea seem reasonable.
 
@@ -85,10 +85,11 @@ Pick one proposal currently sitting outside the window. Identify the smallest pr
 
 **Semmelweis.** In 1847, Ignaz Semmelweis proposed that doctors should wash their hands before delivering babies. The idea was outside the window. "A gentleman's hands cannot be unclean." He was institutionalized in 1865 and died shortly after. Pasteur's germ theory shifted the window a decade later. The [Semmelweis reflex](https://en.wikipedia.org/wiki/Semmelweis_reflex) is now a named bias for rejecting ideas that contradict established norms before evaluation.
 
-**The framework's own window.** Joseph Overton died in an ultralight aircraft crash in 2003, before his framework had any public profile ([Reason, 2003](https://reason.com/2003/07/02/joseph-p-overton-rip/)). The [Mackinac Center](https://www.mackinac.org/OvertonWindow) published it posthumously. In 2006, RedState founder Josh Trevino spread it through conservative think tank circles as a playbook for moving ideas like school vouchers and homeschooling from fringe to mainstream.
+**The framework's own window.** Joseph Overton died in an ultralight aircraft crash in 2003, before his framework had any public profile ([Reason, 2003](https://reason.com/2003/07/02/joseph-p-overton-rip/)). The [Mackinac Center](https://www.mackinac.org/OvertonWindow) published it posthumously. In April 2006, writer Josh Trevino refined it into "six degrees of acceptance," unthinkable, radical, acceptable, sensible, popular, policy, and noted the framework wasn't a partisan tool, only that it had "originated on the political Right" while being "equally available to think tanks on the Left" ([Wikipedia, n.d.](https://en.wikipedia.org/wiki/Overton_window)).
 
 ---
 
 ## Changelog
 
+**2026-08-08** Credited Joseph Lehman with developing and naming the framework after Overton's death, rather than crediting Overton alone. Replaced the Josh Trevino outtake, which mischaracterized his actual 2006 contribution (the "six degrees of acceptance" refinement) as partisan think-tank advocacy.  
 **2026-07-04** Initial post.

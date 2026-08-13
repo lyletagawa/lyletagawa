@@ -2,7 +2,7 @@
 title: "Context Engineering"
 date: 2026-07-20
 publishdate: 2026-07-20
-lastmod: 2026-07-20
+lastmod: 2026-08-08
 summary: "Tobi Lütke coined 'context engineering' in June 2025, and Karpathy's endorsement made it stick. A model's context window is scarce, and what you leave out matters as much as what you put in."
 tags: ["ai", "agents", "context"]
 image: /images/context-engineering.jpg
@@ -40,11 +40,11 @@ LangChain's engineering team sorts these same moves into four verbs, write conte
 
 **Just-in-time retrieval.** Fetch a file or a record when it's needed instead of preloading everything that might be needed. A file path is cheap. The file's full contents, multiplied across a long session, are not.
 
-**Sub-agents.** Hand a narrow task to a separate agent with its own clean context window, and have it report back a condensed result instead of a full transcript. The parent agent's context stays small no matter how much work the sub-agent did to get there. The tradeoff is real. Multi-agent systems can burn through up to 15 times more tokens than a single chat session to get that clean result back{{< cite 1 "Anthropic (2025). Effective Context Engineering for AI Agents. Anthropic Engineering Blog." >}}.
+**Sub-agents.** Hand a narrow task to a separate agent with its own clean context window, and have it report back a condensed result instead of a full transcript. The parent agent's context stays small no matter how much work the sub-agent did to get there. The tradeoff is real. Multi-agent systems can burn through up to 15 times more tokens than a single chat session to get that clean result back{{< cite 6 "Anthropic (2025). How We Built Our Multi-Agent Research System. Anthropic Engineering Blog." >}}.
 
 ## Common Mistakes
 
-Drew Breunig names four specific ways context goes wrong{{< cite 6 "Breunig, Drew (2025). How Long Contexts Fail. dbreunig.com." >}}. Poisoning is a hallucination that gets repeated back as fact. Distraction happens when a long context pulls focus away from what the model learned in training. Confusion sets in when superfluous content degrades the response, and clash means new information conflicting with something already sitting in context.
+Drew Breunig names four specific ways context goes wrong{{< cite 7 "Breunig, Drew (2025). How Long Contexts Fail. dbreunig.com." >}}. Poisoning is a hallucination that gets repeated back as fact. Distraction happens when a long context pulls focus away from what the model learned in training. Confusion sets in when superfluous content degrades the response, and clash means new information conflicting with something already sitting in context.
 
 **Preloading instead of retrieving.** Dumping an entire codebase or document set into context "just in case" burns the budget on things that never get read.
 
@@ -78,7 +78,8 @@ The smallest set of high-signal tokens beats the largest set of plausible ones, 
   <li id="ref-3">Karpathy, Andrej (2025). Post on context engineering. X. <a href="https://x.com/karpathy/status/1937902205765607626">https://x.com/karpathy/status/1937902205765607626</a></li>
   <li id="ref-4">Liu, Nelson F., et al. (2023). "Lost in the Middle: How Language Models Use Long Contexts." <em>Transactions of the Association for Computational Linguistics</em>, 12. <a href="https://arxiv.org/abs/2307.03172">https://arxiv.org/abs/2307.03172</a></li>
   <li id="ref-5">LangChain (2025). "Context Engineering for Agents." <em>LangChain Blog</em>. <a href="https://www.langchain.com/blog/context-engineering-for-agents">https://www.langchain.com/blog/context-engineering-for-agents</a></li>
-  <li id="ref-6">Breunig, Drew (2025). "How Long Contexts Fail." <em>dbreunig.com</em>. <a href="https://www.dbreunig.com/2025/06/22/how-contexts-fail-and-how-to-fix-them.html">https://www.dbreunig.com/2025/06/22/how-contexts-fail-and-how-to-fix-them.html</a></li>
+  <li id="ref-6">Anthropic (2025). "How We Built Our Multi-Agent Research System." <em>Anthropic Engineering Blog</em>. <a href="https://www.anthropic.com/engineering/multi-agent-research-system">https://www.anthropic.com/engineering/multi-agent-research-system</a></li>
+  <li id="ref-7">Breunig, Drew (2025). "How Long Contexts Fail." <em>dbreunig.com</em>. <a href="https://www.dbreunig.com/2025/06/22/how-contexts-fail-and-how-to-fix-them.html">https://www.dbreunig.com/2025/06/22/how-contexts-fail-and-how-to-fix-them.html</a></li>
 </ol>
 
 ---
@@ -97,4 +98,5 @@ The smallest set of high-signal tokens beats the largest set of plausible ones, 
 
 ## Changelog
 
+**2026-08-08** Fixed the 15x multi-agent token citation; it belongs to Anthropic's "How We Built Our Multi-Agent Research System" post, not the context engineering post it was attributed to. Added it as a new citation and renumbered Breunig's citation to match.  
 **2026-07-20** Initial release.  

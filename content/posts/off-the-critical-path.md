@@ -2,7 +2,7 @@
 title: "Off the Critical Path"
 date: 2026-07-04
 publishdate: 2026-07-04
-lastmod: 2026-07-04
+lastmod: 2026-08-08
 summary: "The critical path is the sequence of tasks that determines how fast a system can run. Netflix's live captioning patent shows why moving work off it is often the fastest optimization available."
 tags: ["systems", "latency", "pipelines"]
 image: /images/off-the-critical-path.svg
@@ -19,7 +19,7 @@ Netflix filed a patent in June 2024 to fix exactly this{{< cite 1 "Concolato, Cy
 
 ## What Is the Critical Path?
 
-Morgan Walker and James Kelley developed the Critical Path Method (CPM) at DuPont in 1957. The problem was scheduling chemical plant construction and maintenance, where hundreds of interdependent tasks had to complete within a fixed window. Shutdowns were expensive. Every extra day cost money{{< cite 2 "Kelley, James E., and Morgan R. Walker (1959). Critical-Path Planning and Scheduling. Proceedings of the Eastern Joint Computer Conference, 16." >}}.
+Morgan Walker, an engineer at DuPont, and James Kelley, a programmer at Remington Rand, developed the Critical Path Method (CPM) together in 1957. The problem was scheduling chemical plant construction and maintenance, where hundreds of interdependent tasks had to complete within a fixed window. Shutdowns were expensive. Every extra day cost money{{< cite 2 "Kelley, James E., and Morgan R. Walker (1959). Critical-Path Planning and Scheduling. Proceedings of the Eastern Joint Computer Conference, 16." >}}.
 
 The insight was simple. Not all tasks are equal. Some can slip without delaying the project, but others can't move at all. The critical path is the longest chain of dependent tasks from start to finish. It sets the minimum possible duration. Shorten anything on it and the project finishes sooner. Shorten anything off it and the end date doesn't move.
 
@@ -91,4 +91,5 @@ Pick one step in your build, deploy, or review process that doesn't strictly dep
 
 ## Changelog
 
+**2026-08-08** Fixed the CPM origin story; Kelley worked at Remington Rand, not DuPont, alongside Walker.  
 **2026-07-04** Initial draft.

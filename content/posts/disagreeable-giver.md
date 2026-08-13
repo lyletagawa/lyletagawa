@@ -2,7 +2,7 @@
 title: "Disagreeable Giver"
 date: 2026-07-04
 publishdate: 2026-07-04
-lastmod: 2026-07-04
+lastmod: 2026-08-08
 summary: "Whether someone's feedback feels harsh or pleasant tells you nothing about whether they're actually trying to help you. Agreeableness and generosity are different axes, and conflating them costs you your best critics."
 tags: ["feedback", "management", "culture"]
 image: /images/disagreeable-giver.jpg
@@ -88,10 +88,11 @@ The next time someone on your team says something blunt enough to bother you, ho
 
 **"Kiss up, kick down" predates the giver-taker framework by twenty years.** The phrase first appeared in print in 1993, when the Bulletin of the Atomic Scientists used it to describe Robert McNamara ([Wikipedia, n.d.](https://en.wikipedia.org/wiki/Kiss_up_kick_down)).
 
-**Before tech, Scott ran a diamond-cutting factory in Moscow.** She also managed a pediatric clinic in Kosovo and worked as a Soviet companies analyst, a stranger path to Google and Apple than most executive bios describe ([Scott, n.d.](https://kimmalonescott.com/bio)).
+**Before tech, Scott ran a diamond-cutting factory in Moscow.** She also managed a pediatric clinic in Kosovo, a stranger path to Google and Apple than most executive bios describe ([Scott, n.d.](https://kimmalonescott.com/bio)).
 
 ---
 
 ## Changelog
 
+**2026-08-08** Removed the "Soviet companies analyst" claim from Kim Scott's bio outtake; it wasn't supported by the cited source.  
 **2026-07-04** Initial release.

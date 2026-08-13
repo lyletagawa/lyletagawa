@@ -2,7 +2,7 @@
 title: "Explore, Expand, Extract"
 date: 2026-07-11
 publishdate: 2026-07-11
-lastmod: 2026-07-11
+lastmod: 2026-08-08
 summary: "Kent Beck spent a decade at Facebook watching products succeed and fail for a reason nobody named. The practices that work when you don't know what you're building kill you once you do."
 tags: ["strategy", "product", "teams"]
 image: /images/explore-expand-extract.jpg
@@ -18,7 +18,7 @@ A team ships a rough prototype nobody's sure will work. Before the first hundred
 
 A different team, a year later, is running the payments system that same company now depends on for its revenue. They're still shipping the way the prototype team did: fast, loose, one engineer's judgment call away from a change going out. Nobody built the guardrails, because guardrails felt like the thing that used to slow prototypes down.
 
-Same company, same instincts, both wrong. Kent Beck spent roughly a decade at Facebook watching mismatches like these happen in both directions, and eventually named the pattern{{< cite 1 "Kent Beck (2018). 3X Explore, Expand, Extract. YOW! 2018." >}}.
+Same company, same instincts, both wrong. Kent Beck spent seven years at Facebook watching mismatches like these happen in both directions, and eventually named the pattern{{< cite 1 "Kent Beck (2018). 3X Explore, Expand, Extract. YOW! 2018." >}}.
 
 ## What Is 3X?
 
@@ -26,7 +26,7 @@ Beck's framework, first presented publicly at YOW! 2018 in Melbourne, argues tha
 
 **Explore** is what the prototype team was in. The goal, in Beck's words, is "to overcome disinterest, try many small experiments{{< cite 2 "Kent Beck (2021). Fast/Slow in 3X: Explore/Expand/Extract. Medium." >}}." You don't know what you're building yet, so the only thing worth optimizing is how many things you can try and how fast you find out which one lands.
 
-**Expand** is what happens once something in Explore actually works. The goal shifts "to overcome bottlenecks to scaling, ease the limitations of the next rate-limiting resource{{< cite 2 "Kent Beck (2021). Fast/Slow in 3X: Explore/Expand/Extract. Medium." >}}." At Facebook this looked like engineers swarming a single knotty technical problem, whatever was currently capping growth, then moving to the next one{{< cite 5 "How Kent Beck Shapes the Software Industry. The Pragmatic Engineer." >}}.
+**Expand** is what happens once something in Explore actually works. The goal shifts "to overcome bottlenecks to scaling, ease the limitations of the next rate-limiting resource{{< cite 2 "Kent Beck (2021). Fast/Slow in 3X: Explore/Expand/Extract. Medium." >}}."
 
 **Extract** is where the payments team was living without admitting it. The shape of the problem is known, the goal is "to sustain growth, continually increase profitability while you finish growing{{< cite 2 "Kent Beck (2021). Fast/Slow in 3X: Explore/Expand/Extract. Medium." >}}." Playbooks, automation, and economies of scale matter more than speed of discovery, because there's nothing left to discover.
 
@@ -75,14 +75,13 @@ Watch for the signal that a phase has quietly changed underneath you. Rising tra
   <li id="ref-2">Kent Beck (2021). "Fast/Slow in 3X: Explore/Expand/Extract." Medium. <a href="https://medium.com/@kentbeck_7670/fast-slow-in-3x-explore-expand-extract-6d4c94a7539">https://medium.com/@kentbeck_7670/fast-slow-in-3x-explore-expand-extract-6d4c94a7539</a></li>
   <li id="ref-3">Kent Beck (2021). Post on deriving 3X from the Kelly Criterion. X (formerly Twitter). <a href="https://x.com/KentBeck/status/1379564472335880195">https://x.com/KentBeck/status/1379564472335880195</a></li>
   <li id="ref-4">Charrett, Anne-Marie. "Kent Beck's 3X Model and Quality: A Quality Coach Perspective." <a href="https://www.annemariecharrett.com/kent-becks-3x-and-quality-a-quality-coach-perspective/">https://www.annemariecharrett.com/kent-becks-3x-and-quality-a-quality-coach-perspective/</a></li>
-  <li id="ref-5">"How Kent Beck Shapes the Software Industry." <em>The Pragmatic Engineer</em>. <a href="https://newsletter.pragmaticengineer.com/p/how-kent-beck-shapes-the-software">https://newsletter.pragmaticengineer.com/p/how-kent-beck-shapes-the-software</a></li>
 </ol>
 
 ---
 
 ## Outtakes
 
-**Beck developed the framework during his own decade at the company it describes.** He joined Facebook around 2011 and stayed roughly ten years, the same stretch of time during which he wrote and refined 3X ([Pragmatic Engineer, n.d.](https://newsletter.pragmaticengineer.com/p/how-kent-beck-shapes-the-software)).
+**Beck developed the framework during his own seven years at the company it describes.** He joined Facebook around age 50 and stayed seven years, the same stretch of time during which he wrote and refined 3X ([Pragmatic Engineer, n.d.](https://newsletter.pragmaticengineer.com/p/how-kent-beck-shapes-the-software)).
 
 **The Kelly Criterion wasn't originally about betting at all.** John Kelly derived it at Bell Labs in 1956 to solve a signal transmission problem for noisy phone lines. Gamblers only adopted it later, after Claude Shannon himself took the formula to Las Vegas ([Wikipedia, n.d.](https://en.wikipedia.org/wiki/John_Larry_Kelly_Jr.)).
 
@@ -90,4 +89,5 @@ Watch for the signal that a phase has quietly changed underneath you. Rising tra
 
 ## Changelog
 
+**2026-08-08** Fixed Beck's Facebook tenure from "roughly a decade"/"roughly ten years" to seven years, matching the post's own cited source. Removed the "engineers swarming a bottleneck" claim, which wasn't supported by the citation attached to it, and removed the now-unused reference.  
 **2026-07-11** Initial release. Pass 2: softened an overclaim in the intro (a citation had implied Beck described the exact fictional scenario used to illustrate the concept), and added a missing citation for the Facebook "engineers swarm a bottleneck" claim, which was stated as fact without a source.

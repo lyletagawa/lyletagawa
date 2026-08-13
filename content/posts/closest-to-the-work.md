@@ -2,7 +2,7 @@
 title: "The People Closest to the Work"
 date: 2026-07-03
 publishdate: 2026-07-03
-lastmod: 2026-07-03
+lastmod: 2026-08-08
 summary: "The people running a process see problems and fixes that management, several layers removed, never will. Deming built his entire philosophy on trusting that knowledge instead of overriding it with quotas and fear."
 tags: ["management", "quality", "systems"]
 image: /images/closest-to-the-work.jpg
@@ -24,7 +24,7 @@ Boisjoly wasn't ignored because he was wrong. He was ignored because the people 
 
 W. Edwards Deming spent his career arguing a version of this same point, long before Challenger. In Out of the Crisis, he lays out 14 points for management, and a startling number of them boil down to the same instruction: stop overriding the people doing the work with targets, slogans, and fear{{< cite 2 "Deming, W. Edwards (1986). Out of the Crisis. MIT Press." >}}.
 
-Point 8 is "drive out fear," on the theory that a worker afraid of the consequences of reporting a problem will simply stop reporting it. Points 11a and 11b eliminate quotas and management by numerical objective, because a target imposed from above tells a worker nothing about how to actually improve the process, only that they'll be blamed for missing it. Point 10 goes after slogans and exhortations directly, noting that most causes of low quality sit in the system itself, beyond any individual worker's power to fix by trying harder{{< cite 2 "Deming, W. Edwards (1986). Out of the Crisis. MIT Press." >}}.
+Point 8 is "drive out fear," on the theory that a worker afraid of the consequences of reporting a problem will simply stop reporting it. Points 10a and 10b eliminate quotas and management by numerical objective, because a target imposed from above tells a worker nothing about how to actually improve the process, only that they'll be blamed for missing it. Point 10 goes after slogans and exhortations directly, noting that most causes of low quality sit in the system itself, beyond any individual worker's power to fix by trying harder{{< cite 2 "Deming, W. Edwards (1986). Out of the Crisis. MIT Press." >}}.
 
 Strip the numbering away and the argument is simple. The system produces the results. The people running the system, day after day, are the ones who can see where it's broken. Management's job is to remove what's in their way, not to install a scoreboard and hope.
 
@@ -95,4 +95,5 @@ The next Boisjoly in your organization is probably already writing the memo. The
 
 ## Changelog
 
+**2026-08-08** Fixed Deming's point numbering; quotas and management by objective are points 10a and 10b, not 11a and 11b.  
 **2026-07-03** Initial release.

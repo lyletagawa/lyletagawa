@@ -2,14 +2,14 @@
 title: "Goodhart's Law"
 date: 2026-06-07
 publishdate: 2026-06-07
-lastmod: 2026-08-01
-summary: "Every metric used to track progress will eventually be used to fake progress instead."
+lastmod: 2026-08-08
+summary: "Goodhart's Law says every metric used to track progress eventually gets used to fake progress instead."
 tags: ["management", "metrics"]
 image: /images/goodharts-law.png
 draft: false
 ---
 
-![Every metric used to track progress will eventually be used to fake progress instead.](/images/goodharts-law.png)
+![Goodhart's Law says every metric used to track progress eventually gets used to fake progress instead.](/images/goodharts-law.png)
 *Image generated with Google Gemini (2026).*
 
 ## Goodhart's Law
@@ -24,43 +24,43 @@ That's Goodhart's Law. Your team has probably run this playbook without calling 
 
 ## What Is Goodhart's Law?
 
-Here's the academic version. "Any statistical regularity will tend to collapse once pressure is placed on it for control purposes" {{< cite 1 "Goodhart, Charles (1975). Problems of Monetary Management: The UK Experience. Papers in Monetary Economics, Reserve Bank of Australia." >}}. Charles Goodhart was writing about British monetary policy. The Bank of England targeted money supply figures to steer the economy. Once those figures became a target, their relationship with the underlying economy broke down.
+Here's the academic version. "Any observed statistical regularity will tend to collapse once pressure is placed upon it for control purposes"{{< cite 1 "Goodhart, Charles (1975). Problems of Monetary Management: The UK Experience. Papers in Monetary Economics, Reserve Bank of Australia." >}}. Charles Goodhart was writing about British monetary policy. The Bank of England targeted money supply figures to steer the economy. Once those figures became a target, their relationship with the underlying economy broke down.
 
-Marilyn Strathern distilled it to a single line. "When a measure becomes a target, it ceases to be a good measure" {{< cite 2 "Strathern, Marilyn (1997). Improving Ratings: Audit in the British University System. European Review, 5(3): 305-321." >}}.
+Marilyn Strathern distilled it to a single line. "When a measure becomes a target, it ceases to be a good measure"{{< cite 2 "Strathern, Marilyn (1997). Improving Ratings: Audit in the British University System. European Review, 5(3): 305-321." >}}.
 
 Both describe the same thing. A metric is valuable because it correlates with something real. Once you start managing the metric instead of the thing it tracks, that correlation breaks. You're left with a number that looks fine while the underlying reality deteriorates.
 
-Campbell's Law names the organizational pressure behind the same pattern. "The more any quantitative social indicator is used for social decision-making, the more subject it will be to corruption pressures and the more apt it is to distort and corrupt the social processes it is intended to monitor" {{< cite 3 "Campbell, Donald T. (1979). Assessing the Impact of Planned Social Change. Evaluation and Program Planning, 2(1): 67-90." >}}. Goodhart names the technical failure. Campbell names the incentive structure that causes it.
+Campbell's Law names the organizational pressure behind the same pattern. "The more any quantitative social indicator is used for social decision-making, the more subject it will be to corruption pressures and the more apt it will be to distort and corrupt the social processes it is intended to monitor"{{< cite 3 "Campbell, Donald T. (1979). Assessing the Impact of Planned Social Change. Evaluation and Program Planning, 2(1): 67-90." >}}. Goodhart names the technical failure. Campbell names the incentive structure that causes it.
 
 ## How the Correlation Breaks
 
-A metric is useful because it correlates with something that matters. Deployment frequency correlates with the ability to ship value quickly and recover from mistakes. Test coverage correlates with confidence in code correctness. The metric tracks a signal, not the underlying reality itself.
+A metric is useful because it correlates with something that matters. Deployment frequency correlates with the ability to ship value quickly and recover from mistakes. Test coverage correlates with confidence in code correctness. The metric tracks a signal, a stand-in for the underlying reality.
 
 When the metric becomes a target, two things happen. People optimize directly for it. And the correlation that made it valuable weakens or disappears.
 
-Nobody is cheating. They're doing exactly what the incentive structure asks of them.
+Nobody is cheating. They're doing what the incentive structure asks of them.
 
 When deployment frequency is a target, the fastest path to hitting it is small, low-risk deployments that carry minimal value. The team deploys frequently. But the thing the metric was tracking, the ability to ship meaningful changes safely, may be quietly getting worse. The numbers look healthy, but the system may not be.
 
-The measurement determines the behavior. The stated goal is irrelevant if the measurement doesn't track it.
+The measurement determines the behavior. The stated goal matters only when the measurement tracks it.
 
 ## Where Engineering Metrics Break
 
-**Sprint velocity** is the textbook case. Story points are a calibration tool. A team's historical velocity helps estimate how much work fits in a sprint. Once velocity becomes a target or a cross-team comparison, estimation inflates. Engineers pad points and work gets split artificially. The throughput of meaningful work doesn't improve and may actually regress. The velocity number goes up, but the output doesn't.
+Sprint velocity is the textbook case. Story points are a calibration tool. A team's historical velocity helps estimate how much work fits in a sprint. Once velocity becomes a target or a cross-team comparison, estimation inflates. Engineers pad points and work gets split artificially. The throughput of meaningful work stays flat and may actually regress. The velocity number goes up, but the output doesn't.
 
-**DORA metrics** are subtler. Deployment frequency, lead time for changes, change failure rate, and time to restore service were identified as markers of high-performing engineering organizations {{< cite 4 "Forsgren, Nicole, Jez Humble, and Gene Kim (2018). Accelerate: The Science of Lean Software and DevOps. IT Revolution Press." >}}. They work because capable teams naturally produce them. When an org mandates them as targets, teams optimize directly for the metrics. Deployment frequency rises on trivial config changes. Lead time drops when features get carved into meaningless units. The numbers improve, but the engineering doesn't.
+DORA metrics are subtler. Deployment frequency, lead time for changes, change failure rate, and time to restore service, the four metrics defined by DevOps Research and Assessment (DORA), were identified as markers of high-performing engineering organizations{{< cite 4 "Forsgren, Nicole, Jez Humble, and Gene Kim (2018). Accelerate: The Science of Lean Software and DevOps. IT Revolution Press." >}}. They work because capable teams naturally produce them. When an org mandates them as targets, teams optimize directly for the metrics. Deployment frequency rises on trivial config changes. Lead time drops when features get carved into meaningless units. The numbers improve, but the engineering doesn't.
 
-**Bug backlog size** encourages reclassification. When teams are measured on open bug count, bugs get moved to known-issues lists, closed as by-design, or marked as duplicates. The backlog shrinks, but the software doesn't get better.
+Bug backlog size encourages reclassification. When teams are measured on open bug count, bugs get moved to known-issues lists, closed as by-design, or marked as duplicates. The backlog shrinks, but the software doesn't get better.
 
 ## How Teams Get This Wrong
 
-**Treating this as a reason to stop measuring.** Goodhart's Law explains why a specific metric breaks under target pressure. It doesn't argue against measurement. Teams without metrics have no basis for learning or decisions. It's a warning about what happens to any metric when it becomes the goal, not a prohibition on measurement itself.
+**Treating this as a reason to stop measuring.** Goodhart's Law explains why a specific metric breaks under target pressure. Measurement itself stays essential. Metrics give teams a basis for learning and deciding that beats guesswork.
 
-**Adding more metrics to compensate.** The classic response is a second metric to catch gaming of the first, then a third for the second. Each becomes a new target and the cycle repeats. The real problem is believing that hitting a set of numbers equals achieving the underlying goal. More metrics doesn't fix that. It just creates more targets.
+**Adding more metrics to compensate.** The classic response is a second metric to catch gaming of the first, then a third for the second. Each becomes a new target and the cycle repeats. The real problem is believing that hitting a set of numbers equals achieving the underlying goal.
 
-**Blaming the people who adapted.** The team that inflated velocity estimates wasn't behaving badly. They responded rationally to the incentive structure they were given. Goodhart's Law is a systems problem. The metric created the pressure that produced the behavior. Replace the people without changing the structure and you get the same outcome with different people {{< cite 5 "Deming, W. Edwards (1986). Out of the Crisis. MIT Press." >}}. It's obvious in retrospect and invisible in the moment you're living it.
+**Blaming the people who adapted.** The team that inflated velocity estimates responded rationally to the incentive structure they were given. Goodhart's Law is a systems problem. The metric created the pressure that produced the behavior.{{< cite 5 "Deming, W. Edwards (1986). Out of the Crisis. MIT Press." >}}.
 
-**Assuming transparency fixes it.** Public dashboards and broader visibility reduce some forms of gaming. They don't eliminate structural pressure. When team survival or promotion depends on a number, people find ways to produce that number. Transparency changes which methods are socially acceptable. It doesn't change whether gaming happens.
+**Assuming transparency fixes it.** Public dashboards and broader visibility reduce some forms of gaming. But when team survival or promotion depends on a number, people find ways to produce that number. Transparency changes which methods are socially acceptable, but the gaming still happens.
 
 ## Put It Into Practice
 
@@ -88,7 +88,7 @@ Pick one metric that has become a target. Spend thirty minutes with the team ask
 
 **Wells Fargo.** Wells Fargo employees opened millions of unauthorized accounts over more than a decade to meet cross-selling targets. The metric was accounts opened per customer. The goal was customer relationships. The bank paid $3 billion in settlements ([DOJ, 2020](https://www.justice.gov/archives/opa/pr/wells-fargo-agrees-pay-3-billion-resolve-criminal-and-civil-investigations-sales-practices)).
 
-**UK emergency wait times.** When the NHS introduced a four-hour emergency department wait target, some hospitals held patients in ambulances outside to avoid starting the clock ([Bevan and Hood, 2006](https://eprints.lse.ac.uk/16211/)). The wait time metric improved while patients waited longer.
+**UK emergency wait times.** When the UK's National Health Service (NHS) introduced a four-hour emergency department wait target, some hospitals held patients in ambulances outside to avoid starting the clock ([Bevan and Hood, 2006](https://eprints.lse.ac.uk/16211/)). The wait time metric improved while patients waited longer.
 
 **The Soviet nail quota.** A cartoon in the Soviet satirical magazine *Krokodil* showed a factory worker proudly holding one giant nail. Production quotas by count produced tiny, unusable nails. Planners switched to weight quotas and factories made massive, unusable nails instead ([Nove, 1977](https://archive.org/details/sovieteconomicsy0000nove)).
 
@@ -96,4 +96,5 @@ Pick one metric that has become a target. Spend thirty minutes with the team ask
 
 ## Changelog
 
+**2026-08-08** Corrected the Goodhart and Campbell quotes to match their original wording exactly.  
 **2026-06-07** Initial publication.  

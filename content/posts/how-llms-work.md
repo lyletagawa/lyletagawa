@@ -2,7 +2,7 @@
 title: "How LLMs Work"
 date: 2026-06-14
 publishdate: 2026-06-14
-lastmod: 2026-07-19
+lastmod: 2026-08-02
 summary: "Working notes on how LLMs train and generate text. Probably mostly right, certainly incomplete."
 tags: ["ai", "architecture", "learning"]
 image: /images/how-llms-work.jpg
@@ -32,7 +32,7 @@ A simpler approach to next-token prediction would record, for every possible tok
 
 Pre-training is the first stage. Feed the model roughly 2 trillion tokens of text, ask it to predict the next word at each step, and update the weights when it's wrong. Training Llama 2 70B required 1.7 million GPU-hours, about 36 days on 2,000 A100s{{< cite 4 "Touvron, Hugo, et al. (2023). Llama 2: Open Foundation and Fine-Tuned Chat Models. arXiv:2307.09288." >}}. The result is lossy compression. It approximates instead of recording.
 
-Not all models train the same way. Encoder-style models like Bidirectional Encoder Representations from Transformers (BERT) use masked language modeling. Hide a token, predict it from the context on both sides. That bidirectionality makes them better at tasks requiring the full picture. Decoder-style models like GPT train autoregressively. Each token is predicted from only the tokens before it, then fed back as input for the next. They generate text sequentially. Most frontier chat models are decoder-only{{< cite 5 "Raschka, Sebastian (2023). Understanding Large Language Models. Ahead of AI." >}}.
+Models train in different ways. Encoder-style models like Bidirectional Encoder Representations from Transformers (BERT) use masked language modeling. Hide a token, predict it from the context on both sides. That bidirectionality makes them better at tasks requiring the full picture. Decoder-style models like GPT train autoregressively. Each token is predicted from only the tokens before it, then fed back as input for the next. They generate text sequentially. Most frontier chat models are decoder-only{{< cite 5 "Raschka, Sebastian (2023). Understanding Large Language Models. Ahead of AI." >}}.
 
 Training data quantity matters as much as model size. Chinchilla, at 70 billion parameters, outperformed GPT-3 at 175 billion by training on 4.7x more tokens{{< cite 6 "Hoffmann, Jordan, et al. (2022). Training Compute-Optimal Large Language Models. NeurIPS 35." >}}. Bigger models trained on less data lose to smaller models trained longer.
 
@@ -56,7 +56,7 @@ After attention, each token passes through a feed-forward network (FFN) independ
 
 **Temperature controls more than randomness.** After the final layer, each token's output vector multiplies against the embedding matrix to produce one score per vocabulary entry. Temperature scales those scores before softmax. Low temperature makes the model pick the highest-probability token almost every time. High temperature flattens the distribution and pulls in lower-probability options. Top-k sampling is an alternative that restricts the pool to the k highest-scoring candidates before sampling{{< cite 9 "Alammar, Jay (2019). The Illustrated GPT-2. jalammar.github.io." >}}. The same prompt with different sampling settings can produce radically different outputs.
 
-**The model can't slow down to think.** Generation is word-by-word sampling, with no internal deliberation loop before each token. Karpathy calls this System 1 thinking, fast, instinctive, pattern-matched{{< cite 13 "Karpathy, Andrej (2023). Intro to Large Language Models. YouTube." >}}. Chain-of-Thought prompting forces reasoning steps before an answer, using the context window as working memory. The thinking happens in the tokens themselves.
+**Generation has no pause button.** Generation is word-by-word sampling, with no internal deliberation loop before each token. Karpathy calls this System 1 thinking, fast, instinctive, pattern-matched{{< cite 13 "Karpathy, Andrej (2023). Intro to Large Language Models. YouTube." >}}. Chain-of-Thought prompting forces reasoning steps before an answer, using the context window as working memory. The thinking happens in the tokens themselves.
 
 **The weights matter more than the architecture.** GPT, Gemini, and LLaMA share the transformer skeleton. What differs is training data, scale, configuration, and post-training. When two similar architectures diverge sharply on the same task, the explanation is almost always in the weights{{< cite 5 "Raschka, Sebastian (2023). Understanding Large Language Models. Ahead of AI." >}}.
 
@@ -64,7 +64,7 @@ After attention, each token passes through a feed-forward network (FFN) independ
 
 The transformer architecture described in 2017 is still, in substance, what runs today's frontier models{{< cite 8 "Vaswani, Ashish, et al. (2017). Attention Is All You Need. NeurIPS 30." >}}. Nine years of refinement to position encoding, activation functions, attention variants, and scaling built on that base without replacing it{{< cite 5 "Raschka, Sebastian (2023). Understanding Large Language Models. Ahead of AI." >}}. The core mechanic is unchanged. Tokenize, embed, attend, feed-forward, predict.
 
-The model doesn't understand your prompt. It generates statistically plausible continuations by pattern-matching against compressed training data{{< cite 3 "Grinberg, Miguel (2024). How LLMs Work, Explained Without Math. Miguel Grinberg Blog." >}}. Useful output doesn't require comprehension. Knowing that changes how you verify what comes back.
+The model generates statistically plausible continuations by pattern-matching against compressed training data, without ever understanding your prompt{{< cite 3 "Grinberg, Miguel (2024). How LLMs Work, Explained Without Math. Miguel Grinberg Blog." >}}. Useful output happens without comprehension. Knowing that changes how you verify what comes back.
 
 When something unexpected happens, check how your prompt tokenizes. Most providers offer free tools for this. Move critical information to the start or end of long contexts. Adjust temperature down if outputs are erratic, or up if they're repetitive. All three are adjustable without touching the model.
 
@@ -100,11 +100,11 @@ When something unexpected happens, check how your prompt tokenizes. Most provide
 
 ## Outtakes
 
-**The strawberry problem, solved.** OpenAI's o1 model counts letters in "strawberry" correctly. The model was codenamed "Strawberry" as an inside joke ([Axios, 2024](https://www.axios.com/2024/09/12/openai-strawberry-model-reasoning-o1)). The tokenization didn't change. o1 reasons through the problem step by step, using chain-of-thought as a workaround for a structural limitation.
+**The strawberry problem, solved.** OpenAI's o1 model counts letters in "strawberry" correctly. The model was codenamed "Strawberry" as an inside joke ([Axios, 2024](https://www.axios.com/2024/09/12/openai-strawberry-model-reasoning-o1)). The tokenization stayed the same. o1 reasons through the problem step by step, using chain-of-thought as a workaround for a structural limitation.
 
 **"Attention Is All You Need."** The base transformer trained on 8 GPUs in 12 hours ([Vaswani et al., 2017](https://arxiv.org/abs/1706.03762)). The paper that defined modern AI was an afternoon experiment. By 2023, training comparable frontier models would take millions of GPU-hours.
 
-**"The" vs "the."** "The," "the," and " the" are three distinct tokens in the GPT-2 vocabulary ([Grinberg, 2024](https://blog.miguelgrinberg.com/post/how-llms-work-explained-without-math)). The model has no concept of a word. It sees token sequences that happen to look like words to you.
+**"The" vs "the."** "The," "the," and " the" are three distinct tokens in the GPT-2 vocabulary ([Grinberg, 2024](https://blog.miguelgrinberg.com/post/how-llms-work-explained-without-math)). The model deals only in token sequences that happen to look like words to you.
 
 ---
 

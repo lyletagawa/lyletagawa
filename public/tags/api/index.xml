@@ -13,7 +13,7 @@
       <pubDate>Sun, 19 Jul 2026 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/hyrums-law/</guid>
-      <description>With enough users, every observable behavior becomes a depended-upon feature. Your implementation details become your API contract, regardless of documentation or intent.</description>
+      <description>Hyrum&amp;rsquo;s Law says that with enough users, every observable behavior becomes a depended-upon feature. Your implementation details become your API contract, regardless of documentation or intent.</description>
       <media:content url="https://lyletagawa.com/images/hyrums-law.jpg" medium="image" />
     </item>
     

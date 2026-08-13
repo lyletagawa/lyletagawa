@@ -2,7 +2,7 @@
 title: "Partition Tolerance Isn't Optional"
 date: 2026-07-11
 publishdate: 2026-07-11
-lastmod: 2026-07-11
+lastmod: 2026-08-09
 summary: "In 2013, Jepsen's tests caught MongoDB losing writes it had already acknowledged, proof that the CAP theorem's real lesson isn't picking two of three. Partitions happen whether you plan for them or not."
 tags: ["systems", "databases", "distributed"]
 image: /images/partition-tolerance-isnt-optional.jpg
@@ -14,27 +14,27 @@ draft: true
 
 ## Partition Tolerance Isn't Optional
 
-In May 2013, Kyle Kingsbury pointed his testing tool, Jepsen, at MongoDB and cut the network in half. The database had already told 5,700 clients their writes succeeded. When Kingsbury counted afterward, 2,381 of them were gone, a 42 percent loss rate{{< cite 1 "Kingsbury, Kyle (2013). Jepsen: MongoDB. Jepsen." >}}.
+In May 2013, Kyle Kingsbury pointed his testing tool, Jepsen, at MongoDB and cut the network in half. The database acknowledged 5,700 writes as successful, but 2,381 of them were lost, a 42 percent loss rate{{< cite 1 "Kingsbury, Kyle (2013). Jepsen: MongoDB. Jepsen." >}}.
 
-Stronger write settings helped some, but not by much. "Safe" writes still lost 37 percent, and even MAJORITY, MongoDB's strongest setting, should have been airtight. It dropped only 2 writes out of 5,701, but not because those writes were actually safe. A separate bug meant that when the network partitioned, the server checked the success box and sent it back to the client regardless of what had happened{{< cite 1 "Kingsbury, Kyle (2013). Jepsen: MongoDB. Jepsen." >}}. MongoDB called itself strongly consistent. Reality disagreed.
+Stronger write settings helped some, but not by much. "Safe" writes still lost 37 percent. MongoDB's strongest setting still dropped two writes out of 5,700 due to a bug that returned "OK" despite the server partitioning{{< cite 1 "Kingsbury, Kyle (2013). Jepsen: MongoDB. Jepsen." >}}.
 
 ## What Is the CAP Theorem?
 
-Kingsbury's tests are really about the CAP theorem, first stated by Eric Brewer at a 2000 keynote at the ACM Symposium on Principles of Distributed Computing{{< cite 2 "Brewer, Eric (2000). Towards Robust Distributed Systems. PODC 2000 Invited Talk." >}}. Drawing on his years running Inktomi's search infrastructure, Brewer claimed that a shared-data system can guarantee at most two of three properties, consistency, availability, and tolerance of network partitions. Two years later, Seth Gilbert and Nancy Lynch turned Brewer's conjecture into a formal proof{{< cite 3 "Gilbert, Seth, and Nancy Lynch (2002). Brewer's Conjecture and the Feasibility of Consistent, Available, Partition-Tolerant Web Services. ACM SIGACT News." >}}.
+Kingsbury's tests are a demonstration of the CAP theorem, first stated by Eric Brewer at a 2000 keynote at the ACM Symposium on Principles of Distributed Computing{{< cite 2 "Brewer, Eric (2000). Towards Robust Distributed Systems. PODC 2000 Invited Talk." >}}. Drawing on his years running Inktomi's search infrastructure, Brewer claimed that a shared-data system can guarantee at most two of three properties: consistency, availability, and tolerance to network partitions. Two years later, Seth Gilbert and Nancy Lynch turned Brewer's conjecture into a formal proof{{< cite 3 "Gilbert, Seth, and Nancy Lynch (2002). Brewer's Conjecture and the Feasibility of Consistent, Available, Partition-Tolerant Web Services. ACM SIGACT News." >}}.
 
-Their definitions matter more than the folk version most engineers repeat. Consistency means linearizability specifically. Every read returns the most recent write, as if the whole system were a single machine. Availability means every request to a live node gets a response, not an error, not a timeout. Partition tolerance means the system keeps working even when the network drops or delays messages between nodes.
+Consistency means linearizability, so every read returns the most recent write, as if the whole system were a single machine. Availability means every request gets a response, and not an error or a timeout. Partition tolerance means the system keeps working even when the network drops or lags.
 
-You can't have all three at once. Most engineers stop right there and draw a triangle with three labeled corners. That's the version that gets people into trouble.
+You can't have all three at once. Most engineers stop there and draw a triangle with three labeled corners. That's the version that gets people into trouble.
 
-## The Rule Was Never Pick Two
+## Forget Pick Two
 
-Look at the triangle again. Partition tolerance isn't a feature you can decline. Networks drop packets, switches fail, someone in a data center trips over the wrong cable. If your system spans more than one machine, a partition will eventually happen whether you designed for it or not{{< cite 4 "Brewer, Eric (2012). CAP Twelve Years Later: How the 'Rules' Have Changed. Computer." >}}.
+Look at the triangle again. Partition tolerance isn't a feature you can decline. Networks drop packets, switches fail, someone in a data center unplugs the wrong cable. If your system spans more than one machine, a partition will eventually happen whether you designed for it or not{{< cite 4 "Brewer, Eric (2012). CAP Twelve Years Later: How the 'Rules' Have Changed. Computer." >}}.
 
-Brewer made this explicit twelve years after his own talk. The real choice was never "pick two of three." It's what your system does with consistency and availability during the specific window when a partition is happening. Outside that window, with the network intact, there's no CAP tradeoff to make at all. A well-built system can be consistent and available essentially all the time, then give up one of the two for the seconds or minutes a partition lasts.
+Brewer made this explicit 12 years after his own talk. The real choice was never "pick two of three." It's what your system does with consistency and availability during the specific window when a partition is happening. Outside that window, with the network intact, there's no CAP tradeoff to make at all. A well-built system can be consistent and available essentially all the time, then give up one of the two for the seconds or minutes a partition lasts.
 
-That's a narrower claim than the "pick two" folklore suggests, and a far more useful one. It tells you exactly when the tradeoff bites, not at design time. At partition time.
+That's a narrower claim than the "pick two" misconception, and a far more useful one that tells you when the tradeoff shows up.
 
-## The Labels Oversimplify
+## Inconsistently Consistent
 
 The other half of the confusion is what people mean by "consistent." Database marketing slaps "CP" or "AP" on a product like a nutrition label, but real systems rarely sit at one clean point in that space{{< cite 5 "Kleppmann, Martin (2015). A Critique of the CAP Theorem. arXiv." >}}.
 
@@ -42,15 +42,15 @@ MongoDB's Jepsen results show why. A single database offered several write conce
 
 ## Where This Shows Up Today
 
-Google's Spanner is the system usually cited as proof CAP is obsolete. Spanner uses GPS receivers and atomic clocks in its data centers, a system called TrueTime, to bound clock uncertainty to about six milliseconds and offer strongly consistent transactions at global scale{{< cite 6 "Corbett, James C., et al. (2012). Spanner: Google's Globally-Distributed Database. OSDI." >}}. That's real and impressive, but it doesn't repeal the theorem. Brewer has said as much. During an actual partition, Spanner chooses consistency and forfeits availability, making it technically a CP system{{< cite 7 "Brewer, Eric (2017). Spanner, TrueTime and the CAP Theorem. Google Research." >}}. TrueTime just makes the ordinary, non-partitioned case fast enough that the tradeoff rarely feels like one.
+Google's Spanner is the system usually cited as proof CAP is obsolete. Spanner uses GPS receivers and atomic clocks in its data centers, a system called TrueTime, to bound clock uncertainty to about 6 milliseconds and offer strongly consistent transactions at global scale{{< cite 6 "Corbett, James C., et al. (2012). Spanner: Google's Globally-Distributed Database. OSDI." >}}. That's real and impressive, but it doesn't repeal the theorem. Brewer has said as much. During an actual partition, Spanner chooses consistency and forfeits availability, making it technically a CP system{{< cite 7 "Brewer, Eric (2017). Spanner, TrueTime and the CAP Theorem. Google Research." >}}. TrueTime just makes the ordinary, non-partitioned case fast enough that the tradeoff rarely feels like one.
 
-Cassandra takes the opposite approach. Instead of hiding the tradeoff, it exposes it per query. Every read or write specifies a consistency level, ONE for speed, QUORUM for a majority of replicas, ALL for the strongest guarantee Cassandra offers{{< cite 8 "Dynamo. Apache Cassandra Documentation." >}}. At weaker levels like ONE, Cassandra doesn't promise a read sees the latest write. It promises eventual consistency instead. Replicas converge over time, reconciled by background anti-entropy repair{{< cite 8 "Dynamo. Apache Cassandra Documentation." >}}. Two queries against the same cluster can sit at different points on the CAP spectrum, which is exactly the kind of nuance a single "AP" label can't capture.
+Cassandra takes the opposite approach. Instead of hiding the tradeoff, it exposes it per query, letting every read or write pick its own consistency level, ONE for speed, QUORUM for a majority of replicas, ALL for the strongest guarantee Cassandra offers{{< cite 8 "Dynamo. Apache Cassandra Documentation." >}}. At weaker levels like ONE, Cassandra doesn't promise a read sees the latest write. It promises eventual consistency instead. Replicas converge over time, reconciled by background anti-entropy repair{{< cite 8 "Dynamo. Apache Cassandra Documentation." >}}. Two queries against the same cluster can sit at different points on the CAP spectrum, the kind of nuance a single "AP" label can't capture.
 
 ## Common Mistakes
 
 **Slapping a CP or AP label on a whole system.** Real databases mix consistency levels by query or by write concern. A single label describes a marketing decision, not the system's actual behavior under partition{{< cite 5 "Kleppmann, Martin (2015). A Critique of the CAP Theorem. arXiv." >}}.
 
-**Trying to build a "CA" system.** Some products still advertise consistency and availability with no partition tolerance tradeoff at all. That's not a third option. It just means nobody has tested what happens when the network splits, and CAP says an answer exists whether the vendor has found it yet or not{{< cite 9 "Hale, Coda (2010). You Can't Sacrifice Partition Tolerance." >}}.
+**Trying to build a "CA" system.** Some products still advertise themselves as both consistent and available, as if partition tolerance were never a tradeoff at all. That's not a third option. It just means nobody has tested what happens when the network splits{{< cite 9 "Hale, Coda (2010). You Can't Sacrifice Partition Tolerance." >}}.
 
 **Assuming "consistency" means what you think it means.** In CAP, consistency is linearizability, not "the data is generally correct" or "the replicas will eventually agree." Confirm which one your database actually promises before you build around it.
 
@@ -62,7 +62,7 @@ Before you trust a "CP" or "AP" label, ask what happens to a specific write or r
 
 If you're picking a database, read past the marketing page. Check the consistency level it defaults to, whether that default is configurable per query, and what its own test suite, or someone else's Jepsen report, says happens when nodes stop talking to each other.
 
-The CAP theorem isn't a menu you check off once at design time. It's a description of what your system already does the next time a cable gets cut.
+The CAP theorem isn't a menu you check off once at design time. It's a description of what your system does the next time a cable gets cut.
 
 ## Go Further
 
@@ -96,7 +96,7 @@ The CAP theorem isn't a menu you check off once at design time. It's a descripti
 
 **Brewer's talk was never a paper.** The original CAP theorem was delivered only as a PODC keynote in July 2000, never published as a paper ([PODC, 2000](https://www.podc.org/podc2000/brewer.html)). What people cite as "the CAP theorem" is technically Gilbert and Lynch's proof, published two years later.
 
-**Spanner keeps atomic clocks in its data centers.** Google's Spanner runs GPS receivers and atomic clocks inside its own facilities, not just at the network edge, to shrink clock uncertainty to about six milliseconds ([Corbett et al., 2012](https://research.google/pubs/spanner-googles-globally-distributed-database-2/)).
+**Spanner keeps atomic clocks in its data centers.** Google's Spanner runs GPS receivers and atomic clocks inside its own facilities, not just at the network edge, to shrink clock uncertainty to about 6 milliseconds ([Corbett et al., 2012](https://research.google/pubs/spanner-googles-globally-distributed-database-2/)).
 
 ---
 

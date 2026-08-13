@@ -2,7 +2,7 @@
 title: "Percentiles Don't Add Up"
 date: 2026-06-21
 publishdate: 2026-06-21
-lastmod: 2026-07-19
+lastmod: 2026-08-08
 summary: "Your p99 latency might not be a percentile. Averaging percentiles across replicas produces a meaningless number, and t-digest is the sketch algorithm that fixes it at scale."
 tags: ["observability", "metrics"]
 image: /images/t-digest.png
@@ -14,21 +14,21 @@ draft: false
 
 ## Percentiles Don't Add Up
 
-An on-call engineer was paged on a Saturday, users reporting three-second load times. The engineer checked the dashboard. p99 latency: 180ms, stable for weeks.
+An on-call engineer was paged on a Saturday, users reporting three-second load times. The engineer checked the dashboard. p99 latency, 180ms, stable for weeks.
 
 But the 180ms was meaningless. Six replicas were each computing a local p99 and shipping it to the monitoring system. The system averaged them, which produced a meaningless number instead of a percentile. One replica was saturated while the others were fine, and that saturated replica disappeared into the average. The fleet's actual p99 was 2.8 seconds.
 
-## Why Percentiles Don't Scale
+## Percentiles Fail at Scale
 
 A percentile is a statement about rank. The 99th percentile of a set of latencies is the value below which 99% of requests fall. Computing it requires sorting the full set, which means keeping every data point.
 
-At scale, this is impractical. A service handling ten thousand requests per second accumulates 864 million latency values per day. Storing and sorting that dataset to answer "what was the p99 in the last five minutes?" isn't feasible in production.
+At scale, this is impractical. A service handling ten thousand requests per second accumulates 864 million latency values per day. Storing and sorting that dataset to answer "what was the p99 in the last five minutes?" costs more than production can afford.
 
 Monitoring systems solve this with sketches. A sketch compresses a large dataset into a compact structure that answers statistical queries with a predictable error ceiling, using a fraction of the memory that computing it directly would require. The ceiling is configured when you create the sketch. More memory buys tighter accuracy.
 
 ## What t-Digest Does
 
-Ted Dunning and Otmar Ertl introduced t-digest as a sketch optimized for quantile estimation{{< cite 1 "Dunning, Ted and Otmar Ertl (2019). Computing Extremely Accurate Quantiles Using t-Digests. arXiv:1902.04023." >}}. The key property is that its accuracy is highest at the tails and lowest near the median.
+Ted Dunning introduced t-digest in 2013 as a sketch optimized for quantile estimation, later formalized with Otmar Ertl in a more rigorous 2019 treatment{{< cite 1 "Dunning, Ted and Otmar Ertl (2019). Computing Extremely Accurate Quantiles Using t-Digests. arXiv:1902.04023." >}}. The key property is that its accuracy is highest at the tails and lowest near the median.
 
 t-digest processes observations one at a time without holding the raw data. Each observation is absorbed into the nearest eligible centroid or starts a new one, then discarded. The only persistent structure is a list of centroids. Each stores a mean value and a weight representing the number of observations it covers.
 
@@ -36,11 +36,11 @@ The compression is dramatic. A thousand latency measurements compress into dozen
 
 Centroids near the tails are small and numerous, each representing few data points. Centroids near the median are large and few, each covering many values{{< cite 1 "Dunning, Ted and Otmar Ertl (2019). Computing Extremely Accurate Quantiles Using t-Digests. arXiv:1902.04023." >}}.
 
-This asymmetry matches how you use latency metrics. In large distributed systems, the slowest requests determine what users experience. The average doesn't capture that. Jeff Dean and Luiz André Barroso made that case in 2013, and the industry shifted toward percentile-based SLOs as a result{{< cite 3 "Dean, Jeff and Luiz André Barroso (2013). The Tail at Scale. Communications of the ACM, 56(2): 74-80." >}}.
+This asymmetry matches how you use latency metrics. In large distributed systems, the slowest requests determine what users experience. The average erases that. Jeff Dean and Luiz André Barroso made that case in 2013, and the industry shifted toward percentile-based service-level objectives (SLOs) as a result{{< cite 3 "Dean, Jeff and Luiz André Barroso (2013). The Tail at Scale. Communications of the ACM, 56(2): 74-80." >}}.
 
 A compression parameter δ is configured when creating a t-digest instance. It sets a limit on how many centroids the sketch is allowed to maintain{{< cite 1 "Dunning, Ted and Otmar Ertl (2019). Computing Extremely Accurate Quantiles Using t-Digests. arXiv:1902.04023." >}}. Raising δ improves accuracy at the cost of size.
 
-Separately computed t-digests merge without loss of accuracy{{< cite 1 "Dunning, Ted and Otmar Ertl (2019). Computing Extremely Accurate Quantiles Using t-Digests. arXiv:1902.04023." >}}. Merging works by combining the centroid lists and re-compressing. The result is equivalent to having processed all observations in a single pass. Each replica computes and ships a t-digest instead of a finished p99. The monitoring system merges them. The 2.8-second tail doesn't disappear into an average.
+Separately computed t-digests merge without loss of accuracy{{< cite 1 "Dunning, Ted and Otmar Ertl (2019). Computing Extremely Accurate Quantiles Using t-Digests. arXiv:1902.04023." >}}. Merging works by combining the centroid lists and re-compressing. The result is equivalent to having processed all observations in a single pass. Each replica computes and ships a t-digest instead of a finished p99. The monitoring system merges them. The 2.8-second tail stays visible instead of disappearing into an average.
 
 Netflix hit this problem. Storing raw latency observations at their scale was too expensive. t-digest let them summarize per instance and merge at query time, keeping memory flat as traffic grew{{< cite 4 "Ortiz, Thiara (2023). Measuring Real-Life Latency of the Internet: A Netflix Story. SREcon23 Americas. USENIX." >}}.
 
@@ -48,7 +48,7 @@ Netflix hit this problem. Storing raw latency observations at their scale was to
 
 Prometheus faces the same aggregation problem, and its two instrumentation approaches handle it differently{{< cite 5 "Prometheus (2024). Histograms and Summaries. Prometheus Documentation." >}}. Histograms aggregate bucket counts across replicas, the way t-digest merges centroids. Summaries reproduce the opening mistake.
 
-Summaries compute quantiles inside the application process. Each replica computes its own p99 from local observations and exports the result as a single number. The raw observations are discarded, leaving the monitoring system nothing to combine with other replicas. Averaging those numbers is mathematically invalid, but the metric format makes it look valid. The documentation says summaries are "not aggregatable," but this warning is often ignored.
+Summaries compute quantiles inside the application process. Each replica computes its own p99 from local observations and exports the result as a single number. The raw observations are discarded, leaving the monitoring system with an isolated number, cut off from other replicas' data. Averaging those numbers is mathematically invalid, but the metric format makes it look valid. The documentation says summaries are "not aggregatable," but this warning is often ignored.
 
 Histograms record observations in predefined buckets and ship the raw bucket counts. The monitoring system computes quantiles from the bucket data at query time. Because bucket counts are additive, you can aggregate across replicas first and compute percentiles from the combined data. Histogram quantiles are accurate to within the width of the relevant bucket{{< cite 5 "Prometheus (2024). Histograms and Summaries. Prometheus Documentation." >}}.
 
@@ -56,9 +56,9 @@ Native histograms, the newer Prometheus feature, use adaptive bucket boundaries 
 
 ## How Teams Get This Wrong
 
-**Trusting pre-aggregated exports.** Many APM tools receive metrics as precomputed percentile values from the source. A p99 arriving at the monitoring system as a single number can't be recomputed, decomposed by attribute, or combined with other data. The accuracy is invisible and the provenance is opaque.
+**Trusting pre-aggregated exports.** Many application performance monitoring (APM) tools receive metrics as precomputed percentile values from the source. A p99 arriving at the monitoring system as a single number is fixed. Whatever came in is all you get. The accuracy is invisible and the provenance is opaque.
 
-**Averaging percentile metrics.** If three replicas report p99 values of 100ms, 150ms, and 1200ms, the fleet p99 is not their average. It depends on request distribution across those replicas. The average of percentiles tells you nothing useful about the tail.
+**Averaging percentile metrics.** If three replicas report p99 values of 100ms, 150ms, and 1200ms, the fleet p99 depends on request distribution across those replicas. The average of the three numbers is a different, unrelated calculation. The average of percentiles obscures the tail.
 
 **The Prometheus summary trap.** Prometheus summaries expose a `quantile` label that looks like histogram data, but each value is a finished percentile from a single replica. The format looks aggregatable. It isn't.
 
@@ -99,10 +99,11 @@ t-digest is the widely deployed answer to query-time quantile computation, with 
 
 **The average of averages.** If Group A (10 people, $50K average) and Group B (100 people, $100K average) merge, the combined average is $95.4K. A naive average of the two group averages gives $75K, which loses the size information. Percentiles fail for the same reason.
 
-**The exponential histogram alternative.** OpenTelemetry's exponential histograms use a similar principle through a different mechanism: bucket boundaries scale geometrically, concentrating precision at the tails without upfront configuration. Both solve the same problem from different directions ([OpenTelemetry, 2024](https://opentelemetry.io/docs/specs/otel/metrics/data-model/#exponential-histograms)).
+**The exponential histogram alternative.** OpenTelemetry's exponential histograms use a similar principle through a different mechanism. Bucket boundaries scale geometrically, concentrating precision at the tails without upfront configuration. Both solve the same problem from different directions ([OpenTelemetry, 2024](https://opentelemetry.io/docs/specs/otel/metrics/data-model/#exponential-histograms)).
 
 ---
 
 ## Changelog
 
+**2026-08-08** Corrected t-digest's attribution: Ted Dunning introduced it alone in 2013; Otmar Ertl joined for the more rigorous 2019 formalization.  
 **2026-06-21** Initial draft.  

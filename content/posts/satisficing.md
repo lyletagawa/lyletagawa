@@ -2,7 +2,7 @@
 title: "Satisficing"
 date: 2026-05-26
 publishdate: 2026-05-26
-lastmod: 2026-06-17
+lastmod: 2026-08-08
 summary: "The best decision is often the fastest one you can defend, not the optimal one you never finish searching for."
 tags: ["decision", "heuristics"]
 image: /images/satisficing.jpg
@@ -80,9 +80,9 @@ For recurring decisions like code review and sprint planning, agree on the thres
 
 ## Outtakes
 
-**The perfect is the enemy of the good.** Voltaire wrote "la perfection est l'ennemi du bien" in his *Dictionnaire philosophique* in 1764 (Voltaire, 1764), nearly two centuries before Herbert Simon formalized the same idea as satisficing. Simon gave it a mechanism and a name. Voltaire gave it eleven words.
+**The perfect is the enemy of the good.** Voltaire quoted "le mieux est l'ennemi du bien" as an existing Italian proverb in *Questions sur l'Encyclopédie* in 1770 ([Voltaire, 1770](https://en.wikipedia.org/wiki/Perfect_is_the_enemy_of_good)), nearly two centuries before Herbert Simon formalized the same idea as satisficing. Simon gave it a mechanism and a name. Voltaire just passed along someone else's six words.
 
-**The grandmaster who considered fewer moves.** In the early 1970s, Herbert Simon and William Chase studied how chess grandmasters think (Chase and Simon, 1973). They expected grandmasters to consider more moves than beginners. They found the opposite. Pattern recognition let grandmasters ignore most possibilities immediately. They searched until a move cleared a threshold, then stopped.
+**The grandmaster who considered fewer moves.** Psychologist Adriaan de Groot studied how chess grandmasters think, publishing his findings in 1946 ([de Groot, 1965](https://en.wikipedia.org/wiki/Adriaan_de_Groot)). He expected grandmasters to consider more moves than weaker players. He found the opposite. Pattern recognition let grandmasters ignore most possibilities immediately. They searched until a move cleared a threshold, then stopped.
 
 **The WD-40 that wasn't the best.** WD-40 was developed in 1953 for aerospace. The name means water displacement, 40th attempt. Chemists tried 39 formulations before one worked. They stopped. Nobody looked for the 41st. Mechanics at Convair started taking it home for squeaky hinges. The company noticed and put it in a can.
 
@@ -90,5 +90,6 @@ For recurring decisions like code review and sprint planning, agree on the thres
 
 ## Changelog
 
+**2026-08-08** Fixed the Voltaire quote (wrong wording, source, and date; he quoted an existing Italian proverb in 1770, not his own line in 1764).  
 **2026-06-01** Added hero image.  
 **2026-05-26** Initial release.

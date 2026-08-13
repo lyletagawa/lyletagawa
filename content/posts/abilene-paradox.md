@@ -2,7 +2,7 @@
 title: "The Abilene Paradox"
 date: 2026-07-28
 publishdate: 2026-07-28
-lastmod: 2026-07-28
+lastmod: 2026-08-08
 summary: "A group can unanimously agree to do something none of its members want, simply because everyone assumes they're the only one who disagrees. It has nothing to do with groupthink."
 tags: ["agreement", "consensus", "teams"]
 image: /images/abilene-paradox.jpg
@@ -18,7 +18,7 @@ Coleman, Texas. A July afternoon, 104 degrees on the porch thermometer. A family
 
 Fifty-three miles, through a dust storm, in an unairconditioned 1958 Buick, and nobody in the car actually wants to go. Each person says yes anyway, because the person before them said yes, and going along looks easier than being the one who ruins everybody's fun{{< cite 1 "Harvey, Jerry B. (1974). The Abilene Paradox: The Management of Agreement. Organizational Dynamics." >}}.
 
-Four hours and 106 miles later, they're back on the porch, hot, dusty, and worn out, having eaten cafeteria food nobody enjoyed. Someone breaks the silence and says, "Great trip, wasn't it?" Nobody agrees. One by one, each person admits they only went because they thought everyone else wanted to. Four people had just spent an afternoon doing something none of them wanted, and started blaming each other for suggesting it{{< cite 1 "Harvey, Jerry B. (1974). The Abilene Paradox: The Management of Agreement. Organizational Dynamics." >}}.
+Four hours and 106 miles later, they're back on the porch, hot, dusty, and worn out, having eaten cafeteria food nobody enjoyed. Someone breaks the silence and says, "It was a great trip, wasn't it?" Nobody agrees. One by one, each person admits they only went because they thought everyone else wanted to. Four people had just spent an afternoon doing something none of them wanted, and started blaming each other for suggesting it{{< cite 1 "Harvey, Jerry B. (1974). The Abilene Paradox: The Management of Agreement. Organizational Dynamics." >}}.
 
 ## What Is the Abilene Paradox?
 
@@ -28,7 +28,7 @@ Harvey didn't attribute the trip to a conflict the family failed to manage. Ever
 
 ## Different From Groupthink
 
-The more familiar term is groupthink. Psychologist Irving Janis coined it in 1972 to describe how tightly bonded groups suppress dissent to preserve harmony, a dynamic he traced through disasters like the Bay of Pigs invasion{{< cite 2 "Janis, Irving L. (1972). Victims of Groupthink: A Psychological Study of Foreign-Policy Decisions and Fiascoes. Houghton Mifflin." >}}. Groupthink members know they disagree. They stay silent because dissent is costly.
+The more familiar term is groupthink. Psychologist Irving Janis popularized it in 1972 and built the psychological theory behind it, describing how tightly bonded groups suppress dissent to preserve harmony, a dynamic he traced through disasters like the Bay of Pigs invasion{{< cite 2 "Janis, Irving L. (1972). Victims of Groupthink: A Psychological Study of Foreign-Policy Decisions and Fiascoes. Houghton Mifflin." >}}. Groupthink members know they disagree. They stay silent because dissent is costly.
 
 The Abilene Paradox runs backward from that. Nobody is suppressing a known objection, because nobody realizes the objection is shared. Each member assumes they're the lone holdout, so nobody tests that assumption out loud. Harvey addressed the overlap directly. Many of the failures Janis attributed to group conformity pressure, he'd classify instead as mismanaged agreement{{< cite 1 "Harvey, Jerry B. (1974). The Abilene Paradox: The Management of Agreement. Organizational Dynamics." >}}. Both produce a decision nobody wanted. One comes from silencing dissent everyone already feels. The other comes from never discovering that the dissent is unanimous.
 
@@ -83,4 +83,5 @@ Next time a plan gets unanimous nods in a room where nobody looks happy about it
 
 ## Changelog
 
+**2026-08-08** Fixed the "great trip" quote to match Harvey's exact wording, and corrected the claim that Janis coined "groupthink" (William H. Whyte coined the term in 1952; Janis independently reused it in 1972 and built the psychological theory around it).  
 **2026-07-28** Initial release.
