@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>sharding on hi</title>
+    <link>https://lyletagawa.com/tags/sharding/</link>
+    <description>Recent content in sharding on hi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 06 Sep 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/sharding/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shuffle Sharding</title>
+      <link>https://lyletagawa.com/posts/shuffle-sharding/</link>
+      <pubDate>Sun, 06 Sep 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/shuffle-sharding/</guid>
+      <description>Shuffle sharding turns Route 53&amp;rsquo;s 2,048 name servers into 730 billion possible four-server combinations instead of 512 fixed groups, without adding a single machine. The isolation comes from combinatorics alone.</description>
+      <media:content url="https://lyletagawa.com/images/shuffle-sharding.svg" medium="image" />
+    </item>
+    
+  </channel>
+</rss>

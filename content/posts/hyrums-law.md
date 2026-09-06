@@ -14,9 +14,9 @@ draft: false
 
 ## Hyrum's Law
 
-Your API returns results in alphabetical order. The documentation says nothing about ordering. It's an implementation detail, offered without any promise attached.
+Your API returns results in alphabetical order. The documentation says nothing about ordering. It's just an implementation detail, with no promise attached.
 
-Six months later, you optimize the query, and results start coming back in insertion order instead. Production breaks. Dozens of clients had quietly built pagination and diffing logic on alphabetical sorting. They never told you. They just assumed it was guaranteed.
+Six months later, you optimize the query, and results are returned in insertion order instead. Production breaks. Dozens of clients had quietly built pagination and diffing logic on alphabetical sorting. They never told you. They just assumed it was guaranteed.
 
 Every observable behavior becomes a contract, whether or not you documented it or intended it that way. If users can observe something, someone will depend on it.
 
@@ -24,47 +24,41 @@ Every observable behavior becomes a contract, whether or not you documented it o
 
 Hyrum's Law states, "With a sufficient number of users of an API, it does not matter what you promise in the contract: all observable behaviors of your system will be depended on by somebody"{{< cite 1 "Wright, Hyrum (2020). Hyrum's Law. Software Engineering at Google." >}}.
 
-Hyrum Wright formulated this while running large-scale API deprecation at Google, migrating thousands of callers off old internal APIs. Changing any of them meant understanding not just the documented contract but every behavior a caller might have come to depend on, since a contract promising nothing about some behavior never stopped someone from relying on it anyway{{< cite 2 "Winters, Titus, Tom Manshreck, and Hyrum Wright (2020). Software Engineering at Google: Lessons Learned from Programming Over Time. O'Reilly Media." >}}.
+Hyrum Wright formulated this while running large-scale API deprecation at Google, migrating thousands of callers off old internal APIs. Changing any of them meant understanding the documented contract and every behavior a caller might have come to depend on{{< cite 2 "Winters, Titus, Tom Manshreck, and Hyrum Wright (2020). Software Engineering at Google: Lessons Learned from Programming Over Time. O'Reilly Media." >}}.
 
-The principle applies beyond APIs. It governs any interface with multiple users, from command-line tools and file formats to network protocols and database schemas. With ten users, you might coordinate changes. With ten thousand, coordination becomes impossible.
+The principle also applies beyond APIs, to command-line tools, file formats, network protocols and database schemas.
 
 ## Why Implementation Details Become Contracts
 
-Users optimize for their immediate needs, observing behavior and depending on it before moving on. The dependency becomes implicit knowledge, undocumented and forgotten{{< cite 3 "Parnas, David L. (1972). On the Criteria To Be Used in Decomposing Systems into Modules. Communications of the ACM, 15(12)." >}}.
+Users optimize for their immediate needs. The observed behavior becomes implicit, undocumented and forgotten{{< cite 3 "Parnas, David L. (1972). On the Criteria To Be Used in Decomposing Systems into Modules. Communications of the ACM, 15(12)." >}}.
 
-**Timing dependencies emerge.** Your API responds in 50 milliseconds, and a client sets its timeout to 100 milliseconds, a comfortable margin based on observed behavior, since there's no documented service-level agreement (SLA) to go by. You add a validation step, and response time creeps up to 150 milliseconds. The client's timeout starts firing, and requests that used to succeed now fail. The timing stayed unspecified, but it was observable, and someone built on it anyway.
+**Timing dependencies.** Your API responds in 50 milliseconds, and a client sets its timeout to 100 milliseconds, a comfortable margin based on observed behavior, since there's no documented service-level agreement (SLA) to go by. You add an additional step, and response time creeps up to 150 milliseconds. The client's timeout starts firing, and requests that used to succeed now fail.
 
-**Error messages become APIs.** Your function returns "Error: invalid input" for malformed data, and a client starts parsing that string to detect the error type. You improve the message to "Error: field 'email' must be valid email address," and the client breaks. It was never part of the contract. It was just visible.
+**Error messages become APIs.** Your function returns "Error: invalid input" for malformed data, and a client starts parsing that string to detect the error type. You improve the message to "Error: field 'email' must be valid email address," and the client breaks.
 
 **Ordering becomes guaranteed.** Your database query happens to return results in primary key order, even though the documentation says order is undefined. Clients assume the current order and build pagination around it. Then you add an index, the query planner shifts, and results come back differently. Pagination breaks across the entire system.
-
-**Side effects become features.** Your cache implementation writes to disk, though the documentation says nothing about persistence. Clients restart and expect the cached data to still be there. You switch to an in-memory cache and clients break, because the persistence was never promised, just observed{{< cite 4 "Lehman, Meir M. (1980). Programs, Life Cycles, and Laws of Software Evolution. Proceedings of the IEEE, 68(9)." >}}.
 
 ## The Scale Problem
 
 Small systems can coordinate changes. Large systems cannot.
 
-At ten users, you know them all, and you can coordinate breaking changes directly. At one thousand, you know few of them, hidden dependencies multiply, and breaking changes require migration tools and long deprecation windows. At a hundred thousand, you know almost none of them, and hidden dependencies dominate. The observable behavior is the contract{{< cite 5 "Booch, Grady (1994). Object-Oriented Analysis and Design with Applications, Second Edition. Benjamin/Cummings." >}}.
+At ten users, you know them all, and you can coordinate breaking changes directly. At one thousand, you know few of them, hidden dependencies multiply, and breaking changes require migration tools and long deprecation windows. At a hundred thousand, you know almost none of them. The observable behavior is the contract{{< cite 5 "Booch, Grady (1994). Object-Oriented Analysis and Design with Applications, Second Edition. Benjamin/Cummings." >}}.
 
-Google's experience shows this at extreme scale. Changing a widely-used internal API requires automated tooling just to find and update every call site, and even then some dependencies hide in generated code, reflection, or dynamic dispatch. The cost of a change grows faster than the number of users who make it{{< cite 2 "Winters, Titus, Tom Manshreck, and Hyrum Wright (2020). Software Engineering at Google: Lessons Learned from Programming Over Time. O'Reilly Media." >}}.
+Google's experience shows this at extreme scale. Changing a widely-used internal API requires automated tooling to find and update every call site, and even then some dependencies hide in generated code, reflection, or dynamic dispatch{{< cite 2 "Winters, Titus, Tom Manshreck, and Hyrum Wright (2020). Software Engineering at Google: Lessons Learned from Programming Over Time. O'Reilly Media." >}}.
 
 ## Real-World Examples
 
-Python's dictionary iteration order illustrates the principle. Before Python 3.7, dictionaries had no defined iteration order, but the CPython implementation happened to preserve insertion order, and code started depending on it. When PyPy used a different ordering, that code broke. Python 3.7 made insertion order official{{< cite 6 "Python Software Foundation (2018). What's New In Python 3.7. Python Documentation." >}}.
+Before Python 3.7, dictionaries had no defined iteration order, but the CPython implementation happened to preserve insertion order, and code started depending on it. When PyPy used a different ordering, that code broke. Python 3.7 made insertion order official{{< cite 6 "Python Software Foundation (2018). What's New In Python 3.7. Python Documentation." >}}.
 
-Linux system calls show how a contract can become permanent. The kernel maintains binary compatibility with userspace, and every syscall behavior, bugs included, becomes part of the permanent API. Linus Torvalds put it plainly. "We do not break userspace"{{< cite 7 "Torvalds, Linus (2012). We do not break userspace. Linux Kernel Mailing List." >}}.
+The linux kernel maintains binary compatibility with userspace, and every syscall behavior, bugs included, becomes part of the permanent API. Linus Torvalds put it plainly, "We do not break userspace"{{< cite 7 "Torvalds, Linus (2012). We do not break userspace. Linux Kernel Mailing List." >}}.
 
-AWS S3's eventual consistency created an implicit contract of its own. Applications built retry logic around the delay between a write and a read reflecting it. When S3 added strong consistency, some of those applications broke, because they'd built timing assumptions into code, and only the consistency model was ever documented, never the specific timing{{< cite 8 "Brooker, Marc (2020). Amazon S3 Update: Strong Read-After-Write Consistency. AWS News Blog." >}}.
-
-Browser user-agent strings show how a workaround outlives its reason. Early sites only served frames to browsers claiming "Mozilla," so every browser claimed it too. WebKit claimed to be KHTML, KHTML claimed Gecko, and Chrome ships a string naming four engines other than the one it actually runs{{< cite 9 "Andersen, Aaron (2008). History of the Browser User-Agent String. WebAIM." >}}. Nobody can drop the claims without breaking sites sniffing for them.
+Early websites checked the user agent string for "Mozilla" before serving the best (richest) version of the page, so every new browser claimed to be Mozilla. WebKit claimed to be KHTML, KHTML claimed Gecko, and Chrome ships a string naming four engines other than the one it actually runs{{< cite 9 "Andersen, Aaron (2008). History of the Browser User-Agent String. WebAIM." >}}.
 
 ## Common Mistakes
 
 **Assuming documentation defines the contract.** Documentation describes intent, but observable behavior defines reality. Users depend on what they observe, and when that disagrees with documentation, behavior wins.
 
 **Believing "undefined" means "free to change."** Undefined behavior is still observable, and if it's observable, someone depends on it. Marking something undefined still allows dependencies to form. It just makes them harder to find.
-
-**Thinking you can deprecate implementation details.** You can only deprecate things users know they depend on. Users observe behavior and build on it directly, skipping past any note explaining that it's just an implementation detail. The deprecation notice stays invisible to the people who need to see it.
 
 **Expecting users to report dependencies.** Users discover they depend on implementation details only when the behavior changes and their code breaks. By then, it's too late to ask.
 

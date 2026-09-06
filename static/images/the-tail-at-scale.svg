@@ -1,0 +1,42 @@
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="500" fill="#FFFFFF"/>
+
+  <!-- Axes -->
+  <line x1="120" y1="400" x2="720" y2="400" stroke="#475569" stroke-width="2"/>
+  <line x1="120" y1="400" x2="120" y2="60" stroke="#475569" stroke-width="2"/>
+
+  <!-- X tick marks -->
+  <line x1="120" y1="400" x2="120" y2="406" stroke="#475569" stroke-width="2"/>
+  <line x1="320" y1="400" x2="320" y2="406" stroke="#475569" stroke-width="2"/>
+  <line x1="520" y1="400" x2="520" y2="406" stroke="#475569" stroke-width="2"/>
+  <line x1="720" y1="400" x2="720" y2="406" stroke="#475569" stroke-width="2"/>
+
+  <!-- X tick labels -->
+  <text x="120" y="424" font-family="'SF Mono', 'Fira Code', monospace" font-size="13" fill="#475569" text-anchor="middle">1</text>
+  <text x="320" y="424" font-family="'SF Mono', 'Fira Code', monospace" font-size="13" fill="#475569" text-anchor="middle">10</text>
+  <text x="520" y="424" font-family="'SF Mono', 'Fira Code', monospace" font-size="13" fill="#475569" text-anchor="middle">100</text>
+  <text x="720" y="424" font-family="'SF Mono', 'Fira Code', monospace" font-size="13" fill="#475569" text-anchor="middle">1000</text>
+
+  <!-- Y tick labels -->
+  <text x="105" y="404" font-family="'SF Mono', 'Fira Code', monospace" font-size="13" fill="#475569" text-anchor="end">0%</text>
+  <text x="105" y="234" font-family="'SF Mono', 'Fira Code', monospace" font-size="13" fill="#475569" text-anchor="end">50%</text>
+  <text x="105" y="65" font-family="'SF Mono', 'Fira Code', monospace" font-size="13" fill="#475569" text-anchor="end">100%</text>
+
+  <!-- Curve: P(slow) = 1 - 0.99^n -->
+  <path d="M120.00,396.60 L125.00,396.40 L130.00,396.19 L135.00,395.96 L140.00,395.73 L145.00,395.47 L150.00,395.21 L155.00,394.93 L160.00,394.63 L165.00,394.31 L170.00,393.98 L175.00,393.62 L180.00,393.25 L185.00,392.85 L190.00,392.44 L195.00,391.99 L200.00,391.52 L205.00,391.03 L210.00,390.50 L215.00,389.95 L220.00,389.36 L225.00,388.74 L230.00,388.09 L235.00,387.40 L240.00,386.66 L245.00,385.89 L250.00,385.07 L255.00,384.21 L260.00,383.30 L265.00,382.33 L270.00,381.32 L275.00,380.24 L280.00,379.11 L285.00,377.91 L290.00,376.65 L295.00,375.32 L300.00,373.91 L305.00,372.43 L310.00,370.87 L315.00,369.22 L320.00,367.49 L325.00,365.66 L330.00,363.74 L335.00,361.72 L340.00,359.59 L345.00,357.35 L350.00,355.00 L355.00,352.53 L360.00,349.94 L365.00,347.21 L370.00,344.35 L375.00,341.36 L380.00,338.22 L385.00,334.93 L390.00,331.50 L395.00,327.90 L400.00,324.14 L405.00,320.22 L410.00,316.13 L415.00,311.87 L420.00,307.43 L425.00,302.81 L430.00,298.02 L435.00,293.04 L440.00,287.88 L445.00,282.54 L450.00,277.03 L455.00,271.33 L460.00,265.46 L465.00,259.42 L470.00,253.21 L475.00,246.85 L480.00,240.33 L485.00,233.68 L490.00,226.91 L495.00,220.02 L500.00,213.03 L505.00,205.96 L510.00,198.82 L515.00,191.65 L520.00,184.45 L525.00,177.26 L530.00,170.09 L535.00,162.97 L540.00,155.94 L545.00,149.01 L550.00,142.21 L555.00,135.58 L560.00,129.14 L565.00,122.91 L570.00,116.92 L575.00,111.20 L580.00,105.77 L585.00,100.64 L590.00,95.84 L595.00,91.36 L600.00,87.23 L605.00,83.45 L610.00,80.01 L615.00,76.92 L620.00,74.16 L625.00,71.73 L630.00,69.61 L635.00,67.78 L640.00,66.22 L645.00,64.91 L650.00,63.82 L655.00,62.93 L660.00,62.21 L665.00,61.64 L670.00,61.19 L675.00,60.85 L680.00,60.60 L685.00,60.41 L690.00,60.28 L695.00,60.18 L700.00,60.12 L705.00,60.07 L710.00,60.04 L715.00,60.03 L720.00,60.01"
+        fill="none" stroke="#475569" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- Highlighted points -->
+  <circle cx="320" cy="367.5" r="6" fill="#475569"/>
+  <text x="309" y="352" font-family="'SF Mono', 'Fira Code', monospace" font-size="13" fill="#475569" text-anchor="middle">9.6%</text>
+
+  <circle cx="520" cy="184.4" r="6" fill="#475569"/>
+  <text x="505" y="169" font-family="'SF Mono', 'Fira Code', monospace" font-size="13" fill="#475569" text-anchor="middle">63.4%</text>
+
+  <circle cx="720" cy="60.0" r="6" fill="#475569"/>
+  <text x="702" y="48" font-family="'SF Mono', 'Fira Code', monospace" font-size="13" fill="#475569" text-anchor="middle">99.99%</text>
+
+  <!-- Axis titles -->
+  <text x="420" y="460" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" fill="#94A3B8" font-weight="500" text-anchor="middle" letter-spacing="2">SERVERS PER REQUEST</text>
+  <text x="40" y="230" transform="rotate(-90 40 230)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" fill="#94A3B8" font-weight="500" text-anchor="middle" letter-spacing="2">P(REQUEST IS SLOW)</text>
+</svg>

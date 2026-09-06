@@ -26,7 +26,7 @@ draft: true
 
 [Introductory paragraph(s). Concrete, specific, creates tension or curiosity. 2–3 short paragraphs maximum.]
 
-## What Is [Title]?
+## What is [Title]?
 
 [Define the concept with historical or foundational context. Cite the primary source. 2–3 paragraphs.]
 
@@ -37,9 +37,9 @@ draft: true
 ## [Critical Section]
 
 Choose the section title that best fits the concept:
-- **"Common Mistakes"** — when the primary risk is misapplication: people understand the concept but use it wrong.
+- **"Common mistakes"** — when the primary risk is misapplication: people understand the concept but use it wrong.
 - **"Counterarguments"** — when there are legitimate opposing positions worth steelmanning.
-- **"Limits"** or **"Where This Breaks Down"** — when the concept is sound but has meaningful scope constraints or failure modes.
+- **"Limits"** or **"Where this breaks down"** — when the concept is sound but has meaningful scope constraints or failure modes.
 - Other titles are allowed if none of the above fit.
 
 Regardless of title: use bold inline headers for each point, 3–5 items maximum, cite where applicable.
@@ -64,7 +64,7 @@ Regardless of title: use bold inline headers for each point, 3–5 items maximum
 
 ## Outtakes
 
-[Optional. 2–4 short anecdotes related to the topic that didn't fit the main article. Each should be fun, quirky, or surprising — complementary to the topic but outside its narrow scope. Format each as a bold title followed by prose. No bullet points. Each outtake must be under 50 words. Every factual claim needs a citation in `([Author, Year](url))` format, the author/year wrapped in a markdown link to the source, so the reader can click through. Outtakes citations do not get a numbered `{{< cite n >}}` shortcode and do not appear in the References section, but the href is still required.]
+[Optional. 2–4 short anecdotes related to the topic that didn't fit the main article. Each should be fun, quirky, or surprising — complementary to the topic but outside its narrow scope. No bullet points. Each outtake must be under 50 words. Every factual claim needs a citation in `([Author, Year](url))` format, the author/year wrapped in a markdown link to the source, so the reader can click through. Outtakes citations do not get a numbered `{{< cite n >}}` shortcode and do not appear in the References section, but the href is still required.]
 
 ---
 

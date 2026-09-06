@@ -6,7 +6,7 @@ lastmod: 2026-08-08
 summary: "Alignment distributes decisions to whoever has the context. Authority centralizes them with whoever has the title, which is almost never the same person."
 tags: ["leadership", "intent", "influence"]
 image: /images/influence-by-alignment.jpg
-draft: false
+draft: true
 ---
 
 ![Alignment distributes decisions to whoever has the context. Authority centralizes them with whoever has the title, which is almost never the same person.](/images/influence-by-alignment.jpg)

@@ -20,7 +20,7 @@ On August 2, 1994, it happened again. A different squirrel found its way into th
 
 Somewhere there is a security budget built around nation-state actors and zero-day exploits. But a squirrel still took down the network underlying the US stock market.
 
-## Animals Get The Headlines
+## Wildlife Outages
 
 **Squirrels.** John Inglis, a former deputy director of the National Security Agency, said on record that "the No. 1 threat experienced to date by the U.S. electrical grid is squirrels{{< cite 3 "Smithsonian Magazine (2015). Move Over Hackers, Squirrels Are the Power Grid's Greatest Foe." >}}." A crowdsourced tracker called Cyber Squirrel 1 logged more than 2,500 animal-caused power incidents before it stopped updating in 2021, nearly half of them squirrels{{< cite 4 "Cyber Squirrel 1 (2021). cybersquirrel1.com." >}}.
 
@@ -30,7 +30,7 @@ Somewhere there is a security budget built around nation-state actors and zero-d
 
 **Sharks.** Bite marks turned up in an undersea data line off the Canary Islands in 1985. Google now wraps some shoreline cables in protective armor, but marine biologists and telecom engineers are blunt about the actual scale of the threat. "This is probably one of the biggest myths we see cited in the press{{< cite 7 "Marquez, Melissa Cristina (2020). Our Underwater World Is Full Of Cables, That Are Sometimes Attacked By Sharks. Forbes." >}}." Nearly all undersea cable damage comes from something far less exciting: ship anchors and fishing trawlers.
 
-Every animal on that list is real, documented, and responsible for an actual outage. None of them comes close to the damage humans do to their own networks, whether on purpose or by accident.
+None of the animal-caused outages come close to the damage humans do to their own networks (on purpose or by accident).
 
 ## One Bad Command
 

@@ -6,7 +6,17 @@
     <description>Recent content in distributed on hi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 13 Aug 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/distributed/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Sep 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/distributed/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shuffle Sharding</title>
+      <link>https://lyletagawa.com/posts/shuffle-sharding/</link>
+      <pubDate>Sun, 06 Sep 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://lyletagawa.com/posts/shuffle-sharding/</guid>
+      <description>Shuffle sharding turns Route 53&amp;rsquo;s 2,048 name servers into 730 billion possible four-server combinations instead of 512 fixed groups, without adding a single machine. The isolation comes from combinatorics alone.</description>
+      <media:content url="https://lyletagawa.com/images/shuffle-sharding.svg" medium="image" />
+    </item>
+    
     <item>
       <title>The Two Generals Problem</title>
       <link>https://lyletagawa.com/posts/two-generals-problem/</link>

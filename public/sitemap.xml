@@ -3,27 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://lyletagawa.com/tags/distributed/</loc>
-    <lastmod>2026-08-13T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/</loc>
-    <lastmod>2026-08-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lyletagawa.com/tags/networking/</loc>
-    <lastmod>2026-08-13T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/posts/</loc>
-    <lastmod>2026-08-13T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/tags/reliability/</loc>
+    <lastmod>2026-09-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/tags/sharding/</loc>
+    <lastmod>2026-09-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/posts/shuffle-sharding/</loc>
+    <lastmod>2026-09-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/</loc>
+    <lastmod>2026-09-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/tags/networking/</loc>
     <lastmod>2026-08-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/posts/two-generals-problem/</loc>
     <lastmod>2026-08-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/incidents/</loc>
-    <lastmod>2026-08-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lyletagawa.com/tags/reliability/</loc>
     <lastmod>2026-08-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/posts/squirrel-threat-model/</loc>
@@ -113,18 +119,6 @@
     <loc>https://lyletagawa.com/tags/resilience/</loc>
     <lastmod>2026-08-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://lyletagawa.com/posts/influence-by-alignment/</loc>
-    <lastmod>2026-08-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lyletagawa.com/tags/influence/</loc>
-    <lastmod>2026-08-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lyletagawa.com/tags/intent/</loc>
-    <lastmod>2026-08-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lyletagawa.com/tags/leadership/</loc>
-    <lastmod>2026-08-08T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://lyletagawa.com/posts/live-event-caching/</loc>
     <lastmod>2026-08-08T00:00:00+00:00</lastmod>
   </url><url>
@@ -138,6 +132,9 @@
     <lastmod>2026-08-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/tags/cognitive/</loc>
+    <lastmod>2026-08-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/tags/leadership/</loc>
     <lastmod>2026-08-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/posts/llm-context-biases/</loc>
@@ -205,6 +202,9 @@
   </url><url>
     <loc>https://lyletagawa.com/posts/remote-first/</loc>
     <lastmod>2019-10-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lyletagawa.com/tags/intent/</loc>
+    <lastmod>2026-08-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lyletagawa.com/posts/turn-the-ship-around/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>

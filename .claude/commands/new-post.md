@@ -31,6 +31,8 @@ Author a new Hugo blog post or edit an existing one. Follow all rules below prec
   - Plain counts zero through nine: spell out. "four cables."
   - Plain counts 10 and above: use numerals, with commas at the thousands. "6,000 incidents."
   - Units of measurement (distance, weight, speed, etc.): always use numerals, even below 10. "5 kilometers," not "five kilometers."
+  - Mathematical formulas and expressions: use `*` for multiplication, not `×`. Numbers inside a formula don't take thousands-comma separators, even when the same number takes one in prose. "(2048 * 2047) / 2," not "(2,048 × 2,047) / 2," but "2,048 servers" outside a formula keeps the comma.
+  - Percentages: use the `%` symbol directly after the numeral, no space, not the spelled-out word "percent." "99.22%," not "99.22 percent."
 - Define obscure acronyms on first use. Write out the full term followed by the abbreviation in parentheses, e.g. "feed-forward network (FFN)." Use the abbreviation alone on subsequent mentions.
 - No rhetorical questions used as section openers or transitions.
 - No filler phrases: "it's worth noting," "it's important to remember," "in other words," "at the end of the day," "needless to say," "this is crucial."
@@ -81,7 +83,7 @@ Author a new Hugo blog post or edit an existing one. Follow all rules below prec
   - Verbs: "boasts," "bolster," "foster," "garner," "delve," "leverage," "utilize," "harness," "streamline," "underscore," "navigate" (metaphorical), "spearhead," "embark," "unpack" (metaphorical), "unravel" (metaphorical), "unlock," "empower," "elevate," "forecloses."
   - Adjectives: "vibrant," "genuine," "honest," "exact" (unless part of an established technical term, like "exact match"), "pivotal," "robust," "innovative," "seamless," "cutting-edge," "groundbreaking," "multifaceted," "nuanced" (as a compliment), "comprehensive," "dynamic," "revolutionary," "game-changing," "unprecedented," "transformative," "invaluable," "meticulous," "intricate," "noteworthy."
   - Nouns: "interplay," "intricacies," "tapestry," "seam," "landscape" (metaphorical), "realm," "synergy," "testament," "underpinnings," "paradigm," "endeavor," "cornerstone," "catalyst," "beacon," "game-changer."
-  - Adverbs: "genuinely," "honestly," "exactly" (unless part of an established technical term, like "exactly-once delivery"), "arguably," "undeniably," "remarkably," "notably," "importantly."
+  - Adverbs: "genuinely," "honestly," "exactly" (unless part of an established technical term, like "exactly-once delivery"), "arguably," "undeniably," "remarkably," "notably," "actually," "importantly."
 - No hedging language: "somewhat," "rather" (as a hedge or intensifier, e.g. "rather difficult," not the comparative "rather than"), "quite," "very," "fairly." State the claim at full strength.
 - No meta-commentary about the article itself ("this article explores," "we will examine," "as discussed above").
 - No academic register: avoid "it can be observed," "this suggests," "one might argue," "the literature indicates." Say the thing directly.
@@ -120,14 +122,14 @@ Author a new Hugo blog post or edit an existing one. Follow all rules below prec
 - **Frontmatter summary**: under 36 words. Two sentences maximum. No hedging or filler. SEO-optimized: work the post's primary keyword or topic phrase naturally into the first sentence.
 - **Frontmatter tags**: Three tags maximum. Single words only. No hyphenated phrases.
 - **Reading grade level**: 10–12 (Flesch-Kincaid or equivalent). Prefer concrete nouns and active verbs over abstract nominalizations. Use simple, direct language.
-- **Section headings**: use `##` for top-level sections, `###` for subsections. Keep headings short (2–5 words). Make them opinionated or imperative rather than neutral noun phrases. "Throw away bad ideas" and "Fix the right thing" are sharper than "Idea Management" and "The Fix Process." Verb-first headings with a point of view in them.
+- **Section headings**: use `##` for top-level sections, `###` for subsections. Keep headings short (2–5 words). Make them opinionated or imperative rather than neutral noun phrases. "Throw away bad ideas" and "Fix the right thing" are sharper than "Idea Management" and "The Fix Process." Verb-first headings with a point of view in them. Use sentence case, not title case: capitalize only the first word (and proper nouns). "Set the hedge delay," not "Set the Hedge Delay."
 - **Intro section**: Open with a specific, concrete situation or observation that creates tension or curiosity. Drop the reader mid-scene without preamble. Avoid dictionary definitions and "Have you ever..." constructions.
 
 ### Closing Section
 Choose the title that best fits the post's intent:
-- **"Put It Into Practice"** — when the post is actionable and the reader can change behavior immediately.
-- **"What To Do About It"** — when the post diagnoses a problem and the closing is remediation-focused.
-- **"How to Succeed"** — when the concept is a positive practice and the closing is about doing it well.
+- **"Put it into practice"** — when the post is actionable and the reader can change behavior immediately.
+- **"What to do about it"** — when the post diagnoses a problem and the closing is remediation-focused.
+- **"How to succeed"** — when the concept is a positive practice and the closing is about doing it well.
 - **"Conclusion"** — when the concept is primarily explanatory and a direct call to action would feel forced.
 - Other titles are allowed if none of the above fit.
 
@@ -135,7 +137,7 @@ Regardless of title, the closing section must be 2–3 paragraphs maximum, end w
 
 ### Sections After Body
 The body sections must be followed in this order:
-1. `## [Further Reading Section]` — optional. Points the reader toward advanced topics the post doesn't cover. Use bold inline headers for each item (2–4 items). Each item names an advanced topic, describes what the reader will find, and includes an inline citation. Title options: "What This Doesn't Cover," "Go Further," "Keep Going," "Dig Deeper," or similar. Choose based on tone.
+1. `## [Further Reading Section]` — optional. Points the reader toward advanced topics the post doesn't cover. Use bold inline headers for each item (2–4 items). Each item names an advanced topic, describes what the reader will find, and includes an inline citation. Title options: "What this doesn't cover," "Go further," "Keep going," "Dig deeper," or similar. Choose based on tone.
 2. `## References` — an HTML `<ol class="references">` where each `<li id="ref-n">` matches the cite shortcode number. Format: author, year, title (use `<em>` for book and journal titles), publisher, and the full URL as link text. List items in order of first citation.
 3. `## Outtakes` — optional. 2–5 short anecdotes that didn't fit the main article. See the Template for format rules.
 4. `## Changelog` — one entry per calendar day, listed in reverse chronological order with the newest entry at the top. Format: `**YYYY-MM-DD** Brief description of changes.` If an entry for a given date already exists, fold new changes into that day's entry rather than adding a second entry for the same day. The first (oldest) entry, marking the post's creation, stays simple and needs no description of changes (for example `Initial release`, `Initial draft`, or `Initial publish`).
@@ -162,8 +164,10 @@ Confirm every item below before reporting the work done. This is the single chec
 - Cited sources prefer primary or official sources over third-party ones.
 - Hero image alt text matches the frontmatter summary verbatim.
 - No tracking parameters in any URL.
+- Mathematical formulas use `*` for multiplication, not `×`, and omit thousands-comma separators inside the formula.
+- Percentages use the `%` symbol, not the spelled-out word "percent."
 - No patterns that read as AI-generated.
-- Section headings are 2–5 words, verb-first and opinionated.
+- Section headings are 2–5 words, verb-first, opinionated, and sentence case.
 - Intro opens mid-scene, no dictionary-definition opener.
 - A critical section and a closing section are both present.
 - Closing section is 2–3 paragraphs, ends with a direct call to action, and doesn't summarize the post.

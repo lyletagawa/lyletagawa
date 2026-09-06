@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Shuffle Sharding | hi</title>
+
+
+
+<link href="https://lyletagawa.com/index.xml" rel="alternate" type="application/rss+xml" title="hi" />
+
+<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='https://lyletagawa.com/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="canonical" href="https://lyletagawa.com/posts/shuffle-sharding/">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Shuffle sharding turns Route 53&rsquo;s 2,048 name servers into 730 billion possible four-server combinations instead of 512 fixed groups, without adding a single machine. The isolation comes from combinatorics alone.">
+<script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="Xi tn init mn Qr yn xn pn capture calculateEventProperties Tn register register_once register_for_session unregister unregister_for_session Pn getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync On identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException addExceptionStep captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty Mn Cn createPersonProfile setInternalOrTestUser Rn vn An opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Sn debug Kr En getPageViewId captureTraceFeedback captureTraceMetric hn".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_zrLjgptGCvrPgnVnoXPF87NEtESJtxuQLt26tRfFynhL', {
+        api_host: 'https://p.foureleven.org', 
+        ui_host: 'https://us.posthog.com', 
+        defaults: '2026-05-30',
+        person_profiles: 'identified_only', 
+    })
+</script>
+
+</head>
+<body>
+
+<section class="section">
+  <div class="container">
+    <nav id="nav-main" class="nav">
+      <div id="nav-name" class="nav-left">
+        <a id="nav-anchor" class="nav-item" href="https://lyletagawa.com">
+          <h1 id="nav-heading" class="title is-4">hi</h1>
+        </a>
+      </div>
+      <div class="nav-right">
+        <nav id="nav-items" class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/lyletagawa'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg>
+</i>
+            </span>
+          </a><a class="level-item" aria-label="linkedin" href='https://linkedin.com/in/lyletagawa'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg>
+</i>
+            </span>
+          </a><a class="level-item" aria-label="rss" href='/index.xml'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle>
+    
+  </svg>
+</i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+
+    <nav class="nav">
+      
+
+      
+    </nav>
+
+  </div>
+  <script src="/js/navicon-shift.js"></script>
+</section>
+<section class="section">
+  <div class="container">
+    <h1 class="title">Shuffle Sharding</h1>
+    
+    <div class="subtitle tags is-6 is-pulled-right">
+      
+      
+<a class="subtitle is-6" href="/tags/sharding/">#sharding</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/reliability/">#reliability</a>
+  
+  | <a class="subtitle is-6" href="/tags/distributed/">#distributed</a>
+  
+
+
+      
+    </div>
+    
+    <h6 class="subtitle is-6" style="line-height:0em">Sep. 6, 2026&nbsp;&middot; 5 min read
+    </h6>
+    
+
+    <div class="content">
+      <p><img src="/images/shuffle-sharding.svg" alt="Shuffle sharding turns Route 53&amp;rsquo;s 2,048 name servers into 730 billion possible four-server combinations instead of 512 fixed groups, without adding a single machine. The isolation comes from combinatorics alone."></p>
+<h2 id="shuffle-sharding">Shuffle sharding</h2>
+<p>A volumetric DDoS attack floods one customer&rsquo;s DNS name servers with random labels, causing elevated latency. On a normal shared fleet of machines, that attack would cause delays for other customers too. At Route 53, only that single customer&rsquo;s name servers are impacted.</p>
+<h2 id="what-is-shuffle-sharding">What is shuffle sharding?</h2>
+<p>Shuffle sharding assigns each tenant a random K-resource subset of a shared pool of N, instead of splitting N into fixed, non-overlapping N/K groups. Colm MacCárthaigh found it in 2010 in one of Knuth&rsquo;s fascicles on generating combinations<sup><a href="#ref-1" title="Knuth, Donald E. (2005). The Art of Computer Programming, Volume 4, Fascicle 3: Generating All Combinations and Partitions. Addison-Wesley.">[1]</a></sup>, while his six-person team was working out how Route 53 would withstand DDoS attacks. Assign each customer a unique combination of four virtual name servers from a pool of about 2,000, and the maths bound how much overlap any two customers could share<sup><a href="#ref-2" title="MacCárthaigh, Colm (2025). Comment on Donald Knuth&#39;s 2024 Christmas Lecture: Strong and Weak Components. Hacker News.">[2]</a></sup>.</p>
+<p>First, regular sharding. Picture eight workers handling requests for many customers. Split them into four regular shards of two workers each. Any single failure takes down that shard, with a blast radius of one in four customers.</p>
+<p>Now shuffle it. With the same eight workers, the count of distinct pairs is (8 * 7) / 2! = 28, instead of just four groups<sup><a href="#ref-3" title="MacCárthaigh, Colm (2019). Workload Isolation Using Shuffle-Sharding. Amazon Builders&#39; Library.">[3]</a></sup>. Spread customers across all 28, and any single failure now impacts roughly one in 28 customers (instead of one in four).</p>
+<h2 id="the-maths-scales-combinatorially">The maths scales combinatorially</h2>
+<p>Route 53 runs this at a scale where the effect gets absurd. The service uses 2,048 virtual name servers and assigns each hosted zone to a shard of four name servers<sup><a href="#ref-3" title="MacCárthaigh, Colm (2019). Workload Isolation Using Shuffle-Sharding. Amazon Builders&#39; Library.">[3]</a></sup>. The count of distinct four-server combinations is (2048 choose 4) = (2048 * 2047 * 2046 * 2045) / 4! = 730,862,190,080.</p>
+<p>Regular sharding gives 512 (2048/4) groups. Shuffle sharding gives 730 billion, using the same hardware. Route 53 can assign a unique shard to each hosted zone with plenty of room to spare.</p>
+<p>Having 730 billion possible shards doesn&rsquo;t guarantee two customers never collide though. Draw two four-server combinations at random from the same pool of 2,048, and across enough customers, some pair will eventually collide.</p>
+<p>Route 53 doesn&rsquo;t leave that to chance. Assigning a new zone searches for and rejects any candidate that would share more than two of four virtual name servers with an existing hosted zone<sup><a href="#ref-3" title="MacCárthaigh, Colm (2019). Workload Isolation Using Shuffle-Sharding. Amazon Builders&#39; Library.">[3]</a></sup>. That number is two because testing showed domain resolution is reliable even while two of its four name servers are unreachable<sup><a href="#ref-2" title="MacCárthaigh, Colm (2025). Comment on Donald Knuth&#39;s 2024 Christmas Lecture: Strong and Weak Components. Hacker News.">[2]</a></sup>.</p>
+<p>Run the numbers (2,048 servers, four per customer) through MacCárthaigh&rsquo;s blast-radius calculator<sup><a href="#ref-4" title="MacCárthaigh, Colm. shardcalc.py. GitHub Gist.">[4]</a></sup>: 99.22% of customer pairs share zero servers, 0.78% share one, and sharing two or more drops below two hundredths of a percent. The same cap that limits two-way overlap to two shared servers rules out three- and four-way overlap entirely. When one domain gets attacked, the overwhelming majority of other zones notice nothing at all.</p>
+<h2 id="beyond-aws">Beyond AWS</h2>
+<p>Grafana Labs built the same idea into Cortex and Mimir, the multi-tenant metrics systems behind Grafana Cloud, sharding tenants across ingesters, queriers, store-gateways, and compactors, each shard sized between 1 and the full instance count<sup><a href="#ref-5" title="Cortex. Shuffle Sharding. Cortex Documentation.">[5]</a></sup><sup><a href="#ref-6" title="Grafana Labs (2024). Configure Shuffle Sharding. Grafana Mimir Documentation.">[6]</a></sup>.</p>
+<p>Kubernetes API Priority and Fairness (APF) shuffle-shards each request across a subset of queues, sized by a handSize parameter, so one noisy client can&rsquo;t starve the rest<sup><a href="#ref-7" title="Kubernetes. API Priority and Fairness. Kubernetes Documentation.">[7]</a></sup>. With a handSize of 10 across 64 queues, one noisy flow has about a 1 in 150 billion chance of colliding with a quiet one.</p>
+<p>HashiCorp Terraform Cloud uses a cellular architecture to schedule customer workloads across a pool of Nomad clusters. Each customer is assigned a random but deterministic subset, &ldquo;the odds that any two customers share the exact same virtual shard assignment is exceedingly small&quot;<sup><a href="#ref-8" title="Ludden, Chris, and Anthony Davis (2023). Using Temporal at HashiCorp. Replay 2023.">[8]</a></sup>.</p>
+<h2 id="common-mistakes">Common mistakes</h2>
+<p><strong>You draw random shards without bounding overlap.</strong> Pure random assignment can still give two customers shards that overlap too much, unless the assignment scheme checks for that and rejects bad draws.</p>
+<p><strong>You isolate the shard but miss the shared dependency.</strong> Shuffle sharding protects against the failure of an individual worker. A config push or a shared database will still affect the whole fleet at once.</p>
+<p><strong>You let retries route around the isolation.</strong> Cortex and Mimir document a failure mode where a query-frontend retries a crashing query (e.g., oomkiller trigger, panic, segv) against a fresh querier, so the crash works its way through the whole fleet. Both projects mitigate it with a forget-delay setting that pins retries to the same querier<sup><a href="#ref-5" title="Cortex. Shuffle Sharding. Cortex Documentation.">[5]</a></sup><sup><a href="#ref-6" title="Grafana Labs (2024). Configure Shuffle Sharding. Grafana Mimir Documentation.">[6]</a></sup>.</p>
+<p><strong>You shrink a stateful shard without a rollout plan.</strong> Route 53&rsquo;s name servers are stateless, so resizing a customer&rsquo;s shard costs nothing. Ingesters in Cortex and Mimir hold tenant data, so shrinking a shard too soon can silently return incomplete results. Both projects document a specific rollout order for changing shard size<sup><a href="#ref-5" title="Cortex. Shuffle Sharding. Cortex Documentation.">[5]</a></sup><sup><a href="#ref-6" title="Grafana Labs (2024). Configure Shuffle Sharding. Grafana Mimir Documentation.">[6]</a></sup>.</p>
+<h2 id="put-it-into-practice">Put it into practice</h2>
+<p>Examine your system the way Route 53 examined its fleet of name servers. If one bad request or one bad customer can take down a shard that serves a meaningful slice of the whole, that&rsquo;s a candidate for shuffle sharding. It shrinks your blast radius combinatorially instead of linearly.</p>
+<p>Ask what the maximum overlap is between any two tenants&rsquo; assignments, rather than the theoretical number of combinations available. Route 53&rsquo;s open source Infima library implements that bound directly instead of leaving it to random draws<sup><a href="#ref-3" title="MacCárthaigh, Colm (2019). Workload Isolation Using Shuffle-Sharding. Amazon Builders&#39; Library.">[3]</a></sup>.</p>
+<p>You&rsquo;ll reduce your blast radius for basically nothing. Route 53&rsquo;s original team proved it on a total infrastructure budget in the tens of thousands of dollars, versus the tens of millions for proper packet-scrubbing hardware<sup><a href="#ref-2" title="MacCárthaigh, Colm (2025). Comment on Donald Knuth&#39;s 2024 Christmas Lecture: Strong and Weak Components. Hacker News.">[2]</a></sup>.</p>
+<hr>
+<h2 id="references">References</h2>
+<ol class="references">
+  <li id="ref-1">Knuth, Donald E. (2005). <em>The Art of Computer Programming, Volume 4, Fascicle 3: Generating All Combinations and Partitions</em>. Addison-Wesley. <a href="https://www.informit.com/store/art-of-computer-programming-volume-4-fascicle-3-generating-9780201853940">https://www.informit.com/store/art-of-computer-programming-volume-4-fascicle-3-generating-9780201853940</a></li>
+  <li id="ref-2">MacCárthaigh, Colm (2025). Comment on "Donald Knuth's 2024 Christmas Lecture: Strong and Weak Components." Hacker News. <a href="https://news.ycombinator.com/item?id=42975315">https://news.ycombinator.com/item?id=42975315</a></li>
+  <li id="ref-3">MacCárthaigh, Colm (2019). "Workload Isolation Using Shuffle-Sharding." <em>Amazon Builders' Library</em>. <a href="https://d1.awsstatic.com/builderslibrary/pdfs/workload-isolation-using-shuffle-sharding.pdf">https://d1.awsstatic.com/builderslibrary/pdfs/workload-isolation-using-shuffle-sharding.pdf</a></li>
+  <li id="ref-4">MacCárthaigh, Colm. "shardcalc.py." GitHub Gist. <a href="https://gist.github.com/colmmacc/4a39a6416d2a58b6c70bc73027bea4dc/0cbe948c3b2e60289aed25f40e1a6a72dca2cec9">https://gist.github.com/colmmacc/4a39a6416d2a58b6c70bc73027bea4dc/0cbe948c3b2e60289aed25f40e1a6a72dca2cec9</a></li>
+  <li id="ref-5">Cortex. "Shuffle Sharding." <em>Cortex Documentation</em>. <a href="https://cortexmetrics.io/docs/guides/shuffle-sharding/">https://cortexmetrics.io/docs/guides/shuffle-sharding/</a></li>
+  <li id="ref-6">Grafana Labs (2024). "Configure Shuffle Sharding." <em>Grafana Mimir Documentation</em>. <a href="https://grafana.com/docs/mimir/latest/configure/configure-shuffle-sharding/">https://grafana.com/docs/mimir/latest/configure/configure-shuffle-sharding/</a></li>
+  <li id="ref-7">Kubernetes. "API Priority and Fairness." <em>Kubernetes Documentation</em>. <a href="https://kubernetes.io/docs/concepts/cluster-administration/flow-control/">https://kubernetes.io/docs/concepts/cluster-administration/flow-control/</a></li>
+  <li id="ref-8">Ludden, Chris, and Anthony Davis (2023). "Using Temporal at HashiCorp." <em>Replay 2023</em>. <a href="https://temporal.io/resources/on-demand/temporal-hashicorp">https://temporal.io/resources/on-demand/temporal-hashicorp</a></li>
+</ol>
+<hr>
+<h2 id="outtakes">Outtakes</h2>
+<p>MacCárthaigh describes &ldquo;recursive&rdquo; shuffle sharding. Shard a caller&rsquo;s caller too, so a misbehaving downstream client burns through only its own slice of the assigned shard (<a href="https://www.youtube.com/watch?v=xorjrw7Xu7w">MacCárthaigh, 2021</a>).</p>
+<p>MacCárthaigh noted that shuffle sharding applied to rate limits, resembles Stochastic Fair Blue, a fairness algorithm for stopping one flow from hogging a shared link (<a href="https://www.thefengs.com/wuchang/blue/41_2.PDF">Feng et al., 2001</a>).</p>
+<p>Infrastructure wasn&rsquo;t the only cost. Route 53 needed 2,000 anycast IP addresses for its virtual name servers, and had to register 512 domains to satisfy TLD glue-record requirements (<a href="https://news.ycombinator.com/item?id=42975315">MacCárthaigh, 2025</a>).</p>
+<p>Route 53 allocates each customer&rsquo;s four name servers from four independent stripes, one per TLD (co.uk (2LD actually), com, net, org). If one of those TLDs has a problem (e.g., TLD key-rollover mistake, DS/DNSKEY mismatch), only one of the four name servers is affected (<a href="https://news.ycombinator.com/item?id=42975315">MacCárthaigh, 2025</a>).</p>
+<hr>
+<h2 id="changelog">Changelog</h2>
+<p><strong>2026-09-06</strong> Initial release.</p>
+
+      <hr>
+      
+      <div class="related">
+
+<h3>Similar articles:</h3>
+<ul>
+	
+	<li><a href="/posts/two-generals-problem/">The Two Generals Problem</a></li>
+	
+	<li><a href="/posts/squirrel-threat-model/">The Squirrel Threat Model</a></li>
+	
+	<li><a href="/posts/remote-first/">Remote-First vs Remote-Friendly</a></li>
+	
+</ul>
+</div>
+      
+    </div>
+    
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p></p>
+    
+  </div>
+</section>
+
+
+
+
+
+</body>
+</html>
+

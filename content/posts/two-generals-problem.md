@@ -22,9 +22,9 @@ There is no way to end the loop. Send one more runner to confirm the confirmatio
 
 ## Gray's Proof
 
-Computer scientist Jim Gray named this scenario and provided its proof in a 1978 set of lecture notes on database operating systems, using it to show that guaranteeing coordination over an unreliable channel is impossible, even though getting close enough to certain just takes enough retries{{< cite 1 "Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag." >}}. His proof is short. Assume the shortest possible protocol that works, call it P, and ask what happens to its last message.
+Computer scientist Jim Gray named this scenario and proved it in a set of database lecture notes in 1978{{< cite 1 "Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag." >}}. Guaranteeing coordination over an unreliable channel is impossible, though enough retries get you close.
 
-If that message gets lost, either it wasn't actually necessary, or the general who needed it fails to act. If it wasn't necessary, a shorter protocol would have worked, contradicting the claim that P was shortest. So the last message has to matter, which means losing it breaks the protocol, which means P never really guaranteed anything{{< cite 1 "Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag." >}}.
+His proof is short. Assume the shortest possible protocol that works, call it P, and ask what happens to its last message. If that message gets lost, either it wasn't actually necessary, or the general who needed it fails to act. If it wasn't necessary, a shorter protocol would have worked, contradicting the claim that P was shortest. So the last message has to matter, which means losing it breaks the protocol, which means P never really guaranteed anything{{< cite 1 "Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag." >}}.
 
 "The generals paradox, which as you now see is not a paradox{{< cite 1 "Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag." >}}." A paradox contradicts itself, but this doesn't. Certainty over an unreliable channel is impossible, no matter how clever the protocol.
 
@@ -75,6 +75,8 @@ Next time a request hangs and the instinct is to add a retry and call it handled
 Three years before Gray gave the problem its name, Akkoyunlu, Ekanadham, and Huber proved the identical impossibility result in 1975, using two groups of gangsters instead of two armies ([Akkoyunlu et al., 1975](https://dl.acm.org/doi/10.1145/800213.806523)).
 
 In January 2007, Gray disappeared while sailing alone near San Francisco. Neither he nor his boat was ever found, and no message ever confirmed what happened ([NPR, 2007](https://www.npr.org/2007/02/04/7152514/computer-scientist-lost-at-sea-has-powerful-legacy)).
+
+Zeno's paradox looks structurally similar but resolves in the opposite direction. Both involve an infinite regress, one more runner, one more half-distance. Zeno's dissolves under calculus, the infinite steps sum to a finite distance, so the runner crosses the line. Gray's proof never resolves that way ([Huggett, 2024](https://plato.stanford.edu/entries/paradox-zeno/)).
 
 ---
 
