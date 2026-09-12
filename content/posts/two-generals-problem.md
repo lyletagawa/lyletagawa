@@ -6,7 +6,7 @@ lastmod: 2026-08-13
 summary: "The Two Generals Problem: neither general can ever confirm the other is ready to attack. Jim Gray proved it in 1978, and the same limit shapes how databases and networks handle failure."
 tags: ["distributed", "networking"]
 image: /images/two-generals-problem.jpg
-draft: false
+draft: true
 ---
 
 ![The Two Generals Problem: neither general can ever confirm the other is ready to attack. Jim Gray proved it in 1978, and the same limit shapes how databases and networks handle failure.](/images/two-generals-problem.jpg)
@@ -22,41 +22,41 @@ There is no way to end the loop. Send one more runner to confirm the confirmatio
 
 ## Gray's Proof
 
-Computer scientist Jim Gray named this scenario and proved it in a set of database lecture notes in 1978{{< cite 1 "Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag." >}}. Guaranteeing coordination over an unreliable channel is impossible, though enough retries get you close.
+Jim Gray named this scenario and proved it in a set of database lecture notes in 1978{{< cite 1 "Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag." >}}. Guaranteeing coordination over an unreliable channel is impossible.
 
-His proof is short. Assume the shortest possible protocol that works, call it P, and ask what happens to its last message. If that message gets lost, either it wasn't actually necessary, or the general who needed it fails to act. If it wasn't necessary, a shorter protocol would have worked, contradicting the claim that P was shortest. So the last message has to matter, which means losing it breaks the protocol, which means P never really guaranteed anything{{< cite 1 "Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag." >}}.
+His proof is short. Assume the shortest possible protocol that works, call it P, and ask what happens to its last message. If that message gets lost, either it wasn't necessary, or the general who needed it fails to act. Had it not been necessary, a shorter protocol would have worked, contradicting the claim that P was shortest. The last message has to matter. Losing it breaks the protocol, so P never guaranteed anything{{< cite 1 "Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag." >}}.
 
-"The generals paradox, which as you now see is not a paradox{{< cite 1 "Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag." >}}." A paradox contradicts itself, but this doesn't. Certainty over an unreliable channel is impossible, no matter how clever the protocol.
+Gray called it "the generals paradox, which as you now see is not a paradox"{{< cite 1 "Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag." >}}. A paradox contradicts itself; this doesn't, no matter how clever the protocol gets.
 
 ## Not The Byzantine Generals Problem
 
 A second, unrelated generals problem gets confused with this one. In 1982, Leslie Lamport, Robert Shostak, and Marshall Pease published the Byzantine Generals Problem, where multiple generals have to agree on a battle plan despite some of the messengers, or some of the generals themselves, being traitors who send contradictory orders on purpose{{< cite 2 "Lamport, Leslie, Robert Shostak, and Marshall Pease (1982). The Byzantine Generals Problem. ACM Transactions on Programming Languages and Systems, 4(3)." >}}.
 
-The Two Generals Problem is an unreliable channel between two cooperating parties, where messages just sometimes vanish. The Byzantine Generals Problem is unreliable parties on a channel that works fine, where messages arrive but might be lies. Consensus algorithms built to tolerate malicious or arbitrarily broken nodes, the kind behind blockchains, solve the Byzantine version. A retry loop and a timeout solve the Two Generals version.
+The Two Generals Problem is an unreliable channel between two cooperating parties, where messages just sometimes vanish. Byzantine generals face the opposite problem, a channel that works fine but carries messages from parties who might be lying. Consensus algorithms built to tolerate malicious or arbitrarily broken nodes, the kind behind blockchains, solve the Byzantine version. The Two Generals version doesn't need anything that heavy. A retry loop and a timeout are enough.
 
 ## The Two-Phase Commit Answer
 
-Gray followed the proof with an answer, the Two-Phase Commit Protocol, the mechanism that lets databases coordinate a commit across multiple machines despite the same failure mode{{< cite 1 "Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag." >}}. It works by dropping the proof's core assumption, a fixed number of messages agreed on in advance. Instead, it promises to keep retrying, with a coordinator that remembers the outcome and asks again until every participant confirms{{< cite 1 "Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag." >}}.
+Gray followed the proof with an answer. He called it the Two-Phase Commit Protocol, the mechanism that lets databases coordinate a commit across multiple machines despite the same failure mode{{< cite 1 "Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag." >}}. It works by dropping the proof's core assumption, a fixed number of messages agreed on in advance, and retrying instead until every participant confirms{{< cite 1 "Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag." >}}.
 
-A coordinator asks every participant whether it can commit. Each votes yes or no, then the coordinator records the final decision and keeps broadcasting it until everyone acknowledges. Gray illustrated the stakes using a computer in Tokyo and a cash machine in Fuessen, Germany. Both have to agree before the machine hands over a million marks, or either the bank loses money or a customer walks away without cash{{< cite 1 "Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag." >}}.
+A coordinator asks every participant whether it can commit, and each votes yes or no. The coordinator then records the final decision and keeps broadcasting it until everyone acknowledges. Gray illustrated the stakes using a computer in Tokyo and a cash machine in Fuessen, Germany, where both sides have to agree before the machine hands over a million marks, or either the bank loses money or a customer walks away without cash{{< cite 1 "Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag." >}}.
 
 Two-Phase Commit can stall indefinitely if the coordinator crashes at the worst moment, leaving participants unable to safely commit or abort on their own. That moment is rare enough for teams to build reliable systems around, but without an actual guarantee.
 
 ## Where People Get This Wrong
 
-TCP's three-way handshake, SYN, SYN-ACK, ACK, looks like it settles whether both sides are ready{{< cite 3 "Postel, Jon (1981). Transmission Control Protocol. RFC 793." >}}. It carries the identical last-message problem, since that final ACK can get lost the same way a general's runner can. TCP tolerates the rare failure instead of guaranteeing against it.
+TCP's three-way handshake, SYN, SYN-ACK, ACK, looks like it settles whether both sides are ready{{< cite 3 "Postel, Jon (1981). Transmission Control Protocol. RFC 793." >}}. It carries the identical last-message problem, since that final ACK can get lost the same way a general's runner can, and TCP just tolerates that rare failure rather than guaranteeing against it.
 
-Enough retries do not add up to certainty. Retrying lowers the odds of failure, but it never reaches zero. Each additional confirmation is another message that can be lost{{< cite 1 "Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag." >}}.
+Enough retries do not add up to certainty, because the odds of failure only shrink and never reach zero, and each additional confirmation is itself another message that can be lost{{< cite 1 "Gray, Jim N. (1978). Notes on Data Base Operating Systems. In Operating Systems: An Advanced Course. Springer-Verlag." >}}.
 
-A team chasing five nines treats an unacknowledged request as an engineering failure rather than a property of the channel. Networks fail no matter how much engineering goes into them. The fix is a system that stays correct when they do.
+A team chasing five nines treats an unacknowledged request as an engineering failure rather than a property of the channel, even though networks fail no matter how much engineering goes into them. A system that stays correct anyway is the only real fix.
 
 ## What To Do About It
 
-Stop designing as if certainty is possible, and design for its absence instead. Make operations idempotent, so a duplicate retry produces the same result as the original instead of double-charging a customer or double-shipping an order. Add a reconciliation step that checks actual state later instead of trusting the last message sent, the way a bank statement catches a transfer that never confirmed. Give every request an identifier so a retry reads as the same request.
+Stop designing as if certainty is possible; design for its absence. Make operations idempotent, so a duplicate retry produces the same result as the original and never double-charges a customer or double-ships an order. A reconciliation step that checks actual state later catches what trusting the last message sent would miss, the way a bank statement catches a transfer that never confirmed. Every request needs an identifier, so a retry reads as the same request.
 
-Two-Phase Commit's buys reliability by adding a coordinator and giving up a fixed message count, and it still has a failure mode where a crashed coordinator leaves everyone else stuck. Nothing closes every gap. Instead, fail smaller, less often, and in ways already planned for.
+Two-Phase Commit buys reliability by adding a coordinator and giving up a fixed message count, and it still has a failure mode where a crashed coordinator leaves everyone else stuck. Nothing closes every gap. Aim to fail smaller, less often, and in ways already planned for.
 
-Next time a request hangs and the instinct is to add a retry and call it handled, ask whether the acknowledgment might be the thing that got lost this time, instead of the request. That's the actual design problem, and no amount of retrying resolves it.
+Next time a request hangs and the instinct is to add a retry and call it handled, ask whether the acknowledgment, rather than the request, is the thing that actually got lost. That's the actual design problem, and no amount of retrying resolves it.
 
 ---
 

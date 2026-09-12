@@ -14,67 +14,67 @@ draft: false
 
 ## Bloom Filter
 
-Every time a Firefox user visits a TLS-protected website, the browser checks whether that site's certificate has been revoked. A revoked certificate means someone other than the site may now hold the credentials to impersonate it. The traditional approach queries the certificate authority (CA) on every connection, a network call that leaks which sites you visit and fails if the CA's server is unreachable.
+Every time a Firefox user visits a TLS-protected website, the browser checks whether that site's certificate has been revoked. A revoked certificate means that the site may be impersonated. The traditional approach queries the certificate authority (CA) or OCSP (Online Certificate Status Protocol) server every time, a wasteful roundtrip that also leaks your site visits.
 
-Mozilla ships a compressed representation of every revoked certificate on the internet directly to Firefox. On every HTTP/TLS connection, Firefox checks the certificate's revocation status against the local copy. If the result is "definitely not revoked," the connection proceeds. If the result is "might be revoked," Firefox falls back to a live query. The fallback happens rarely.
+CRLite (Certificate Revocation Lite){{< cite 1 "Mozilla (2025). CRLite: Fast, Private, and Comprehensive Certificate Revocation Checking in Firefox. Mozilla Hacks." >}} was developed by Mozilla to efficiently manage and compress revocation information, initially implemented as a cascade of Bloom filters with each layer handling the false positives of the previous one.
 
-The local data structure, called CRLite, was{{< cite 1 "Mozilla (2025). CRLite: Fast, Private, and Comprehensive Certificate Revocation Checking in Firefox. Mozilla Hacks." >}} implemented as a cascade of Bloom filters, each layer handling the false positives of the previous one.
+CRLite is shipped to Firefox, so on every HTTP/TLS connection, Firefox checks the certificate's revocation status against the local copy. A result of "definitely not revoked" lets the connection proceed, and anything flagged "might be revoked" triggers a live query instead.
 
-## What a Bloom Filter Does
+## What a Bloom Filter does
 
-A Bloom filter is a probabilistic data structure for testing set membership. Burton Howard Bloom invented it in 1970 to check membership without storing the members{{< cite 2 "Bloom, Burton H. (1970). Space/Time Trade-offs in Hash Coding with Allowable Errors. Communications of the ACM, 13(7): 422-426." >}}.
+A Bloom filter is a probabilistic data structure for testing set membership. Burton Howard Bloom invented it in 1970 to check membership without having to store the elements themselves{{< cite 2 "Bloom, Burton H. (1970). Space/Time Trade-offs in Hash Coding with Allowable Errors. Communications of the ACM, 13(7): 422-426." >}}.
 
-The structure is a bit array, all initialized to zero. Adding an item means running it through k hash functions, each producing an index into the array, and setting those k bits to 1. Testing an item means running it through the same k hash functions and checking those k bits. If any bit is 0, the item is definitely not in the set. If all k bits are 1, the item is probably in the set.
+Adding x sets A[hᵢ(x)] = 1 for each i from 1 to k, and querying x ANDs the bits at those same k positions.
 
-Multiple items can hash to overlapping positions. When all of a tested item's bits are already 1, those bits might have been set by other items. That's a false positive. But false negatives are impossible. If an item was added, its bits were set, and the test always returns positive.
+The structure is a bit array, all initialized to zero. To add an item (x), run it through k hash functions, each producing an index into the array. Set those k bits to 1. When querying x, any unset bit means the item isn't present. If all k bits are set, the item is probably present.
 
-The filter guarantees absence but only approximates presence, and every use case depends on that asymmetry.
+When x's bits are all set, those bits might've been set by other items, which results in a false positive. But false negatives are impossible. If an item is present, its bits are set, and the query always returns positive.
 
-Adding and testing both run in constant time, O(k). Each executes k hash functions, regardless of set size.
+The Bloom filter guarantees absence but only approximates presence.
 
-A hash set of one million strings needs 50 to 100 megabytes. A Bloom filter for the same set needs a few megabytes{{< cite 3 "Broder, Andrei and Michael Mitzenmacher (2004). Network Applications of Bloom Filters: A Survey. Internet Mathematics, 1(4): 485-509." >}}, at the cost of occasional false positives.
+Adding and querying run in constant time, O(k), since they both execute exactly k hash functions regardless of the set size.
 
-## Tune the False Positive Rate
+A hash set of one million 50-byte (rough size of a CRLite certificate identifier) items is about 100 MB. A Bloom filter for the same set is 1.25 MB{{< cite 3 "Broder, Andrei and Michael Mitzenmacher (2004). Network Applications of Bloom Filters: A Survey. Internet Mathematics, 1(4): 485-509." >}}.
 
-The false positive rate depends on bit array size, hash function count, and items added{{< cite 3 "Broder, Andrei and Michael Mitzenmacher (2004). Network Applications of Bloom Filters: A Survey. Internet Mathematics, 1(4): 485-509." >}}.
+## Tune the false positive rate
 
-At 10 bits per item, the false positive rate is around 1%, dropping to about 10% at 5 bits and below 0.1% at 15. More space buys lower error. The calculator at [hur.st/bloomfilter](https://hur.st/bloomfilter/) works backward from a target error rate and item count to the bit array size and hash function count you need.
+The false positive rate depends on array size, hash function count, and items added{{< cite 3 "Broder, Andrei and Michael Mitzenmacher (2004). Network Applications of Bloom Filters: A Survey. Internet Mathematics, 1(4): 485-509." >}}.
 
-Mozilla's CRLite filter encodes the revocation status of nearly a billion certificates in a 4 megabyte snapshot shipped to Firefox every 45 days{{< cite 4 "Larisch, James, et al. (2025). Clubcards for the WebPKI: Smaller Certificate Revocation Tests in Theory and Practice. IACR ePrint 2025/610." >}}{{< cite 1 "Mozilla (2025). CRLite: Fast, Private, and Comprehensive Certificate Revocation Checking in Firefox. Mozilla Hacks." >}}. The fallback to a live query happens so infrequently that users barely notice.
+At 10 bits per item, the false positive rate is around 1%. The rate rises to 10% at 5 bits and drops below 0.1% at 15 bits. The calculator at [hur.st/bloomfilter](https://hur.st/bloomfilter/) works from your target error rate and item count, and gives you the array size and hash function count you need.
 
-Use the Bloom filter to rule out definite negatives, then invoke the expensive operation only for the remaining candidates. The space budget controls how many false candidates get through.
+Mozilla's CRLite cascade of Bloom filters covered the revocation status of nearly a billion certificates in a 14.6 MB snapshot, shipped to Firefox every 45 days{{< cite 1 "Mozilla (2025). CRLite: Fast, Private, and Comprehensive Certificate Revocation Checking in Firefox. Mozilla Hacks." >}}. Aside: in 2025, Mozilla replaced it with ribbon filters, further reducing the size to 6.7 MB{{< cite 4 "Larisch, James, et al. (2025). Clubcards for the WebPKI: Smaller Certificate Revocation Tests in Theory and Practice. IACR ePrint 2025/610." >}}.
 
-## Where This Breaks Down
+## Where this breaks down
 
-Removing items breaks the guarantee. Setting bits to 1 is irreversible in a standard filter. Unsetting bits for a removed item could corrupt the signals for other items sharing those positions. Counting Bloom filters solve this by storing a counter per position instead of a single bit, using more memory.
+You can't remove items from a standard Bloom filter. Unsetting a bit could corrupt other items sharing that position. Counting Bloom filters fix this with a counter per position instead of just a single bit.
 
-The false positive rate rises as you add more items. The filter is designed for an expected maximum. Exceeding that fills the array and pushes the error rate above the design threshold. Set parameters for lifetime load. Current load is the wrong number to design around.
+The false positive rate rises as you add more items. The filter is designed for an expected maximum, and exceeding it pushes the error rate above the design threshold. Set parameters for lifetime, not current load.
 
-The filter doesn't retain its contents. The filter records whether items might be present. It discards the items themselves, so enumerating what was added is impossible. To retrieve members, keep a separate data structure alongside the filter.
+The filter discards the items themselves, so enumerating what was added is impossible. To retrieve members, keep a separate data structure alongside the filter.
 
-False positives need a fallback to stay safe. Firefox's CRLite works because a false positive only triggers a live query. It's always treated as provisional. If the filter alone gates access to something security-critical, a false positive is an exploit. The structure requires a second gate.
+False positives need a fallback mechanism. Firefox's CRLite works because a false positive triggers a live query to the CA (or OCSP), which is the original (slow) mechanism.
 
-## Put It Into Practice
+## Put it into practice
 
-Use a Bloom filter when three conditions hold. The "no" case is common and expensive to verify, a false positive triggers a recoverable fallback, and the full set is too large to store.
+Using a Bloom filter needs three conditions: the full dataset is "large," a negative lookup is common and expensive to verify, and a fallback mechanism is present for false positives.
 
-Databases reach for them when most lookups come back empty. Apache Cassandra keeps a Bloom filter per SSTable (Sorted String Table){{< cite 5 "Apache Cassandra (2024). Bloom Filters. Apache Cassandra Documentation." >}}. If the filter says "definitely not here," Cassandra skips the data file entirely. One extra disk read in a hundred is acceptable. One per lookup is not. Deduplication pipelines use them to avoid reprocessing items already handled. Recommendation systems use them to skip content users have already seen. Medium's reading history per user is too large to query on every request, so a Bloom filter answers "definitely not read" in microseconds{{< cite 6 "Talbot, Josh (2015). What are Bloom filters? Medium Engineering Blog." >}}. A false positive occasionally withholds an unread article. An acceptable miss rate for the savings.
+Databases benefit from a Bloom filter when most lookups come back empty. Apache Cassandra keeps a Bloom filter per SSTable (Sorted String Table){{< cite 5 "Apache Cassandra (2024). Bloom Filters. Apache Cassandra Documentation." >}}. If the filter says "definitely not here," Cassandra can skip the data file and avoid any disk I/O for that SSTable.
 
-Size the filter for maximum expected load. A filter designed for one million items at 1% error reaches 5% error when you load two million items. Capacity is locked in at creation time. When a filter fills past its design threshold, rebuild it.
+Deduplication pipelines use them to avoid reprocessing items already handled.
 
-## What This Doesn't Cover
+Recommendation systems skip content users have already seen. Medium's reading history per user is too large to query for every request, but a Bloom filter answers "definitely not read" in microseconds{{< cite 6 "Talbot, Josh (2015). What are Bloom filters? Medium Engineering Blog." >}}. A false positive occasionally hides an unread article, which was deemed an acceptable risk.
 
-**The probability math.** Broder and Mitzenmacher derive the false positive rate as a formula. Given m bits, n items, and k hash functions, the rate is (1 - e^(-kn/m))^k, and the optimal k is (m/n) × ln(2){{< cite 3 "Broder, Andrei and Michael Mitzenmacher (2004). Network Applications of Bloom Filters: A Survey. Internet Mathematics, 1(4): 485-509." >}}. The numbers above come from that formula.
+Capacity is fixed at creation and should be sized for the filter's maximum expected load. A filter built for one million items at 1% error climbs to 5% error at two million. When a filter overflows past its design threshold, it should be rebuilt.
 
-**Estimating item count.** Given how many bits are set to 1, you can estimate how many items were inserted without storing a separate counter. The formula follows from the same probability math. Given X bits currently set, n* ≈ -(m/k) × ln(1 - X/m){{< cite 3 "Broder, Andrei and Michael Mitzenmacher (2004). Network Applications of Bloom Filters: A Survey. Internet Mathematics, 1(4): 485-509." >}}. Useful for monitoring how close a filter is to its design threshold.
+## What we left out
 
-**Cuckoo filters.** A cuckoo filter achieves similar false positive rates with less memory and supports deletion natively{{< cite 7 "Fan, Bin et al. (2014). Cuckoo Filter: Practically Better Than Bloom. CoNEXT '14." >}}. Instead of a bit array, it stores short fingerprints in a hash table with two candidate buckets per item. Deleting an item means removing its fingerprint instead of unsetting shared bits.
+The probability math. Broder and Mitzenmacher derive the false positive rate as a formula. With m bits, n items, and k hash functions, the rate is (1 - e^(-kn/m))^k, and the optimal k is (m/n) × ln(2){{< cite 3 "Broder, Andrei and Michael Mitzenmacher (2004). Network Applications of Bloom Filters: A Survey. Internet Mathematics, 1(4): 485-509." >}}. The numbers above come from that formula.
 
-**Ribbon filters.** A ribbon filter encodes set membership as a system of binary linear equations, approaching the theoretical minimum of log₂(1/ε) bits per item, roughly 30% smaller than a Bloom filter at the same false positive rate. The tradeoff is that construction requires solving the system in batch. Ribbon filters are static, locked to the set they were built from.
+Estimating item count. You can estimate how many items were inserted just from how many bits are set to 1 (without maintaining a separate counter), useful for monitoring how close a filter is to its design threshold. With X bits currently set, n* ≈ -(m/k) × ln(1 - X/m){{< cite 3 "Broder, Andrei and Michael Mitzenmacher (2004). Network Applications of Bloom Filters: A Survey. Internet Mathematics, 1(4): 485-509." >}}. 
 
-Firefox replaced CRLite's Bloom filters with ribbon filters in 2025{{< cite 1 "Mozilla (2025). CRLite: Fast, Private, and Comprehensive Certificate Revocation Checking in Firefox. Mozilla Hacks." >}}. CRLite was already built in batch from Certificate Transparency logs, so the static-only constraint fit fine. The 30% size reduction was what mattered. The filter ships to every Firefox user's browser every 45 days. When the set is known upfront and space is tight, ribbon filters are the better choice. When items arrive incrementally and the full set stays unknown in advance, Bloom filters win.
+A cuckoo filter achieves a similar false positive rate while supporting deletion{{< cite 7 "Fan, Bin et al. (2014). Cuckoo Filter: Practically Better Than Bloom. CoNEXT '14." >}}. Instead of a bit array, it stores short fingerprints in a hash table with two candidate buckets per item. Deleting an item removes its fingerprint instead of unsetting shared bits.
 
-**The sketch family.** Bloom filters belong to a family of probabilistic data structures, each making a different tradeoff between memory and error. HyperLogLog estimates how many distinct items are in a stream{{< cite 8 "Flajolet, Philippe et al. (2007). HyperLogLog: The Analysis of a Near-Optimal Cardinality Estimation Algorithm. AOFA '07." >}}, and count-min sketch estimates how often each item appears{{< cite 9 "Cormode, Graham and S. Muthukrishnan (2005). An Improved Data Stream Summary: The Count-Min Sketch and Its Applications. Journal of Algorithms, 55(1): 58-75." >}}.
+Firefox replaced CRLite's Bloom filters with ribbon filters in 2025{{< cite 1 "Mozilla (2025). CRLite: Fast, Private, and Comprehensive Certificate Revocation Checking in Firefox. Mozilla Hacks." >}}. Ribbon filters approach the theoretical minimum of log₂(1/p) bits per item for a given false positive rate p, roughly 30% smaller than a Bloom filter at the same rate{{< cite 4 "Larisch, James, et al. (2025). Clubcards for the WebPKI: Smaller Certificate Revocation Tests in Theory and Practice. IACR ePrint 2025/610." >}}. The tradeoff is that ribbon filters are immutable, but CRLite was already static, rebuilt from Certificate Transparency logs and shipped to clients every 45 days.
 
 ---
 
@@ -88,25 +88,24 @@ Firefox replaced CRLite's Bloom filters with ribbon filters in 2025{{< cite 1 "M
   <li id="ref-5">Apache Cassandra (2024). "Bloom Filters." Apache Cassandra Documentation. <a href="https://cassandra.apache.org/doc/latest/cassandra/managing/operating/bloom_filters.html">https://cassandra.apache.org/doc/latest/cassandra/managing/operating/bloom_filters.html</a></li>
   <li id="ref-6">Talbot, Josh (2015). "What are Bloom filters?" Medium Engineering Blog. <a href="https://medium.com/blog/what-are-bloom-filters-1ec2a50c68ff">https://medium.com/blog/what-are-bloom-filters-1ec2a50c68ff</a></li>
   <li id="ref-7">Fan, Bin, Dave Andersen, Michael Kaminsky, and Michael Mitzenmacher (2014). "Cuckoo Filter: Practically Better Than Bloom." <em>CoNEXT '14</em>. <a href="https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf">https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf</a></li>
-  <li id="ref-8">Flajolet, Philippe, Éric Fusy, Olivier Gandouet, and Frédéric Meunier (2007). "HyperLogLog: The Analysis of a Near-Optimal Cardinality Estimation Algorithm." <em>AOFA '07</em>. <a href="https://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf">https://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf</a></li>
-  <li id="ref-9">Cormode, Graham and S. Muthukrishnan (2005). "An Improved Data Stream Summary: The Count-Min Sketch and Its Applications." <em>Journal of Algorithms</em>, 55(1): 58-75. <a href="https://doi.org/10.1016/j.jalgor.2003.12.001">https://doi.org/10.1016/j.jalgor.2003.12.001</a></li>
 </ol>
 
 ---
 
 ## Outtakes
 
-**The one-hit wonder problem.** Objects fetched once and never again are called "one-hit wonders," polluting the cache. Akamai fixed this with a Bloom filter, tracking first-time requests and promoting objects to the main cache only after a second fetch. Cache pollution dropped. ([Maggs and Sitaraman, 2015](https://dl.acm.org/doi/10.1145/2805789.2805800))
+For web edge caches, resources requested once and only once are a waste of space. Akamai called them "one-hit wonders" and removed them by using a Bloom filter to track first-time requests and added them to the cache only after a second request. ([Maggs and Sitaraman, 2015](https://dl.acm.org/doi/10.1145/2805789.2805800))
 
-**Google Bigtable.** Bigtable uses Bloom filters to skip disk reads for missing rows. Each SSTable can have a filter attached. A read for a missing key stops before disk. The original paper calls out this optimization explicitly. ([Chang et al., 2006](https://research.google/pubs/pub27898/))
+Google Bigtable uses Bloom filters to skip disk reads for missing rows. ([Chang et al., 2006](https://research.google/pubs/pub27898/))
 
-**Git.** Since git 2.27, every `git log -- <path>` query runs against per-commit Bloom filters. Each commit stores a filter of which file paths it touched, so git skips commits that definitely didn't change the path you're querying. ([Singh, 2020](https://devblogs.microsoft.com/devops/updates-to-the-git-commit-graph-feature/))
+Since git 2.27, every `git log -- <path>` query runs against per-commit Bloom filters. Each commit stores a filter of which file paths it touched, so git skips commits that definitely didn't change. ([Singh, 2020](https://devblogs.microsoft.com/devops/updates-to-the-git-commit-graph-feature/))
 
-**Bitcoin SPV.** Light wallets, using simplified payment verification (SPV), skip the full blockchain download. They send a Bloom filter to full nodes, describing which transactions to return. The false positives are intentional. They add noise that hides which addresses the wallet actually owns. The error rate is the privacy mechanism. ([BIP 37, 2012](https://github.com/bitcoin/bips/blob/master/bip-0037.mediawiki))
+A Bitcoin wallet querying for its transactions would reveal their addresses, a critical privacy failure. A Bloom filter hides that by sending a filter loose enough to match many addresses, so the full node can't tell which addresses are theirs. ([BIP 37, 2012](https://github.com/bitcoin/bips/blob/master/bip-0037.mediawiki))
 
 ---
 
 ## Changelog
 
+**2026-09-12** Dropped the HyperLogLog/count-min-sketch aside.  
 **2026-07-19** Fixed citation numbering and removed an uncited reference.  
 **2026-06-26** Initial draft.  

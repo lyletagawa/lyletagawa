@@ -94,15 +94,24 @@ Author a new Hugo blog post or edit an existing one. Follow all rules below prec
 - The hero image alt text must be the frontmatter `summary` value verbatim: `![{summary text}](image-url)`.
 - Never include tracking parameters in URLs: strip `utm_source=`, `utm_medium=`, `utm_campaign=`, `utm_term=`, `utm_content=`, and `referrer=` query arguments before using any URL.
 - Avoid patterns that read as AI-generated:
+  - Uniform sentence rhythm: two or more sentences in a row with the same length and shape (short subject-verb-object declaratives, back to back, with no variation) reads flat and mechanical. This includes consecutive sentences that open with the same word or clause type (e.g., two sentences in a row both starting with "If...") — vary the opener, not just the length. Deliberately mix short, punchy sentences with longer ones that carry a subordinate clause, an aside, or a qualifier. This is a craft principle, not a detector-evasion tactic — the goal is prose with natural variance in rhythm, the same variance human writing has anyway, not passing a specific tool's score.
+  - The chained "which means" connector: stacking "which means X, which means Y, which means Z" to walk a reader through a chain of implications. State the conclusion directly, or use "so"/"therefore," or start a new sentence — don't chain the same connector twice in a row.
+  - The templated compare-and-contrast pair: explaining two related concepts by reusing the exact same sentence template twice in a row (e.g., "X is A, where B. Y is C, where D."), especially when a second matched pair immediately follows the first (definitions, then solutions, in the same twin-template shape). Vary the sentence structure between the two items instead of pouring different content into an identical mold.
+  - Stacked appositive renaming: introducing one thing through a chain of appositives that each rename it again ("an answer, the X Protocol, the mechanism that..."). State it once, by name, and let its definition be its own sentence instead of layering two or three descriptions into one.
+  - Re-describing the same mechanism across adjacent paragraphs in overlapping language instead of moving the explanation forward. If a second paragraph covers ground the first one already covered, give it a genuinely new angle (a concrete example, a consequence, a new detail) rather than restating the same steps in slightly different words.
+  - The templated paragraph, repeated: three or more consecutive paragraphs that each follow the identical internal shape (a claim, then a reason or mechanism, then a short pithy reframe sentence as the closer). This is the paragraph-level version of the templated compare-and-contrast pair above. Vary paragraph length and structure across a section — not every paragraph needs the same claim/reason/reframe mold, or even the same number of sentences.
+  - Over-relying on a single connector word: reusing the same transition or contrast word (e.g., "instead," "instead of," "same") to do all the connective work across a passage. If a passage needs several contrasts or consequences, vary the connector — "rather than," a semicolon, a new sentence, a positive reframe that needs no connector at all — instead of running one word through every instance.
   - Excessive parallelism in bullet lists.
   - Transitions that summarize what was just said.
-  - Conclusions that restate the introduction verbatim.
+  - Conclusions that restate the introduction, whether verbatim or in close paraphrase — regenerating your own claim in slightly different words has the same flattening effect as repeating it outright.
   - Overly formal academic language.
   - The "it's not X, it's Y" reframe construction, including variants like "X, not Y" and "not X, but Y."
   - The "don't verb it, verb it" construction.
   - The "the X is real, and/not..." construction.
   - The trailing significance clause: a sentence ending in "...reflecting the growing need for," "...highlighting the importance of," or "...paving the way for future developments," instead of showing why something matters with specifics. Cut these entirely rather than trimming them.
+  - The announced-significance lead-in: "And here's why that matters," "Here's the interesting part," "This is where it gets interesting," or any variant that promises significance instead of just stating it. State the point directly instead of narrating that a point is coming.
   - Generic importance inflation: not everything is "a pivotal moment" or "a critical juncture." Describe things accurately.
+  - Exclamation marks used for manufactured enthusiasm rather than an actual exclamation (e.g. a quoted outburst). Default to periods.
   - Formulaic openings and closings: never open with "In today's..." or close with "In conclusion" or "In summary."
 
 **Tone and humor:**

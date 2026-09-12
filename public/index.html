@@ -114,36 +114,7 @@
       <h6 class="subtitle is-6 date" style="line-height:0em;" >Sep. 6, 2026 &middot; 5 min read</h6>
 
       <div class="content">
-        Shuffle sharding turns Route 53&rsquo;s 2,048 name servers into 730 billion possible four-server combinations instead of 512 fixed groups, without adding a single machine. The isolation comes from combinatorics alone.
-        
-      </div>
-    </article>
-    
-    <article>
-      <h1 class="title"><a href="https://lyletagawa.com/posts/two-generals-problem/">The Two Generals Problem
-
-  
-    
-  
-</a></h1>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-        
-<a class="subtitle is-6" href="/tags/distributed/">#distributed</a>
-
-
-
-  
-  | <a class="subtitle is-6" href="/tags/networking/">#networking</a>
-  
-
-
-        
-      </div>
-      <h6 class="subtitle is-6 date" style="line-height:0em;" >Aug. 13, 2026 &middot; 4 min read</h6>
-
-      <div class="content">
-        The Two Generals Problem: neither general can ever confirm the other is ready to attack. Jim Gray proved it in 1978, and the same limit shapes how databases and networks handle failure.
+        Why does Route 53 give your hosted zone four seemingly random name servers instead of the same ones everyone else gets? There are 2,048 of them, arranged into 730 billion possible combinations. That&rsquo;s what keeps another customer&rsquo;s failure domain separate from yours.
         
       </div>
     </article>
@@ -171,7 +142,7 @@
 
         
       </div>
-      <h6 class="subtitle is-6 date" style="line-height:0em;" >Aug. 2, 2026 &middot; 7 min read</h6>
+      <h6 class="subtitle is-6 date" style="line-height:0em;" >Aug. 2, 2026 &middot; 6 min read</h6>
 
       <div class="content">
         Squirrels have shut down Nasdaq trading twice. Beavers, cows, and sharks have taken down networks too, but misconfiguration, sabotage, and copper theft cause far more damage than any animal ever has.
@@ -180,100 +151,7 @@
     </article>
     
     <article>
-      <h1 class="title"><a href="https://lyletagawa.com/posts/luck/">Luck
-
-  
-    
-  
-</a></h1>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-        
-<a class="subtitle is-6" href="/tags/chance/">#chance</a>
-
-
-
-  
-  | <a class="subtitle is-6" href="/tags/bias/">#bias</a>
-  
-  | <a class="subtitle is-6" href="/tags/humility/">#humility</a>
-  
-
-
-        
-      </div>
-      <h6 class="subtitle is-6 date" style="line-height:0em;" >Jul. 26, 2026 &middot; 4 min read</h6>
-
-      <div class="content">
-        Luck decides more than most are willing to admit. Hard work and grit determine how ready you are for it.
-        
-      </div>
-    </article>
-    
-    <article>
-      <h1 class="title"><a href="https://lyletagawa.com/posts/hyrums-law/">Hyrum&#39;s Law
-
-  
-    
-  
-</a></h1>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-        
-<a class="subtitle is-6" href="/tags/api/">#api</a>
-
-
-
-  
-  | <a class="subtitle is-6" href="/tags/architecture/">#architecture</a>
-  
-  | <a class="subtitle is-6" href="/tags/compatibility/">#compatibility</a>
-  
-
-
-        
-      </div>
-      <h6 class="subtitle is-6 date" style="line-height:0em;" >Jul. 19, 2026 &middot; 5 min read</h6>
-
-      <div class="content">
-        Hyrum&rsquo;s Law says that with enough users, every observable behavior becomes a depended-upon feature. Your implementation details become your API contract, regardless of documentation or intent.
-        
-      </div>
-    </article>
-    
-    <article>
-      <h1 class="title"><a href="https://lyletagawa.com/posts/functioning-as-designed/">Functioning As Designed
-
-  
-    
-  
-</a></h1>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-        
-<a class="subtitle is-6" href="/tags/safety/">#safety</a>
-
-
-
-  
-  | <a class="subtitle is-6" href="/tags/systems/">#systems</a>
-  
-  | <a class="subtitle is-6" href="/tags/complexity/">#complexity</a>
-  
-
-
-        
-      </div>
-      <h6 class="subtitle is-6 date" style="line-height:0em;" >Jul. 9, 2026 &middot; 6 min read</h6>
-
-      <div class="content">
-        Traditional accident models assume every failure traces back to a broken part. STAMP treats safety as a control problem instead, which explains disasters where every component worked as designed.
-        
-      </div>
-    </article>
-    
-    <article>
-      <h1 class="title"><a href="https://lyletagawa.com/posts/tcp-congestion-control/">From Reno to BBR
+      <h1 class="title"><a href="https://lyletagawa.com/posts/tcp-congestion-control/">From Tahoe to BBR
 
   
     
@@ -295,10 +173,10 @@
 
         
       </div>
-      <h6 class="subtitle is-6 date" style="line-height:0em;" >Jul. 3, 2026 &middot; 6 min read</h6>
+      <h6 class="subtitle is-6 date" style="line-height:0em;" >Jul. 3, 2026 &middot; 4 min read</h6>
 
       <div class="content">
-        In 1986, a network slowdown forced Van Jacobson to invent TCP congestion control. Reno, CUBIC, and BBR mark three different eras of solving that problem.
+        In 1986, a network slowdown forced Van Jacobson to invent TCP congestion control. Tahoe/Reno, CUBIC, and BBR mark three different eras of solving that problem.
         
       </div>
     </article>
@@ -324,7 +202,7 @@
 
         
       </div>
-      <h6 class="subtitle is-6 date" style="line-height:0em;" >Jun. 26, 2026 &middot; 7 min read</h6>
+      <h6 class="subtitle is-6 date" style="line-height:0em;" >Jun. 26, 2026 &middot; 5 min read</h6>
 
       <div class="content">
         A Bloom filter checks whether something belongs to a set without storing the set. Firefox&rsquo;s CRLite used one to compress revocation data for nearly a billion certificates into 6.7 megabytes.
@@ -686,6 +564,130 @@
 
       <div class="content">
         
+        
+      </div>
+    </article>
+    
+    <article>
+      <h1 class="title"><a href="https://lyletagawa.com/posts/chaos-engineering/">Chaos Engineering
+
+  
+    
+  
+</a></h1>
+      <div class="subtitle tags is-6 is-pulled-right">
+        
+        
+<a class="subtitle is-6" href="/tags/chaos/">#chaos</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/learning/">#learning</a>
+  
+  | <a class="subtitle is-6" href="/tags/incidents/">#incidents</a>
+  
+
+
+        
+      </div>
+      <h6 class="subtitle is-6 date" style="line-height:0em;" >Jun. 25, 2020 &middot; 4 min read</h6>
+
+      <div class="content">
+        Chaos Engineering builds confidence in distributed systems by deliberately introducing failures before they occur on their own. The discipline shifts teams from reactive incident response to proactive resilience building.
+        
+      </div>
+    </article>
+    
+    <article>
+      <h1 class="title"><a href="https://lyletagawa.com/posts/team-topologies/">Team Topologies
+
+  
+    
+  
+</a></h1>
+      <div class="subtitle tags is-6 is-pulled-right">
+        
+        
+<a class="subtitle is-6" href="/tags/team/">#team</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/cognitive/">#cognitive</a>
+  
+  | <a class="subtitle is-6" href="/tags/capacity/">#capacity</a>
+  
+
+
+        
+      </div>
+      <h6 class="subtitle is-6 date" style="line-height:0em;" >May. 14, 2020 &middot; 11 min read</h6>
+
+      <div class="content">
+        Team Topologies provides four fundamental team types &ndash; stream-aligned, platform, enabling, and complicated-subsystem &ndash; and three core team interaction modes &ndash; collaboration, X-as-a-Service, and facilitating. Together with awareness of Conway&rsquo;s law, team cognitive load, and how to become a sensing organization, Team Topologies results in an effective and humanistic approach to building and running software systems.
+        
+      </div>
+    </article>
+    
+    <article>
+      <h1 class="title"><a href="https://lyletagawa.com/posts/making-work-visible/">Making Work Visible
+
+  
+    
+  
+</a></h1>
+      <div class="subtitle tags is-6 is-pulled-right">
+        
+        
+<a class="subtitle is-6" href="/tags/work/">#work</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/time/">#time</a>
+  
+  | <a class="subtitle is-6" href="/tags/kanban/">#kanban</a>
+  
+
+
+        
+      </div>
+      <h6 class="subtitle is-6 date" style="line-height:0em;" >Nov. 8, 2019 &middot; 2 min read</h6>
+
+      <div class="content">
+        We grumble that there just aren’t enough hours in the day and that someone else sure seems to have a lot of free time. But we regular mortals only have twenty-four hours in a day. The problem is that we don’t protect our hours from being stolen. We allow thieves to steal time from us, day after day after day.  Who are these thieves of time?
+        
+      </div>
+    </article>
+    
+    <article>
+      <h1 class="title"><a href="https://lyletagawa.com/posts/resilience/">Resilience
+
+  
+    
+  
+</a></h1>
+      <div class="subtitle tags is-6 is-pulled-right">
+        
+        
+<a class="subtitle is-6" href="/tags/resilience/">#resilience</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/safety/">#safety</a>
+  
+  | <a class="subtitle is-6" href="/tags/capacity/">#capacity</a>
+  
+
+
+        
+      </div>
+      <h6 class="subtitle is-6 date" style="line-height:0em;" >Oct. 30, 2019 &middot; 5 min read</h6>
+
+      <div class="content">
+        Resilience Engineering is the framework for building systems that hold up when the unexpected is inevitable. Redundancy and rigorous testing still leave room for your system to fail anyway.
         
       </div>
     </article>

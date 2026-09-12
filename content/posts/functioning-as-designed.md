@@ -6,7 +6,7 @@ lastmod: 2026-08-02
 summary: "Traditional accident models assume every failure traces back to a broken part. STAMP treats safety as a control problem instead, which explains disasters where every component worked as designed."
 tags: ["safety", "systems", "complexity"]
 image: /images/functioning-as-designed.jpg
-draft: false
+draft: true
 ---
 
 ![Traditional accident models assume every failure traces back to a broken part. STAMP treats safety as a control problem instead, which explains disasters where every component worked as designed.](/images/functioning-as-designed.jpg)
@@ -14,19 +14,17 @@ draft: false
 
 ## Functioning As Designed
 
-On April 14, 1994, two U.S. Air Force F-15s shot down two U.S. Army Black Hawk helicopters over northern Iraq, killing all 26 aboard. The identify-friend-or-foe (IFF) systems worked. The radios worked. AWACS (Airborne Warning and Control System) had the Black Hawks on radar the whole time. Nothing broke{{< cite 1 "1994 Black Hawk shootdown incident. Wikipedia." >}}.
+On April 14, 1994, two U.S. Air Force F-15s shot down two U.S. Army Black Hawk helicopters over northern Iraq, killing all 26 aboard. The identify-friend-or-foe (IFF) systems worked, and so did the radios. AWACS (Airborne Warning and Control System) had the Black Hawks on radar the whole time. Nothing broke{{< cite 1 "1994 Black Hawk shootdown incident. Wikipedia." >}}.
 
-Investigators went looking for the failed component anyway, because that's how investigations usually work. They didn't find one. Nearly everyone and everything performed as trained. The system killed 26 of its own people while functioning as designed.
-
-That gap, between "nothing failed" and "26 people died," is what Nancy Leveson's STAMP was built to explain.
+Investigators went looking for the failed component, but didn't find one. Everyone performed as trained, and everything was functioning as designed.
 
 ## What Is STAMP?
 
-Systems-Theoretic Accident Model and Processes (STAMP), developed by MIT professor Nancy Leveson and first published in 2004, starts from a claim that's obvious once stated and routinely ignored. Accidents in complex systems can happen without any component failing at all{{< cite 2 "Leveson, Nancy (2004). A New Accident Model for Engineering Safer Systems. Safety Science, 42(4): 237-270." >}}. The danger is often an interaction between working parts nobody designed for.
+Nancy Leveson published Systems-Theoretic Accident Model and Processes (STAMP) in 2004, which asserts that accidents in complex systems can happen without any component failing at all{{< cite 2 "Leveson, Nancy (2004). A New Accident Model for Engineering Safer Systems. Safety Science, 42(4): 237-270." >}}. The accident is often an unexpected interaction between working parts.
 
-Leveson's alternative reframes safety as a control problem. A system stays safe when a hierarchy of controls (regulations constraining companies, managers constraining operators, software constraining hardware) enforces a set of safety constraints, things that must never happen. An accident is a control action that failed to prevent a hazard it should have stopped, usually because whoever issued it was working from an inaccurate picture of what was actually happening{{< cite 3 "Leveson, Nancy G. (2011). Engineering a Safer World: Systems Thinking Applied to Safety. MIT Press." >}}.
+A system is expected to remain safe when a hierarchy of controls (regulations, managers, software or hardware controls) enforces constraints (that must never happen). An accident is an action that did not prevent a failure it should have stopped{{< cite 3 "Leveson, Nancy G. (2011). Engineering a Safer World: Systems Thinking Applied to Safety. MIT Press." >}}.
 
-In the Black Hawk case, rules of engagement, radio protocols, IFF procedures, and AWACS oversight were all controls meant to prevent this. Each looked adequate alone. Together, that day, they weren't.
+In the Black Hawk case, rules of engagement, radio protocols, IFF procedures, and AWACS oversight were all controls designed to prevent such a failure. Each control looked adequate by itself, but together they weren't.
 
 ## Why Chain-Of-Events Models Break Down
 
@@ -38,21 +36,21 @@ Leveson's point is that component failures still matter, but treating them as th
 
 ## The Core Concepts
 
-**Safety constraints.** What the system must never do, framed as a hard limit rather than an aspiration. "Never allow two aircraft to occupy the same airspace" is a constraint. "Land the plane safely" is a goal, too vague to catch a violation before it happens.
+Safety constraints define what the system must never do, framed as a hard limit rather than an aspiration. "Never allow two aircraft to occupy the same airspace" is a constraint. "Land the plane safely" is a goal, too vague to catch a violation before it happens.
 
-**Hierarchical control structure.** Every complex system is a stack of controllers, each constraining the level below and receiving feedback from it, from regulator down to company, manager, operator, machine. Safety depends on every layer in the stack.
+A hierarchical control structure treats every complex system as a stack of controllers, each constraining the level below and receiving feedback from it, from regulator down to company, manager, operator, machine. Safety depends on every layer in the stack.
 
-**Feedback loops.** A controller can only enforce a constraint if its picture of the system's state is accurate. Most of Leveson's case studies trace back to stale or misleading feedback rather than the control action itself.
+Feedback loops matter because a controller can only enforce a constraint if its picture of the system's state is accurate. Most of Leveson's case studies trace back to stale or misleading feedback rather than the control action itself.
 
-**Inadequate control.** The unit of analysis is the control that was supposed to prevent this, and why it seemed adequate at the time.
+The unit of analysis is inadequate control, the specific control that was supposed to prevent this, and why it seemed adequate at the time.
 
 ## STPA and CAST
 
-STAMP produces two practical techniques, one for before an accident, one for after. **STPA (System-Theoretic Process Analysis)** is the forward-looking one. Applied during design, it asks what unsafe control actions the system could issue and works backward to the design flaws that would let that happen{{< cite 3 "Leveson, Nancy G. (2011). Engineering a Safer World: Systems Thinking Applied to Safety. MIT Press." >}}.
+STAMP produces two practical techniques, one for before an accident, one for after. Applied during design, STPA (System-Theoretic Process Analysis) asks what unsafe control actions the system could issue and works backward to the design flaws that would let that happen{{< cite 3 "Leveson, Nancy G. (2011). Engineering a Safer World: Systems Thinking Applied to Safety. MIT Press." >}}.
 
-**CAST (Causal Analysis based on System Theory)** is retrospective, STAMP's answer to a postmortem. Instead of tracing a chain back to a root cause, it maps the control structure that existed and asks, at every level, why the controls in place came up short{{< cite 3 "Leveson, Nancy G. (2011). Engineering a Safer World: Systems Thinking Applied to Safety. MIT Press." >}}.
+CAST (Causal Analysis based on System Theory) runs the other direction, functioning as STAMP's answer to a postmortem. Instead of tracing a chain back to a root cause, it maps the control structure that existed and asks, at every level, why the controls in place came up short{{< cite 3 "Leveson, Nancy G. (2011). Engineering a Safer World: Systems Thinking Applied to Safety. MIT Press." >}}.
 
-Google's SRE organization has been exploring both, framing STPA as a way to find "unknown unknowns" that traditional reliability engineering misses, and CAST as a way to "supercharge" postmortems that would otherwise stop at the first plausible root cause{{< cite 4 "Systems-Theoretic Accident Model and Processes (STAMP) at Google. Google SRE." >}}.
+Google's SRE organization has been exploring both. STPA surfaces the "unknown unknowns" that traditional reliability engineering misses. CAST pushes postmortems past the first plausible root cause{{< cite 4 "Systems-Theoretic Accident Model and Processes (STAMP) at Google. Google SRE." >}}.
 
 ## From Aviation to Software
 
@@ -62,13 +60,13 @@ A CAST-style postmortem asks a different question at every level, what informati
 
 ## Common Mistakes
 
-**Treating it as root-cause analysis with better vocabulary.** STAMP's premise is that a single root cause rarely exists. A team that draws a control structure diagram and still writes "root cause: X" at the bottom has kept the old model and added drawing time.
+STAMP's premise is that a single root cause rarely exists, but teams often treat it as root-cause analysis with better vocabulary anyway. A team that draws a control structure diagram and still writes "root cause: X" at the bottom has kept the old model and added drawing time.
 
-**Skipping the control structure.** STPA and CAST both depend on mapping who controls what before asking what went wrong. Jumping straight to "what unsafe actions could occur" without that map produces guesswork dressed up as analysis.
+STPA and CAST both depend on mapping who controls what before asking what went wrong, and skipping straight to "what unsafe actions could occur" without that map produces guesswork dressed up as analysis.
 
-**Confusing no-blame with no-accountability.** STAMP skips the question of who to punish, but it still names which control was inadequate and why. Treating "systemic" as a synonym for "nobody's job to fix" wastes the analysis.
+STAMP skips the question of who to punish without giving up accountability, since it still names which control was inadequate and why. Treating "systemic" as a synonym for "nobody's job to fix" confuses the two and wastes the analysis.
 
-**Only ever looking backward.** CAST after incidents without STPA before they happen leaves you permanently one accident behind. The forward-looking half is the one organizations skip most, since no incident forces it onto the calendar.
+Running CAST after incidents without ever applying STPA beforehand leaves you permanently one accident behind. Nothing forces the forward-looking half onto the calendar until it's too late.
 
 ## Put It Into Practice
 

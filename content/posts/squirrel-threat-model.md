@@ -22,7 +22,7 @@ Somewhere there is a security budget built around nation-state actors and zero-d
 
 ## Wildlife Outages
 
-**Squirrels.** John Inglis, a former deputy director of the National Security Agency, said on record that "the No. 1 threat experienced to date by the U.S. electrical grid is squirrels{{< cite 3 "Smithsonian Magazine (2015). Move Over Hackers, Squirrels Are the Power Grid's Greatest Foe." >}}." A crowdsourced tracker called Cyber Squirrel 1 logged more than 2,500 animal-caused power incidents before it stopped updating in 2021, nearly half of them squirrels{{< cite 4 "Cyber Squirrel 1 (2021). cybersquirrel1.com." >}}.
+**Squirrels.** John Inglis, a former deputy director of the National Security Agency, said on record that "the No. 1 threat experienced to date by the U.S. electrical grid is squirrels{{< cite 3 "Smithsonian Magazine (2015). Move Over Hackers, Squirrels Are the Power Grid's Greatest Foe." >}}." Before it stopped updating in 2021, Cyber Squirrel 1 logged more than 2,500 animal-caused power incidents, nearly half of them squirrels{{< cite 4 "Cyber Squirrel 1 (2021). cybersquirrel1.com." >}}.
 
 **Beavers.** In April 2021, beavers in Tumbler Ridge, British Columbia, dug three feet down alongside a creek, chewed through a 4.5-inch protective conduit, and then chewed through the fiber cable inside it. About 900 people lost internet service for 36 hours. A Telus spokesperson called it "a bizarre and uniquely Canadian turn of events{{< cite 5 "CBC News (2022). For the second year in a row, a beaver is to blame for phone and internet outages in northern B.C." >}}." It happened again to the same region the following year.
 
@@ -36,7 +36,7 @@ None of the animal-caused outages come close to the damage humans do to their ow
 
 On October 4, 2021, a Facebook engineer ran a routine command meant to check spare capacity on the company's backbone network. The command carried a bug, and a separate audit tool built to catch this kind of mistake had a bug of its own. The command took down every connection in Facebook's backbone{{< cite 8 "Meta Engineering (2021). More details about the October 4 outage." >}}.
 
-The failure cascaded fast. With the backbone gone, Facebook's own DNS servers judged themselves unreachable and withdrew their BGP route advertisements, the same mechanism meant to route around a failure. That made the DNS servers unreachable too, even though the physical machines never stopped running. Facebook, Instagram, and WhatsApp disappeared from the internet for about six hours, and engineers even reportedly struggled to get into the affected buildings, since the badge readers ran on that same downed network{{< cite 8 "Meta Engineering (2021). More details about the October 4 outage." >}}.
+Facebook's DNS servers could no longer speak to their data centers and withdrew their own BGP route advertisements. That withdrawal made the DNS servers unreachable, even though the physical machines were fine. Facebook, Instagram, and WhatsApp disappeared from the internet for about six hours, and engineers even reportedly struggled to get into the affected buildings, since the badge readers ran on that same downed network{{< cite 8 "Meta Engineering (2021). More details about the October 4 outage." >}}.
 
 Other companies made the same mistake. In January 2017, an engineer at GitLab tried to fix a lagging secondary database, but triggered a destructive command against the primary production database by mistake. Though the command was terminated within two seconds, 300GB of production data had already been removed. Several backup mechanisms failed as well, forcing GitLab to restore from a snapshot from 6 hours prior{{< cite 9 "GitLab (2017). Postmortem of database outage of January 31. about.gitlab.com." >}}.
 
@@ -46,31 +46,30 @@ No squirrel has ever done that much damage in a single afternoon.
 
 ## Criminal Mischief
 
-On December 25, 2024, the oil tanker Eagle-S dragged its anchor roughly 100 kilometers across the Baltic seabed, severing the Estlink-2 power cable and four telecom cables between Finland and Estonia. Finnish investigators later matched the seabed drag mark to the ship's anchor. The Eagle-S is flagged in the Cook Islands but is part of Russia's shadow fleet, tankers that move sanctioned oil while avoiding Western insurance and registry rules{{< cite 12 "NPR (2024). What to know about Finland, Russia's 'shadow fleet' and a severed undersea cable." >}}.
+On December 25, 2024, the oil tanker Eagle-S dragged its anchor roughly 100 kilometers across the Baltic seabed, severing the Estlink-2 power cable and four telecom cables between Finland and Estonia. Finnish investigators later matched the seabed drag mark pattern to the ship's anchor. Eagle-S was flagged in the Cook Islands and found to be part of Russia's shadow fleet{{< cite 12 "NPR (2024). What to know about Finland, Russia's 'shadow fleet' and a severed undersea cable." >}}.
 
-Estlink-2 stayed offline for over seven months, and repairs cost an estimated 60 million euros. Whether the anchor drag was deliberate sabotage or reckless navigation is still contested. Finnish prosecutors charged the ship's officers with aggravated criminal mischief rather than sabotage{{< cite 12 "NPR (2024). What to know about Finland, Russia's 'shadow fleet' and a severed undersea cable." >}}. Several other Baltic cables have been severed the same way since 2023.
+Estlink-2 stayed offline for nearly six months, and repairs cost an estimated 60 million euros. Finnish prosecutors charged the ship's officers with aggravated criminal mischief rather than deliberate sabotage{{< cite 12 "NPR (2024). What to know about Finland, Russia's 'shadow fleet' and a severed undersea cable." >}}. Several other Baltic cables have been severed the same way since 2023.
 
 ## Salvage Value
 
-On March 28, 2011, a 75-year-old woman scavenging for copper near Tbilisi struck a buried fiber-optic cable with her shovel. The cable carried most of Armenia's internet traffic, and the country went offline for hours, along with parts of Georgia and Azerbaijan{{< cite 13 "Parfitt, Tom (2011). Georgian woman cuts off web access to whole of Armenia. The Guardian, April 6, 2011." >}}.
+On March 28, 2011, a 75-year-old woman scavenging for copper near Tbilisi struck a buried fiber-optic cable with her shovel. The cable carried most of Armenia's internet traffic, taking the country offline for hours, along with parts of Georgia and Azerbaijan{{< cite 13 "Parfitt, Tom (2011). Georgian woman cuts off web access to whole of Armenia. The Guardian, April 6, 2011." >}}.
 
-Between June and December 2024, nearly 6,000 incidents of telecom theft and vandalism disrupted service nationwide, affecting an estimated 1.5 million customers. Almost all of it targeted copper. A stolen spool of copper wire might fetch a few hundred dollars at a scrapyard. The societal cost, measured in lost productivity and disrupted access to emergency services, was estimated at $38 million to $188 million{{< cite 14 "Lopez, Edward J. (2025). The Real Costs of Communications Outages due to Infrastructure Theft or Vandalism. NCTA." >}}.
+Between June and December 2024, nearly 6,000 incidents of telecom theft (copper wire mostly) disrupted service for an estimated 1.5 million customers. A stolen spool of copper wire might fetch a few hundred dollars at a scrapyard. Lost productivity and disrupted access to emergency services was estimated to cost $38 million to $188 million{{< cite 14 "Lopez, Edward J. (2025). The Real Costs of Communications Outages due to Infrastructure Theft or Vandalism. NCTA." >}}.
 
-Sharks and squirrels make headlines, but copper theft is often unreported even though it's one of the largest causes of communications outages in the country.
 
 ## Where People Get This Wrong
 
-**Treating the funny story as the common story.** A shark bite or a squirrel outage makes a good story. But wildlife-caused outages are not as significant as human error or human theft.
+A shark bite or a squirrel outage makes a good story. But wildlife-caused outages are not as significant as human error or human theft.
 
-**Spending the budget on the wrong threat.** Teams harden against dramatic, low-probability scenarios while a mistyped maintenance command or copper cable pulled out of a rural span is the far likelier way the network goes down.
+Teams harden against dramatic, low-probability scenarios while a mistyped maintenance command or copper cable pulled out of a rural span is the far likelier way the network goes down.
 
 ## Put It Into Practice
 
-Start by comparing your threat model to your actual incident history. Pull the last two years of outage tickets and sort by contributing factors instead of by how good the postmortem story was. If misconfiguration or physical theft dominate the list, that's where the next dollar of resilience spending belongs.
+The squirrel makes a better story, but building for the boring failure is likely the smartest place to invest.
 
-A command capable of disconnecting an entire backbone should never run without guardrails, and the safety check meant to catch that kind of mistake needs testing as carefully as the systems it protects. Peer review, staged rollouts, and continuous verification matter just as much.
+Compare your threat model to your actual incident history. Sort the past year of incidents/outage tickets by contributing factor(s) instead of by how good the postmortem story was.
 
-Build for the boring failure. Route critical paths so a single fault can't take an entire region offline. The squirrel makes a better story. The thief who came back for the same copper three times this year is the one who takes you down.
+A command capable of disconnecting an entire backbone should never run without guardrails, and the safety check(s) need to be tested as carefully as the systems it protects. Peer review, staged rollouts, and continuous verification matter just as much.
 
 ---
 
@@ -97,16 +96,17 @@ Build for the boring failure. Route critical paths so a single fault can't take 
 
 ## Outtakes
 
-**A monkey blacked out an entire country.** In 2016, a vervet monkey fell onto a transformer at Kenya's largest hydropower station, overloading nearby machines and cutting power to an estimated 4.7 million households and businesses for more than four hours. The monkey survived ([NPR, 2016](https://www.npr.org/2016/06/08/481206952/monkey-knocks-out-power-across-kenya)).
+In 2016, a vervet monkey fell onto a transformer at Kenya's largest hydropower station, overloading nearby machines and cutting power to an estimated 4.7 million households and businesses for more than four hours. The monkey survived ([NPR, 2016](https://www.npr.org/2016/06/08/481206952/monkey-knocks-out-power-across-kenya)).
 
-**Woodpeckers.** Ireland's ESB Networks blames great spotted woodpeckers, roughly 100 nesting pairs, for a wave of pole damage across Wicklow and Wexford. The birds hollow out wooden poles hunting for nest sites, and rot forces the scheduled outages that follow ([Irish Times, 2023](https://www.irishtimes.com/environment/2023/11/28/woodpeckers-blamed-for-power-outages-as-crews-race-to-repair-damaged-electricity-poles/)).
+Roughly 100 nesting pairs of great spotted woodpeckers are behind a wave of pole damage across Wicklow and Wexford, hollowing out wooden poles while hunting for nest sites. Ireland's ESB Networks says the resulting rot is what forces the scheduled outages that follow ([Irish Times, 2023](https://www.irishtimes.com/environment/2023/11/28/woodpeckers-blamed-for-power-outages-as-crews-race-to-repair-damaged-electricity-poles/)).
 
-**Raccoon.** Before dawn in July 2025, a raccoon touched live equipment inside a New Jersey substation and set off an explosion that knocked out power across two states. Crews rerouted power to most of the affected customers within 35 minutes ([News 12, 2025](https://newyork.news12.com/raccoon-causes-multistate-power-outage)).
+A raccoon touching live equipment inside a New Jersey substation before dawn in July 2025 set off an explosion that knocked out power across two states, though crews had most customers back within 35 minutes ([News 12, 2025](https://newyork.news12.com/raccoon-causes-multistate-power-outage)).
 
 ---
 
 ## Changelog
 
+**2026-09-06** Fixed the Eagle-S/Estlink-2 dates.  
 **2026-08-08** Fixed the Nasdaq squirrel citations.  
 **2026-08-05** Added the copper-scavenging anecdote, corrected the cow citation to Hölzle's original tweet.  
 **2026-08-02** Initial release.  

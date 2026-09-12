@@ -13,7 +13,7 @@
       <pubDate>Sun, 06 Sep 2026 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/shuffle-sharding/</guid>
-      <description>Shuffle sharding turns Route 53&amp;rsquo;s 2,048 name servers into 730 billion possible four-server combinations instead of 512 fixed groups, without adding a single machine. The isolation comes from combinatorics alone.</description>
+      <description>Why does Route 53 give your hosted zone four seemingly random name servers instead of the same ones everyone else gets? There are 2,048 of them, arranged into 730 billion possible combinations. That&amp;rsquo;s what keeps another customer&amp;rsquo;s failure domain separate from yours.</description>
       <media:content url="https://lyletagawa.com/images/shuffle-sharding.svg" medium="image" />
     </item>
     

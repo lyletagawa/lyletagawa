@@ -6,17 +6,7 @@
     <description>Recent content in networking on hi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 13 Aug 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/networking/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>The Two Generals Problem</title>
-      <link>https://lyletagawa.com/posts/two-generals-problem/</link>
-      <pubDate>Thu, 13 Aug 2026 00:00:00 +0000</pubDate>
-      
-      <guid>https://lyletagawa.com/posts/two-generals-problem/</guid>
-      <description>The Two Generals Problem: neither general can ever confirm the other is ready to attack. Jim Gray proved it in 1978, and the same limit shapes how databases and networks handle failure.</description>
-      <media:content url="https://lyletagawa.com/images/two-generals-problem.jpg" medium="image" />
-    </item>
-    
+    <lastBuildDate>Sun, 02 Aug 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lyletagawa.com/tags/networking/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Squirrel Threat Model</title>
       <link>https://lyletagawa.com/posts/squirrel-threat-model/</link>
@@ -28,12 +18,12 @@
     </item>
     
     <item>
-      <title>From Reno to BBR</title>
+      <title>From Tahoe to BBR</title>
       <link>https://lyletagawa.com/posts/tcp-congestion-control/</link>
       <pubDate>Fri, 03 Jul 2026 00:00:00 +0000</pubDate>
       
       <guid>https://lyletagawa.com/posts/tcp-congestion-control/</guid>
-      <description>In 1986, a network slowdown forced Van Jacobson to invent TCP congestion control. Reno, CUBIC, and BBR mark three different eras of solving that problem.</description>
+      <description>In 1986, a network slowdown forced Van Jacobson to invent TCP congestion control. Tahoe/Reno, CUBIC, and BBR mark three different eras of solving that problem.</description>
       <media:content url="https://lyletagawa.com/images/tcp-congestion-control.png" medium="image" />
     </item>
     

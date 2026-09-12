@@ -6,7 +6,7 @@ lastmod: 2026-08-08
 summary: "Hyrum's Law says that with enough users, every observable behavior becomes a depended-upon feature. Your implementation details become your API contract, regardless of documentation or intent."
 tags: ["api", "architecture", "compatibility"]
 image: /images/hyrums-law.jpg
-draft: false
+draft: true
 ---
 
 ![Hyrum's Law says that with enough users, every observable behavior becomes a depended-upon feature. Your implementation details become your API contract, regardless of documentation or intent.](/images/hyrums-law.jpg)
@@ -14,35 +14,33 @@ draft: false
 
 ## Hyrum's Law
 
-Your API returns results in alphabetical order. The documentation says nothing about ordering. It's just an implementation detail, with no promise attached.
+Your API happens to return results in alphabetical order, not intentionally. The documentation says nothing about ordering, it's just an implementation detail.
 
-Six months later, you optimize the query, and results are returned in insertion order instead. Production breaks. Dozens of clients had quietly built pagination and diffing logic on alphabetical sorting. They never told you. They just assumed it was guaranteed.
+Six months later, you optimize the query, and return the results in insertion order instead. Production breaks. Dozens of clients built pagination and diffing logic based on alphabetical sorting. They just assumed it was guaranteed.
 
-Every observable behavior becomes a contract, whether or not you documented it or intended it that way. If users can observe something, someone will depend on it.
+Every observable behavior becomes a contract, whether or not you documented it or intended it that way. If users can observe a pattern, somebody will build a dependency on it.
 
 ## What Is Hyrum's Law?
 
 Hyrum's Law states, "With a sufficient number of users of an API, it does not matter what you promise in the contract: all observable behaviors of your system will be depended on by somebody"{{< cite 1 "Wright, Hyrum (2020). Hyrum's Law. Software Engineering at Google." >}}.
 
-Hyrum Wright formulated this while running large-scale API deprecation at Google, migrating thousands of callers off old internal APIs. Changing any of them meant understanding the documented contract and every behavior a caller might have come to depend on{{< cite 2 "Winters, Titus, Tom Manshreck, and Hyrum Wright (2020). Software Engineering at Google: Lessons Learned from Programming Over Time. O'Reilly Media." >}}.
+Hyrum Wright ran API deprecation at Google, migrating thousands of callers off old internal APIs. Changing those callers meant tracing the documented contract and every behavior they'd come to rely on{{< cite 2 "Winters, Titus, Tom Manshreck, and Hyrum Wright (2020). Software Engineering at Google: Lessons Learned from Programming Over Time. O'Reilly Media." >}}.
 
 The principle also applies beyond APIs, to command-line tools, file formats, network protocols and database schemas.
 
 ## Why Implementation Details Become Contracts
 
-Users optimize for their immediate needs. The observed behavior becomes implicit, undocumented and forgotten{{< cite 3 "Parnas, David L. (1972). On the Criteria To Be Used in Decomposing Systems into Modules. Communications of the ACM, 15(12)." >}}.
+Users optimize for their immediate needs.
 
-**Timing dependencies.** Your API responds in 50 milliseconds, and a client sets its timeout to 100 milliseconds, a comfortable margin based on observed behavior, since there's no documented service-level agreement (SLA) to go by. You add an additional step, and response time creeps up to 150 milliseconds. The client's timeout starts firing, and requests that used to succeed now fail.
+A malformed request gets back "Error: invalid input" from your function, and a client starts parsing that string to detect the error. You improve the message to "Error: field 'email' must be valid email address," and the client breaks.
 
-**Error messages become APIs.** Your function returns "Error: invalid input" for malformed data, and a client starts parsing that string to detect the error type. You improve the message to "Error: field 'email' must be valid email address," and the client breaks.
-
-**Ordering becomes guaranteed.** Your database query happens to return results in primary key order, even though the documentation says order is undefined. Clients assume the current order and build pagination around it. Then you add an index, the query planner shifts, and results come back differently. Pagination breaks across the entire system.
+Your database query happens to return results in primary key order, even though the documentation says order is undefined. Clients assume the current order and build pagination around it. Add an index, and the query planner shifts. Results come back differently, and pagination breaks across the entire system.
 
 ## The Scale Problem
 
 Small systems can coordinate changes. Large systems cannot.
 
-At ten users, you know them all, and you can coordinate breaking changes directly. At one thousand, you know few of them, hidden dependencies multiply, and breaking changes require migration tools and long deprecation windows. At a hundred thousand, you know almost none of them. The observable behavior is the contract{{< cite 5 "Booch, Grady (1994). Object-Oriented Analysis and Design with Applications, Second Edition. Benjamin/Cummings." >}}.
+At ten users, you know them all, and you can coordinate breaking changes directly. Once you reach a thousand, you know only a few of them, hidden dependencies multiply, and breaking changes require migration tools and long deprecation windows. By a hundred thousand users, you know almost none of them. The observable behavior is the contract{{< cite 5 "Booch, Grady (1994). Object-Oriented Analysis and Design with Applications, Second Edition. Benjamin/Cummings." >}}.
 
 Google's experience shows this at extreme scale. Changing a widely-used internal API requires automated tooling to find and update every call site, and even then some dependencies hide in generated code, reflection, or dynamic dispatch{{< cite 2 "Winters, Titus, Tom Manshreck, and Hyrum Wright (2020). Software Engineering at Google: Lessons Learned from Programming Over Time. O'Reilly Media." >}}.
 
@@ -50,25 +48,25 @@ Google's experience shows this at extreme scale. Changing a widely-used internal
 
 Before Python 3.7, dictionaries had no defined iteration order, but the CPython implementation happened to preserve insertion order, and code started depending on it. When PyPy used a different ordering, that code broke. Python 3.7 made insertion order official{{< cite 6 "Python Software Foundation (2018). What's New In Python 3.7. Python Documentation." >}}.
 
-The linux kernel maintains binary compatibility with userspace, and every syscall behavior, bugs included, becomes part of the permanent API. Linus Torvalds put it plainly, "We do not break userspace"{{< cite 7 "Torvalds, Linus (2012). We do not break userspace. Linux Kernel Mailing List." >}}.
+The Linux kernel maintains binary compatibility with userspace, and every syscall behavior, bugs included, becomes part of the permanent API. Linus Torvalds put it plainly, "We do not break userspace"{{< cite 7 "Torvalds, Linus (2012). We do not break userspace. Linux Kernel Mailing List." >}}.
 
-Early websites checked the user agent string for "Mozilla" before serving the best (richest) version of the page, so every new browser claimed to be Mozilla. WebKit claimed to be KHTML, KHTML claimed Gecko, and Chrome ships a string naming four engines other than the one it actually runs{{< cite 9 "Andersen, Aaron (2008). History of the Browser User-Agent String. WebAIM." >}}.
+Early websites checked the user agent string for "Mozilla" before serving the best (richest) version of the page, so every new browser claimed to be Mozilla. WebKit followed by calling itself KHTML, which in turn identified as Gecko, and Chrome now ships a string naming four engines other than the one it actually runs{{< cite 9 "Andersen, Aaron (2008). History of the Browser User-Agent String. WebAIM." >}}.
 
 ## Common Mistakes
 
 **Assuming documentation defines the contract.** Documentation describes intent, but observable behavior defines reality. Users depend on what they observe, and when that disagrees with documentation, behavior wins.
 
-**Believing "undefined" means "free to change."** Undefined behavior is still observable, and if it's observable, someone depends on it. Marking something undefined still allows dependencies to form. It just makes them harder to find.
+**Believing "undefined" means "free to change."** Undefined behavior is still observable, and whatever can be observed will eventually be depended on. Marking something undefined still allows dependencies to form. It just makes them harder to find.
 
 **Expecting users to report dependencies.** Users discover they depend on implementation details only when the behavior changes and their code breaks. By then, it's too late to ask.
 
-**Treating internal and external APIs differently.** Internal APIs with many users face the same constraints as external ones. User count sets the boundary. Org chart position is irrelevant. A thousand internal users create the same dependency problems as a thousand external ones{{< cite 2 "Winters, Titus, Tom Manshreck, and Hyrum Wright (2020). Software Engineering at Google: Lessons Learned from Programming Over Time. O'Reilly Media." >}}.
+**Treating internal and external APIs differently.** Internal APIs with many users face the same constraints as external ones. User count sets the boundary, rather than org chart position. A thousand internal users create the same dependency problems as a thousand external ones{{< cite 2 "Winters, Titus, Tom Manshreck, and Hyrum Wright (2020). Software Engineering at Google: Lessons Learned from Programming Over Time. O'Reilly Media." >}}.
 
 ## Put It Into Practice
 
 Audit your APIs for observable behavior beyond the documented contract. Response timing, error message formats, result ordering, cleanup timing, and side effects all create implicit contracts whether you meant them to or not. Document them, or eliminate them.
 
-Build tooling to find dependencies before your users do. Static analysis catches some dependencies, runtime monitoring catches others, and Google's Kythe project indexes code relationships at a scale that makes large refactors possible{{< cite 2 "Winters, Titus, Tom Manshreck, and Hyrum Wright (2020). Software Engineering at Google: Lessons Learned from Programming Over Time. O'Reilly Media." >}}. Smaller teams can get most of the way there with grep and a call graph.
+Spotting dependencies before your users do means investing in tooling built for exactly that. Static analysis catches some dependencies, runtime monitoring surfaces others, and Google's Kythe project indexes code relationships at a scale that makes large refactors possible{{< cite 2 "Winters, Titus, Tom Manshreck, and Hyrum Wright (2020). Software Engineering at Google: Lessons Learned from Programming Over Time. O'Reilly Media." >}}. Smaller teams can get most of the way there with grep and a call graph.
 
 When you change behavior, assume someone depends on it. Add the new behavior alongside the old, deprecate gradually, and watch for breakage. The cost of coordinating a change grows with the number of people who'd notice it. Plan for that cost before you need it.
 
@@ -98,7 +96,7 @@ When you change behavior, assume someone depends on it. Add the new behavior alo
 
 **Go named the law in its own source code.** MaxBytesReader's error string, "http: request body too large," had no structured type, so callers matched it by text. Go added a proper MaxBytesError type in 2022, but the string itself stayed frozen. Too much code depended on it ([Go, n.d.](https://go.dev/src/net/http/request.go#L1199)).
 
-**A security fix broke Steam, Discord, and MATLAB in one release.** glibc 2.41 stopped automatically making a program's stack executable, closing a real security gap. Nobody had promised that behavior would last, but enough software depended on it that glibc shipped an emergency compatibility flag weeks later ([Phoronix, 2025](https://www.phoronix.com/news/Glibc-WA-Steam-Exec-Stack)).
+**A security fix broke Steam, Discord, and MATLAB in one release.** glibc 2.41 stopped automatically making a program's stack executable, closing a real security gap. Nobody had promised that behavior would last, but enough software relied on it that glibc shipped an emergency compatibility flag weeks later ([Phoronix, 2025](https://www.phoronix.com/news/Glibc-WA-Steam-Exec-Stack)).
 
 **The button that slowed your PC down.** Early PC games timed themselves off raw CPU cycles, so faster processors made them unplayably fast. The fix wasn't in software. 1980s and 1990s PCs shipped a "turbo" button that throttled the CPU back down to the original speed ([Wikipedia, n.d.](https://en.wikipedia.org/wiki/Turbo_button)).
 

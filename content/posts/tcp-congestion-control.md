@@ -1,88 +1,74 @@
 ---
-title: "From Reno to BBR"
+title: "From Tahoe to BBR"
 date: 2026-07-03
 publishdate: 2026-07-03
-lastmod: 2026-08-08
-summary: "In 1986, a network slowdown forced Van Jacobson to invent TCP congestion control. Reno, CUBIC, and BBR mark three different eras of solving that problem."
+lastmod: 2026-09-12
+summary: "In 1986, a network slowdown forced Van Jacobson to invent TCP congestion control. Tahoe/Reno, CUBIC, and BBR mark three different eras of solving that problem."
 tags: ["networking", "protocols", "latency"]
 image: /images/tcp-congestion-control.png
 draft: false
 ---
 
-![In 1986, a network slowdown forced Van Jacobson to invent TCP congestion control. Reno, CUBIC, and BBR mark three different eras of solving that problem.](/images/tcp-congestion-control.png)
+![In 1986, a network slowdown forced Van Jacobson to invent TCP congestion control. Tahoe/Reno, CUBIC, and BBR mark three different eras of solving that problem.](/images/tcp-congestion-control.png)
 *Image generated with Google Gemini (2026).*
 
-## From Reno to BBR
+## From Tahoe to BBR
 
-In the fall of 1986, the network between Van Jacobson's lab and the Berkeley campus a quarter mile away stopped working. Throughput between Lawrence Berkeley Laboratory and the university fell from 32 kilobits per second to 40 bits, an 800-fold collapse{{< cite 1 "Jacobson, Van (1988). Congestion Avoidance and Control. SIGCOMM '88." >}}.
+In the fall of 1986, the network throughput between Van Jacobson's lab at Lawrence Berkeley Laboratory (then LBL, now LBNL) and UC Berkeley unexpectedly dropped from 32 Kbps to 40 bps{{< cite 1 "Jacobson, Van (1988). Congestion Avoidance and Control. SIGCOMM '88." >}}. It was the first of a series of "congestion collapses" on the Internet.
 
-Jacobson went looking for the cause. He realized the senders had no idea when to slow down, so the instant the link filled they kept pushing and strangled it. He gave TCP a way to feel the congestion and back off, and the link came back to life. That was congestion collapse, and the fix he and Michael Karels built is the reason the internet kept working as it grew{{< cite 1 "Jacobson, Van (1988). Congestion Avoidance and Control. SIGCOMM '88." >}}.
-
-That fix still runs on every device you're holding right now.
+Jacobson's observations triggered an investigation. He realized the senders had no idea when to slow down, so as the link filled they kept pushing and strangled it. TCP needed a way to feel the congestion and back off. He and Michael Karels (UC Berkeley) developed and experimented with versions of slow start, congestion avoidance, and fast retransmit algorithms, which were included in the TCP/IP stack of 4.3BSD-Tahoe in 1988{{< cite 1 "Jacobson, Van (1988). Congestion Avoidance and Control. SIGCOMM '88." >}}.
 
 ## What Is Congestion Control?
 
-Congestion control is the algorithm a TCP sender runs to guess its own speed. The network never tells it the right rate. There is no spare-bandwidth dial and no slow-down message. The sender is blind and has to probe by pushing until something fails{{< cite 1 "Jacobson, Van (1988). Congestion Avoidance and Control. SIGCOMM '88." >}}.
+`send window = min(cwnd, receiver window)` is the classic version that shipped with 4.3BSD-Tahoe.
 
-In 1988, Jacobson published the first answer that worked{{< cite 2 "Allman, Mark, Vern Paxson, and Ethan Blanton (2009). TCP Congestion Control. RFC 5681." >}}. Send a little, ramp up fast, and the moment a packet drops, cut back hard. Loss is the only feedback the sender trusts. That idea still runs on every device you're holding right now.
+The congestion window (`cwnd`) starts cautiously with one maximum-segment-sized (MSS) packet, followed by "slow start" which approximately doubles the `cwnd` once per round-trip time (RTT) until it reaches the slow-start threshold. The congestion avoidance phase follows, where `cwnd` grows linearly until it detects congestion. A retransmission timeout or three duplicate acknowledgements (ACKs) are used as evidence for congestion. At that point the algorithm backs-off by setting the slow-start threshold to roughly half the current flight size and restarting the `cwnd` back to its initial value.{{< cite 1 "Jacobson, Van (1988). Congestion Avoidance and Control. SIGCOMM '88." >}}.
 
-## The Sawtooth
+The algorithm sends a little, ramps up quickly, and when it detects likely loss, it cuts back hard. The classic algorithm's two modes, slow start and congestion avoidance, creates a recognizable sawtooth pattern.
 
-The classic algorithm has two modes. Both drive the congestion window or cwnd, which is how much data the sender keeps in flight. Slow start doubles the cwnd every round trip until congestion avoidance takes over{{< cite 2 "Allman, Mark, Vern Paxson, and Ethan Blanton (2009). TCP Congestion Control. RFC 5681." >}}. Congestion avoidance then creeps forward, adding one packet's worth per round trip. When a packet is lost, the sender halves cwnd and starts climbing again{{< cite 1 "Jacobson, Van (1988). Congestion Avoidance and Control. SIGCOMM '88." >}}.
-
-Additive increase, multiplicative decrease. Grow slow, cut deep. Plot the sending rate over time and you get a sawtooth, forever climbing toward the ceiling and getting knocked back down. That sawtooth is TCP Reno, and it worked for twenty years.
+4.3BSD-Reno was released in 1990, which added TCP fast recovery. After three duplicate ACKs, Reno keeps `cwnd` near the reduced level rather than dropping it to one MSS.
 
 ## CUBIC Took Over
 
-Reno's flaw shows on long, fast links. On a 10-gigabit connection after a loss, additive increase adds one packet per round trip. A 100-millisecond round trip means roughly 40,000 round trips to refill the pipe, over an hour{{< cite 3 "Ha, Sangtae, Injong Rhee, and Lisong Xu (2008). CUBIC: A New TCP-Friendly High-Speed TCP Variant. ACM SIGOPS Operating Systems Review 42(5)." >}}. The bigger and faster the network grows, the worse the old approach performs.
+Reno's weakness shows up on long, high-bandwidth links. After a loss, Reno halves its `cwnd`, then increases it by about one MSS per RTT. A 10 Gbps transoceanic path with a 100ms RTT has about 86,000 MSS. After halving the `cwnd`, recovering 43,000 MSS would take about 70 minutes{{< cite 3 "Ha, Sangtae, Injong Rhee, and Lisong Xu (2008). CUBIC: A New TCP-Friendly High-Speed TCP Variant. ACM SIGOPS Operating Systems Review 42(5)." >}}.
 
-CUBIC replaced the straight line with a curve. It tracks the time since the last loss and grows as a cubic function of it, rushing back toward the previous ceiling, flattening out as it gets close, then probing carefully past it{{< cite 3 "Ha, Sangtae, Injong Rhee, and Lisong Xu (2008). CUBIC: A New TCP-Friendly High-Speed TCP Variant. ACM SIGOPS Operating Systems Review 42(5)." >}}. It spread quickly and became the default across the internet.
+CUBIC replaces Reno's primarily linear congestion-avoidance growth with a cubic function of the time since the last congestion event. After reducing its window, it grows cautiously, flattens as it approaches the previous maximum window, and then accelerates after passing that previous maximum.{{< cite 3 "Ha, Sangtae, Injong Rhee, and Lisong Xu (2008). CUBIC: A New TCP-Friendly High-Speed TCP Variant. ACM SIGOPS Operating Systems Review 42(5)." >}}.
 
-CUBIC is faster and smarter, and it still uses the same loss-based model as Reno. A full buffer is the goal, which turns oversized buffers into a latency problem.
+CUBIC was selected as the linux 2.6.19 default TCP congestion-control algorithm in 2006. CUBIC later became the default in Apple and Microsoft TCP stacks.
+
+CUBIC still uses the same loss-based congestion-control model as Reno though. It increases its window until it observes packet loss. In networks with oversized buffers, queues can fill before packet loss is observed, causing bufferbloat (excessive delay caused by packets stuck in a large network buffer).
 
 ## BBR Changed the Question
 
-In 2016 a team at Google asked why loss should be the signal at all{{< cite 4 "Cardwell, Neal, et al. (2016). BBR: Congestion-Based Congestion Control. ACM Queue 14(5)." >}}. Their algorithm, BBR (bottleneck, bandwidth and round-trip propagation time) builds a small model of the path instead of reacting to packet loss. It measures the fastest rate the bottleneck can deliver and the lowest round-trip time (RTT) it sees when the queue is empty, then paces packets to fill the pipe{{< cite 4 "Cardwell, Neal, et al. (2016). BBR: Congestion-Based Congestion Control. ACM Queue 14(5)." >}}.
+Instead of relying primarily on packet loss, BBR (Bottleneck Bandwidth and Round-trip propagation time) builds a small model of the path that estimates the bandwidth bottleneck from the fastest observed delivery rate and the path's minimum RTT when the queue is empty. It then tries to keep the pipe full without fully filling the queue{{< cite 4 "Cardwell, Neal, et al. (2016). BBR: Congestion-Based Congestion Control. ACM Queue 14(5)." >}}.
 
-The bandwidth-delay product (bandwidth times RTT) is how much data it takes to fill a path. BBR aims to keep that much in flight, which keeps the bottleneck busy while leaving its buffer near empty. Low latency and high throughput at once, without waiting for a packet to drop. Google deployed BBR on its B4 wide-area network and measured 2 to 25 times higher throughput than CUBIC, with a peak of 133 times on one intercontinental path{{< cite 4 "Cardwell, Neal, et al. (2016). BBR: Congestion-Based Congestion Control. ACM Queue 14(5)." >}}.
+Around 2015, Google deployed BBR across their production networks, dogfooding it before publishing the algorithm in 2016. On Google’s B4 WAN, BBR achieved 2x-25x higher throughput than CUBIC, with a peak 133x improvement on one intercontinental path{{< cite 4 "Cardwell, Neal, et al. (2016). BBR: Congestion-Based Congestion Control. ACM Queue 14(5)." >}}.
 
 ## What Actually Ships Today
 
-The early variants are mostly history. Tahoe added fast retransmit in 1988, so a sender detects the loss immediately instead of waiting for a retransmission timeout. Three duplicate ACKs from the receiver announce a gap and trigger a resend. Reno added fast recovery in 1990 so one loss halved cwnd instead of dropping the sender back to slow start, and NewReno refined that recovery to survive several losses at once{{< cite 5 "Henderson, Tom, et al. (2012). The NewReno Modification to TCP's Fast Recovery Algorithm. RFC 6582." >}}. When a kernel today says Reno, it means NewReno.
+Tahoe included fast retransmit (in 1988) and Reno added fast recovery (in 1990). NewReno refined Reno to survive several losses at once{{< cite 5 "Henderson, Tom, et al. (2012). The NewReno Modification to TCP's Fast Recovery Algorithm. RFC 6582." >}}. Today, "Reno" typically means NewReno.
 
 Linux defaulted to CUBIC since 2006{{< cite 6 "The Linux Kernel (2024). IP Sysctl: TCP Variables. Linux Kernel Documentation." >}}. BBR has been available as a loadable kernel module since 2016{{< cite 4 "Cardwell, Neal, et al. (2016). BBR: Congestion-Based Congestion Control. ACM Queue 14(5)." >}}.
 
-FreeBSD reached the same place a little later. NewReno held the default for years, until FreeBSD 14 switched to CUBIC in 2023{{< cite 7 "The FreeBSD Project (2023). FreeBSD 14.0-RELEASE Release Notes." >}}. On FreeBSD the algorithms are pluggable modules in a framework called `mod_cc`, alongside Vegas, HTCP, and DCTCP{{< cite 8 "The FreeBSD Project (2024). mod_cc: Modular Congestion Control. FreeBSD Kernel Interfaces Manual." >}}.
+FreeBSD defaulted to NewReno until it switched to CUBIC (FreeBSD 14, in 2023){{< cite 7 "The FreeBSD Project (2023). FreeBSD 14.0-RELEASE Release Notes." >}}. FreeBSD allows operators to swap them as pluggable congestion modules in a framework called `mod_cc`{{< cite 8 "The FreeBSD Project (2024). mod_cc: Modular Congestion Control. FreeBSD Kernel Interfaces Manual." >}}.
 
-BBR and RACK are configured differently on FreeBSD, as alternate TCP stacks instead of congestion modules. RACK detects loss using SACK (selective ACK), which reports gaps and timing measurements instead of counting duplicate ACKs. Randall Stewart wrote FreeBSD's RACK implementation for Netflix, which runs it across its OpenConnect CDN{{< cite 9 "The FreeBSD Project (2024). tcp_rack: TCP RACK-TLP Loss Detection Algorithm. FreeBSD Kernel Interfaces Manual." >}}.
+BBR and RACK are configured as alternate, pluggable TCP stacks on FreeBSD. RACK-TLP (Recent Acknowledgment and Tail Loss Probe) detects loss using probe packets to report gaps and timing measurements. Randall Stewart wrote FreeBSD's RACK implementation for Netflix, which runs it across its OpenConnect CDN{{< cite 9 "The FreeBSD Project (2024). tcp_rack: TCP RACK-TLP Loss Detection Algorithm. FreeBSD Kernel Interfaces Manual." >}}.
 
-Windows and macOS both default to CUBIC{{< cite 10 "Iyengar, Janardhan, et al. (2024). CUBIC for Fast and Long-Distance Networks. RFC 9438." >}}. Windows Server uses DCTCP for datacenter connections, but CUBIC for clients{{< cite 11 "Microsoft (2024). Get-NetTCPSetting (NetTCPIP). PowerShell Documentation." >}}.
-
-Both BBR and RACK stay off by default. Loss-based, buffer-filling control still handles most internet traffic.
+Windows and macOS still both default to CUBIC{{< cite 10 "Iyengar, Janardhan, et al. (2024). CUBIC for Fast and Long-Distance Networks. RFC 9438." >}}. Windows Server can be configured to use DCTCP (Data Center TCP) and ECN (explicit congestion notification){{< cite 11 "Microsoft (2024). Get-NetTCPSetting (NetTCPIP). PowerShell Documentation." >}}.
 
 ## Where This Breaks Down
 
-**Loss-based control mistakes a full buffer for success.** Reno and CUBIC ease off only when a packet drops, so they fill every queue to the brim before backing down. On today's oversized buffers, that means high throughput bought with seconds of latency{{< cite 3 "Ha, Sangtae, Injong Rhee, and Lisong Xu (2008). CUBIC: A New TCP-Friendly High-Speed TCP Variant. ACM SIGOPS Operating Systems Review 42(5)." >}}.
+Even on a strong wireless network, packets get lost to interference, which Reno and CUBIC detect as congestion{{< cite 4 "Cardwell, Neal, et al. (2016). BBR: Congestion-Based Congestion Control. ACM Queue 14(5)." >}}.
 
-**A drop sometimes means something other than congestion.** Over wireless, packets get lost to interference more often than to a full queue. A loss-based sender reads that corruption as congestion and throttles itself for nothing, which is why a strong signal can still crawl{{< cite 4 "Cardwell, Neal, et al. (2016). BBR: Congestion-Based Congestion Control. ACM Queue 14(5)." >}}.
+BBRv1 would crowd out loss-based flows such as CUBIC. BBRv2 (and v3) improved fairness in 2019 (and 2023){{< cite 4 "Cardwell, Neal, et al. (2016). BBR: Congestion-Based Congestion Control. ACM Queue 14(5)." >}}.
 
-**A model can be unfair.** BBR holds its own queue empty by design, but its first version could grab more than its share when it shared a link with loss-based flows, and later versions had to rework that coexistence{{< cite 4 "Cardwell, Neal, et al. (2016). BBR: Congestion-Based Congestion Control. ACM Queue 14(5)." >}}.
-
-**Each path needs its own algorithm.** A datacenter with microsecond round trips wants something very different from what a flaky cellular link wants, which is why datacenters run their own congestion control built around explicit signals{{< cite 12 "Alizadeh, Mohammad, et al. (2010). Data Center TCP (DCTCP). SIGCOMM '10." >}}.
+No single algorithm is best for every path. A datacenter with microsecond RTTs benefits from explicit signals, while a flaky cellular link is better served by BBR than a purely loss-based method{{< cite 12 "Alizadeh, Mohammad, et al. (2010). Data Center TCP (DCTCP). SIGCOMM '10." >}}.
 
 ## Put It Into Practice
 
-Most people leave this dial alone, and that's fine. The defaults keep getting better on their own.
+Most people don't tweak their TCP congestion algorithm, and that's fine. The defaults keep getting better over time.
 
-If your servers stream bulk data over long or lossy paths, that's different. Route a fraction of traffic to a canary running BBR, then watch two numbers against your CUBIC baseline, retransmit rate and p99 latency. Throughput alone leaves you guessing. The gain tends to show up more in tail latency than in raw speed.
-
-Check what's active with `sysctl net.ipv4.tcp_congestion_control`, switch the canary with `echo bbr | sudo tee /proc/sys/net/ipv4/tcp_congestion_control`, and compare. If retransmits drop and tail latency improves while throughput holds steady or climbs, you've got evidence worth expanding the canary further.
-
-## Go Further
-
-**Congestion control for the datacenter.** Inside a datacenter, round trips are microseconds and ordinary loss-based control is far too coarse. DCTCP uses explicit congestion marks instead of drops to keep queues a few packets deep{{< cite 12 "Alizadeh, Mohammad, et al. (2010). Data Center TCP (DCTCP). SIGCOMM '10." >}}.
-
-**A signal beyond the drop.** The long arc of this field bends toward telling senders about congestion without throwing data away. L4S builds that explicit, low-latency signaling into the network itself{{< cite 13 "Briscoe, Bob, et al. (2023). Low Latency, Low Loss, and Scalable Throughput (L4S) Internet Service: Architecture. RFC 9330." >}}.
+But if your servers handle high-throughput traffic over long or lossy paths, consider routing a fraction of it to a canary running BBR or RACK. Compare the numbers against your CUBIC baseline (retransmit rate and p99 latency), monitoring tail latency instead of just raw throughput.
 
 ---
 
@@ -90,7 +76,6 @@ Check what's active with `sysctl net.ipv4.tcp_congestion_control`, switch the ca
 
 <ol class="references">
   <li id="ref-1">Jacobson, Van (1988). "Congestion Avoidance and Control." <em>SIGCOMM '88</em>. <a href="https://ee.lbl.gov/papers/congavoid.pdf">https://ee.lbl.gov/papers/congavoid.pdf</a></li>
-  <li id="ref-2">Allman, Mark, Vern Paxson, and Ethan Blanton (2009). "TCP Congestion Control." <em>RFC 5681</em>. <a href="https://www.rfc-editor.org/rfc/rfc5681.html">https://www.rfc-editor.org/rfc/rfc5681.html</a></li>
   <li id="ref-3">Ha, Sangtae, Injong Rhee, and Lisong Xu (2008). "CUBIC: A New TCP-Friendly High-Speed TCP Variant." <em>ACM SIGOPS Operating Systems Review</em>, 42(5). <a href="https://www.cs.princeton.edu/courses/archive/fall16/cos561/papers/Cubic08.pdf">https://www.cs.princeton.edu/courses/archive/fall16/cos561/papers/Cubic08.pdf</a></li>
   <li id="ref-4">Cardwell, Neal, et al. (2016). "BBR: Congestion-Based Congestion Control." <em>ACM Queue</em>, 14(5). <a href="https://research.google/pubs/pub45646/">https://research.google/pubs/pub45646/</a></li>
   <li id="ref-5">Henderson, Tom, et al. (2012). "The NewReno Modification to TCP's Fast Recovery Algorithm." <em>RFC 6582</em>. <a href="https://www.rfc-editor.org/rfc/rfc6582.html">https://www.rfc-editor.org/rfc/rfc6582.html</a></li>
@@ -100,13 +85,12 @@ Check what's active with `sysctl net.ipv4.tcp_congestion_control`, switch the ca
   <li id="ref-9">The FreeBSD Project (2024). "tcp_rack: TCP RACK-TLP Loss Detection Algorithm." <em>FreeBSD Kernel Interfaces Manual</em>. <a href="https://man.freebsd.org/cgi/man.cgi?query=tcp_rack&sektion=4">https://man.freebsd.org/cgi/man.cgi?query=tcp_rack&sektion=4</a></li>
   <li id="ref-10">Iyengar, Janardhan, et al. (2024). "CUBIC for Fast and Long-Distance Networks." <em>RFC 9438</em>. <a href="https://www.rfc-editor.org/rfc/rfc9438.html">https://www.rfc-editor.org/rfc/rfc9438.html</a></li>
   <li id="ref-11">Microsoft (2024). "Get-NetTCPSetting (NetTCPIP)." <em>PowerShell Documentation</em>. <a href="https://learn.microsoft.com/en-us/powershell/module/nettcpip/get-nettcpsetting">https://learn.microsoft.com/en-us/powershell/module/nettcpip/get-nettcpsetting</a></li>
-  <li id="ref-12">Alizadeh, Mohammad, et al. (2010). "Data Center TCP (DCTCP)." <em>SIGCOMM '10</em>. <a href="https://people.csail.mit.edu/alizadeh/papers/dctcp-sigcomm10.pdf">https://people.csail.mit.edu/alizadeh/papers/dctcp-sigcomm10.pdf</a></li>
-  <li id="ref-13">Briscoe, Bob, et al. (2023). "Low Latency, Low Loss, and Scalable Throughput (L4S) Internet Service: Architecture." <em>RFC 9330</em>. <a href="https://www.rfc-editor.org/rfc/rfc9330.html">https://www.rfc-editor.org/rfc/rfc9330.html</a></li>
-</ol>
+  <li id="ref-12">Alizadeh, Mohammad, et al. (2010). "Data Center TCP (DCTCP)." <em>SIGCOMM '10</em>. <a href="https://people.csail.mit.edu/alizadeh/papers/dctcp-sigcomm10.pdf">https://people.csail.mit.edu/alizadeh/papers/dctcp-sigcomm10.pdf</a></li></ol>
 
 ---
 
 ## Changelog
 
-**2026-08-08** Corrected the RACK attribution, Randall Stewart wrote FreeBSD's implementation for Netflix; the RACK-TLP algorithm itself was designed by Google engineers.  
+**2026-09-12** Removed the Sawtooth and Go Further sections, tightened the Tahoe/Reno cwnd details.  
+**2026-08-08** Corrected the RACK attribution, Randall Stewart wrote FreeBSD's implementation for Netflix.  
 **2026-07-03** Initial release.  
